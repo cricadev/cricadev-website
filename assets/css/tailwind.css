@@ -15,6 +15,14 @@ body {
     @apply border-2 p-2 font-bold;
   }
   .link {
-    @apply text-lg_m;
+    @apply px-4  text-xl_d font-extralight transition-all;
+    &:focus,
+    &:active {
+      @apply font-normal transition-all;
+    }
+    &:hover {
+      text-shadow: 2px 2px $green;
+      @apply font-light  transition-all;
+    }
   }
 }
