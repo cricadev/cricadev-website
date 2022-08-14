@@ -4,7 +4,9 @@
     <NuxtPage />
   </div>
 </template>
-<script>
-export default {};
+<script setup>
+useHead({
+  title: "CricaDev | Portfolio",
+});
 </script>
 <style lang=""></style>

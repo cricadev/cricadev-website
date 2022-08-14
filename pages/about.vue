@@ -4,7 +4,9 @@
     <NuxtPage />
   </div>
 </template>
-<script>
-export default {};
+<script setup>
+useHead({
+  title: "CricaDev | About me",
+});
 </script>
 <style lang=""></style>

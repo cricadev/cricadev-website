@@ -5,36 +5,27 @@
         type="checkbox"
         class="bg-white toggle dark:bg-black"
         id="checkbox"
-        v-model="checked"
-        @change="toggleColorMode"
+        @change="
+          setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')
+        "
       />
-      <Icon
-        icon="akar-icons:sun-fill"
-        class="moon svg"
-        :class="[
-          { fade: checked === false },
-          { 'fade-moon': checked === true },
-        ]"
-      />
-      <Icon
-        icon="akar-icons:moon-fill"
-        class="sun svg"
-        :class="[{ fade: checked === true }, { 'fade-sun': checked === false }]"
-      />
+      <div v-if="$colorMode.value === 'light'">
+        <Icon icon="akar-icons:sun-fill" class="moon svg" />
+      </div>
+      <div v-if="$colorMode.value === 'dark'">
+        <Icon icon="akar-icons:moon-fill" class="sun svg" />
+      </div>
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
-const checked = ref(false);
+type Theme = "light" | "dark";
 
 const colorMode = useColorMode();
-colorMode.preference;
-const toggleColorMode = () => {
-  colorMode.preference === "light"
-    ? (colorMode.preference = "dark")
-    : (colorMode.preference = "light");
+const setColorTheme = (newTheme: Theme) => {
+  colorMode.preference = newTheme;
 };
 </script>
 <style lang="css">
@@ -59,23 +50,32 @@ input {
   transform: translateY(0%) scale(0.75);
 
   color: #00010d;
+  animation: fade-sun 0.5s ease-in-out forwards;
 }
 
 .moon {
   bottom: 0;
   transform: translateY(0%) scale(0.75);
   color: #f6f6f6;
+  animation: fade-moon 0.5s ease-in-out forwards;
 }
-.fade-moon {
-  transform: translateY(-100%) scale(0.75);
-  transition: 2s all ease-in-out;
-  opacity: 1;
+@keyframes fade-sun {
+  0% {
+    transform: translateY(100%) scale(0.75);
+  }
+  100% {
+    transform: translateY(0%) scale(0.75);
+  }
 }
-.fade-sun {
-  transform: translateY(100%) scale(0.75);
-  transition: 2s all ease-in-out;
-  opacity: 1;
+@keyframes fade-moon {
+  0% {
+    transform: translateY(-100%) scale(0.75);
+  }
+  100% {
+    transform: translateY(0%) scale(0.75);
+  }
 }
+
 .svg {
   position: absolute;
   box-sizing: content-box;

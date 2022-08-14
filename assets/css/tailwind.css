@@ -4,10 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  @apply bg-white text-black;
+  @apply bg-white text-black min-h-screen;
 }
 .dark body {
-  @apply bg-black text-white;
+  @apply bg-black text-white min-h-screen;
 }
 
 @layer utilities {

@@ -12,11 +12,11 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: "@/assets/css/tailwind.css",
     configPath: "tailwind.config.js",
+    exposeConfig: false,
     viewer: true,
+    injectPosition: 0,
   },
   colorMode: {
     classSuffix: "",
-    preference: "system", // default value of $colorMode.preference
-    fallback: "light",
   },
 });
