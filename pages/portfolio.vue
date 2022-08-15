@@ -17,14 +17,14 @@ import { ProjectComp } from '../.nuxt/components';
     <div class="flex flex-col overflow-y-auto py-96">
       <ProjectComp
         title="FinanceGod"
-        src="../assets/financegod.png"
+        src="../public/financegod.png"
       ></ProjectComp>
-      <ProjectComp title="MathGod" src="../assets/mathgod.png"></ProjectComp>
+      <ProjectComp title="MathGod" src="../public/mathgod.png"></ProjectComp>
       <ProjectComp
         title="CricaDev"
-        src="../assets/cricadev-project.png"
+        src="../public/cricadev-project.png"
       ></ProjectComp>
-      <ProjectComp title="TEF" src="../assets/tef.png"></ProjectComp>
+      <ProjectComp title="TEF" src="../public/tef.png"></ProjectComp>
     </div>
     <NuxtPage />
   </div>
