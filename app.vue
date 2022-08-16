@@ -24,7 +24,7 @@ useHead({
         "Hey, I'm Cristian Casallas also known as CricaDev, A FullStack Web Developer from Colombia with a variety of qualifications and experience in the industry. Curious Risk-taking Innovative Creative Ambitious Determined Enthusiastic Valuable.",
     },
   ],
-  link: [{ rel: "icon", type: "image/x-icon", href: "./public/cricadev.png" }],
+  link: [{ rel: "icon", type: "image/png", href: "/cricadev.png" }],
 });
 </script>
 <style></style>
