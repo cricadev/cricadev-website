@@ -15,10 +15,16 @@ import { ProjectComp } from '../.nuxt/components';
       </div>
     </div>
     <div class="flex flex-col overflow-y-auto py-96">
-      <ProjectComp title="FinanceGod" src="../financegod.png"></ProjectComp>
-      <ProjectComp title="MathGod" src="../mathgod.png"></ProjectComp>
-      <ProjectComp title="CricaDev" src="../cricadev-project.png"></ProjectComp>
-      <ProjectComp title="TEF" src="../tef.png"></ProjectComp>
+      <ProjectComp
+        title="FinanceGod"
+        src="../public/financegod.png"
+      ></ProjectComp>
+      <ProjectComp title="MathGod" src="../public/mathgod.png"></ProjectComp>
+      <ProjectComp
+        title="CricaDev"
+        src="../public/cricadev-project.png"
+      ></ProjectComp>
+      <ProjectComp title="TEF" src="../public/tef.png"></ProjectComp>
     </div>
     <NuxtPage />
   </div>

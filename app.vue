@@ -1,4 +1,5 @@
-import { ToggleTheme } from './.nuxt/components';
+import { CursorFx } from '@luxdamore/vue-cursor-fx';
+
 <template lang="">
   <div>
     <NuxtLayout>
@@ -6,6 +7,7 @@ import { ToggleTheme } from './.nuxt/components';
       <NuxtPage />
       <FooterComp></FooterComp>
       <ToggleTheme></ToggleTheme>
+      <CursorFx></CursorFx>
     </NuxtLayout>
   </div>
 </template>
@@ -22,7 +24,7 @@ useHead({
         "Hey, I'm Cristian Casallas also known as CricaDev, A FullStack Web Developer from Colombia with a variety of qualifications and experience in the industry. Curious Risk-taking Innovative Creative Ambitious Determined Enthusiastic Valuable.",
     },
   ],
-  link: [{ rel: "icon", type: "image/x-icon", href: "/cricadev.png" }],
+  link: [{ rel: "icon", type: "image/x-icon", href: "./public/cricadev.png" }],
 });
 </script>
 <style></style>
