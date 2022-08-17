@@ -56,7 +56,12 @@ module.exports = {
     fontFamily:{
       lato: ['Lato', 'sans-serif'],
     },
-  
+    extend:{
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
+    }
   },
   variants: {
     extend: {},

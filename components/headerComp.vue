@@ -10,7 +10,7 @@
       <img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"
-        class="h-full"
+        class="h-[63px] w-[50px]"
       />
     </header>
   </div>

@@ -1,6 +1,6 @@
 <template lang="">
-  <div>
-    <footer class="fixed w-full bottom-4">
+  <div class="">
+    <footer class="fixed z-10 w-full bottom-4">
       <nav
         class="container flex justify-center w-full mx-auto space-x-4 text-lg_d"
       >

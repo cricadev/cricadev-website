@@ -7,7 +7,6 @@ import { CursorFx } from '@luxdamore/vue-cursor-fx';
       <NuxtPage />
       <FooterComp></FooterComp>
       <ToggleTheme></ToggleTheme>
-      <CursorFx></CursorFx>
     </NuxtLayout>
   </div>
 </template>
