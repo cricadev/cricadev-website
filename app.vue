@@ -1,5 +1,4 @@
-import { CursorFx } from '@luxdamore/vue-cursor-fx';
-
+import CursorFx from '@luxdamore/vue-cursor-fx';
 <template lang="">
   <div>
     <NuxtLayout>

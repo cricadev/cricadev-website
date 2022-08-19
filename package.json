@@ -13,6 +13,7 @@
     "nuxt": "3.0.0-rc.6"
   },
   "dependencies": {
-    "@luxdamore/vue-cursor-fx": "^1.6.2"
+    "@luxdamore/vue-cursor-fx": "^1.6.2",
+    "vue-final-modal": "^3.4.4"
   }
 }

@@ -1,4 +1,4 @@
-import { ProjectComp } from '../.nuxt/components';
+import { ProjectComp, ModalComp } from '../.nuxt/components';
 <template lang="">
   <div class="">
     <div class="fixed w-full pb-16 project-category pt-36 z-[1]">
@@ -39,6 +39,8 @@ import { ProjectComp } from '../.nuxt/components';
     <div
       class="fixed bottom-0 w-full h-12 bg-white z-[1] dark:bg-black footer-items"
     ></div>
+    >
+    <ModalComp></ModalComp>
     <NuxtPage />
   </div>
 </template>

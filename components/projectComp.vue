@@ -25,9 +25,12 @@
     <div
       class="absolute top-0 right-0 w-2/5 p-12 text-left wrap-project-content"
     >
-      <p class="relative top-[-40px] font-black text-lg_d p-2">FincanceGod</p>
+      <p class="relative top-[-40px] font-black text-lg_d p-2">{{ title }}</p>
       <p class="relative font-light bottom-8 text-xs_d">
         {{ content }}
+        <a href="" @click="showModal = true" class="block text-green"
+          >Learn more...</a
+        >
       </p>
       <div class="absolute right-0 top-12 icon-wrapper">
         <Icon icon="akar-icons:vue-fill" class="icon" height="25" />
@@ -36,11 +39,15 @@
       </div>
     </div>
   </div>
+  <vue-final-modal v-model="showModal"> Modal Content Here </vue-final-modal>
 </template>
 <script>
 import { Icon } from "@iconify/vue";
 
 export default {
+  data: () => ({
+    showModal: false,
+  }),
   components: {
     Icon,
   },

@@ -1,30 +1,28 @@
 <template lang="">
-  <div class="text-center">
+  <div
+    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 overflow-hidden"
+  >
     <div v-if="$colorMode.value === 'dark'" class="dark-home-bg home-bg"></div>
     <div
       v-if="$colorMode.value === 'light'"
       class="light-home-bg home-bg"
     ></div>
-    <p
-      class="absolute font-thin w-[400px] top-1/2 left-28 text-xl_d translate-y-[-50%] text-left"
-    >
+    <p class="font-thin text-left text-xl_d home-paragraph">
       I am proactive, I am curious and intrepid. I love to help people through
       technology. <br />
       <span class="italic font-normal">I never stop learning.</span>
     </p>
-    <div
-      class="absolute colombian-section left-1/2 top-1/2 translate-x-[150%] translate-y-[0%]"
-    >
-      <div
-        class="w-32 h-24 border-[1px] border-b-0 border-l-0 border-t-white-1 border-r-white-1 square"
-      ></div>
+    <div class="home-figure">
+      <div class="colombian-section">
+        <div
+          class="border-[1px] border-b-0 border-l-0 border-t-white-1 border-r-white-1 square"
+        ></div>
+      </div>
+      <p class="font-thin text-center text-base_d">
+        I am a colombian<br />
+        <span class="italic font-normal">Web Developer</span>
+      </p>
     </div>
-    <p
-      class="absolute font-thin colombian-section left-1/2 top-1/2 translate-x-[140%] translate-y-[140%] text-center text-base_d"
-    >
-      I am a colombian<br />
-      <span class="italic font-normal">Web Developer</span>
-    </p>
     <ul
       class="absolute flex flex-col right-28 top-1/2 translate-y-[-50%] text-left text-xl_d italic font-extralight space-y-4"
     >
@@ -110,33 +108,19 @@
   }
 }
 
-/*.pattern {
-  background-image: linear-gradient(
-      90deg,
-      #f6f6f6 0%,
-      #f6f6f6 30%,
-      transparent 31%,
-      transparent 69%,
-      #f6f6f6 70%,
-      #f6f6f6 100%
-    ),
-    url("../images/cricadev-home.png");
-}*/
 .home-bg {
-  width: 50%;
-  margin: 0 auto;
-  height: 100vh;
-  background-size: auto 100%;
+  grid-column: 1 / 13;
+  grid-row: 1 / 7;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  transform: translateX(5%);
 }
 .light-home-bg {
   background-image: linear-gradient(
       90deg,
       #f6f6f6 0%,
       #f6f6f6 10%,
-      transparent 50%
+      transparent 100%
     ),
     url("@/images/lightMode-cricadev.png");
 }
@@ -145,8 +129,14 @@
       90deg,
       #00010d 0%,
       #00010d 10%,
-      transparent 50%
+      transparent 100%
     ),
     url("@/images/darkMode-cricadev.png");
+}
+.home-paragraph {
+  grid-column: 2 / 5;
+  grid-row: 3 / 4;
+  transition: 1s ease-in-out all;
+  animation: home-paragraph-animation 1s ease-in-out forwards;
 }
 </style>
