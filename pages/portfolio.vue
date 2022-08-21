@@ -37,7 +37,7 @@ import { ProjectComp, ModalComp } from '../.nuxt/components';
       ></ProjectComp>
     </div>
     <div
-      class="fixed bottom-0 w-full h-12 bg-white z-[1] dark:bg-black footer-items"
+      class="fixed bottom-0 w-full h-20 bg-white z-[1] dark:bg-black footer-items"
     ></div>
     >
     <ModalComp></ModalComp>

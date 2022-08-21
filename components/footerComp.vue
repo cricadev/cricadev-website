@@ -1,6 +1,6 @@
 <template lang="">
   <div class="">
-    <footer class="fixed z-10 w-full bottom-4">
+    <footer class="fixed z-10 w-full bottom-10">
       <nav
         class="container flex justify-center w-full mx-auto space-x-4 text-lg_d"
       >
@@ -92,6 +92,11 @@
         </a>
       </nav>
     </footer>
+    <p
+      class="fixed bottom-0 left-0 z-10 w-full text-center bg-green2 text-xs_d"
+    >
+      Made with love by CricaDev 💚
+    </p>
   </div>
 </template>
 <script>

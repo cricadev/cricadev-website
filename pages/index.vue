@@ -35,7 +35,7 @@
       <li class="item">Enthusiastic</li>
     </ul>
 
-    <div class="space-x-4 cricadev-logo">
+    <div class="w-full mx-auto space-x-4 text-center cricadev-logo">
       <img src="../images/C.png" alt="" class="c letter" />
       <img src="../images/R.png" alt="" class="r letter" />
       <img src="../images/I.png" alt="" class="i letter" />
@@ -45,20 +45,29 @@
       <img src="../images/E.png" alt="" class="e letter" />
       <img src="../images/V.png" alt="" class="v letter" />
     </div>
-    <div class="space-x-4 cricadev-logo-hover">
-      <img src="../images/C.png" alt="" class="c letter" />
-      <img src="../images/R.png" alt="" class="r letter" />
-      <img src="../images/I.png" alt="" class="i letter" />
-      <img src="../images/S.png" alt="" class="s letter" />
-      <img src="../images/T.png" alt="" class="t letter" />
-      <img src="../images/I.png" alt="" class="i letter" />
-      <img src="../images/A.png" alt="" class="a letter" />
-      <img src="../images/N.png" alt="" class="n letter" />
+    <div class="flex gap-16 cricadev-logo-hover">
+      <div class="space-x-4 group-1">
+        <img src="../images/C.png" alt="" class="c letter" />
+        <img src="../images/R.png" alt="" class="r letter" />
+        <img src="../images/I.png" alt="" class="i letter" />
+        <img src="../images/S.png" alt="" class="s letter" />
+        <img src="../images/T.png" alt="" class="t letter" />
+        <img src="../images/I.png" alt="" class="i letter" />
+        <img src="../images/A.png" alt="" class="a letter" />
+        <img src="../images/N.png" alt="" class="n letter" />
+      </div>
+      <div class="space-x-4 group-2">
+        <img src="../images/C.png" alt="" class="c letter" />
+        <img src="../images/A.png" alt="" class="a letter" />
+        <img src="../images/S.png" alt="" class="s letter" />
+        <img src="../images/A.png" alt="" class="a letter" />
+        <img src="../images/L.png" alt="" class="l letter" />
+        <img src="../images/L.png" alt="" class="l letter" />
+        <img src="../images/A.png" alt="" class="a letter" />
+        <img src="../images/S.png" alt="" class="s letter" />
+      </div>
     </div>
-    <!--<div class="absolute w-full h-36 bottom-28 logo-index logo-home"></div>
-    <div
-      class="absolute w-full h-36 bottom-28 logo-index logo-home-hover"
-    ></div>-->
+
     <NuxtPage />
   </div>
 </template>
@@ -91,22 +100,6 @@
   z-index: 2;
   transition: 0.5s ease-in-out all;
   animation: logo-open 0.5s ease-in-out forwards;
-}
-@keyframes logo-open {
-  0% {
-    transform: translateX(0%) scale(0);
-  }
-  100% {
-    transform: translateX(0%) scale(1);
-  }
-}
-@keyframes logo-close {
-  0% {
-    transform: translateX(0%) scale(1);
-  }
-  100% {
-    transform: translateX(0%) scale(0);
-  }
 }
 
 .home-bg {
@@ -265,66 +258,53 @@
 }
 .letter {
   display: inline;
-} /*
-.c {
-  background-image: url("../images/C.png");
 }
-.r {
-  background-image: url("../images/R.png");
-}
-.i {
-  background-image: url("../images/I.png");
-}
-.a {
-  background-image: url("../images/A.png");
-}
-.d {
-  background-image: url("../images/D.png");
-}
-.e {
-  background-image: url("../images/E.png");
-}
-.v {
-  background-image: url("../images/V.png");
-}
-.s {
-  background-image: url("../images/S.png");
-}
-.t {
-  background-image: url("../images/T.png");
-}
-.l {
-  background-image: url("../images/L.png");
-}
-.n {
-  background-image: url("../images/N.png");
-}
-.cricadev-logo {
-  grid-column: 1/13;
-  grid-row: 5/6;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-auto-flow: column;
-}*/
 .cricadev-logo {
   position: absolute;
   z-index: 4;
   bottom: 15%;
-  transition: 1s ease-in-out all;
+  animation: logo-open 1s ease-in-out forwards;
 }
 .cricadev-logo-hover {
   position: absolute;
   z-index: 4;
   bottom: 15%;
-  opacity: 1;
   pointer-events: none;
   opacity: 0;
+  animation: logo-close 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
 }
 .cricadev-logo:hover + .cricadev-logo-hover {
-  animation: cricadev-logo-hover-animation 1s ease-in-out;
+  animation: cricadev-logo-hover-animation 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
+}
+.cricadev-logo:hover {
+  animation: cricadev-logo-animation 1s ease-in-out forwards;
+  transition: 1s ease-in-out all;
+}
+@keyframes logo-open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes logo-close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cricadev-logo-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes cricadev-logo-hover-animation {
   0% {
