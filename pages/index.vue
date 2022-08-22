@@ -35,36 +35,52 @@
       <li class="item">Enthusiastic</li>
     </ul>
 
-    <div class="w-full mx-auto space-x-4 text-center cricadev-logo">
-      <img src="../images/C.png" alt="" class="c letter" />
-      <img src="../images/R.png" alt="" class="r letter" />
-      <img src="../images/I.png" alt="" class="i letter" />
-      <img src="../images/C.png" alt="" class="c letter" />
-      <img src="../images/A.png" alt="" class="a letter" />
-      <img src="../images/D.png" alt="" class="d letter" />
-      <img src="../images/E.png" alt="" class="e letter" />
-      <img src="../images/V.png" alt="" class="v letter" />
+    <div
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo"
+    >
+      <div class="flex space-x-4 cri">
+        <img src="../images/C.png" alt="" class="c-1 letter" />
+        <img src="../images/R.png" alt="" class="r-1 letter" />
+        <img src="../images/I.png" alt="" class="i-1 letter" />
+      </div>
+      <div class="flex space-x-4 ca">
+        <img src="../images/C.png" alt="" class="c letter" />
+        <img src="../images/A.png" alt="" class="a letter" />
+      </div>
+      <div class="flex space-x-4 dev">
+        <img src="../images/D.png" alt="" class="d letter" />
+        <img src="../images/E.png" alt="" class="e letter" />
+        <img src="../images/V.png" alt="" class="v letter" />
+      </div>
     </div>
     <div class="flex gap-16 cricadev-logo-hover">
-      <div class="space-x-4 group-1">
-        <img src="../images/C.png" alt="" class="c letter" />
-        <img src="../images/R.png" alt="" class="r letter" />
-        <img src="../images/I.png" alt="" class="i letter" />
-        <img src="../images/S.png" alt="" class="s letter" />
-        <img src="../images/T.png" alt="" class="t letter" />
-        <img src="../images/I.png" alt="" class="i letter" />
-        <img src="../images/A.png" alt="" class="a letter" />
-        <img src="../images/N.png" alt="" class="n letter" />
+      <div class="flex space-x-4 group-1">
+        <div class="flex space-x-4 cri-2">
+          <img src="../images/C.png" alt="" class="c letter" />
+          <img src="../images/R.png" alt="" class="r letter" />
+          <img src="../images/I.png" alt="" class="i letter" />
+        </div>
+        <div class="flex space-x-4 stian">
+          <img src="../images/S.png" alt="" class="s letter" />
+          <img src="../images/T.png" alt="" class="t letter" />
+          <img src="../images/I.png" alt="" class="i letter" />
+          <img src="../images/A.png" alt="" class="a letter" />
+          <img src="../images/N.png" alt="" class="n letter" />
+        </div>
       </div>
-      <div class="space-x-4 group-2">
-        <img src="../images/C.png" alt="" class="c letter" />
-        <img src="../images/A.png" alt="" class="a letter" />
-        <img src="../images/S.png" alt="" class="s letter" />
-        <img src="../images/A.png" alt="" class="a letter" />
-        <img src="../images/L.png" alt="" class="l letter" />
-        <img src="../images/L.png" alt="" class="l letter" />
-        <img src="../images/A.png" alt="" class="a letter" />
-        <img src="../images/S.png" alt="" class="s letter" />
+      <div class="flex space-x-4 group-2">
+        <div class="flex space-x-4 ca-2">
+          <img src="../images/C.png" alt="" class="c letter" />
+          <img src="../images/A.png" alt="" class="a letter" />
+        </div>
+        <div class="flex space-x-4 sallas">
+          <img src="../images/S.png" alt="" class="s letter" />
+          <img src="../images/A.png" alt="" class="a letter" />
+          <img src="../images/L.png" alt="" class="l letter" />
+          <img src="../images/L.png" alt="" class="l letter" />
+          <img src="../images/A.png" alt="" class="a letter" />
+          <img src="../images/S.png" alt="" class="s letter" />
+        </div>
       </div>
     </div>
 
@@ -281,6 +297,116 @@
 .cricadev-logo:hover {
   animation: cricadev-logo-animation 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
+}
+.cricadev-logo:hover > .cri {
+  animation: cri-animation 0.5s ease-in-out forwards;
+}
+.cricadev-logo:hover > .ca {
+  animation: ca-animation 0.5s ease-in-out forwards;
+}
+.cricadev-logo:hover > .dev {
+  animation: dev-animation 0.5s ease-in-out forwards;
+}
+.cri {
+  animation: cri-close-animation 1s ease-in-out forwards;
+}
+.ca {
+  animation: ca-close-animation 1s ease-in-out forwards;
+}
+.stian {
+  animation: stian-close-animation 1s ease-in-out forwards;
+}
+.sallas {
+  animation: stian-close-animation 1s ease-in-out forwards;
+}
+.cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .cri-2 {
+  animation: cri-2-close-animation 1.3s ease-in-out forwards;
+}
+.cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .stian {
+  animation: stian-animation 1s ease-in-out forwards;
+}
+.cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .ca-2 {
+  animation: ca-2-close-animation 1.3s ease-in-out forwards;
+}
+.cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .sallas {
+  animation: stian-animation 1s ease-in-out forwards;
+}
+@keyframes stian-animation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes stian-close-animation {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes cri-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-179%);
+  }
+}
+@keyframes cri-close-animation {
+  0% {
+    transform: translateX(-179%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes cri-2-close-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ca-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+@keyframes ca-close-animation {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes ca-2-close-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes dev-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes logo-open {
   0% {

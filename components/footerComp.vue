@@ -93,7 +93,7 @@
       </nav>
     </footer>
     <p
-      class="fixed bottom-0 left-0 z-10 w-full text-center bg-green2 text-xs_d"
+      class="fixed bottom-0 left-0 z-10 w-full text-center text-white bg-green2 text-xs_d"
     >
       Made with love by CricaDev 💚
     </p>
