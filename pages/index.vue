@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 home"
+    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 lg:h-full home lg:grid-flow-row"
   >
     <div v-if="$colorMode.value === 'dark'" class="dark-home-bg home-bg"></div>
     <div
@@ -36,7 +36,7 @@
     </ul>
 
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90"
     >
       <div class="flex space-x-4 cri">
         <img src="../images/C.png" alt="" class="c-1 letter" />
@@ -53,8 +53,10 @@
         <img src="../images/V.png" alt="" class="v letter" />
       </div>
     </div>
-    <div class="flex gap-16 cricadev-logo-hover">
-      <div class="flex space-x-4 group-1">
+    <div
+      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90"
+    >
+      <div class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%]">
         <div class="flex space-x-4 cri-2">
           <img src="../images/C.png" alt="" class="c letter" />
           <img src="../images/R.png" alt="" class="r letter" />
@@ -68,7 +70,7 @@
           <img src="../images/N.png" alt="" class="n letter" />
         </div>
       </div>
-      <div class="flex space-x-4 group-2">
+      <div class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%]">
         <div class="flex space-x-4 ca-2">
           <img src="../images/C.png" alt="" class="c letter" />
           <img src="../images/A.png" alt="" class="a letter" />

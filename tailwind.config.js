@@ -14,6 +14,23 @@ module.exports = {
 
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+     screens: {
+    
+      '2xl': {'max': '1535px'},
+      // => @media (max-width: 1535px) { ... }
+
+      'xl': {'max': '1279px'},
+      // => @media (max-width: 1279px) { ... }
+
+      'lg': {'max': '1023px'},
+      // => @media (max-width: 1023px) { ... }
+
+      'md': {'max': '767px'},
+      // => @media (max-width: 767px) { ... }
+
+      'sm': {'max': '639px'},
+      // => @media (max-width: 639px) { ... }
+    },
       colors: {
         black: '#00010D',
         black2: '#A2A2A6',
@@ -23,6 +40,7 @@ module.exports = {
         gray: '#adadad',
         blue: '#02021e',
     },
+   
     fontSize:{
       xs_m: '0.625rem',
       sm_m: '1rem',
@@ -61,6 +79,24 @@ module.exports = {
         '128': '32rem',
         '144': '36rem',
       },
+      screens: {
+    
+        '2xl': {'max': '1535px'},
+        // => @media (max-width: 1535px) { ... }
+  
+        'xl': {'max': '1439px'},
+        // => @media (max-width: 1279px) { ... }
+  
+        'lg': {'max': '1100px'},
+        // => @media (max-width: 1023px) { ... }
+  
+        'md': {'max': '767px'},
+        // => @media (max-width: 767px) { ... }
+  
+        'sm': {'max': '639px'},
+        // => @media (max-width: 639px) { ... }
+      },
+      
     }
   },
   variants: {

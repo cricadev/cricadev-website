@@ -1,6 +1,8 @@
 <template lang="">
   <div>
-    <nav class="fixed z-10 flex justify-between w-full p-4 px-32 mx-auto">
+    <nav
+      class="fixed z-10 flex justify-between w-full p-4 px-32 mx-auto lg:px-4 lg:p-2"
+    >
       <NuxtLink to="/" class="link">Home</NuxtLink>
       <NuxtLink to="/portfolio" class="link">Portfolio</NuxtLink>
       <NuxtLink to="/about" class="link">About me</NuxtLink>
@@ -10,7 +12,7 @@
       <img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"
-        class="h-[63px] w-[50px]"
+        class="h-[63px] w-[50px] lg:h-[32px] lg:w-[25px]"
       />
     </header>
   </div>
