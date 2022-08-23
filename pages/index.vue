@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 lg:h-full home lg:grid-flow-row"
+    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 lg:h-full home lg:grid-flow-row lg:grid-cols-3 lg:grid-rows-1"
   >
     <div v-if="$colorMode.value === 'dark'" class="dark-home-bg home-bg"></div>
     <div
