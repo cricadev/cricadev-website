@@ -1,30 +1,33 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 lg:h-full home lg:grid-flow-row lg:grid-cols-3 lg:grid-rows-1"
+    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
   >
-    <div v-if="$colorMode.value === 'dark'" class="dark-home-bg home-bg"></div>
+    <div
+      v-if="$colorMode.value === 'dark'"
+      class="dark-home-bg home-bg lg:hidden"
+    ></div>
     <div
       v-if="$colorMode.value === 'light'"
-      class="light-home-bg home-bg"
+      class="light-home-bg home-bg lg:hidden"
     ></div>
-    <p class="font-thin leading-tight text-left text-xl_d home-paragraph">
-      I am proactive, I am curious and intrepid. I love to help people through
-      technology. <br />
-      <span class="italic font-normal">I never stop learning.</span>
-    </p>
-    <div class="line-container">
-      <div class="line-1 line"></div>
-      <div class="line-2 line"></div>
-      <div class="figure-1 figure"></div>
-      <div class="figure-2 figure"></div>
+    <div class="line-container lg:hidden">
+      <div class="line-1 line lg:hidden"></div>
+      <div class="line-2 line lg:hidden"></div>
+      <div class="figure-1 figure lg:hidden"></div>
+      <div class="figure-2 figure lg:hidden"></div>
     </div>
-    <div class="home-figure">
+    <div class="home-figure lg:hidden">
       <p class="font-thin text-center text-base_d">
         I am a colombian<br />
         <span class="italic font-normal">Web Developer</span>
       </p>
     </div>
 
+    <p class="font-thin leading-tight text-left text-xl_d home-paragraph">
+      I am proactive, I am curious and intrepid. I love to help people through
+      technology. <br />
+      <span class="italic font-normal">I never stop learning.</span>
+    </p>
     <ul
       class="flex flex-col gap-2 italic text-left text-xl_d font-extralight home-list"
     >
@@ -85,41 +88,82 @@
         </div>
       </div>
     </div>
-
+    <div class="wrap-tablet">
+      <div
+        v-if="$colorMode.value === 'dark'"
+        class="dark-home-bg home-bg lg:block"
+      ></div>
+      <div
+        v-if="$colorMode.value === 'light'"
+        class="light-home-bg home-bg"
+      ></div>
+      <div class="line-container">
+        <div class="line-1 line"></div>
+        <div class="line-2 line"></div>
+        <div class="figure-1 figure"></div>
+        <div class="figure-2 figure"></div>
+      </div>
+      <div class="home-figure">
+        <p class="font-thin text-center text-base_d">
+          I am a colombian<br />
+          <span class="italic font-normal">Web Developer</span>
+        </p>
+      </div>
+    </div>
     <NuxtPage />
   </div>
 </template>
 
 <script setup></script>
 
-<style lang="css" scoped>
-.logo-index {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+<style lang="scss" scoped>
+.home {
+  place-items: center;
+  @media (max-width: 1100px) {
+    grid-template-rows: repeat(2, 100vh);
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-.logo-home {
-  background-image: url("/images/cricadev-logo-home.png");
-  transition: 1s ease-in-out all;
-}
-.logo-home-hover {
-  background-image: url("/images/cricadev-logo-home-hover.png");
-  pointer-events: none;
-  opacity: 0;
-  transition: 1s ease-in-out all;
-  animation: logo-close 1s ease-in-out forwards;
-}
-.logo-home:hover {
-  opacity: 0;
-  transition: 0.5s ease-in-out all;
-}
-.logo-home:hover ~ .logo-home-hover {
-  opacity: 1;
-  z-index: 2;
-  transition: 0.5s ease-in-out all;
-  animation: logo-open 0.5s ease-in-out forwards;
-}
+.wrap-tablet {
+  display: none;
+  @media (max-width: 1100px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 100vh;
+    width: 100vw;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    .home-bg {
+      height: 100%;
+      width: 100%;
+      transform: translateX(10%);
+      grid-column: 1/5;
+      grid-row: 1/5;
+    }
+    .light-home-bg {
+      background-image: linear-gradient(
+          90deg,
+          #f6f6f6 0%,
 
+          transparent 10%
+        ),
+        url("@/images/lightMode-cricadev.png");
+    }
+    .dark-home-bg {
+      background-image: linear-gradient(
+          90deg,
+          #00010d 0%,
+
+          transparent 10%
+        ),
+        url("@/images/darkMode-cricadev.png");
+    }
+    .line-container {
+      grid-column: 3/4;
+    }
+  }
+}
 .home-bg {
   grid-column: 1 / 13;
   grid-row: 1 / 7;
@@ -151,9 +195,7 @@
     ),
     url("@/images/darkMode-cricadev.png");
 }
-.home {
-  place-items: center;
-}
+
 .home-paragraph {
   grid-column: 2 / 5;
   grid-row: 3 / 5;
@@ -161,6 +203,10 @@
 
   transition: 1s ease-in-out all;
   animation: home-paragraph-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    grid-column: 1/4;
+    grid-row: 2/3;
+  }
 }
 .home-figure {
   grid-column: 8 / 11;
@@ -169,12 +215,20 @@
   place-self: center;
   transition: 1s ease-in-out all;
   animation: home-figure-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
 }
 .home-list {
   grid-column: 11 / 12;
   grid-row: 3 / 5;
   transition: 1s ease-in-out all;
   animation: home-list-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    grid-column: 1/4;
+    grid-row: 2/3;
+  }
 }
 .line-container {
   position: relative;

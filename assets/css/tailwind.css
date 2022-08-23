@@ -15,7 +15,7 @@ body {
     @apply border-2 p-2 font-bold;
   }
   .link {
-    @apply px-4  text-xl_d font-extralight transition-all;
+    @apply px-4  text-xl_d font-extralight transition-all lg:text-xl_t;
     &:focus,
     &:active {
       @apply font-normal transition-all;
@@ -24,5 +24,10 @@ body {
       text-shadow: 2px 2px $green;
       @apply font-light  transition-all;
     }
+  }
+}
+@layer utilities {
+  .grid {
+    display: grid !important;
   }
 }

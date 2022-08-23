@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <div class="fixed z-20 bottom-16 right-16 parent-toggle">
+    <div class="fixed z-20 bottom-16 right-16 parent-toggle lg:right-8">
       <input
         type="checkbox"
         class="bg-white toggle dark:bg-black"
