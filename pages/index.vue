@@ -39,7 +39,7 @@
     </ul>
 
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-[-5%] xs:scale-50"
     >
       <div class="flex space-x-4 cri">
         <img src="../images/C.png" alt="" class="c-1 letter" />
