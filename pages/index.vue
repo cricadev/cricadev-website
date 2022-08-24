@@ -39,7 +39,7 @@
     </ul>
 
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75"
     >
       <div class="flex space-x-4 cri">
         <img src="../images/C.png" alt="" class="c-1 letter" />
@@ -57,9 +57,11 @@
       </div>
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90"
+      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75"
     >
-      <div class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%]">
+      <div
+        class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4"
+      >
         <div class="flex space-x-4 cri-2">
           <img src="../images/C.png" alt="" class="c letter" />
           <img src="../images/R.png" alt="" class="r letter" />
@@ -73,7 +75,9 @@
           <img src="../images/N.png" alt="" class="n letter" />
         </div>
       </div>
-      <div class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%]">
+      <div
+        class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%] lg:translate-x-0 lg:space-x-4"
+      >
         <div class="flex space-x-4 ca-2">
           <img src="../images/C.png" alt="" class="c letter" />
           <img src="../images/A.png" alt="" class="a letter" />
@@ -104,7 +108,7 @@
         <div class="figure-2 figure"></div>
       </div>
       <div class="home-figure">
-        <p class="font-thin text-center text-base_d">
+        <p class="font-thin text-center text-base_d lg:text-base_t">
           I am a colombian<br />
           <span class="italic font-normal">Web Developer</span>
         </p>
@@ -128,25 +132,31 @@
   display: none;
   @media (max-width: 1100px) {
     display: grid;
+    grid-column: 1/4;
+    grid-row: 1/2;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     height: 100vh;
     width: 100vw;
-    grid-column: 1/4;
-    grid-row: 1/2;
+
     .home-bg {
       height: 100%;
       width: 100%;
       transform: translateX(10%);
       grid-column: 1/5;
       grid-row: 1/5;
+      @media (max-width: 1100px) {
+        background-size: auto 100%;
+        background-position: cover;
+        transform: translateX(5%);
+      }
     }
     .light-home-bg {
       background-image: linear-gradient(
           90deg,
           #f6f6f6 0%,
-
-          transparent 10%
+          transparent 5%,
+          transparent 100%
         ),
         url("@/images/lightMode-cricadev.png");
     }
@@ -155,12 +165,38 @@
           90deg,
           #00010d 0%,
 
-          transparent 10%
+          transparent 5%,
+          transparent 100%
         ),
         url("@/images/darkMode-cricadev.png");
     }
+    .home-figure {
+      grid-column: 4/5;
+      grid-row: 2/5;
+      place-self: center;
+      transform: translateY(100%);
+    }
     .line-container {
-      grid-column: 3/4;
+      grid-column: 3/5;
+      grid-row: 2/4;
+      .line-1 {
+        grid-column: 3/4;
+        grid-row: 3/4;
+      }
+      .line-2 {
+        grid-column: 4/5;
+        grid-row: 3/4;
+      }
+      .figure-1 {
+        grid-column: 2 / 4;
+        grid-row: 2 / 4;
+        place-self: center;
+      }
+      .figure-2 {
+        grid-column: 3 / 5;
+        grid-row: 2 / 4;
+        place-self: end center;
+      }
     }
   }
 }
@@ -345,6 +381,12 @@
   opacity: 0;
   animation: logo-close 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
+  @media (max-width: 1100px) {
+    bottom: 5%;
+  }
+  @media (max-width: 800px) {
+    bottom: 6%;
+  }
 }
 .cricadev-logo:hover + .cricadev-logo-hover {
   animation: cricadev-logo-hover-animation 1s ease-in-out forwards;
@@ -356,18 +398,30 @@
 }
 .cricadev-logo:hover > .cri {
   animation: cri-animation 0.5s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    animation: cri-animation-tablet 0.5s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover > .ca {
   animation: ca-animation 0.5s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    animation: ca-animation-tablet 0.5s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover > .dev {
   animation: dev-animation 0.5s ease-in-out forwards;
 }
 .cri {
   animation: cri-close-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    animation: cri-close-animation-tablet 1s ease-in-out forwards;
+  }
 }
 .ca {
   animation: ca-close-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    animation: ca-close-animation-tablet 1s ease-in-out forwards;
+  }
 }
 .stian {
   animation: stian-close-animation 1s ease-in-out forwards;
@@ -380,12 +434,18 @@
 }
 .cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .stian {
   animation: stian-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    animation: stian-animation-tablet 1s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .ca-2 {
   animation: ca-2-close-animation 1.3s ease-in-out forwards;
 }
 .cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .sallas {
   animation: stian-animation 1s ease-in-out forwards;
+  @media (max-width: 1100px) {
+    animation: stian-animation-tablet 1s ease-in-out forwards;
+  }
 }
 @keyframes stian-animation {
   0% {
@@ -397,6 +457,17 @@
     opacity: 1;
   }
 }
+@keyframes stian-animation-tablet {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
 @keyframes stian-close-animation {
   0% {
     transform: translateX(0);
@@ -416,12 +487,28 @@
     transform: translateX(-179%);
   }
 }
+@keyframes cri-animation-tablet {
+  0% {
+    transform: translateX(0%) translateY(-5%);
+  }
+  100% {
+    transform: translateX(25%) translateY(-5%);
+  }
+}
 @keyframes cri-close-animation {
   0% {
     transform: translateX(-179%);
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes cri-close-animation-tablet {
+  0% {
+    transform: translateX(25%) translateY(-5%);
+  }
+  100% {
+    transform: translateX(0) translateY(-5%);
   }
 }
 @keyframes cri-2-close-animation {
@@ -440,12 +527,28 @@
     transform: translateX(50%);
   }
 }
+@keyframes ca-animation-tablet {
+  0% {
+    transform: translateX(0) translateY(0%);
+  }
+  100% {
+    transform: translateX(-110%) translateY(110%);
+  }
+}
 @keyframes ca-close-animation {
   0% {
     transform: translateX(50%);
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes ca-close-animation-tablet {
+  0% {
+    transform: translateX(-110%) translateY(110%);
+  }
+  100% {
+    transform: translateX(0) translateY(0%);
   }
 }
 @keyframes ca-2-close-animation {
