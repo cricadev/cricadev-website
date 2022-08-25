@@ -23,13 +23,15 @@
       </p>
     </div>
 
-    <p class="font-thin leading-tight text-left text-xl_d home-paragraph">
+    <p
+      class="font-thin leading-tight text-left text-xl_d home-paragraph lg:hidden"
+    >
       I am proactive, I am curious and intrepid. I love to help people through
       technology. <br />
       <span class="italic font-normal">I never stop learning.</span>
     </p>
     <ul
-      class="flex flex-col gap-2 italic text-left text-xl_d font-extralight home-list"
+      class="flex flex-col gap-2 italic text-left text-xl_d font-extralight home-list lg:hidden"
     >
       <li class="item">Risk-taking</li>
       <li class="item">Innovative</li>
@@ -39,7 +41,7 @@
     </ul>
 
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-[-5%] xs:scale-50"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 xs:scale-50 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%]"
     >
       <div class="flex space-x-4 cri">
         <img src="../images/C.png" alt="" class="c-1 letter" />
@@ -57,10 +59,10 @@
       </div>
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75"
+      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 sm:scale-50"
     >
       <div
-        class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4"
+        class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%]"
       >
         <div class="flex space-x-4 cri-2">
           <img src="../images/C.png" alt="" class="c letter" />
@@ -76,7 +78,7 @@
         </div>
       </div>
       <div
-        class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%] lg:translate-x-0 lg:space-x-4"
+        class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%] lg:translate-x-0 lg:space-x-4 sm:space-x-20 sm:translate-x-[-15%]"
       >
         <div class="flex space-x-4 ca-2">
           <img src="../images/C.png" alt="" class="c letter" />
@@ -114,6 +116,23 @@
         </p>
       </div>
     </div>
+    <div class="wrap-desktop">
+      <p class="font-thin leading-tight text-left text-xl_d home-paragraph">
+        I am proactive, I am curious and intrepid. I love to help people through
+        technology. <br />
+        <span class="italic font-normal">I never stop learning.</span>
+      </p>
+      <ul
+        class="flex flex-col gap-2 italic text-left text-xl_d font-extralight home-list"
+      >
+        <li class="item">Risk-taking</li>
+        <li class="item">Innovative</li>
+        <li class="item">Ambitious</li>
+        <li class="item">Determined</li>
+        <li class="item">Enthusiastic</li>
+      </ul>
+    </div>
+
     <NuxtPage />
   </div>
 </template>
@@ -124,8 +143,32 @@
 .home {
   place-items: center;
   @media (max-width: 1100px) {
-    grid-template-rows: repeat(2, 100vh);
+    grid-template-rows: 100vh 80vh;
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+.wrap-desktop {
+  display: none;
+
+  @media (max-width: 1100px) {
+    display: grid;
+    grid-column: 1/4;
+    grid-row: 2/3;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    place-items: center;
+    place-content: center;
+    .home-paragraph {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      text-align: center;
+    }
+    .home-list {
+      grid-row: 3/4;
+    }
   }
 }
 .wrap-tablet {
@@ -134,8 +177,8 @@
     display: grid;
     grid-column: 1/4;
     grid-row: 1/2;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     height: 100vh;
     width: 100vw;
 
@@ -172,28 +215,31 @@
     }
     .home-figure {
       grid-column: 4/5;
-      grid-row: 2/5;
+      grid-row: 2/4;
       place-self: center;
-      transform: translateY(100%);
+      padding-top: 200px;
     }
     .line-container {
-      grid-column: 3/5;
+      grid-column: 2/5;
       grid-row: 2/4;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+
       .line-1 {
-        grid-column: 3/4;
-        grid-row: 3/4;
-      }
-      .line-2 {
         grid-column: 4/5;
         grid-row: 3/4;
       }
+      .line-2 {
+        grid-column: 5/6;
+        grid-row: 3/4;
+      }
       .figure-1 {
-        grid-column: 2 / 4;
+        grid-column: 2 / 6;
         grid-row: 2 / 4;
         place-self: center;
       }
       .figure-2 {
-        grid-column: 3 / 5;
+        grid-column: 4 / 6;
         grid-row: 2 / 4;
         place-self: end center;
       }
@@ -239,10 +285,6 @@
 
   transition: 1s ease-in-out all;
   animation: home-paragraph-animation 1s ease-in-out forwards;
-  @media (max-width: 1100px) {
-    grid-column: 1/4;
-    grid-row: 2/3;
-  }
 }
 .home-figure {
   grid-column: 8 / 11;
@@ -407,6 +449,9 @@
   @media (max-width: 1100px) {
     animation: ca-animation-tablet 0.5s ease-in-out forwards;
   }
+  @media (max-width: 639px) {
+    animation: ca-animation-mobile 0.5s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover > .dev {
   animation: dev-animation 0.5s ease-in-out forwards;
@@ -533,6 +578,14 @@
   }
   100% {
     transform: translateX(-110%) translateY(110%);
+  }
+}
+@keyframes ca-animation-mobile {
+  0% {
+    transform: translateX(0) translateY(0%);
+  }
+  100% {
+    transform: translateX(-230%) translateY(120%);
   }
 }
 @keyframes ca-close-animation {

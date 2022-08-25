@@ -25,8 +25,7 @@ module.exports = {
       'lg': {'max': '1100px'},
       // => @media (max-width: 1023px) { ... }
 
-      'md': {'max': '800px'},
-      // => @media (max-width: 767px) { ... }
+      'md': {'max': '799px'},      // => @media (max-width: 767px) { ... }
 
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
@@ -85,17 +84,18 @@ module.exports = {
         '2xl': {'max': '1535px'},
         // => @media (max-width: 1535px) { ... }
   
-        'xl': {'max': '1439px'},
+        'xl': {'max': '1279px'},
         // => @media (max-width: 1279px) { ... }
   
         'lg': {'max': '1100px'},
         // => @media (max-width: 1023px) { ... }
   
-        'md': {'max': '767px'},
+        'md': {'max': '799px'},
         // => @media (max-width: 767px) { ... }
   
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
+        'xs': {'max': '420px'},
       },
       
     }

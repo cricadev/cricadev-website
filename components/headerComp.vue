@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <nav
-      class="fixed z-10 flex justify-between w-full p-4 px-32 mx-auto lg:px-16 lg:p-4"
+      class="fixed z-10 flex justify-between w-full p-4 px-32 mx-auto lg:px-16 lg:p-4 sm:px-4"
     >
       <NuxtLink to="/" class="link">Home</NuxtLink>
       <NuxtLink to="/portfolio" class="link">Portfolio</NuxtLink>
