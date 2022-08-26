@@ -133,12 +133,25 @@
         <li class="item">Enthusiastic</li>
       </ul>
     </div>
+    <div class="icon-appear bottom-14">
+      <Icon
+        icon="ant-design:arrow-down-outlined"
+        class="z-20 w-8 h-8 mx-auto text-center text-green animate-bounce"
+        @click="scrollToBottom"
+      />
+    </div>
+
     <div class="box-appear"></div>
     <NuxtPage />
   </div>
 </template>
 
 <script setup>
+import { Icon } from "@iconify/vue";
+const scrollToBottom = () => {
+  window.scrollTo(0, document.body.scrollHeight);
+  console.log("clicked");
+};
 onMounted(() => {
   const cricadev = document.querySelector(".cricadev-logo");
   cricadev.addEventListener("click", handleHover);
@@ -150,8 +163,10 @@ onMounted(() => {
     if (window.innerWidth < 1100) {
       if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
         cricadev.classList.add("cricadev-logo-open");
+        console.log("added");
       } else {
         cricadev.classList.remove("cricadev-logo-open");
+        console.log("removed");
       }
     }
   };
@@ -186,6 +201,16 @@ onMounted(() => {
     #00010d 10%,
     transparent 100%
   );
+}
+.icon-appear {
+  display: none;
+  @media (max-width: 1100px) {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 32px;
+    position: absolute;
+  }
 }
 .wrap-desktop {
   display: none;
