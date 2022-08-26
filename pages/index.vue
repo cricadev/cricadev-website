@@ -116,14 +116,15 @@
         </p>
       </div>
     </div>
+
     <div class="wrap-desktop">
-      <p class="font-thin leading-tight text-left text-xl_d home-paragraph">
+      <p class="font-thin leading-tight text-left text-xl_t home-paragraph">
         I am proactive, I am curious and intrepid. I love to help people through
         technology. <br />
         <span class="italic font-normal">I never stop learning.</span>
       </p>
       <ul
-        class="flex flex-col gap-2 italic text-left text-xl_d font-extralight home-list"
+        class="flex flex-col gap-2 italic text-left text-xl_t font-extralight home-list"
       >
         <li class="item">Risk-taking</li>
         <li class="item">Innovative</li>
@@ -132,12 +133,31 @@
         <li class="item">Enthusiastic</li>
       </ul>
     </div>
-
+    <div class="box-appear"></div>
     <NuxtPage />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+onMounted(() => {
+  const cricadev = document.querySelector(".cricadev-logo");
+  cricadev.addEventListener("click", handleHover);
+  function handleHover(e) {
+    console.log(e.currentTarget);
+  }
+  const handleScroll = () => {
+    console.log(window.scrollY, window, window.screenTop, window.innerWidth);
+    if (window.innerWidth < 1100) {
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        cricadev.classList.add("cricadev-logo-open");
+      } else {
+        cricadev.classList.remove("cricadev-logo-open");
+      }
+    }
+  };
+  window.addEventListener("scroll", handleScroll);
+});
+</script>
 
 <style lang="scss" scoped>
 .home {
@@ -146,6 +166,26 @@
     grid-template-rows: 100vh 80vh;
     grid-template-columns: repeat(3, 1fr);
   }
+}
+.box-appear {
+  width: 100vw;
+  height: 20vh;
+  background-image: linear-gradient(
+    0deg,
+    transparent 0%,
+    #f6f6f6 10%,
+    transparent 100%
+  );
+  position: absolute;
+  bottom: -20px;
+}
+.dark .box-appear {
+  background-image: linear-gradient(
+    0deg,
+    transparent 0%,
+    #00010d 10%,
+    transparent 100%
+  );
 }
 .wrap-desktop {
   display: none;
@@ -162,12 +202,14 @@
     place-items: center;
     place-content: center;
     .home-paragraph {
-      grid-column: 2/3;
-      grid-row: 1/2;
+      grid-column: 1/4;
+      grid-row: 1/3;
       text-align: center;
+      padding: 0 160px;
     }
     .home-list {
       grid-row: 3/4;
+      text-align: center;
     }
   }
 }
@@ -215,13 +257,14 @@
     }
     .home-figure {
       grid-column: 4/5;
-      grid-row: 2/4;
+      grid-row: 2/3;
       place-self: center;
-      padding-top: 200px;
+      padding-top: 150px;
+      padding-right: 30px;
     }
     .line-container {
       grid-column: 2/5;
-      grid-row: 2/4;
+      grid-row: 2/3;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(5, 1fr);
 
@@ -414,6 +457,10 @@
   z-index: 4;
   bottom: 15%;
   animation: logo-open 1s ease-in-out forwards;
+}
+.cricadev-logo-open {
+  bottom: 0;
+  pointer-events: none;
 }
 .cricadev-logo-hover {
   position: absolute;
