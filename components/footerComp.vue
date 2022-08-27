@@ -86,7 +86,7 @@
       </nav>
     </footer>
     <p
-      class="fixed bottom-0 left-0 z-10 w-full text-center text-white bg-green2 text-xs_d lg:text-xs_t"
+      class="fixed bottom-0 left-0 z-10 w-full m-0 text-center text-white bg-green2 text-xs_d lg:text-xs_t footer"
     >
       Made with love by CricaDev 💚
     </p>
@@ -95,4 +95,9 @@
 <script>
 export default {};
 </script>
-<style lang=""></style>
+<style lang="css">
+.footer {
+  margin: 0 !important;
+  text-align: center !important;
+}
+</style>

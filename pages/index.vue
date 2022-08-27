@@ -117,11 +117,13 @@
       </div>
     </div>
 
-    <div class="wrap-desktop">
+    <div class="overflow-auto wrap-desktop">
       <p class="font-thin leading-tight text-left text-xl_t home-paragraph">
         I am proactive, I am curious and intrepid. I love to help people through
         technology. <br />
-        <span class="italic font-normal">I never stop learning.</span>
+        <span class="italic font-normal"
+          >I never stop learning. {{ isIntersectingElement }}
+        </span>
       </p>
       <ul
         class="flex flex-col gap-2 italic text-left text-xl_t font-extralight home-list"
@@ -132,6 +134,10 @@
         <li class="item">Determined</li>
         <li class="item">Enthusiastic</li>
       </ul>
+      <intersection-observer
+        sentinal-name="sentinal-name"
+        @on-intersection-element="onIntersectionElement"
+      ></intersection-observer>
     </div>
     <div class="icon-appear bottom-14">
       <Icon
@@ -147,31 +153,26 @@
 </template>
 
 <script setup>
+import IntersectionObserver from "@/components/IntersectionObserver.vue";
 import { Icon } from "@iconify/vue";
 const scrollToBottom = () => {
   window.scrollTo(0, document.body.scrollHeight);
   console.log("clicked");
 };
-onMounted(() => {
+const isIntersectingElement = ref(false);
+function onIntersectionElement(value) {
+  console.log(value, "intersected");
   const cricadev = document.querySelector(".cricadev-logo");
-  cricadev.addEventListener("click", handleHover);
-  function handleHover(e) {
-    console.log(e.currentTarget);
+  const icon = document.querySelector(".icon-appear");
+  if (value === true) {
+    console.log(cricadev);
+    cricadev.classList.add("cricadev-logo-open");
+    icon.classList.add("icon-close");
+  } else {
+    cricadev.classList.remove("cricadev-logo-open");
+    icon.classList.remove("icon-close");
   }
-  const handleScroll = () => {
-    console.log(window.scrollY, window, window.screenTop, window.innerWidth);
-    if (window.innerWidth < 1100) {
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-        cricadev.classList.add("cricadev-logo-open");
-        console.log("added");
-      } else {
-        cricadev.classList.remove("cricadev-logo-open");
-        console.log("removed");
-      }
-    }
-  };
-  window.addEventListener("scroll", handleScroll);
-});
+}
 </script>
 
 <style lang="scss" scoped>
@@ -211,6 +212,9 @@ onMounted(() => {
     height: 32px;
     position: absolute;
   }
+}
+.icon-close {
+  opacity: 0;
 }
 .wrap-desktop {
   display: none;
