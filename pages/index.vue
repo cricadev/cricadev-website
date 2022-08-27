@@ -39,7 +39,19 @@
       <li class="item">Determined</li>
       <li class="item">Enthusiastic</li>
     </ul>
+    <div class="icon-appear-2">
+      <span
+        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m"
+        >Click it!</span
+      >
 
+      <Icon
+        icon="akar-icons:arrow-forward"
+        :rotate="1"
+        :verticalFlip="true"
+        class="z-20 w-8 h-8 mx-auto text-center text-green"
+      />
+    </div>
     <div
       class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 xs:scale-50 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%]"
     >
@@ -117,16 +129,14 @@
       </div>
     </div>
 
-    <div class="overflow-auto wrap-desktop">
-      <p class="font-thin leading-tight text-left text-xl_t home-paragraph">
+    <div class="overflow-auto wrap-desktop text-xl_t xs:text-base_m">
+      <p class="font-thin leading-tight text-left home-paragraph">
         I am proactive, I am curious and intrepid. I love to help people through
         technology. <br />
-        <span class="italic font-normal"
-          >I never stop learning. {{ isIntersectingElement }}
-        </span>
+        <span class="italic font-normal">I never stop learning. </span>
       </p>
       <ul
-        class="flex flex-col gap-2 italic text-left text-xl_t font-extralight home-list"
+        class="flex flex-col gap-2 italic text-left font-extralight home-list"
       >
         <li class="item">Risk-taking</li>
         <li class="item">Innovative</li>
@@ -211,6 +221,34 @@ function onIntersectionElement(value) {
     width: 100vw;
     height: 32px;
     position: absolute;
+  }
+}
+.icon-appear-2 {
+  display: none;
+  @media (max-width: 1100px) {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 32px;
+    position: absolute;
+    top: 70%;
+    left: -20%;
+    animation: bounce-2 1s infinite;
+    z-index: 99;
+  }
+}
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(-25%) rotate(-45deg);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  100% {
+    transform: translateY(-25%) rotate(-45deg);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0%) rotate(-45deg);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 .icon-close {

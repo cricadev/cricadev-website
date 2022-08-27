@@ -1,6 +1,8 @@
 <template lang="">
   <div>
-    <div class="fixed z-20 bottom-16 right-16 parent-toggle lg:right-8">
+    <div
+      class="fixed z-20 bottom-16 right-16 parent-toggle lg:right-8 xs:top-0 xs:right-20 toggle-menu"
+    >
       <input
         type="checkbox"
         class="bg-white toggle dark:bg-black"
@@ -29,6 +31,11 @@ const setColorTheme = (newTheme: Theme) => {
 };
 </script>
 <style lang="css">
+.toggle-menu {
+  @media (max-width: 599px) {
+    transform: scale(0.6) rotate(90deg);
+  }
+}
 .parent-toggle {
   height: 80px;
   width: 40px;
@@ -51,6 +58,9 @@ input {
 
   color: #00010d;
   animation: fade-sun 0.5s ease-in-out forwards;
+  @media (max-width: 599px) {
+    animation: fade-sun-mobile 0.5s ease-in-out forwards;
+  }
 }
 
 .moon {
@@ -65,6 +75,14 @@ input {
   }
   100% {
     transform: translateY(0%) scale(0.75);
+  }
+}
+@keyframes fade-sun-mobile {
+  0% {
+    transform: translateY(100%) scale(0.75) rotate(165deg);
+  }
+  100% {
+    transform: translateY(0%) scale(0.75) rotate(165deg);
   }
 }
 @keyframes fade-moon {
