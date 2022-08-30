@@ -18,7 +18,7 @@
       </header>
     </div>
 
-    <header class="absolute z-10 hidden mt-4 ml-8 xs:inline">
+    <header class="fixed z-10 hidden mt-4 ml-8 xs:inline">
       <img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"
@@ -26,13 +26,13 @@
       />
     </header>
     <div
-      class="absolute z-50 w-5 h-5 hover-toggle right-8 top-8"
+      class="fixed z-50 w-5 h-5 hover-toggle right-8 top-8"
       @click="handleClick"
     >
-      <div class="w-5 h-[2px] menu-toggle bg-white"></div>
+      <div class="w-5 h-[3px] menu-toggle bg-black dark:bg-white"></div>
     </div>
 
-    <div class="wrap-tablet-header">
+    <div class="w-full h-screen wrap-tablet-header z-[999] fixed top-0 left-0">
       <div
         class="absolute top-0 left-0 w-full h-screen z-[9999] background overflow-y-hidden"
       >
@@ -45,10 +45,14 @@
         <nav
           class="fixed z-10 flex flex-col items-center justify-center w-full h-full space-y-24 nav-tablet"
         >
-          <NuxtLink to="/" class="link">Home</NuxtLink>
-          <NuxtLink to="/portfolio" class="link">Portfolio</NuxtLink>
-          <NuxtLink to="/about" class="link">About me</NuxtLink>
-          <NuxtLink to="/blog" class="link">Blog</NuxtLink>
+          <NuxtLink to="/" class="link" @click="linkClick">Home</NuxtLink>
+          <NuxtLink to="/portfolio" class="link" @click="linkClick"
+            >Portfolio</NuxtLink
+          >
+          <NuxtLink to="/about" class="link" @click="linkClick"
+            >About me</NuxtLink
+          >
+          <NuxtLink to="/blog" class="link" @click="linkClick">Blog</NuxtLink>
         </nav>
 
         <div class="footer-desktop">
@@ -158,6 +162,10 @@ function handleClick(e) {
   hoverToggle.classList.add("active");
   console.log(hoverToggle);
 }
+function linkClick(e) {
+  const hoverToggle = document.querySelector(".hover-toggle");
+  hoverToggle.classList.remove("active");
+}
 function handleClickBack(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
   hoverToggle.classList.remove("active");
@@ -171,26 +179,81 @@ function handleClickBack(e) {
   display: none;
   @media (max-width: 599px) {
     display: block;
-    opacity: 0;
   }
   .background {
-    background-image: linear-gradient(
-      0deg,
-      rgb(0, 1, 13, 0.8) 0%,
-
-      rgb(0, 1, 13, 0.8) 100%
-    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
   }
 }
+.dark .background {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 1, 13, 0.6) 0%,
 
+      rgba(0, 1, 13, 0.6) 100%
+    ),
+    url("../images/darkMode-cricadev.png");
+}
+.background {
+  background-image: linear-gradient(
+      0deg,
+      rgba(246, 246, 246, 0.6) 0%,
+
+      rgba(246, 246, 246, 0.6) 100%
+    ),
+    url("../images/lightMode-cricadev.png");
+}
+.hover-toggle {
+  display: none;
+  @media (max-width: 599px) {
+    display: block;
+  }
+}
+.dark .wrap-tablet-header {
+  animation: close-menu 0.5s ease-in-out forwards;
+  background: #00010d;
+}
+.wrap-tablet-header {
+  animation: close-menu 0.5s ease-in-out forwards;
+  background: #f6f6f6;
+}
+@keyframes close-menu {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+.hover-toggle.active + .wrap-tablet-header {
+  animation: open-menu 0.5s ease-in-out forwards;
+  transition: all 0.5s ease-in-out;
+}
+@keyframes open-menu {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.hover-toggle.active + .wrap-tablet-header > .background {
+}
 .hover-toggle.active > .menu-toggle,
 .hover-toggle.active > .menu-toggle::after,
 .hover-toggle.active > .menu-toggle::before {
-  background: #000;
   transition: all 0.2s ease-in-out;
 }
 .hover-toggle.active + .wrap-tablet-header {
   opacity: 1;
+}
+
+.dark .menu-toggle::after,
+.dark .menu-toggle::before {
+  background: white;
 }
 .menu-toggle::after,
 .menu-toggle::before {
@@ -199,7 +262,7 @@ function handleClickBack(e) {
   width: 20px;
   height: 2px;
   position: absolute;
-  background: white;
+  background: black;
   transition: all 0.2s ease-in-out;
 }
 .menu-toggle::after {

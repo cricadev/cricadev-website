@@ -41,7 +41,7 @@
     </ul>
     <div class="icon-appear-2">
       <span
-        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m"
+        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m xs:font-bold"
         >Click it!</span
       >
 
@@ -49,39 +49,39 @@
         icon="akar-icons:arrow-forward"
         :rotate="1"
         :verticalFlip="true"
-        class="z-20 w-8 h-8 mx-auto text-center text-green"
+        class="z-20 w-8 h-8 mx-auto text-center text-green xs:w-6 xs:h-6"
       />
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 xs:scale-50 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%]"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%] xs:scale-100 xs:translate-y-0 xs:space-x-0 xs:w-3/4 xss:w-full"
     >
-      <div class="flex space-x-4 cri">
+      <div class="flex space-x-4 cri xs:scale-[.4]">
         <img src="../images/C.png" alt="" class="c-1 letter" />
         <img src="../images/R.png" alt="" class="r-1 letter" />
         <img src="../images/I.png" alt="" class="i-1 letter" />
       </div>
-      <div class="flex space-x-4 ca">
+      <div class="flex space-x-4 ca xs:scale-[.4]">
         <img src="../images/C.png" alt="" class="c letter" />
         <img src="../images/A.png" alt="" class="a letter" />
       </div>
-      <div class="flex space-x-4 dev">
+      <div class="flex space-x-4 xs:scale-[.4] xs:translate-x-[-10%]">
         <img src="../images/D.png" alt="" class="d letter" />
         <img src="../images/E.png" alt="" class="e letter" />
         <img src="../images/V.png" alt="" class="v letter" />
       </div>
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 sm:scale-50"
+      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 sm:scale-50 xs:translate-y-0 xs:scale-100 xs:space-x-0 xs:translate-x-[-5%]"
     >
       <div
-        class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%]"
+        class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%] xs:space-x-0"
       >
-        <div class="flex space-x-4 cri-2">
+        <div class="flex space-x-4 cri-2 xs:scale-[.4]">
           <img src="../images/C.png" alt="" class="c letter" />
           <img src="../images/R.png" alt="" class="r letter" />
           <img src="../images/I.png" alt="" class="i letter" />
         </div>
-        <div class="flex space-x-4 stian">
+        <div class="flex space-x-4 stian xs:scale-[.4]">
           <img src="../images/S.png" alt="" class="s letter" />
           <img src="../images/T.png" alt="" class="t letter" />
           <img src="../images/I.png" alt="" class="i letter" />
@@ -92,11 +92,11 @@
       <div
         class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%] lg:translate-x-0 lg:space-x-4 sm:space-x-20 sm:translate-x-[-15%]"
       >
-        <div class="flex space-x-4 ca-2">
+        <div class="flex space-x-4 ca-2 xs:scale-[.4]">
           <img src="../images/C.png" alt="" class="c letter" />
           <img src="../images/A.png" alt="" class="a letter" />
         </div>
-        <div class="flex space-x-4 sallas">
+        <div class="flex space-x-4 sallas xs:scale-[.4]">
           <img src="../images/S.png" alt="" class="s letter" />
           <img src="../images/A.png" alt="" class="a letter" />
           <img src="../images/L.png" alt="" class="l letter" />
@@ -149,10 +149,10 @@
         @on-intersection-element="onIntersectionElement"
       ></intersection-observer>
     </div>
-    <div class="icon-appear bottom-14">
+    <div class="icon-appear bottom-14 xs:bottom-4">
       <Icon
         icon="ant-design:arrow-down-outlined"
-        class="z-20 w-8 h-8 mx-auto text-center text-green animate-bounce"
+        class="z-20 w-8 h-8 mx-auto text-center text-green animate-bounce xs:w-6 xs:h-6"
         @click="scrollToBottom"
       />
     </div>
@@ -199,7 +199,7 @@ function onIntersectionElement(value) {
   background-image: linear-gradient(
     0deg,
     transparent 0%,
-    #f6f6f6 10%,
+    rgb(246, 246, 246) 10%,
     transparent 100%
   );
   position: absolute;
@@ -235,6 +235,9 @@ function onIntersectionElement(value) {
     left: -20%;
     animation: bounce-2 1s infinite;
     z-index: 99;
+  }
+  @media (max-width: 599px) {
+    top: 60%;
   }
 }
 @keyframes bounce-2 {
@@ -273,10 +276,19 @@ function onIntersectionElement(value) {
       grid-row: 1/3;
       text-align: center;
       padding: 0 160px;
+      @media (max-width: 599px) {
+        grid-column: 1/-1;
+        grid-row: 1/3;
+        padding: 0 40px;
+      }
     }
     .home-list {
       grid-row: 3/4;
       text-align: center;
+      @media (max-width: 599px) {
+        grid-column: 1/-1;
+        grid-row: 3/5;
+      }
     }
   }
 }
@@ -543,6 +555,9 @@ function onIntersectionElement(value) {
   @media (max-width: 800px) {
     bottom: 6%;
   }
+  @media (max-width: 599px) {
+    bottom: 2%;
+  }
 }
 .cricadev-logo:hover + .cricadev-logo-hover {
   animation: cricadev-logo-hover-animation 1s ease-in-out forwards;
@@ -557,6 +572,9 @@ function onIntersectionElement(value) {
   @media (max-width: 1100px) {
     animation: cri-animation-tablet 0.5s ease-in-out forwards;
   }
+  @media (max-width: 599px) {
+    animation: cri-animation-mobile 0.5s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover > .ca {
   animation: ca-animation 0.5s ease-in-out forwards;
@@ -565,6 +583,9 @@ function onIntersectionElement(value) {
   }
   @media (max-width: 639px) {
     animation: ca-animation-mobile 0.5s ease-in-out forwards;
+  }
+  @media (max-width: 599px) {
+    animation: ca-animation-mobile-2 0.5s ease-in-out forwards;
   }
 }
 .cricadev-logo:hover > .dev {
@@ -575,11 +596,17 @@ function onIntersectionElement(value) {
   @media (max-width: 1100px) {
     animation: cri-close-animation-tablet 1s ease-in-out forwards;
   }
+  @media (max-width: 599px) {
+    animation: cri-close-animation-mobile 1s ease-in-out forwards;
+  }
 }
 .ca {
   animation: ca-close-animation 1s ease-in-out forwards;
   @media (max-width: 1100px) {
     animation: ca-close-animation-tablet 1s ease-in-out forwards;
+  }
+  @media (max-width: 599px) {
+    animation: ca-close-animation-mobile 1s ease-in-out forwards;
   }
 }
 .stian {
@@ -596,6 +623,9 @@ function onIntersectionElement(value) {
   @media (max-width: 1100px) {
     animation: stian-animation-tablet 1s ease-in-out forwards;
   }
+  @media (max-width: 599px) {
+    animation: stian-animation-mobile 1s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .ca-2 {
   animation: ca-2-close-animation 1.3s ease-in-out forwards;
@@ -604,6 +634,9 @@ function onIntersectionElement(value) {
   animation: stian-animation 1s ease-in-out forwards;
   @media (max-width: 1100px) {
     animation: stian-animation-tablet 1s ease-in-out forwards;
+  }
+  @media (max-width: 599px) {
+    animation: stian-animation-mobile 1s ease-in-out forwards;
   }
 }
 @keyframes stian-animation {
@@ -626,7 +659,16 @@ function onIntersectionElement(value) {
     opacity: 1;
   }
 }
-
+@keyframes stian-animation-mobile {
+  0% {
+    transform: translateX(100%) scale(0.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0%) scale(0.4);
+    opacity: 1;
+  }
+}
 @keyframes stian-close-animation {
   0% {
     transform: translateX(0);
@@ -654,6 +696,15 @@ function onIntersectionElement(value) {
     transform: translateX(25%) translateY(-5%);
   }
 }
+@keyframes cri-animation-mobile {
+  0% {
+    transform: translateX(0%) translateY(-25%) scale(0.4);
+  }
+  100% {
+    transform: translateX(25%) translateY(-25%) scale(0.4);
+  }
+}
+
 @keyframes cri-close-animation {
   0% {
     transform: translateX(-179%);
@@ -668,6 +719,14 @@ function onIntersectionElement(value) {
   }
   100% {
     transform: translateX(0) translateY(-5%);
+  }
+}
+@keyframes cri-close-animation-mobile {
+  0% {
+    transform: translateX(25%) translateY(-5%) scale(0.4);
+  }
+  100% {
+    transform: translateX(0) translateY(-5%) scale(0.4);
   }
 }
 @keyframes cri-2-close-animation {
@@ -696,10 +755,10 @@ function onIntersectionElement(value) {
 }
 @keyframes ca-animation-mobile {
   0% {
-    transform: translateX(0) translateY(0%);
+    transform: translateX(0) translateY(0%) scale(0.4);
   }
   100% {
-    transform: translateX(-230%) translateY(120%);
+    transform: translateX(-230%) translateY(120%) scale(0.4);
   }
 }
 @keyframes ca-close-animation {
@@ -716,6 +775,22 @@ function onIntersectionElement(value) {
   }
   100% {
     transform: translateX(0) translateY(0%);
+  }
+}
+@keyframes ca-close-animation-mobile {
+  0% {
+    transform: translateX(-110%) translateY(110%) scale(0.4);
+  }
+  100% {
+    transform: translateX(0) translateY(0%) scale(0.4);
+  }
+}
+@keyframes ca-animation-mobile-2 {
+  0% {
+    transform: translateX(0) translateY(0%) scale(0.4);
+  }
+  100% {
+    transform: translateX(-230%) translateY(120%) scale(0.4);
   }
 }
 @keyframes ca-2-close-animation {

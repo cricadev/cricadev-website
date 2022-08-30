@@ -29,7 +29,7 @@ module.exports = {
 
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
-      'xs': {'max': '599px'},
+      'xs': {'max': '599px'},'xss': {'max': '386px'},
     },
       colors: {
         black: '#00010D',
@@ -96,6 +96,8 @@ module.exports = {
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
         'xs': {'max': '599px'},
+        'xss': {'max': '386px'},
+
       },
       
     }
