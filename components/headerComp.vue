@@ -57,7 +57,7 @@
       </nav>
 
       <div class="footer-desktop">
-        <footer class="fixed z-10 w-full bottom-10 lg:bottom-8">
+        <footer class="fixed z-10 w-full bottom-8">
           <nav class="flex justify-center w-full mx-auto space-x-4 text-lg_d">
             <a
               href="https://instagram.com/cricadev"
@@ -65,7 +65,7 @@
               target="_blank"
             >
               <svg
-                class="h-[24px] w-[24px] lg:h-[12px] lg:w-[12px]"
+                class="h-[18px] w-[18px]"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -83,7 +83,7 @@
               target="_blank"
             >
               <svg
-                class="h-[24px] w-[24px] lg:h-[12px] lg:w-[12px]"
+                class="h-[18px] w-[18px]"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -98,7 +98,7 @@
               class="link-footer"
               target="_blank"
               ><svg
-                class="h-[24px] w-[24px] lg:h-[12px] lg:w-[12px]"
+                class="h-[18px] w-[18px]"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -115,7 +115,7 @@
               class="link-footer"
               target="_blank"
               ><svg
-                class="h-[24px] w-[24px] lg:h-[12px] lg:w-[12px]"
+                class="h-[18px] w-[18px]"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -131,7 +131,7 @@
               target="_blank"
             >
               <svg
-                class="h-[24px] w-[24px] lg:h-[12px] lg:w-[12px]"
+                class="h-[18px] w-[18px]"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -146,7 +146,7 @@
           </nav>
         </footer>
         <p
-          class="fixed bottom-0 left-0 z-10 w-full m-0 text-center text-white bg-green2 text-xs_d lg:text-xs_t footer"
+          class="fixed bottom-0 left-0 z-10 w-full m-0 text-center text-white bg-green2 ttext-xs_t footer"
         >
           Made with love by CricaDev 💚
         </p>
