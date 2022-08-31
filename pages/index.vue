@@ -39,9 +39,9 @@
       <li class="item">Determined</li>
       <li class="item">Enthusiastic</li>
     </ul>
-    <div class="icon-appear-2 xs:hidden">
+    <div class="icon-appear-2 lg:hidden">
       <span
-        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m xs:font-bold xs:hidden"
+        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m xs:font-bold lg:hidden"
         >Click it!</span
       >
 
@@ -49,11 +49,11 @@
         icon="akar-icons:arrow-forward"
         :rotate="1"
         :verticalFlip="true"
-        class="z-20 w-8 h-8 mx-auto text-center text-green xs:w-6 xs:h-6 xs:hidden"
+        class="z-20 w-8 h-8 mx-auto text-center text-green xs:w-6 xs:h-6 lg:hidden"
       />
     </div>
     <div
-      class="left-0 z-10 justify-center hidden w-full mx-auto space-x-2 bottom-20 xs:absolute xs:flex xss:bottom-20 cricadev-mobile"
+      class="left-0 z-10 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32"
     >
       <img src="../images/C.png" alt="" class="c-1 letter" />
       <img src="../images/R.png" alt="" class="r-1 letter" />
@@ -65,7 +65,7 @@
       <img src="../images/V.png" alt="" class="v letter" />
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%] xs:hidden"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 lg:hidden md:scale-75"
     >
       <div class="flex space-x-4 cri xs:absolute">
         <img src="../images/C.png" alt="" class="c-1 letter" />
@@ -83,7 +83,7 @@
       </div>
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 sm:scale-50 xs:translate-y-0 xs:scale-100 xs:space-x-0 xs:translate-x-[-5%] xs:hidden"
+      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 xs:translate-y-0 xs:scale-100 xs:space-x-0 xs:translate-x-[-5%] lg:hidden"
     >
       <div
         class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%] xs:space-x-0"
@@ -213,13 +213,14 @@ function onIntersectionElement(value) {
   width: 100vw;
   height: 20vh;
   background-image: linear-gradient(
-    0deg,
+    180deg,
     transparent 0%,
     rgb(246, 246, 246) 10%,
     transparent 100%
   );
   position: absolute;
-  bottom: -20px;
+  bottom: -5vh;
+  transform: rotate(0deg);
 }
 .dark .box-appear {
   background-image: linear-gradient(
@@ -330,6 +331,13 @@ function onIntersectionElement(value) {
         background-position: cover;
         transform: translateX(5%);
       }
+      @media (max-width: 599px) {
+        height: 100vh;
+        width: 100vw;
+        background-size: auto 100%;
+        background-position: contain;
+        transform: translateX(5%);
+      }
     }
     .light-home-bg {
       background-image: linear-gradient(
@@ -354,11 +362,13 @@ function onIntersectionElement(value) {
       grid-column: 4/5;
       grid-row: 2/3;
       place-self: center;
-
+      padding-top: 130px;
+      padding-right: 30px;
       @media (max-width: 599px) {
         grid-column: 2/4;
         grid-row: 3/4;
         padding-right: 0px;
+        padding-top: 0px;
         place-self: start center;
       }
     }
@@ -577,7 +587,9 @@ function onIntersectionElement(value) {
 }
 .letter {
   display: inline;
-  height: 60px;
+  @media (max-width: 605px) {
+    height: 60px;
+  }
   @media (max-width: 400px) {
     height: 40px;
   }
@@ -635,9 +647,6 @@ function onIntersectionElement(value) {
   }
   @media (max-width: 639px) {
     animation: ca-animation-mobile 0.5s ease-in-out forwards;
-  }
-  @media (max-width: 599px) {
-    animation: ca-animation-mobile-2 0.5s ease-in-out forwards;
   }
 }
 .cricadev-logo:hover > .dev {
@@ -792,6 +801,14 @@ function onIntersectionElement(value) {
   }
   100% {
     transform: translateX(-110%) translateY(110%);
+  }
+}
+@keyframes ca-animation-mobile {
+  0% {
+    transform: translateX(0) translateY(0%);
+  }
+  100% {
+    transform: translateX(-100%) translateY(200%);
   }
 }
 
