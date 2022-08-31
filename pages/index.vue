@@ -53,7 +53,7 @@
       />
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%] xs:scale-100 xs:translate-y-0 xs:space-x-0 xs:w-3/4 xss:w-full"
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%] xs:scale-100 xs:translate-y-0 xs:space-x-0 xs:hidden"
     >
       <div class="flex space-x-4 cri xs:scale-[.4]">
         <img src="../images/C.png" alt="" class="c-1 letter" />
@@ -71,7 +71,7 @@
       </div>
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 sm:scale-50 xs:translate-y-0 xs:scale-100 xs:space-x-0 xs:translate-x-[-5%]"
+      class="flex justify-center w-full mx-auto space-x-16 text-center cricadev-logo-hover xl:scale-75 xl:space-x-48 2xl:scale-90 lg:flex-col lg:items-center lg:space-x-0 lg:scale-100 lg:space-y-4 md:scale-75 sm:scale-50 xs:translate-y-0 xs:scale-100 xs:space-x-0 xs:translate-x-[-5%] xs:hidden"
     >
       <div
         class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%] xs:space-x-0"
@@ -591,6 +591,11 @@ function onIntersectionElement(value) {
 .cricadev-logo:hover > .dev {
   animation: dev-animation 0.5s ease-in-out forwards;
 }
+.cri-2 {
+  @media (max-width: 599px) {
+    animation: cri-2-open-animation-mobile 1s ease-in-out forwards;
+  }
+}
 .cri {
   animation: cri-close-animation 1s ease-in-out forwards;
   @media (max-width: 1100px) {
@@ -611,12 +616,21 @@ function onIntersectionElement(value) {
 }
 .stian {
   animation: stian-close-animation 1s ease-in-out forwards;
+  @media (max-width: 599px) {
+    animation: stian-close-animation-mobile 1s ease-in-out forwards;
+  }
 }
 .sallas {
   animation: stian-close-animation 1s ease-in-out forwards;
+  @media (max-width: 599px) {
+    animation: stian-close-animation-mobile 1s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .cri-2 {
   animation: cri-2-close-animation 1.3s ease-in-out forwards;
+  @media (max-width: 599px) {
+    animation: cri-2-close-animation-mobile 1.3s ease-in-out forwards;
+  }
 }
 .cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .stian {
   animation: stian-animation 1s ease-in-out forwards;
@@ -639,6 +653,7 @@ function onIntersectionElement(value) {
     animation: stian-animation-mobile 1s ease-in-out forwards;
   }
 }
+
 @keyframes stian-animation {
   0% {
     transform: translateX(100%);
@@ -661,11 +676,11 @@ function onIntersectionElement(value) {
 }
 @keyframes stian-animation-mobile {
   0% {
-    transform: translateX(100%) scale(0.4);
+    transform: translateX(100%) translateY(30%) scale(0.4);
     opacity: 0.2;
   }
   100% {
-    transform: translateX(0%) scale(0.4);
+    transform: translateX(0%) translateY(30%) scale(0.4);
     opacity: 1;
   }
 }
@@ -679,7 +694,16 @@ function onIntersectionElement(value) {
     opacity: 0;
   }
 }
-
+@keyframes stian-close-animation-mobile {
+  0% {
+    transform: translateX(0) translateY(100%) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) scale(0.4);
+    opacity: 0;
+  }
+}
 @keyframes cri-animation {
   0% {
     transform: translateX(0);
@@ -698,10 +722,10 @@ function onIntersectionElement(value) {
 }
 @keyframes cri-animation-mobile {
   0% {
-    transform: translateX(0%) translateY(-25%) scale(0.4);
+    transform: translateX(0%) translateY(0%) scale(0.4);
   }
   100% {
-    transform: translateX(25%) translateY(-25%) scale(0.4);
+    transform: translateX(25%) translateY(0%) scale(0.4);
   }
 }
 
@@ -723,10 +747,10 @@ function onIntersectionElement(value) {
 }
 @keyframes cri-close-animation-mobile {
   0% {
-    transform: translateX(25%) translateY(-5%) scale(0.4);
+    transform: translateX(25%) translateY(-0%) scale(0.4);
   }
   100% {
-    transform: translateX(0) translateY(-5%) scale(0.4);
+    transform: translateX(25%) translateY(-0%) scale(0.4);
   }
 }
 @keyframes cri-2-close-animation {
@@ -734,6 +758,26 @@ function onIntersectionElement(value) {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+@keyframes cri-2-open-animation-mobile {
+  0% {
+    transform: translateX(50%) translateY(30%) scale(0.4);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(50%) translateY(30%) scale(0.4);
+    opacity: 1;
+  }
+}
+@keyframes cri-2-close-animation-mobile {
+  0% {
+    transform: translateX(50%) translateY(30%) scale(0.4);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(80%) translateY(30%) scale(0.4);
     opacity: 1;
   }
 }
@@ -782,7 +826,7 @@ function onIntersectionElement(value) {
     transform: translateX(-110%) translateY(110%) scale(0.4);
   }
   100% {
-    transform: translateX(0) translateY(0%) scale(0.4);
+    transform: translateX(10%) translateY(0%) scale(0.4);
   }
 }
 @keyframes ca-animation-mobile-2 {
