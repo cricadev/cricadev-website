@@ -134,7 +134,9 @@
         <div class="figure-2 figure"></div>
       </div>
       <div class="home-figure">
-        <p class="font-thin text-center text-base_d lg:text-base_t">
+        <p
+          class="font-thin text-center text-base_d lg:text-base_t lg:font-extralight"
+        >
           I am a colombian<br />
           <span class="italic font-normal">Web Developer</span>
         </p>
