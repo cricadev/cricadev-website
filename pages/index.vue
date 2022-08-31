@@ -169,7 +169,6 @@
       />
     </div>
 
-    <div class="absolute bottom-0 left-0 w-screen h-20 box-appear"></div>
     <NuxtPage />
   </div>
 </template>
@@ -331,7 +330,7 @@ function onIntersectionElement(value) {
       @media (max-width: 599px) {
         height: 100vh;
         background-size: auto 100%;
-        background-position: contain;
+        background-position: cover;
         transform: translateX(0);
       }
     }
@@ -369,7 +368,7 @@ function onIntersectionElement(value) {
             transparent 5%,
             transparent 100%
           ),
-          url("@/images/lightMode-cricadev.png");
+          url("@/images/darkMode-cricadev.png");
       }
     }
     .home-figure {
