@@ -138,7 +138,7 @@
           class="font-thin text-center text-base_d lg:text-base_t lg:font-light"
         >
           I am a colombian<br />
-          <span class="italic font-normal lg:font-light">Web Developer</span>
+          <span class="italic font-bold">Web Developer</span>
         </p>
       </div>
     </div>
@@ -147,7 +147,7 @@
       <p class="font-thin leading-tight text-left home-paragraph lg:font-light">
         I am proactive, I am curious and intrepid. I love to help people through
         technology. <br />
-        <span class="italic font-normal">I never stop learning. </span>
+        <span class="italic font-bold">I never stop learning. </span>
       </p>
       <ul
         class="flex flex-col gap-2 italic text-left font-extralight home-list lg:font-light"
