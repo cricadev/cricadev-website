@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 overflow-x-hidden home lg:grid"
+    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
   >
     <div
       v-if="$colorMode.value === 'dark'"
@@ -169,7 +169,7 @@
       />
     </div>
 
-    <div class="box-appear"></div>
+    <div class="absolute bottom-0 left-0 w-screen h-20 box-appear"></div>
     <NuxtPage />
   </div>
 </template>
@@ -211,25 +211,19 @@ function onIntersectionElement(value) {
 }
 .box-appear {
   background-image: linear-gradient(
-    180deg,
-    transparent 0%,
+    0deg,
+    rgb(246, 246, 246) 0%,
     rgb(246, 246, 246) 20%,
     transparent 100%
   );
-  position: absolute;
-  bottom: -5vh;
-  transform: rotate(180deg);
 }
 .dark .box-appear {
   background-image: linear-gradient(
     0deg,
-    transparent 0%,
+    #00010d 0%,
     #00010d 20%,
     transparent 100%
   );
-  position: absolute;
-  bottom: -5vh;
-  transform: rotate(0deg);
 }
 .icon-appear {
   display: none;
