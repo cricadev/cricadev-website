@@ -321,6 +321,8 @@ function onIntersectionElement(value) {
       transform: translateX(10%);
       grid-column: 1/5;
       grid-row: 1/5;
+      overflow-x: hidden;
+
       @media (max-width: 1100px) {
         background-size: auto 100%;
         background-position: cover;
