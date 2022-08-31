@@ -189,11 +189,11 @@ function handleClickBack(e) {
 }
 .dark .background {
   background: transparent;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
 }
 .background {
   background: transparent;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
 }
 .hover-toggle {
   display: none;
