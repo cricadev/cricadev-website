@@ -39,9 +39,9 @@
       <li class="item">Determined</li>
       <li class="item">Enthusiastic</li>
     </ul>
-    <div class="icon-appear-2">
+    <div class="icon-appear-2 xs:hidden">
       <span
-        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m xs:font-bold"
+        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m xs:font-bold xs:hidden"
         >Click it!</span
       >
 
@@ -49,22 +49,34 @@
         icon="akar-icons:arrow-forward"
         :rotate="1"
         :verticalFlip="true"
-        class="z-20 w-8 h-8 mx-auto text-center text-green xs:w-6 xs:h-6"
+        class="z-20 w-8 h-8 mx-auto text-center text-green xs:w-6 xs:h-6 xs:hidden"
       />
     </div>
     <div
-      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%] xs:scale-100 xs:translate-y-0 xs:space-x-0 xs:hidden"
+      class="left-0 z-10 justify-center hidden w-full mx-auto space-x-2 bottom-20 xs:absolute xs:flex xss:bottom-20 cricadev-mobile"
     >
-      <div class="flex space-x-4 cri xs:scale-[.4]">
+      <img src="../images/C.png" alt="" class="c-1 letter" />
+      <img src="../images/R.png" alt="" class="r-1 letter" />
+      <img src="../images/I.png" alt="" class="i-1 letter" />
+      <img src="../images/C.png" alt="" class="c letter" />
+      <img src="../images/A.png" alt="" class="a letter" />
+      <img src="../images/D.png" alt="" class="d letter" />
+      <img src="../images/E.png" alt="" class="e letter" />
+      <img src="../images/V.png" alt="" class="v letter" />
+    </div>
+    <div
+      class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 md:scale-75 md:space-x-16 md:translate-x-0 sm:translate-x-[-5%] sm:space-x-32 sm:scale-50 sm:translate-y-[-10%] xs:hidden"
+    >
+      <div class="flex space-x-4 cri xs:absolute">
         <img src="../images/C.png" alt="" class="c-1 letter" />
         <img src="../images/R.png" alt="" class="r-1 letter" />
         <img src="../images/I.png" alt="" class="i-1 letter" />
       </div>
-      <div class="flex space-x-4 ca xs:scale-[.4]">
+      <div class="flex space-x-4 ca">
         <img src="../images/C.png" alt="" class="c letter" />
         <img src="../images/A.png" alt="" class="a letter" />
       </div>
-      <div class="flex space-x-4 xs:scale-[.4] xs:translate-x-[-10%]">
+      <div class="flex space-x-4 xs:translate-x-[-10%]">
         <img src="../images/D.png" alt="" class="d letter" />
         <img src="../images/E.png" alt="" class="e letter" />
         <img src="../images/V.png" alt="" class="v letter" />
@@ -149,7 +161,7 @@
         @on-intersection-element="onIntersectionElement"
       ></intersection-observer>
     </div>
-    <div class="icon-appear bottom-14 xs:bottom-4">
+    <div class="icon-appear bottom-14 xs:bottom-0">
       <Icon
         icon="ant-design:arrow-down-outlined"
         class="z-20 w-8 h-8 mx-auto text-center text-green animate-bounce xs:w-6 xs:h-6"
@@ -174,13 +186,17 @@ function onIntersectionElement(value) {
   console.log(value, "intersected");
   const cricadev = document.querySelector(".cricadev-logo");
   const icon = document.querySelector(".icon-appear");
+  const cricadevMobile = document.querySelector(".cricadev-mobile");
   if (value === true) {
     console.log(cricadev);
+    console.log(cricadevMobile);
     cricadev.classList.add("cricadev-logo-open");
     icon.classList.add("icon-close");
+    cricadevMobile.classList.add("cricadev-logo-open");
   } else {
     cricadev.classList.remove("cricadev-logo-open");
     icon.classList.remove("icon-close");
+    cricadevMobile.classList.remove("cricadev-logo-open");
   }
 }
 </script>
@@ -338,32 +354,59 @@ function onIntersectionElement(value) {
       grid-column: 4/5;
       grid-row: 2/3;
       place-self: center;
-      padding-top: 150px;
-      padding-right: 30px;
+
+      @media (max-width: 599px) {
+        grid-column: 2/4;
+        grid-row: 3/4;
+        padding-right: 0px;
+        place-self: start center;
+      }
     }
     .line-container {
       grid-column: 2/5;
       grid-row: 2/3;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(5, 1fr);
+      @media (max-width: 599px) {
+        grid-column: 2/4;
+        grid-row: 2/3;
+      }
 
       .line-1 {
         grid-column: 4/5;
         grid-row: 3/4;
+        @media (max-width: 599px) {
+          grid-column: 2/3;
+          grid-row: 5/6;
+        }
       }
       .line-2 {
         grid-column: 5/6;
         grid-row: 3/4;
+        @media (max-width: 599px) {
+          grid-column: 3/4;
+          grid-row: 5/6;
+        }
       }
       .figure-1 {
         grid-column: 2 / 6;
         grid-row: 2 / 4;
         place-self: center;
+        @media (max-width: 599px) {
+          grid-column: 1/2;
+          grid-row: 4/6;
+          place-self: center end;
+        }
       }
       .figure-2 {
         grid-column: 4 / 6;
         grid-row: 2 / 4;
         place-self: end center;
+        @media (max-width: 599px) {
+          grid-column: 2/4;
+          grid-row: 4/6;
+          place-self: end center;
+        }
       }
     }
   }
@@ -498,6 +541,10 @@ function onIntersectionElement(value) {
 
   width: 10px;
   height: 10px;
+  @media (max-width: 599px) {
+    width: 8px;
+    height: 8px;
+  }
 }
 .figure-1 {
   grid-column: 1 / 3;
@@ -530,7 +577,12 @@ function onIntersectionElement(value) {
 }
 .letter {
   display: inline;
+  height: 60px;
+  @media (max-width: 400px) {
+    height: 40px;
+  }
 }
+
 .cricadev-logo {
   position: absolute;
   z-index: 4;
@@ -600,9 +652,6 @@ function onIntersectionElement(value) {
   animation: cri-close-animation 1s ease-in-out forwards;
   @media (max-width: 1100px) {
     animation: cri-close-animation-tablet 1s ease-in-out forwards;
-  }
-  @media (max-width: 599px) {
-    animation: cri-close-animation-mobile 1s ease-in-out forwards;
   }
 }
 .ca {
@@ -674,16 +723,7 @@ function onIntersectionElement(value) {
     opacity: 1;
   }
 }
-@keyframes stian-animation-mobile {
-  0% {
-    transform: translateX(100%) translateY(30%) scale(0.4);
-    opacity: 0.2;
-  }
-  100% {
-    transform: translateX(0%) translateY(30%) scale(0.4);
-    opacity: 1;
-  }
-}
+
 @keyframes stian-close-animation {
   0% {
     transform: translateX(0);
@@ -694,16 +734,7 @@ function onIntersectionElement(value) {
     opacity: 0;
   }
 }
-@keyframes stian-close-animation-mobile {
-  0% {
-    transform: translateX(0) translateY(100%) scale(0.4);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) scale(0.4);
-    opacity: 0;
-  }
-}
+
 @keyframes cri-animation {
   0% {
     transform: translateX(0);
@@ -718,14 +749,6 @@ function onIntersectionElement(value) {
   }
   100% {
     transform: translateX(25%) translateY(-5%);
-  }
-}
-@keyframes cri-animation-mobile {
-  0% {
-    transform: translateX(0%) translateY(0%) scale(0.4);
-  }
-  100% {
-    transform: translateX(25%) translateY(0%) scale(0.4);
   }
 }
 
@@ -745,14 +768,7 @@ function onIntersectionElement(value) {
     transform: translateX(0) translateY(-5%);
   }
 }
-@keyframes cri-close-animation-mobile {
-  0% {
-    transform: translateX(25%) translateY(-0%) scale(0.4);
-  }
-  100% {
-    transform: translateX(25%) translateY(-0%) scale(0.4);
-  }
-}
+
 @keyframes cri-2-close-animation {
   0% {
     opacity: 0;
@@ -761,26 +777,7 @@ function onIntersectionElement(value) {
     opacity: 1;
   }
 }
-@keyframes cri-2-open-animation-mobile {
-  0% {
-    transform: translateX(50%) translateY(30%) scale(0.4);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(50%) translateY(30%) scale(0.4);
-    opacity: 1;
-  }
-}
-@keyframes cri-2-close-animation-mobile {
-  0% {
-    transform: translateX(50%) translateY(30%) scale(0.4);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(80%) translateY(30%) scale(0.4);
-    opacity: 1;
-  }
-}
+
 @keyframes ca-animation {
   0% {
     transform: translateX(0);
@@ -797,14 +794,7 @@ function onIntersectionElement(value) {
     transform: translateX(-110%) translateY(110%);
   }
 }
-@keyframes ca-animation-mobile {
-  0% {
-    transform: translateX(0) translateY(0%) scale(0.4);
-  }
-  100% {
-    transform: translateX(-230%) translateY(120%) scale(0.4);
-  }
-}
+
 @keyframes ca-close-animation {
   0% {
     transform: translateX(50%);
@@ -821,22 +811,7 @@ function onIntersectionElement(value) {
     transform: translateX(0) translateY(0%);
   }
 }
-@keyframes ca-close-animation-mobile {
-  0% {
-    transform: translateX(-110%) translateY(110%) scale(0.4);
-  }
-  100% {
-    transform: translateX(10%) translateY(0%) scale(0.4);
-  }
-}
-@keyframes ca-animation-mobile-2 {
-  0% {
-    transform: translateX(0) translateY(0%) scale(0.4);
-  }
-  100% {
-    transform: translateX(-230%) translateY(120%) scale(0.4);
-  }
-}
+
 @keyframes ca-2-close-animation {
   0% {
     opacity: 0;
