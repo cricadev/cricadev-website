@@ -135,22 +135,22 @@
       </div>
       <div class="home-figure">
         <p
-          class="font-thin text-center text-base_d lg:text-base_t lg:font-extralight"
+          class="font-thin text-center text-base_d lg:text-base_t lg:font-light"
         >
           I am a colombian<br />
-          <span class="italic font-normal">Web Developer</span>
+          <span class="italic font-normal lg:font-light">Web Developer</span>
         </p>
       </div>
     </div>
 
     <div class="overflow-auto wrap-desktop text-xl_t xs:text-base_m">
-      <p class="font-thin leading-tight text-left home-paragraph">
+      <p class="font-thin leading-tight text-left home-paragraph lg:font-light">
         I am proactive, I am curious and intrepid. I love to help people through
         technology. <br />
         <span class="italic font-normal">I never stop learning. </span>
       </p>
       <ul
-        class="flex flex-col gap-2 italic text-left font-extralight home-list"
+        class="flex flex-col gap-2 italic text-left font-extralight home-list lg:font-light"
       >
         <li class="item">Risk-taking</li>
         <li class="item">Innovative</li>
