@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
+    class="grid w-screen h-screen min-w-full min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
   >
     <div
       v-if="$colorMode.value === 'dark'"
@@ -205,7 +205,7 @@ function onIntersectionElement(value) {
 .home {
   place-items: center;
   @media (max-width: 1100px) {
-    grid-template-rows: 100vh 80vh;
+    grid-template-rows: 100% 80vh;
     grid-template-columns: repeat(3, 1fr);
   }
 }
