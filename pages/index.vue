@@ -215,20 +215,25 @@ function onIntersectionElement(value) {
   background-image: linear-gradient(
     180deg,
     transparent 0%,
-    rgb(246, 246, 246) 10%,
+    rgb(246, 246, 246) 20%,
+    transparent 100%
+  );
+  position: absolute;
+  bottom: -5vh;
+  transform: rotate(180deg);
+}
+.dark .box-appear {
+  width: 100vw;
+  height: 20vh;
+  background-image: linear-gradient(
+    0deg,
+    transparent 0%,
+    #00010d 20%,
     transparent 100%
   );
   position: absolute;
   bottom: -5vh;
   transform: rotate(0deg);
-}
-.dark .box-appear {
-  background-image: linear-gradient(
-    0deg,
-    transparent 0%,
-    #00010d 10%,
-    transparent 100%
-  );
 }
 .icon-appear {
   display: none;
