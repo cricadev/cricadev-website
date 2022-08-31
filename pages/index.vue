@@ -329,11 +329,11 @@ function onIntersectionElement(value) {
         transform: translateX(5%);
       }
       @media (max-width: 599px) {
-        height: 100vh;
+        height: 98vh;
         width: 100vw;
         background-size: auto 100%;
         background-position: contain;
-        transform: translateX(5%);
+        transform: translateX(0);
       }
     }
     .light-home-bg {
