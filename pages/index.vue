@@ -215,7 +215,8 @@ function onIntersectionElement(value) {
   background-image: linear-gradient(
     0deg,
     rgb(246, 246, 246) 0%,
-    rgb(246, 246, 246) 20%,
+    rgb(246, 246, 246) 10%,
+    transparent 20%,
     transparent 100%
   );
   grid-column: 1/4;
@@ -226,7 +227,9 @@ function onIntersectionElement(value) {
   background-image: linear-gradient(
     0deg,
     #00010d 0%,
-    #00010d 20%,
+    #00010d 10%,
+    transparent 20%,
+
     transparent 100%
   );
 }
