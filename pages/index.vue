@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
+    class="grid w-screen h-screen min-h-screen grid-cols-12 grid-rows-6 overflow-x-hidden home lg:grid"
   >
     <div
       v-if="$colorMode.value === 'dark'"
@@ -210,8 +210,6 @@ function onIntersectionElement(value) {
   }
 }
 .box-appear {
-  width: 100vw;
-  height: 20vh;
   background-image: linear-gradient(
     180deg,
     transparent 0%,
@@ -223,8 +221,6 @@ function onIntersectionElement(value) {
   transform: rotate(180deg);
 }
 .dark .box-appear {
-  width: 100vw;
-  height: 20vh;
   background-image: linear-gradient(
     0deg,
     transparent 0%,
