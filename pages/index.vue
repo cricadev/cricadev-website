@@ -53,7 +53,7 @@
       />
     </div>
     <div
-      class="left-0 z-10 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32"
+      class="left-0 z-10 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32 z-[999]"
     >
       <img src="../images/C.png" alt="" class="c-1 letter" />
       <img src="../images/R.png" alt="" class="r-1 letter" />
@@ -127,6 +127,7 @@
         v-if="$colorMode.value === 'light'"
         class="light-home-bg home-bg"
       ></div>
+      <div class="w-full box-appear"></div>
       <div class="line-container">
         <div class="line-1 line"></div>
         <div class="line-2 line"></div>
@@ -217,6 +218,9 @@ function onIntersectionElement(value) {
     rgb(246, 246, 246) 20%,
     transparent 100%
   );
+  grid-column: 1/4;
+  grid-row: 3/4;
+  z-index: 99;
 }
 .dark .box-appear {
   background-image: linear-gradient(
