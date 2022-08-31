@@ -26,7 +26,7 @@
       />
     </header>
     <div
-      class="fixed z-50 w-5 h-5 hover-toggle right-8 top-8"
+      class="fixed w-5 h-5 z-999 hover-toggle right-8 top-8"
       @click="handleClick"
     >
       <div class="w-5 h-[3px] menu-toggle bg-black dark:bg-white"></div>
