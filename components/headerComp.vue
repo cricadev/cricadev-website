@@ -160,6 +160,8 @@ import { Icon } from "@iconify/vue";
 function handleClick(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
   hoverToggle.classList.add("active");
+  window.scrollTo(0, document.body.scrollHeight);
+
   console.log(hoverToggle);
 }
 function linkClick(e) {
