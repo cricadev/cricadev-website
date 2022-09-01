@@ -53,7 +53,7 @@
       />
     </div>
     <div
-      class="left-0 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32 z-[999]"
+      class="left-0 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32 z-[998]"
     >
       <img src="../images/C.png" alt="" class="c-1 letter" />
       <img src="../images/R.png" alt="" class="r-1 letter" />
