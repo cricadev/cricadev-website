@@ -17,7 +17,7 @@ body {
     @apply border-2 p-2 font-bold;
   }
   .link {
-    @apply px-4  text-xl_d font-extralight transition-all lg:text-xl_t;
+    @apply px-4  text-xl_d font-extralight transition-all lg:text-xl_t lg:font-light;
     &:focus,
     &:active {
       @apply font-normal transition-all;
