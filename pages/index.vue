@@ -212,26 +212,62 @@ function onIntersectionElement(value) {
   }
 }
 .box-appear {
-  background-image: linear-gradient(
-    0deg,
-    rgb(246, 246, 246) 0%,
-    rgb(246, 246, 246) 10%,
-    transparent 20%,
-    transparent 100%
-  );
-  grid-column: 1/4;
-  grid-row: 3/4;
-  z-index: 99;
+  display: none;
+  @media (max-width: 1100px) {
+    grid-column: 1/5;
+    grid-row: 3/4;
+    z-index: 99;
+    display: block;
+    background-image: linear-gradient(
+      0deg,
+      rgb(246, 246, 246) 0%,
+      rgb(246, 246, 246) 10%,
+      transparent 20%,
+      transparent 100%
+    );
+  }
+  @media (max-width: 599px) {
+    display: block;
+    background-image: linear-gradient(
+      0deg,
+      rgb(246, 246, 246) 0%,
+      rgb(246, 246, 246) 10%,
+      transparent 20%,
+      transparent 100%
+    );
+    grid-column: 1/4;
+    grid-row: 3/4;
+    z-index: 99;
+  }
 }
 .dark .box-appear {
-  background-image: linear-gradient(
-    0deg,
-    #00010d 0%,
-    #00010d 10%,
-    transparent 20%,
+  display: none;
+  @media (max-width: 1100px) {
+    grid-column: 1/5;
+    grid-row: 3/4;
+    z-index: 99;
+    display: block;
+    background-image: linear-gradient(
+      0deg,
+      #00010d 0%,
+      #00010d 10%,
+      transparent 20%,
 
-    transparent 100%
-  );
+      transparent 100%
+    );
+  }
+  @media (max-width: 599px) {
+    display: block;
+
+    background-image: linear-gradient(
+      0deg,
+      #00010d 0%,
+      #00010d 10%,
+      transparent 20%,
+
+      transparent 100%
+    );
+  }
 }
 .icon-appear {
   display: none;
