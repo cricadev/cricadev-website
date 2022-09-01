@@ -164,7 +164,7 @@
         @on-intersection-element="onIntersectionElement"
       ></intersection-observer>
     </div>
-    <div class="icon-appear bottom-14 xs:bottom-0 z-[999]">
+    <div class="icon-appear bottom-14 xs:bottom-0 z-[998]">
       <Icon
         icon="ant-design:arrow-down-outlined"
         class="w-8 h-8 mx-auto text-center z-[999] text-green animate-bounce xs:w-6 xs:h-6"

@@ -57,7 +57,7 @@
       </nav>
 
       <div class="footer-desktop">
-        <footer class="fixed z-10 w-full bottom-8">
+        <footer class="fixed z-10 w-full bottom-16">
           <nav class="flex justify-center w-full mx-auto space-x-4 text-lg_d">
             <a
               href="https://instagram.com/cricadev"
@@ -146,7 +146,7 @@
           </nav>
         </footer>
         <p
-          class="fixed bottom-0 left-0 z-10 w-full m-0 text-center text-white bg-green2 ttext-xs_t footer"
+          class="fixed left-0 z-10 w-full m-0 text-center text-white bottom-8 bg-green2 ttext-xs_t footer"
         >
           Made with love by CricaDev 💚
         </p>
