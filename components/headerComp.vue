@@ -146,7 +146,7 @@
           </nav>
         </footer>
         <p
-          class="fixed left-0 z-10 w-full m-0 text-center text-white bottom-8 bg-green2 ttext-xs_t footer"
+          class="fixed left-0 z-10 w-full m-0 text-center text-white bottom-10 bg-green2 text-xs_t footer"
         >
           Made with love by CricaDev 💚
         </p>
@@ -160,7 +160,7 @@ import { Icon } from "@iconify/vue";
 function handleClick(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
   hoverToggle.classList.add("active");
-  window.scrollTo(0, document.body.scrollHeight);
+  //window.scrollTo(0, document.body.scrollHeight);
 
   console.log(hoverToggle);
 }
