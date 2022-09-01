@@ -167,7 +167,7 @@
     <div class="icon-appear bottom-14 xs:bottom-0 z-[998]">
       <Icon
         icon="ant-design:arrow-down-outlined"
-        class="w-8 h-8 mx-auto text-center z-[999] text-green animate-bounce xs:w-6 xs:h-6"
+        class="w-8 h-8 mx-auto text-center z-[998] text-green animate-bounce xs:w-6 xs:h-6"
         @click="scrollToBottom"
       />
     </div>

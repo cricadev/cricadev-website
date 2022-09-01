@@ -44,7 +44,7 @@
         <Icon icon="akar-icons:cross" class="relative w-6 h-6" />
       </div>
       <nav
-        class="fixed z-10 flex flex-col items-center justify-center w-full h-full space-y-24 nav-tablet"
+        class="fixed z-10 flex flex-col items-center justify-center w-full h-full space-y-16 nav-tablet"
       >
         <NuxtLink to="/" class="link" @click="linkClick">Home</NuxtLink>
         <NuxtLink to="/portfolio" class="link" @click="linkClick"
