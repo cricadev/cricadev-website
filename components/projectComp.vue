@@ -65,11 +65,10 @@ defineProps({
     width: 100%;
     z-index: 1;
   }
-  h2 {
+  .no-hover-h2 {
     grid-column: 2/4;
     grid-row: 2/4;
     z-index: 3;
-    color: #f6f6f6;
   }
   &:hover {
     & {
@@ -84,7 +83,7 @@ defineProps({
       grid-row: 1/3;
       transition: all 0.2s ease-in-out;
     }
-    h2 {
+    .no-hover-h2 {
       opacity: 0;
       transition: 0.5s ease-in-out;
     }
