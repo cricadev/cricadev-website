@@ -29,10 +29,26 @@ import { ProjectComp } from '../.nuxt/components';
       >
     </div>
     <div class="relative items-center my-64 overflow-y-scroll project-order">
-      <ProjectComp title="FinanceGod" img="../financegod.png"></ProjectComp>
-      <ProjectComp title="MathGod" img="../mathgod.png"></ProjectComp>
-      <ProjectComp title="CRICADEV" img="../cricadev-project.png"></ProjectComp>
-      <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
+      <ProjectComp
+        title="FinanceGod"
+        img="../financegod.png"
+        content="This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card..."
+      ></ProjectComp>
+      <ProjectComp
+        title="MathGod"
+        img="../mathgod.png"
+        content=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by everyone. It can answer just about any problem, from changing a..."
+      ></ProjectComp>
+      <ProjectComp
+        title="CRICADEV"
+        img="../cricadev-project.png"
+        content="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains intriguing elements like a blog and is both completely interactive and accessible. "
+      ></ProjectComp>
+      <ProjectComp
+        title="TEF"
+        img="../tef.png"
+        content="A distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully interactive, accessible website with intriguing aspects and a distinctive style."
+      ></ProjectComp>
     </div>
     <div
       class="fixed bottom-0 left-0 z-10 w-full h-12 bg-white dark:bg-black footer-mobile"
