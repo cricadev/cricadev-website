@@ -373,9 +373,9 @@ function onIntersectionElement(value) {
         transform: translateX(5%);
       }
       @media (max-width: 599px) {
-        background-size: auto 100%;
+        background-size: auto;
         background-position: cover;
-        transform: translateX(10%);
+        transform: translateX(0);
       }
     }
     .light-home-bg {
