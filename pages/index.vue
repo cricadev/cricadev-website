@@ -373,12 +373,11 @@ function onIntersectionElement(value) {
         transform: translateX(5%);
       }
       @media (max-width: 599px) {
-        height: 100vh;
-        width: 100vw;
         background-size: auto 100%;
         background-position: contain;
-        transform: translateX(5%);
+        transform: translateX(15%);
         position: absolute;
+        overflow-x: hidden;
       }
     }
     .light-home-bg {
@@ -403,7 +402,7 @@ function onIntersectionElement(value) {
         background-image: linear-gradient(
             90deg,
             #f6f6f6 0%,
-            transparent 5%,
+            transparent 40%,
             transparent 100%
           ),
           url("@/images/New1.png");
@@ -432,7 +431,7 @@ function onIntersectionElement(value) {
         background-image: linear-gradient(
             90deg,
             #00010d 0%,
-            transparent 5%,
+            transparent 40%,
             transparent 100%
           ),
           url("@/images/New2.png");
@@ -454,7 +453,7 @@ function onIntersectionElement(value) {
     }
     .line-container {
       grid-column: 2/5;
-      grid-row: 2/3;
+      grid-row: 2/4;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(5, 1fr);
       @media (max-width: 599px) {
@@ -466,16 +465,16 @@ function onIntersectionElement(value) {
         grid-column: 4/5;
         grid-row: 3/4;
         @media (max-width: 599px) {
-          grid-column: 2/3;
-          grid-row: 5/6;
+          grid-column: 3/4;
+          grid-row: 4/5;
         }
       }
       .line-2 {
         grid-column: 5/6;
         grid-row: 3/4;
         @media (max-width: 599px) {
-          grid-column: 3/4;
-          grid-row: 5/6;
+          grid-column: 4/5;
+          grid-row: 4/5;
         }
       }
       .figure-1 {
@@ -483,9 +482,9 @@ function onIntersectionElement(value) {
         grid-row: 2 / 4;
         place-self: center;
         @media (max-width: 599px) {
-          grid-column: 1/2;
-          grid-row: 4/6;
-          place-self: center end;
+          grid-column: 2/4;
+          grid-row: 3/5;
+          place-self: center;
         }
       }
       .figure-2 {
@@ -493,8 +492,8 @@ function onIntersectionElement(value) {
         grid-row: 2 / 4;
         place-self: end center;
         @media (max-width: 599px) {
-          grid-column: 2/4;
-          grid-row: 4/6;
+          grid-column: 3/5;
+          grid-row: 3/5;
           place-self: end center;
         }
       }
