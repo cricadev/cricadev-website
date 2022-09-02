@@ -69,6 +69,7 @@ defineProps({
     grid-column: 2/4;
     grid-row: 2/4;
     z-index: 3;
+    color: #f6f6f6;
   }
   &:hover {
     & {
