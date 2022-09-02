@@ -6,7 +6,7 @@
     class="grid w-4/5 h-20 grid-cols-4 grid-rows-4 project-container"
   >
     <div class="bg"></div>
-    <h2 class="font-black text-center text-base_m">{{ title }}</h2>
+    <h2 class="font-black text-center text-base_m no-hover-h2">{{ title }}</h2>
     <h2 class="font-black text-center hover-h2 text-xs_m">{{ title }}</h2>
     <p class="hover-p">{{ content }}</p>
     <img :src="img == 'none' ? '../images/coming-soon.jpg' : img" alt="" />

@@ -374,9 +374,11 @@ function onIntersectionElement(value) {
       }
       @media (max-width: 599px) {
         height: 100vh;
+        width: 100vw;
         background-size: auto 100%;
-        background-position: cover;
-        transform: translateX(0);
+        background-position: contain;
+        transform: translateX(5%);
+        position: absolute;
       }
     }
     .light-home-bg {
@@ -390,11 +392,21 @@ function onIntersectionElement(value) {
       @media (max-width: 599px) {
         background-image: linear-gradient(
             90deg,
-            transparent 0%,
+            #f6f6f6 0%,
+            #f6f6f6 10%,
+            transparent 30%,
+            transparent 100%
+          ),
+          url("@/images/New1.png");
+      }
+      @media (max-width: 499px) {
+        background-image: linear-gradient(
+            90deg,
+            #f6f6f6 0%,
             transparent 5%,
             transparent 100%
           ),
-          url("@/images/lightMode-cricadev.png");
+          url("@/images/New1.png");
       }
     }
     .dark-home-bg {
@@ -409,11 +421,21 @@ function onIntersectionElement(value) {
       @media (max-width: 599px) {
         background-image: linear-gradient(
             90deg,
-            transparent 0%,
+            #00010d 0%,
+            #00010d 10%,
+            transparent 30%,
+            transparent 100%
+          ),
+          url("@/images/New1.png");
+      }
+      @media (max-width: 499px) {
+        background-image: linear-gradient(
+            90deg,
+            #00010d 0%,
             transparent 5%,
             transparent 100%
           ),
-          url("@/images/darkMode-cricadev.png");
+          url("@/images/New1.png");
       }
     }
     .home-figure {
