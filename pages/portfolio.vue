@@ -32,22 +32,22 @@ import { ProjectComp } from '../.nuxt/components';
       <ProjectComp
         title="FinanceGod"
         img="../financegod.png"
-        content="This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card..."
+        content="This application will be your financial friend; you will be able to add all of your cards..."
       ></ProjectComp>
       <ProjectComp
         title="MathGod"
         img="../mathgod.png"
-        content=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by everyone. It can answer just about any problem, from changing a..."
+        content=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by..."
       ></ProjectComp>
       <ProjectComp
         title="CRICADEV"
         img="../cricadev-project.png"
-        content="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains intriguing elements like a blog and is both completely interactive and accessible. "
+        content="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains..."
       ></ProjectComp>
       <ProjectComp
         title="TEF"
         img="../tef.png"
-        content="A distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully interactive, accessible website with intriguing aspects and a distinctive style."
+        content="A distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully..."
       ></ProjectComp>
     </div>
     <div
@@ -88,7 +88,7 @@ function handleClickBack(e) {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
 }
 .dark .project-carousel {
   background: #00010d;

@@ -3,7 +3,7 @@
   <transition-group
     name="project-container"
     tag="div"
-    class="grid w-4/5 h-20 grid-cols-4 grid-rows-4 project-container"
+    class="grid w-10/12 h-20 grid-cols-5 grid-rows-5 project-container"
   >
     <div class="bg"></div>
     <h2 class="font-black text-center text-base_m no-hover-h2">{{ title }}</h2>
@@ -38,10 +38,12 @@ defineProps({
   place-items: center;
   .hover-p {
     opacity: 0;
-    grid-column: 1/5;
-    grid-row: 3/5;
+    grid-column: 1/6;
+    grid-row: 4/5;
+    width: 80%;
     font-size: 0.75rem;
-    place-self: end center;
+    place-self: center start;
+    padding-left: 20px;
   }
   .hover-h2 {
     opacity: 0;
@@ -50,8 +52,8 @@ defineProps({
   }
 
   .bg {
-    grid-column: 1/5;
-    grid-row: 1/5;
+    grid-column: 1/6;
+    grid-row: 1/6;
     height: 100%;
     width: 100%;
     background: transparent;
@@ -59,8 +61,8 @@ defineProps({
     z-index: 2;
   }
   img {
-    grid-column: 1/5;
-    grid-row: 1/5;
+    grid-column: 1/6;
+    grid-row: 1/6;
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -90,9 +92,11 @@ defineProps({
     }
     .hover-h2 {
       opacity: 1;
+      transition: 0.5s ease-in-out;
     }
     .hover-p {
       opacity: 1;
+      transition: 0.5s ease-in-out;
     }
   }
 }
