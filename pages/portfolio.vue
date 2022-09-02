@@ -1,9 +1,16 @@
 import { ProjectComp } from '../.nuxt/components';
 <template lang="">
   <div class="pt-16 sm-m:pt-32">
-    <h2 class="text-center uppercase tracking- text-xl_m">Projects</h2>
     <div
-      class="relative grid grid-cols-5 grid-rows-3 mt-0 text-center project-carousel"
+      class="fixed top-0 left-0 z-10 w-full h-[20vh] bg-white dark:bg-black header-mobile"
+    ></div>
+    <h2
+      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m"
+    >
+      Projects
+    </h2>
+    <div
+      class="fixed grid grid-cols-5 grid-rows-3 mt-16 text-center project-carousel"
     >
       <img
         src="../images/border-mobile.png"
@@ -21,16 +28,15 @@ import { ProjectComp } from '../.nuxt/components';
         >Challenges</span
       >
     </div>
-    <div class="flex flex-col items-center justify-center mt-8">
+    <div class="relative items-center my-48 overflow-y-scroll project-order">
       <ProjectComp title="FinanceGod" img="../financegod.png"></ProjectComp>
       <ProjectComp title="MathGod" img="../mathgod.png"></ProjectComp>
       <ProjectComp title="CRICADEV" img="../cricadev-project.png"></ProjectComp>
       <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
-      <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
-      <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
-      <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
-      <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
     </div>
+    <div
+      class="fixed bottom-0 left-0 z-10 w-full h-12 bg-white dark:bg-black footer-mobile"
+    ></div>
     <NuxtPage />
   </div>
 </template>
@@ -56,8 +62,28 @@ function handleClickBack(e) {
 }
 </script>
 <style lang="scss">
+.dark .footer-mobile {
+  filter: drop-shadow(5px -40px 27px #00010d);
+}
+.footer-mobile {
+  filter: drop-shadow(5px -40px 27px #f6f6f6);
+}
+.project-order {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+.dark .project-carousel {
+  background: #00010d;
+  filter: drop-shadow(5px 40px 27px #00010d);
+}
 .project-carousel {
   place-items: center;
+  background: #f6f6f6;
+  z-index: 20;
+  filter: drop-shadow(0px 40px 27px #f6f6f6);
+
   .app {
     place-self: start center;
     grid-column: 1/3;

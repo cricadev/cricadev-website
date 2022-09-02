@@ -18,7 +18,7 @@
       </header>
     </div>
 
-    <header class="fixed z-10 hidden mt-6 ml-8 xs:inline">
+    <header class="fixed z-20 hidden mt-6 ml-8 xs:inline">
       <img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"

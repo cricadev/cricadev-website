@@ -29,6 +29,10 @@ defineProps({
   transform: translateX(30px);
 }
 .project-container {
+  flex-grow: 1;
+  transition: 0.5s;
+  cursor: pointer;
+  place-items: center;
   .bg {
     grid-column: 1/5;
     grid-row: 1/5;
@@ -49,8 +53,13 @@ defineProps({
     grid-column: 2/4;
     grid-row: 2/4;
     z-index: 3;
+    color: #f6f6f6;
   }
   &:hover {
+    & {
+      flex-grow: 3;
+    }
+
     .bg {
       opacity: 0;
       transition: opacity 0.2s ease-in;
@@ -60,6 +69,7 @@ defineProps({
       transition: all 0.2s ease-in-out;
     }
     h2 {
+      grid-row: 1/3;
     }
   }
 }
