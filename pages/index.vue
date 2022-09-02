@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-w-full min-h-screen grid-cols-12 grid-rows-6 overflow-x-hidden home lg:grid"
+    class="grid w-screen h-screen min-w-full min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
   >
     <div
       v-if="$colorMode.value === 'dark'"
@@ -118,7 +118,7 @@
         </div>
       </div>
     </div>
-    <div class="overflow-x-hidden wrap-tablet">
+    <div class="wrap-tablet">
       <div
         v-if="$colorMode.value === 'dark'"
         class="dark-home-bg home-bg lg:block"
@@ -204,9 +204,6 @@ function onIntersectionElement(value) {
 </script>
 
 <style lang="scss" scoped>
-body {
-  overflow-x: hidden;
-}
 .home {
   place-items: center;
   @media (max-width: 1100px) {
@@ -224,7 +221,8 @@ body {
     background-image: linear-gradient(
       0deg,
       rgb(246, 246, 246) 0%,
-      transparent 40%,
+      rgb(246, 246, 246) 10%,
+      transparent 20%,
       transparent 100%
     );
   }
@@ -233,8 +231,8 @@ body {
     background-image: linear-gradient(
       0deg,
       rgb(246, 246, 246) 0%,
-
-      transparent 40%,
+      rgb(246, 246, 246) 10%,
+      transparent 20%,
       transparent 100%
     );
     grid-column: 1/4;
@@ -375,11 +373,10 @@ body {
         transform: translateX(5%);
       }
       @media (max-width: 599px) {
+        height: 100vh;
         background-size: auto 100%;
-        background-position: contain;
-        transform: translateX(15%);
-        position: absolute;
-        overflow-x: hidden;
+        background-position: cover;
+        transform: translateX(0);
       }
     }
     .light-home-bg {
@@ -393,21 +390,11 @@ body {
       @media (max-width: 599px) {
         background-image: linear-gradient(
             90deg,
-            #f6f6f6 0%,
-            #f6f6f6 10%,
-            transparent 30%,
+            transparent 0%,
+            transparent 5%,
             transparent 100%
           ),
-          url("@/images/New1.png");
-      }
-      @media (max-width: 499px) {
-        background-image: linear-gradient(
-            90deg,
-            #f6f6f6 0%,
-            transparent 40%,
-            transparent 100%
-          ),
-          url("@/images/New1.png");
+          url("@/images/lightMode-cricadev.png");
       }
     }
     .dark-home-bg {
@@ -422,21 +409,11 @@ body {
       @media (max-width: 599px) {
         background-image: linear-gradient(
             90deg,
-            #00010d 0%,
-            #00010d 10%,
-            transparent 30%,
+            transparent 0%,
+            transparent 5%,
             transparent 100%
           ),
-          url("@/images/New2.png");
-      }
-      @media (max-width: 499px) {
-        background-image: linear-gradient(
-            90deg,
-            #00010d 0%,
-            transparent 40%,
-            transparent 100%
-          ),
-          url("@/images/New2.png");
+          url("@/images/darkMode-cricadev.png");
       }
     }
     .home-figure {
@@ -455,7 +432,7 @@ body {
     }
     .line-container {
       grid-column: 2/5;
-      grid-row: 2/4;
+      grid-row: 2/3;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(5, 1fr);
       @media (max-width: 599px) {
@@ -467,16 +444,16 @@ body {
         grid-column: 4/5;
         grid-row: 3/4;
         @media (max-width: 599px) {
-          grid-column: 3/4;
-          grid-row: 4/5;
+          grid-column: 2/3;
+          grid-row: 5/6;
         }
       }
       .line-2 {
         grid-column: 5/6;
         grid-row: 3/4;
         @media (max-width: 599px) {
-          grid-column: 4/5;
-          grid-row: 4/5;
+          grid-column: 3/4;
+          grid-row: 5/6;
         }
       }
       .figure-1 {
@@ -484,9 +461,9 @@ body {
         grid-row: 2 / 4;
         place-self: center;
         @media (max-width: 599px) {
-          grid-column: 2/4;
-          grid-row: 3/5;
-          place-self: center;
+          grid-column: 1/2;
+          grid-row: 4/6;
+          place-self: center end;
         }
       }
       .figure-2 {
@@ -494,8 +471,8 @@ body {
         grid-row: 2 / 4;
         place-self: end center;
         @media (max-width: 599px) {
-          grid-column: 3/5;
-          grid-row: 3/5;
+          grid-column: 2/4;
+          grid-row: 4/6;
           place-self: end center;
         }
       }
