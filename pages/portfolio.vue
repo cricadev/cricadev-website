@@ -116,7 +116,7 @@ function handleClickBack(e) {
   grid-column: 2/5;
 }
 .link-project {
-  font-size: 11px;
+  font-size: 12px;
   color: #1f6853;
   transition: transform 0.4s ease-in-out;
 
@@ -129,7 +129,7 @@ function handleClickBack(e) {
   &.active {
     color: #5aaf98;
     text-shadow: 0 0 5px #5aaf98, 0 0 10px #5aaf98;
-    transform: scale(1.2);
+    transform: scale(1.4);
     transition: transform 0.2s ease-in-out;
   }
 }
