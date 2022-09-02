@@ -2,7 +2,7 @@ import { ProjectComp } from '../.nuxt/components';
 <template lang="">
   <div class="pt-16 sm-m:pt-32">
     <div
-      class="fixed top-0 left-0 z-10 w-full h-[20vh] bg-white dark:bg-black header-mobile"
+      class="fixed top-0 left-0 z-10 w-full h-[20vh] xs-m:h-[40vh] bg-white dark:bg-black header-mobile"
     ></div>
     <h2
       class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m"
@@ -33,6 +33,9 @@ import { ProjectComp } from '../.nuxt/components';
       <ProjectComp title="MathGod" img="../mathgod.png"></ProjectComp>
       <ProjectComp title="CRICADEV" img="../cricadev-project.png"></ProjectComp>
       <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
+      <ProjectComp title="Coming Soon..." img=""></ProjectComp>
+      <ProjectComp title="Coming Soon..." img=""></ProjectComp>
+      <ProjectComp title="Coming Soon..." img=""></ProjectComp>
     </div>
     <div
       class="fixed bottom-0 left-0 z-10 w-full h-12 bg-white dark:bg-black footer-mobile"

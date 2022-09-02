@@ -57,7 +57,7 @@ defineProps({
   }
   &:hover {
     & {
-      flex-grow: 3;
+      flex-grow: 6;
     }
 
     .bg {
