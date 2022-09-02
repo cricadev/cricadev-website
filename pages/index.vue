@@ -376,7 +376,7 @@ function onIntersectionElement(value) {
         height: 100vh;
         background-size: auto 100%;
         background-position: cover;
-        transform: translateX(0);
+        transform: translateX(0%);
       }
     }
     .light-home-bg {
@@ -394,7 +394,7 @@ function onIntersectionElement(value) {
             transparent 5%,
             transparent 100%
           ),
-          url("@/images/lightMode-cricadev.png");
+          url("@/images/light-m.png");
       }
     }
     .dark-home-bg {
@@ -413,7 +413,7 @@ function onIntersectionElement(value) {
             transparent 5%,
             transparent 100%
           ),
-          url("@/images/darkMode-cricadev.png");
+          url("@/images/dark-m.png");
       }
     }
     .home-figure {
