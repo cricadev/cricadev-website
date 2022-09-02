@@ -132,7 +132,7 @@ function handleClickBack(e) {
   grid-column: 2/5;
 }
 .link-project {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #1f6853;
   transition: transform 0.4s ease-in-out;
 

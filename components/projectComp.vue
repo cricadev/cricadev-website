@@ -36,6 +36,13 @@ defineProps({
   transition: 0.5s;
   cursor: pointer;
   place-items: center;
+  .hover-p {
+    opacity: 0;
+    grid-column: 1/5;
+    grid-row: 3/5;
+    font-size: 0.75rem;
+    place-self: end center;
+  }
   .hover-h2 {
     opacity: 0;
     grid-column: 1/2;
@@ -82,6 +89,9 @@ defineProps({
       transition: 0.5s ease-in-out;
     }
     .hover-h2 {
+      opacity: 1;
+    }
+    .hover-p {
       opacity: 1;
     }
   }
