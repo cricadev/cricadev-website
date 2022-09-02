@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-screen h-screen min-w-full min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
+    class="grid w-screen h-screen min-w-full min-h-screen grid-cols-12 grid-rows-6 overflow-x-hidden home lg:grid"
   >
     <div
       v-if="$colorMode.value === 'dark'"
@@ -118,7 +118,7 @@
         </div>
       </div>
     </div>
-    <div class="wrap-tablet">
+    <div class="overflow-x-hidden wrap-tablet">
       <div
         v-if="$colorMode.value === 'dark'"
         class="dark-home-bg home-bg lg:block"
@@ -224,8 +224,7 @@ body {
     background-image: linear-gradient(
       0deg,
       rgb(246, 246, 246) 0%,
-      rgb(246, 246, 246) 10%,
-      transparent 20%,
+      transparent 40%,
       transparent 100%
     );
   }
@@ -234,8 +233,8 @@ body {
     background-image: linear-gradient(
       0deg,
       rgb(246, 246, 246) 0%,
-      rgb(246, 246, 246) 10%,
-      transparent 20%,
+
+      transparent 40%,
       transparent 100%
     );
     grid-column: 1/4;
