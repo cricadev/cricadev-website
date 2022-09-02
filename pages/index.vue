@@ -204,6 +204,9 @@ function onIntersectionElement(value) {
 </script>
 
 <style lang="scss" scoped>
+body {
+  overflow-x: hidden;
+}
 .home {
   place-items: center;
   @media (max-width: 1100px) {
