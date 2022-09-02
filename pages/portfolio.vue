@@ -28,14 +28,11 @@ import { ProjectComp } from '../.nuxt/components';
         >Challenges</span
       >
     </div>
-    <div class="relative items-center my-48 overflow-y-scroll project-order">
+    <div class="relative items-center my-64 overflow-y-scroll project-order">
       <ProjectComp title="FinanceGod" img="../financegod.png"></ProjectComp>
       <ProjectComp title="MathGod" img="../mathgod.png"></ProjectComp>
       <ProjectComp title="CRICADEV" img="../cricadev-project.png"></ProjectComp>
       <ProjectComp title="TEF" img="../tef.png"></ProjectComp>
-      <ProjectComp title="Coming Soon..." img=""></ProjectComp>
-      <ProjectComp title="Coming Soon..." img=""></ProjectComp>
-      <ProjectComp title="Coming Soon..." img=""></ProjectComp>
     </div>
     <div
       class="fixed bottom-0 left-0 z-10 w-full h-12 bg-white dark:bg-black footer-mobile"
@@ -75,7 +72,7 @@ function handleClickBack(e) {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
 }
 .dark .project-carousel {
   background: #00010d;

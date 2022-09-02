@@ -3,11 +3,12 @@
   <transition-group
     name="project-container"
     tag="div"
-    class="grid w-4/5 grid-cols-4 grid-rows-4 project-container"
+    class="grid w-4/5 h-20 grid-cols-4 grid-rows-4 project-container"
   >
     <div class="bg"></div>
     <h2 class="font-black text-center text-base_m">{{ title }}</h2>
-    <img :src="img" alt="" />
+    <h2 class="font-black text-center hover-h2 text-xs_m">{{ title }}</h2>
+    <img :src="img == 'none' ? '../images/coming-soon.jpg' : img" alt="" />
   </transition-group>
   <!--</div>-->
 </template>
@@ -33,6 +34,12 @@ defineProps({
   transition: 0.5s;
   cursor: pointer;
   place-items: center;
+  .hover-h2 {
+    opacity: 0;
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+
   .bg {
     grid-column: 1/5;
     grid-row: 1/5;
@@ -69,7 +76,11 @@ defineProps({
       transition: all 0.2s ease-in-out;
     }
     h2 {
-      grid-row: 1/3;
+      opacity: 0;
+      transition: 0.5s ease-in-out;
+    }
+    .hover-h2 {
+      opacity: 1;
     }
   }
 }
