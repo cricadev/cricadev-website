@@ -36,6 +36,8 @@ defineProps({
   transition: 0.5s;
   cursor: pointer;
   place-items: center;
+  border-radius: 10%;
+
   .hover-p {
     opacity: 0;
     grid-column: 1/6;
