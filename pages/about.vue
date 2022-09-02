@@ -1,6 +1,6 @@
 <template lang="">
-  <div>
-    <h1>welcomo to the about</h1>
+  <div class="pt-16">
+    <h2 class="text-center uppercase text-xl_m">About me</h2>
     <NuxtPage />
   </div>
 </template>

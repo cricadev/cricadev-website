@@ -18,7 +18,7 @@
       </header>
     </div>
 
-    <header class="fixed z-10 hidden mt-4 ml-8 xs:inline">
+    <header class="fixed z-10 hidden mt-6 ml-8 xs:inline">
       <img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"
@@ -29,7 +29,7 @@
       class="fixed w-5 h-5 z-[999] hover-toggle right-8 top-8"
       @click="handleClick"
     >
-      <div class="w-5 h-[3px] menu-toggle bg-black dark:bg-white"></div>
+      <div class="w-5 h-[2px] menu-toggle bg-black dark:bg-white"></div>
     </div>
     <div
       class="fixed top-0 left-0 w-full h-screen z-[999] background overflow-y-hidden"

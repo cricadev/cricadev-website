@@ -27,6 +27,8 @@ body {
       @apply font-light  transition-all;
     }
   }
+  .link-project {
+  }
 }
 @layer utilities {
   .grid {

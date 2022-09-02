@@ -15,7 +15,7 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
      screens: {
-    
+ 
       '2xl': {'max': '1535px'},
       // => @media (max-width: 1535px) { ... }
 
@@ -25,11 +25,31 @@ module.exports = {
       'lg': {'max': '1100px'},
       // => @media (max-width: 1023px) { ... }
 
-      'md': {'max': '799px'},      // => @media (max-width: 767px) { ... }
+      'md': {'max': '799px'},
+      // => @media (max-width: 767px) { ... }
 
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
-      'xs': {'max': '599px'},'xss': {'max': '386px'},
+      'xs': {'max': '599px'},
+      'xss': {'max': '386px'},
+
+      '2xl-m': {'min': '1535px'},
+      // => @media (min-width: 1535px) { ... }
+      
+      'xl-m': {'min': '1279px'},
+      // => @media (min-width: 1279px) { ... }
+
+      'lg-m': {'min': '1100px'},
+      // => @media (min-width: 1023px) { ... }
+
+      'md-m': {'min': '799px'},
+      // => @media (min-width: 767px) { ... }
+
+      'sm-m': {'min': '639px'},
+      // => @media (min-width: 639px) { ... }
+      'xs-m': {'min': '599px'},
+      'xss-m': {'min': '386px'},
+
     },
       colors: {
         black: '#00010D',
@@ -98,6 +118,22 @@ module.exports = {
         'xs': {'max': '599px'},
         'xss': {'max': '386px'},
 
+        '2xl-m': {'min': '1535px'},
+        // => @media (min-width: 1535px) { ... }
+        
+        'xl-m': {'min': '1279px'},
+        // => @media (min-width: 1279px) { ... }
+  
+        'lg-m': {'min': '1100px'},
+        // => @media (min-width: 1023px) { ... }
+  
+        'md-m': {'min': '799px'},
+        // => @media (min-width: 767px) { ... }
+  
+        'sm-m': {'min': '639px'},
+        // => @media (min-width: 639px) { ... }
+        'xs-m': {'min': '599px'},
+        'xss-m': {'min': '386px'},
       },
       
     }

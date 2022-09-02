@@ -1,6 +1,7 @@
 <template lang="">
-  <div>
-    <h1>welcomo to the 404</h1>
+  <div class="pt-16">
+    <h2 class="text-center uppercase text-xl_m">404</h2>
+    <NuxtPage />
   </div>
 </template>
 <script>
