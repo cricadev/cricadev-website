@@ -423,10 +423,12 @@ function onIntersectionElement(value) {
       padding-right: 30px;
       @media (max-width: 599px) {
         grid-column: 2/4;
-        grid-row: 3/4;
+        grid-row: 2/3;
         padding-right: 0px;
         padding-top: 0px;
-        place-self: start center;
+        padding-bottom: 20px;
+        padding-left: 40px;
+        place-self: end center;
       }
     }
     .line-container {
@@ -443,16 +445,16 @@ function onIntersectionElement(value) {
         grid-column: 4/5;
         grid-row: 3/4;
         @media (max-width: 599px) {
-          grid-column: 2/3;
-          grid-row: 5/6;
+          grid-column: 3/4;
+          grid-row: 3/4;
         }
       }
       .line-2 {
         grid-column: 5/6;
         grid-row: 3/4;
         @media (max-width: 599px) {
-          grid-column: 3/4;
-          grid-row: 5/6;
+          grid-column: 4/5;
+          grid-row: 3/4;
         }
       }
       .figure-1 {
@@ -460,8 +462,8 @@ function onIntersectionElement(value) {
         grid-row: 2 / 4;
         place-self: center;
         @media (max-width: 599px) {
-          grid-column: 1/2;
-          grid-row: 4/6;
+          grid-column: 2/3;
+          grid-row: 2/4;
           place-self: center end;
         }
       }
@@ -470,8 +472,8 @@ function onIntersectionElement(value) {
         grid-row: 2 / 4;
         place-self: end center;
         @media (max-width: 599px) {
-          grid-column: 2/4;
-          grid-row: 4/6;
+          grid-column: 3/5;
+          grid-row: 2/4;
           place-self: end center;
         }
       }
