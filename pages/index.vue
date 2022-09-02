@@ -426,7 +426,7 @@ function onIntersectionElement(value) {
             transparent 30%,
             transparent 100%
           ),
-          url("@/images/New1.png");
+          url("@/images/New2.png");
       }
       @media (max-width: 499px) {
         background-image: linear-gradient(
@@ -435,7 +435,7 @@ function onIntersectionElement(value) {
             transparent 5%,
             transparent 100%
           ),
-          url("@/images/New1.png");
+          url("@/images/New2.png");
       }
     }
     .home-figure {
