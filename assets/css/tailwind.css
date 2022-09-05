@@ -14,7 +14,7 @@ body {
 
 @layer utilities {
   .btn {
-    @apply border-2 p-2 font-bold;
+    @apply flex items-center gap-2 px-4 py-2 font-normal bg-green2;
   }
   .link {
     @apply px-4  text-xl_d font-extralight transition-all lg:text-xl_t lg:font-light;
