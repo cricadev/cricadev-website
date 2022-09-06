@@ -10,7 +10,9 @@
       {{ title }}
     </h2>
     <h2 class="font-black text-center hover-h2 text-sm_m">{{ title }}</h2>
-    <p class="hover-p text-[0.75rem] font-light">{{ content }}</p>
+    <p class="hover-p text-[0.75rem] font-light leading-3">
+      {{ content }} <a class="block pt-1 text-green">Read more...</a>
+    </p>
     <div class="flex gap-4 text-white box-buttons">
       <a href="" class="button-1 btn"
         >Code <span><Icon name="ant-design:code-filled" /> </span
