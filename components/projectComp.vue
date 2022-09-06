@@ -19,15 +19,15 @@
         >Project <span><Icon name="carbon:view-filled" /> </span
       ></a>
     </div>
-    <div
-      class="bg-white dark:bg-black bg-hover dark:drop-bg dark-drop-bg"
-    ></div>
     <div class="flex flex-col text-black dark:text-white icons">
       <Icon name="cib:nuxt-js" class="" />
       <Icon name="akar-icons:vue-fill" class="" />
       <Icon name="bxl:tailwind-css" class="" />
     </div>
-    <img :src="img == 'none' ? '../images/coming-soon.jpg' : img" alt="" />
+    <img :src="img" alt="" />
+    <div class="dark-grad-project" v-if="$colorMode.value === 'dark'"></div>
+    <div class="grad-project" v-if="$colorMode.value === 'light'"></div>
+    <div class="bg-white dark:bg-black bg-hover"></div>
   </transition-group>
   <!--</div>-->
 </template>
@@ -55,7 +55,37 @@ defineProps({
   cursor: pointer;
   place-items: center;
   border-radius: 10%;
+  .grad-project {
+    grid-column: 1/6;
+    grid-row: 2/3;
+    background-image: linear-gradient(
+      0deg,
+      rgb(246, 246, 246) 0%,
+      rgb(246, 246, 246) 30%,
+      transparent 100%
+    );
 
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+
+    opacity: 0;
+  }
+  .dark-grad-project {
+    grid-column: 1/6;
+    grid-row: 2/3;
+    background-image: linear-gradient(
+      0deg,
+      rgb(0, 1, 13) 0%,
+      rgb(0, 1, 13) 30%,
+      transparent 100%
+    );
+
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 0;
+  }
   .bg-hover {
     opacity: 0;
     grid-column: 1/6;
@@ -77,7 +107,7 @@ defineProps({
   .icons {
     opacity: 0;
     grid-column: 5/6;
-    grid-row: 3/5;
+    grid-row: 3/4;
     place-self: start end;
     padding-top: 10px;
     padding-right: 20px;
@@ -159,6 +189,12 @@ defineProps({
       z-index: 3;
     }
     .bg-hover {
+      opacity: 1;
+    }
+    .dark-grad-project {
+      opacity: 1;
+    }
+    .grad-project {
       opacity: 1;
     }
   }
