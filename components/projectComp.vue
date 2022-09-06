@@ -108,8 +108,8 @@ defineProps({
     height: 100%;
     width: 100%;
     background: transparent;
-    backdrop-filter: blur(2px);
-    z-index: 1;
+    backdrop-filter: blur(10px);
+    z-index: 2;
   }
   img {
     grid-column: 1/6;
@@ -120,7 +120,7 @@ defineProps({
   }
   .no-hover-h2 {
     grid-column: 3/4;
-    grid-row: 3/4;
+    grid-row: 2/4;
     z-index: 3;
     color: #f6f6f6;
   }
