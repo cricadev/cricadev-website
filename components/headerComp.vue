@@ -41,7 +41,7 @@
         class="absolute w-6 h-6 left-8 top-8 z-[9999]"
         @click="handleClickBack"
       >
-        <Icon icon="akar-icons:cross" class="relative w-6 h-6" />
+        <Icon name="akar-icons:cross" class="relative w-6 h-6" />
       </div>
       <nav
         class="fixed z-10 flex flex-col items-center justify-center w-full h-full space-y-16 nav-tablet"
@@ -155,8 +155,6 @@
   </div>
 </template>
 <script setup>
-import { Icon } from "@iconify/vue";
-
 function handleClick(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
   hoverToggle.classList.add("active");

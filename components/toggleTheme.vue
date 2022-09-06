@@ -12,17 +12,15 @@
         "
       />
       <div v-if="$colorMode.value === 'light'">
-        <Icon icon="akar-icons:sun-fill" class="moon svg" />
+        <Icon name="akar-icons:sun-fill" class="moon svg" />
       </div>
       <div v-if="$colorMode.value === 'dark'">
-        <Icon icon="akar-icons:moon-fill" class="sun svg" />
+        <Icon name="akar-icons:moon-fill" class="sun svg" />
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-
 type Theme = "light" | "dark";
 
 const colorMode = useColorMode();

@@ -14,7 +14,7 @@ body {
 
 @layer utilities {
   .btn {
-    @apply flex items-center gap-2 px-4 py-2 font-normal bg-green2;
+    @apply flex items-center gap-1 px-4 py-1 font-normal bg-green2 text-[0.5rem];
   }
   .link {
     @apply px-4  text-xl_d font-extralight transition-all lg:text-xl_t lg:font-light;
@@ -28,6 +28,12 @@ body {
     }
   }
   .link-project {
+  }
+  .drop-bg {
+    filter: drop-shadow(0px -20px 10px #00010d);
+  }
+  .dark-drop-bg {
+    filter: drop-shadow(0px -10px 10px #f6f6f6);
   }
 }
 @layer utilities {

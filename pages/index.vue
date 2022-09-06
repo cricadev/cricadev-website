@@ -39,19 +39,7 @@
       <li class="item">Determined</li>
       <li class="item">Enthusiastic</li>
     </ul>
-    <div class="icon-appear-2 lg:hidden">
-      <span
-        class="absolute font-light uppercase bottom-10 text-green text-base_t xs:text-sm_m xs:font-bold lg:hidden"
-        >Click it!</span
-      >
 
-      <Icon
-        icon="akar-icons:arrow-forward"
-        :rotate="1"
-        :verticalFlip="true"
-        class="z-20 w-8 h-8 mx-auto text-center text-green xs:w-6 xs:h-6 lg:hidden"
-      />
-    </div>
     <div
       class="left-0 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32 z-[998]"
     >
@@ -166,7 +154,7 @@
     </div>
     <div class="icon-appear bottom-14 xs:bottom-0 z-[998]">
       <Icon
-        icon="ant-design:arrow-down-outlined"
+        name="ant-design:arrow-down-outlined"
         class="w-8 h-8 mx-auto text-center z-[998] text-green animate-bounce xs:w-6 xs:h-6"
         @click="scrollToBottom"
       />
@@ -178,7 +166,6 @@
 
 <script setup>
 import IntersectionObserver from "@/components/IntersectionObserver.vue";
-import { Icon } from "@iconify/vue";
 const scrollToBottom = () => {
   window.scrollTo(0, document.body.scrollHeight);
   console.log("clicked");
