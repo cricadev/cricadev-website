@@ -16,9 +16,5 @@
     "nuxt-icon": "^0.1.2",
     "sass": "^1.54.5",
     "sass-loader": "^10.3.1"
-  },
-  "dependencies": {
-    "@luxdamore/vue-cursor-fx": "^1.6.2",
-    "vue-final-modal": "^3.4.4"
   }
 }
