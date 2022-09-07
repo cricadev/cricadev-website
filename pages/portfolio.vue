@@ -74,7 +74,6 @@ function handleClick(e) {
 function handleClickBack(e) {
   const link = document.querySelector(".link-project");
   hoverToggle.classList.remove("active");
-  console.log(hoverToggle);
 }
 </script>
 <style lang="scss">

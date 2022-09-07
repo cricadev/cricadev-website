@@ -159,8 +159,6 @@ function handleClick(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
   hoverToggle.classList.add("active");
   //window.scrollTo(0, document.body.scrollHeight);
-
-  console.log(hoverToggle);
 }
 function linkClick(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
@@ -169,7 +167,6 @@ function linkClick(e) {
 function handleClickBack(e) {
   const hoverToggle = document.querySelector(".hover-toggle");
   hoverToggle.classList.remove("active");
-  console.log(hoverToggle);
 }
 </script>
 <style lang="scss">

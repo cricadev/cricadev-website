@@ -1,19 +1,18 @@
 <template lang="">
-  <!--<div class="grid w-3/4 grid-cols-4 grid-rows-4 project-container">-->
-  <transition-group
-    name="project-container"
-    tag="div"
-    class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 project-container"
-  >
+  <div class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 project-container">
     <div class="bg"></div>
+
     <h2 class="font-black text-center text-base_m no-hover-h2">
       {{ title }}
     </h2>
     <h2 class="font-black text-center hover-h2 text-sm_m">{{ title }}</h2>
     <p class="hover-p text-[0.75rem] font-light leading-3">
       {{ content }}
-      <a class="block pt-1 font-normal text-green">Read more...</a>
+      <a class="block pt-1 font-normal text-green" @click="openModal"
+        >Read more...</a
+      >
     </p>
+
     <div class="flex gap-4 text-white box-buttons">
       <a href="" class="button-1 btn"
         >Code <span><Icon name="ant-design:code-filled" /> </span
@@ -31,7 +30,22 @@
     <div class="dark-grad-project" v-if="$colorMode.value === 'dark'"></div>
     <div class="grad-project" v-if="$colorMode.value === 'light'"></div>
     <div class="bg-white dark:bg-black bg-hover"></div>
-  </transition-group>
+    <div
+      class="grid items-center modal dark:bg-black/20 bg-white/20"
+      @click="closeModalOutside"
+    >
+      <div class="absolute top-0 right-0 opacity-0 span">{{ content }}</div>
+      <div class="absolute w-full bg-white dark:bg-black h-3/4">
+        <div class="absolute w-6 h-6 left-8 top-8 z-[9999]" @click="closeModal">
+          <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
+        </div>
+        <h2>{{ title }}</h2>
+        <p>
+          {{ content }}
+        </p>
+      </div>
+    </div>
+  </div>
   <!--</div>-->
 </template>
 <script setup>
@@ -40,18 +54,54 @@ defineProps({
   img: String,
   content: String,
 });
+function openModal(e) {
+  const modal = document.querySelectorAll(".modal");
+  const target = e.currentTarget.previousSibling.textContent;
+
+  modal.forEach((item) => {
+    if (item.firstChild.firstChild.textContent.length === target.length - 1) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+}
+function closeModal(e) {
+  const modal = document.querySelectorAll(".modal");
+  modal.forEach((item) => {
+    item.classList.remove("active");
+  });
+}
+function closeModalOutside(e) {
+  const modal = document.querySelectorAll(".modal");
+  if (e.currentTarget === e.target) {
+    modal.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+}
 </script>
 <style lang="scss">
-.project-container-enter-active,
-.project-container-leave-active {
-  transition: all 0.5s ease;
-  opacity: 0;
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0%);
+  transition: all 0.2s ease-in-out;
 }
-.project-container-enter-from,
-.project-container-leave-to {
+.modal {
+  transition: all 0.5s ease-in-out;
+
+  transform: translateY(100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
   opacity: 0;
-  transform: translateX(30px);
+  pointer-events: none;
 }
+
 .project-container {
   flex-grow: 1;
   transition: 0.5s;

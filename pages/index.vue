@@ -168,17 +168,14 @@
 import IntersectionObserver from "@/components/IntersectionObserver.vue";
 const scrollToBottom = () => {
   window.scrollTo(0, document.body.scrollHeight);
-  console.log("clicked");
 };
 const isIntersectingElement = ref(false);
 function onIntersectionElement(value) {
-  console.log(value, "intersected");
   const cricadev = document.querySelector(".cricadev-logo");
   const icon = document.querySelector(".icon-appear");
   const cricadevMobile = document.querySelector(".cricadev-mobile");
   if (value === true) {
-    console.log(cricadev);
-    console.log(cricadevMobile);
+  
     cricadev.classList.add("cricadev-logo-open");
     icon.classList.add("icon-close");
     cricadevMobile.classList.add("cricadev-logo-open");
