@@ -1,5 +1,3 @@
-import { ProjectComp } from '../.nuxt/components'; import CursorFx from
-'@luxdamore/vue-cursor-fx';
 <template lang="">
   <div class="pt-16 sm-m:pt-32">
     <div
