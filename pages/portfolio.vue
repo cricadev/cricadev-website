@@ -32,21 +32,25 @@
         title="FinanceGod"
         img="../financegod.png"
         content="This application will be your financial friend; you will be able to add all of your cards..."
+        square="../finacegod-square.png"
       ></ProjectComp>
       <ProjectComp
         title="MathGod"
         img="../mathgod.png"
         content=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by..."
+        square="../mathgod-square.png"
       ></ProjectComp>
       <ProjectComp
         title="CRICADEV"
         img="../cricadev-project.png"
         content="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains..."
+        square="../cricadev-square.png"
       ></ProjectComp>
       <ProjectComp
         title="TEF"
         img="../tef.png"
         content="A distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully..."
+        square="../tef-square.png"
       ></ProjectComp>
     </div>
     <div

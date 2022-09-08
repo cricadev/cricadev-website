@@ -31,18 +31,26 @@
     <div class="grad-project" v-if="$colorMode.value === 'light'"></div>
     <div class="bg-white dark:bg-black bg-hover"></div>
     <div
-      class="grid items-center modal dark:bg-black/20 bg-white/20"
+      class="grid items-center justify-center modal dark:bg-black/20 bg-white/20 place-items-center"
       @click="closeModalOutside"
     >
       <div class="absolute top-0 right-0 opacity-0 span">{{ content }}</div>
-      <div class="absolute w-full bg-white dark:bg-black h-3/4">
+      <div
+        class="absolute grid w-5/6 grid-flow-col grid-cols-2 grid-rows-5 bg-white dark:bg-black h-3/4"
+      >
         <div class="absolute w-6 h-6 left-8 top-8 z-[9999]" @click="closeModal">
           <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
         </div>
+        <img :src="square" alt="" class="bg-modal" />
         <h2>{{ title }}</h2>
         <p>
           {{ content }}
         </p>
+        <div class="flex flex-col text-black dark:text-white icons">
+          <Icon name="cib:nuxt-js" class="" />
+          <Icon name="akar-icons:vue-fill" class="" />
+          <Icon name="bxl:tailwind-css" class="" />
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +61,7 @@ defineProps({
   title: String,
   img: String,
   content: String,
+  square: String,
 });
 function openModal(e) {
   const modal = document.querySelectorAll(".modal");
@@ -80,8 +89,13 @@ function closeModalOutside(e) {
     });
   }
 }
+function consolelog(e) {
+  console.log(e);
+}
 </script>
 <style lang="scss">
+.bg-modal {
+}
 .modal.active {
   opacity: 1;
   pointer-events: all;
