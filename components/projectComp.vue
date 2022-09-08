@@ -26,7 +26,7 @@
       <Icon name="akar-icons:vue-fill" class="" />
       <Icon name="bxl:tailwind-css" class="" />
     </div>
-    <img :src="img" alt="" />
+    <img :src="img" alt="" class="bg-project" />
     <div class="dark-grad-project" v-if="$colorMode.value === 'dark'"></div>
     <div class="grad-project" v-if="$colorMode.value === 'light'"></div>
     <div class="bg-white dark:bg-black bg-hover"></div>
@@ -34,22 +34,35 @@
       class="grid items-center justify-center modal dark:bg-black/20 bg-white/20 place-items-center"
       @click="closeModalOutside"
     >
-      <div class="absolute top-0 right-0 opacity-0 span">{{ content }}</div>
+      <div class="absolute top-0 right-0 opacity-0 span">{{ title }}</div>
       <div
-        class="relative grid w-11/12 grid-flow-col grid-cols-2 grid-rows-5 bg-white dark:bg-black h-3/4"
+        class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content"
       >
         <div class="absolute w-6 h-6 left-8 top-8 z-[9999]" @click="closeModal">
           <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
         </div>
         <img :src="square" alt="" class="bg-modal" />
-        <h2>{{ title }}</h2>
-        <p>
-          {{ content }}
+        <h2 class="font-black text-base_m">{{ title }}</h2>
+        <p class="font-medium text-[0.75rem] leading-4 px-8">
+          {{ content2 }}
         </p>
-        <div class="flex flex-col text-black dark:text-white icons">
+        <span class="made font-medium text-[0.75rem] leading-3">Made with</span>
+
+        <div
+          class="flex flex-row space-x-4 text-black dark:text-white icons-modal"
+        >
           <Icon name="cib:nuxt-js" class="" />
           <Icon name="akar-icons:vue-fill" class="" />
           <Icon name="bxl:tailwind-css" class="" />
+        </div>
+
+        <div class="flex gap-4 text-white box-buttons-modal text-xs_m">
+          <a href="" class="button-1 btn"
+            >Code <span><Icon name="ant-design:code-filled" size="12" /> </span
+          ></a>
+          <a href="" class="button-2 btn"
+            >Project <span><Icon name="carbon:view-filled" size="12" /> </span
+          ></a>
         </div>
       </div>
     </div>
@@ -62,13 +75,15 @@ defineProps({
   img: String,
   content: String,
   square: String,
+  content2: String,
 });
 function openModal(e) {
   const modal = document.querySelectorAll(".modal");
-  const target = e.currentTarget.previousSibling.textContent;
+  const target = e.currentTarget.parentElement.previousSibling.innerText;
 
   modal.forEach((item) => {
-    if (item.firstChild.firstChild.textContent.length === target.length - 1) {
+    //    console.log(item.firstChild.firstChild.data == target);
+    if (item.firstChild.firstChild.data == target) {
       item.classList.add("active");
     } else {
       item.classList.remove("active");
@@ -94,8 +109,64 @@ function consolelog(e) {
 }
 </script>
 <style lang="scss">
-.bg-modal {
+.modal-content {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(6, 1fr);
+  grid-auto-flow: column;
+  place-self: center;
+  place-items: center;
+  .bg-modal {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    width: 100%;
+    height: 100%;
+  }
+  h2 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    place-self: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+  }
+  .made {
+    grid-column: 1/2;
+    grid-row: 5/7;
+    place-self: center;
+  }
+  .icons-modal {
+    grid-column: 1/2;
+    grid-row: 5/7;
+    padding-top: 50px;
+  }
+  .box-buttons-modal {
+    grid-column: 1/2;
+    grid-row: 6/7;
+    place-self: center;
+    padding-top: 40px;
+    .btn {
+      font-size: 0.75rem;
+      font-weight: 300;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        padding-bottom: 2px;
+      }
+    }
+  }
+  p {
+    grid-column: 1/2;
+    grid-row: 4/6;
+    padding-top: 20px;
+  }
 }
+
 .modal.active {
   opacity: 1;
   pointer-events: all;
@@ -208,7 +279,7 @@ function consolelog(e) {
     backdrop-filter: blur(10px);
     z-index: 2;
   }
-  img {
+  .bg-project {
     grid-column: 1/6;
     grid-row: 1/5;
     height: 100%;
@@ -230,7 +301,7 @@ function consolelog(e) {
       opacity: 0;
       transition: opacity 0.2s ease-in;
     }
-    img {
+    .bg-project {
       grid-row: 1/3;
       transition: all 0.2s ease-in-out;
     }

@@ -33,24 +33,28 @@
         img="../financegod.png"
         content="This application will be your financial friend; you will be able to add all of your cards..."
         square="../finacegod-square.png"
+        content2="This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card, receive money through the application and then transfer it to one of your preferred cards later on, or make payments via PSE with our application; enjoy your financial independence with this all-in-one application."
       ></ProjectComp>
       <ProjectComp
         title="MathGod"
         img="../mathgod.png"
         content=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by..."
         square="../mathgod-square.png"
+        content2=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by everyone. It can answer just about any problem, from changing a currency to resolving issues with photographs using our API."
       ></ProjectComp>
       <ProjectComp
         title="CRICADEV"
         img="../cricadev-project.png"
         content="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains..."
         square="../cricadev-square.png"
+        content2="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains intriguing elements like a blog and is both completely interactive and accessible."
       ></ProjectComp>
       <ProjectComp
         title="TEF"
         img="../tef.png"
         content="A distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully..."
         square="../tef-square.png"
+        content2="a distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully interactive, accessible website with intriguing aspects and a distinctive style."
       ></ProjectComp>
     </div>
     <div
