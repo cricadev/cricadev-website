@@ -36,7 +36,7 @@
     >
       <div class="absolute top-0 right-0 opacity-0 span">{{ content }}</div>
       <div
-        class="absolute grid w-5/6 grid-flow-col grid-cols-2 grid-rows-5 bg-white dark:bg-black h-3/4"
+        class="relative grid w-11/12 grid-flow-col grid-cols-2 grid-rows-5 bg-white dark:bg-black h-3/4"
       >
         <div class="absolute w-6 h-6 left-8 top-8 z-[9999]" @click="closeModal">
           <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
