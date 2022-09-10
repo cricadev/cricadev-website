@@ -31,14 +31,17 @@
     <div class="grad-project" v-if="$colorMode.value === 'light'"></div>
     <div class="bg-white dark:bg-black bg-hover"></div>
     <div
-      class="grid items-center justify-center modal dark:bg-black/20 bg-white/20 place-items-center"
+      class="grid items-center justify-center modal dark:bg-black/80 bg-white/80 place-items-center"
       @click="closeModalOutside"
     >
       <div class="absolute top-0 right-0 opacity-0 span">{{ title }}</div>
       <div
         class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content"
       >
-        <div class="absolute w-6 h-6 left-8 top-8 z-[9999]" @click="closeModal">
+        <div
+          class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white"
+          @click="closeModal"
+        >
           <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
         </div>
         <img :src="square" alt="" class="bg-modal" />
@@ -116,6 +119,9 @@ function consolelog(e) {
   grid-auto-flow: column;
   place-self: center;
   place-items: center;
+  @media (max-height: 780px) {
+    height: 90%;
+  }
   .bg-modal {
     grid-column: 1/2;
     grid-row: 1/4;
