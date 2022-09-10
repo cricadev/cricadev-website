@@ -4,7 +4,7 @@
       class="fixed top-0 left-0 z-10 w-full h-[20vh] xs-m:h-[40vh] bg-white dark:bg-black header-mobile"
     ></div>
     <h2
-      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m"
+      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title"
     >
       Projects
     </h2>
@@ -14,7 +14,7 @@
       <img
         src="../images/border-mobile.png"
         alt=""
-        class="w-full image-border"
+        class="w-full image-border xs-m:w-3/4 lg-m:w-1/2"
       />
 
       <span class="link-project app" @click="handleClick">Apps</span
@@ -109,7 +109,17 @@ function handleClickBack(e) {
   background: #f6f6f6;
   z-index: 20;
   filter: drop-shadow(0px 40px 27px #f6f6f6);
-
+  width: 100%;
+  @media (min-width: 1100px) {
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  img {
+    @media (min-width: 1100px) {
+      width: 50%;
+    }
+  }
   .app {
     place-self: start center;
     grid-column: 1/3;
@@ -145,6 +155,9 @@ function handleClickBack(e) {
   font-size: 0.75rem;
   color: #1f6853;
   transition: transform 0.4s ease-in-out;
+  @media (min-width: 599px) {
+    font-size: 1rem;
+  }
 
   &:hover {
     color: #5aaf98;

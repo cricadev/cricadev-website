@@ -1,19 +1,25 @@
 <template lang="">
-  <div class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 project-container">
+  <div
+    class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 project-container xs-m:w-8/12"
+  >
     <div class="bg"></div>
 
-    <h2 class="font-black text-center text-base_m no-hover-h2">
+    <h2 class="font-black text-center text-base_m no-hover-h2 xs-m:text-xl2_t">
       {{ title }}
     </h2>
-    <h2 class="font-black text-center hover-h2 text-sm_m">{{ title }}</h2>
-    <p class="hover-p text-[0.75rem] font-light leading-3">
+    <h2 class="font-black text-center hover-h2 text-sm_m xs-m:text-lg_m">
+      {{ title }}
+    </h2>
+    <p
+      class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5"
+    >
       {{ content }}
       <a class="block pt-1 font-normal text-green" @click="openModal"
         >Read more...</a
       >
     </p>
 
-    <div class="flex gap-4 text-white box-buttons">
+    <div class="flex gap-4 text-white box-buttons xs-m:text-xs_t">
       <a href="" class="button-1 btn"
         >Code <span><Icon name="ant-design:code-filled" /> </span
       ></a>
@@ -22,9 +28,9 @@
       ></a>
     </div>
     <div class="flex flex-col text-black dark:text-white icons">
-      <Icon name="cib:nuxt-js" class="" />
-      <Icon name="akar-icons:vue-fill" class="" />
-      <Icon name="bxl:tailwind-css" class="" />
+      <Icon name="cib:nuxt-js" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+      <Icon name="akar-icons:vue-fill" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+      <Icon name="bxl:tailwind-css" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
     </div>
     <img :src="img" alt="" class="bg-project" />
     <div class="dark-grad-project" v-if="$colorMode.value === 'dark'"></div>
@@ -45,26 +51,32 @@
           <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
         </div>
         <img :src="square" alt="" class="bg-modal" />
-        <h2 class="font-black text-base_m">{{ title }}</h2>
-        <p class="font-medium text-[0.75rem] leading-4 px-8">
+        <h2 class="font-black text-base_m xs-m:text-xl2_t">{{ title }}</h2>
+        <p
+          class="font-medium text-[0.75rem] leading-4 px-8 xs-m:text-xs_t xs-m:leading-5 xs-m:px-20"
+        >
           {{ content2 }}
         </p>
-        <span class="made font-medium text-[0.75rem] leading-3">Made with</span>
+        <span class="made font-medium text-[0.75rem] leading-3 xs-m:text-sm_m"
+          >Made with</span
+        >
 
         <div
           class="flex flex-row space-x-4 text-black dark:text-white icons-modal"
         >
-          <Icon name="cib:nuxt-js" class="" />
-          <Icon name="akar-icons:vue-fill" class="" />
-          <Icon name="bxl:tailwind-css" class="" />
+          <Icon name="cib:nuxt-js" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+          <Icon name="akar-icons:vue-fill" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+          <Icon name="bxl:tailwind-css" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
         </div>
 
-        <div class="flex gap-4 text-white box-buttons-modal text-xs_m">
+        <div
+          class="flex gap-4 text-white box-buttons-modal text-xs_m xs-m:text-sm_m"
+        >
           <a href="" class="button-1 btn"
-            >Code <span><Icon name="ant-design:code-filled" size="12" /> </span
+            >Code <span><Icon name="ant-design:code-filled" size="16" /> </span
           ></a>
           <a href="" class="button-2 btn"
-            >Project <span><Icon name="carbon:view-filled" size="12" /> </span
+            >Project <span><Icon name="carbon:view-filled" size="16" /> </span
           ></a>
         </div>
       </div>
@@ -146,14 +158,18 @@ function consolelog(e) {
     grid-column: 1/2;
     grid-row: 5/7;
     padding-top: 50px;
+    @media (min-width: 599px) {
+      padding-top: 70px;
+    }
   }
   .box-buttons-modal {
     grid-column: 1/2;
     grid-row: 6/7;
     place-self: center;
     padding-top: 40px;
+
     .btn {
-      font-size: 0.75rem;
+      font-size: 0.52rem !important;
       font-weight: 300;
     }
     a {
@@ -244,6 +260,12 @@ function consolelog(e) {
     grid-column: 1/6;
     grid-row: 4/5;
     opacity: 0;
+    .btn {
+      font-size: 0.5rem;
+      @media (min-width: 599px) {
+        font-size: 0.813rem;
+      }
+    }
   }
   .btn {
     border-radius: 20px;

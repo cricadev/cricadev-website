@@ -9,7 +9,7 @@
         <NuxtLink to="/about" class="link">About me</NuxtLink>
         <NuxtLink to="/blog" class="link">Blog</NuxtLink>
       </nav>
-      <header class="fixed z-10 flex justify-center w-full mx-auto top-16">
+      <header class="fixed z-20 flex justify-center w-full mx-auto top-16">
         <img
           src="../images/logo-logo-cricadev.png"
           alt="CricaDev"
