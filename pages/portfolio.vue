@@ -96,6 +96,9 @@ function handleClickBack(e) {
   flex-direction: column;
   width: 100%;
   height: 70vh;
+  @media (max-height: 780px) {
+    height: 90vh;
+  }
 }
 .dark .project-carousel {
   background: #00010d;
