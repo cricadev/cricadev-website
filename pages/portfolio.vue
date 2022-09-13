@@ -99,6 +99,9 @@ function handleClickBack(e) {
   @media (max-height: 780px) {
     height: 90vh;
   }
+  @media (min-width: 1100px) {
+    margin-top: 20%;
+  }
 }
 .dark .project-carousel {
   background: #00010d;

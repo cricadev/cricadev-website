@@ -131,6 +131,9 @@ function consolelog(e) {
   grid-auto-flow: column;
   place-self: center;
   place-items: center;
+  @media (min-width: 1100px) {
+    width: 40%;
+  }
   @media (max-height: 780px) {
     height: 90%;
   }
@@ -162,6 +165,7 @@ function consolelog(e) {
       padding-top: 70px;
     }
   }
+
   .box-buttons-modal {
     grid-column: 1/2;
     grid-row: 6/7;
@@ -231,6 +235,16 @@ function consolelog(e) {
     z-index: 2;
 
     opacity: 0;
+    @media (min-width: 1100px) {
+      background-image: linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 80%,
+        rgb(246, 246, 246) 100%
+      );
+      grid-column: 3/4;
+      grid-row: 1/5;
+    }
   }
   .dark-grad-project {
     grid-column: 1/6;
@@ -246,6 +260,16 @@ function consolelog(e) {
     width: 100%;
     z-index: 2;
     opacity: 0;
+    @media (min-width: 1100px) {
+      background-image: linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 80%,
+        rgb(0, 1, 13) 100%
+      );
+      grid-column: 3/4;
+      grid-row: 1/5;
+    }
   }
   .bg-hover {
     opacity: 0;
@@ -256,15 +280,27 @@ function consolelog(e) {
     width: 100%;
 
     z-index: 2;
+    @media (min-width: 1100px) {
+      grid-column: 4/6;
+      grid-row: 1/5;
+    }
   }
   .box-buttons {
     grid-column: 1/6;
     grid-row: 4/5;
     opacity: 0;
+    @media (min-width: 1100px) {
+      grid-column: 1/4;
+    }
     .btn {
       font-size: 0.5rem;
+      font-weight: 300;
+
       @media (min-width: 599px) {
         font-size: 0.813rem;
+      }
+      @media (min-width: 1100px) {
+        font-size: 1rem;
       }
     }
   }
@@ -279,6 +315,10 @@ function consolelog(e) {
     padding-top: 10px;
     padding-right: 20px;
     z-index: 3;
+    @media (min-width: 1100px) {
+      grid-row: 1/4;
+      place-self: center end;
+    }
   }
   .hover-h2 {
     opacity: 0;
@@ -287,6 +327,11 @@ function consolelog(e) {
     padding-left: 25px;
     place-self: start;
     z-index: 3;
+    @media (min-width: 1100px) {
+      grid-column: 4/6;
+      grid-row: 1/2;
+      place-self: center start;
+    }
   }
   .hover-p {
     opacity: 0;
@@ -297,6 +342,10 @@ function consolelog(e) {
     padding-bottom: 20px;
     padding-left: 25px;
     z-index: 3;
+    @media (min-width: 1100px) {
+      grid-column: 4/6;
+      grid-row: 2/5;
+    }
   }
 
   .bg {
@@ -325,6 +374,9 @@ function consolelog(e) {
     box-shadow: 0px 0px 21px 14px rgba(90, 175, 152, 0.6);
     & {
       flex-grow: 6;
+      @media (min-width: 1100px) {
+        flex-grow: 1;
+      }
     }
 
     .bg {
@@ -334,6 +386,10 @@ function consolelog(e) {
     .bg-project {
       grid-row: 1/3;
       transition: all 0.2s ease-in-out;
+      @media (min-width: 1100px) {
+        grid-row: 1/5;
+        grid-column: 1/4;
+      }
     }
     .no-hover-h2 {
       opacity: 0;
