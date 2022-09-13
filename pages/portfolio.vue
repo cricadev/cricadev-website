@@ -27,7 +27,9 @@
         >Challenges</span
       >
     </div>
-    <div class="relative items-center my-64 overflow-y-scroll project-order">
+    <div
+      class="relative items-center my-64 space-y-4 overflow-y-scroll project-order"
+    >
       <ProjectComp
         title="FinanceGod"
         img="../financegod.png"

@@ -1,17 +1,21 @@
 <template lang="">
   <div
-    class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 project-container xs-m:w-8/12"
+    class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 my-1 project-container xs-m:w-8/12"
   >
     <div class="bg"></div>
 
-    <h2 class="font-black text-center text-base_m no-hover-h2 xs-m:text-xl2_t">
+    <h2
+      class="font-black text-center text-base_m no-hover-h2 xs-m:text-xl2_t lg-m:text-xl2_d"
+    >
       {{ title }}
     </h2>
-    <h2 class="font-black text-center hover-h2 text-sm_m xs-m:text-lg_m">
+    <h2
+      class="font-black text-center hover-h2 text-sm_m xs-m:text-lg_m lg-m:text-lg_d"
+    >
       {{ title }}
     </h2>
     <p
-      class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5"
+      class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5 lg-m:text-xs_d"
     >
       {{ content }}
       <a class="block pt-1 font-normal text-green" @click="openModal"
@@ -218,7 +222,8 @@ function consolelog(e) {
   transition: 0.5s;
   cursor: pointer;
   place-items: center;
-  border-radius: 10%;
+  border-radius: 20px;
+  overflow: hidden;
 
   .grad-project {
     grid-column: 1/6;
@@ -371,7 +376,7 @@ function consolelog(e) {
     color: #f6f6f6;
   }
   &:hover {
-    box-shadow: 0px 0px 21px 14px rgba(90, 175, 152, 0.6);
+    box-shadow: 0px 0px 21px 4px rgba(90, 175, 152, 0.6);
     & {
       flex-grow: 6;
       @media (min-width: 1100px) {
