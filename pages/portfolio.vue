@@ -9,7 +9,7 @@
       Projects
     </h2>
     <div
-      class="fixed grid grid-cols-5 grid-rows-3 mt-16 text-center project-carousel"
+      class="fixed grid grid-cols-5 grid-rows-3 mt-16 text-center project-carousel lg-m:mt-32"
     >
       <img
         src="../images/border-mobile.png"

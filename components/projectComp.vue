@@ -215,6 +215,7 @@ function consolelog(e) {
   cursor: pointer;
   place-items: center;
   border-radius: 10%;
+
   .grad-project {
     grid-column: 1/6;
     grid-row: 2/3;
@@ -304,7 +305,7 @@ function consolelog(e) {
     height: 100%;
     width: 100%;
     background: transparent;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) brightness(80%);
     z-index: 2;
   }
   .bg-project {
@@ -321,6 +322,7 @@ function consolelog(e) {
     color: #f6f6f6;
   }
   &:hover {
+    box-shadow: 0px 0px 21px 14px rgba(90, 175, 152, 0.6);
     & {
       flex-grow: 6;
     }
