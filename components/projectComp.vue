@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 my-1 project-container xs-m:w-8/12"
+    class="grid w-10/12 h-20 grid-cols-5 grid-rows-4 project-container xs-m:w-8/12"
   >
     <div class="bg"></div>
 
@@ -128,6 +128,12 @@ function consolelog(e) {
 }
 </script>
 <style lang="scss">
+.project-container:first-of-type {
+  margin-top: 20px;
+}
+.project-container:last-of-type {
+  margin-bottom: 20px;
+}
 .modal-content {
   display: grid;
   grid-template-columns: 100%;

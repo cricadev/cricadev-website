@@ -28,7 +28,7 @@
       >
     </div>
     <div
-      class="relative items-center my-64 space-y-4 overflow-y-scroll project-order"
+      class="relative items-center my-64 space-y-2 overflow-y-scroll project-order lg-m:space-y-4"
     >
       <ProjectComp
         title="FinanceGod"
