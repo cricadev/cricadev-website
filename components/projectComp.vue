@@ -23,7 +23,7 @@
       >
     </p>
 
-    <div class="flex gap-4 text-white box-buttons xs-m:text-xs_t">
+    <div class="flex gap-4 mb-4 text-white box-buttons xs-m:text-xs_t">
       <a href="" class="button-1 btn"
         >Code <span><Icon name="ant-design:code-filled" /> </span
       ></a>
@@ -131,8 +131,8 @@ function consolelog(e) {
 .project-container:first-of-type {
   margin-top: 20px;
 }
-.project-container:last-of-type {
-  margin-bottom: 20px;
+.project-container:last-child {
+  margin-bottom: 20px !important;
 }
 .modal-content {
   display: grid;
@@ -228,7 +228,7 @@ function consolelog(e) {
   transition: 0.5s;
   cursor: pointer;
   place-items: center;
-  border-radius: 20px;
+  border-radius: 1 0px;
   overflow: hidden;
 
   .grad-project {
