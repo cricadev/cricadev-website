@@ -228,7 +228,7 @@ function consolelog(e) {
   transition: 0.5s;
   cursor: pointer;
   place-items: center;
-  border-radius: 1 0px;
+  border-radius: 10px;
   overflow: hidden;
 
   .grad-project {
