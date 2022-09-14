@@ -100,7 +100,7 @@
 <script>
 export default {};
 </script>
-<style lang="css">
+<style lang="css" scoped>
 .footer {
   margin: 0 !important;
   text-align: center !important;

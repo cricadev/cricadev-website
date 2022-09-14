@@ -169,9 +169,7 @@ function handleClickBack(e) {
   hoverToggle.classList.remove("active");
 }
 </script>
-<style lang="scss">
-.wrap-desktop {
-}
+<style lang="scss" scoped>
 .wrap-tablet-header {
   display: none;
   @media (max-width: 599px) {

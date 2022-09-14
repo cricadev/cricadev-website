@@ -86,7 +86,7 @@ function handleClickBack(e) {
   hoverToggle.classList.remove("active");
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .dark .footer-mobile {
   filter: drop-shadow(5px -40px 27px #00010d);
 }

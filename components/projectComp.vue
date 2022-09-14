@@ -127,7 +127,7 @@ function consolelog(e) {
   console.log(e);
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .project-container:first-of-type {
   margin-top: 20px;
 }
