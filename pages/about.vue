@@ -104,15 +104,172 @@
       </div>
     </div>
 
+    <div class="tech">
+      <div class="working">
+        <h3 class="italic font-extrabold tracking-wider text-lg_m">Working</h3>
+        <div class="icons">
+          <div class="option">
+            <Icon name="logos:sass" />
+            <span>Sass</span>
+          </div>
+          <div class="option">
+            <Icon name="vscode-icons:file-type-vite" />
+            <span>Vite</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:npm" />
+            <span>NPM</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:git-icon" />
+            <span>Git</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:github-octocat" />
+            <span>Github</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:javascript" />
+            <span>Javascript</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:vue" />
+            <span>VUE</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:nuxt-icon" />
+            <span>Nuxt</span>
+          </div>
+        </div>
+      </div>
+      <div class="learning">
+        <h3 class="italic font-extrabold tracking-wider text-lg_m">Learning</h3>
+        <div class="icons">
+          <div class="option">
+            <Icon name="logos:react" />
+            <span>React</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:react" />
+            <span>React</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:react" />
+            <span>React</span>
+          </div>
+          <div class="option">
+            <Icon name="logos:react" />
+            <span>React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content z-[9999]"></div>
+    <div class="content z-[9999]"></div>
     <NuxtPage />
   </div>
 </template>
+
 <script setup>
+import { onMounted } from "vue";
 useHead({
   title: "CricaDev | About me",
+  script: [
+    {
+      src: "https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js",
+      body: true,
+    },
+  ],
 });
+const myTags = [
+  "JavaScript",
+  "CSS",
+  "HTML",
+  "C",
+  "C++",
+  "React",
+  "Python",
+  "Java",
+  "git",
+  "django",
+  "Node.js",
+  "OpenCV",
+  "GCP",
+  "MySQL",
+  "jQuery",
+];
+onMounted(() => {
+  let tagCloud = TagCloud(".content", myTags, {
+    // radius in px
+    radius: 250,
+
+    // animation speed
+    // slow, normal, fast
+    maxSpeed: "fast",
+    initSpeed: "fast",
+
+    // 0 = top
+    // 90 = left
+    // 135 = right-bottom
+    direction: 135,
+
+    // interact with cursor move on mouse out
+    keep: true,
+  });
+});
+
+//To change the color of text randomly
+
+// Giving color to each text in sphere
 </script>
 <style lang="scss" scoped>
+.tagcloud {
+  font-size: 16px;
+}
+
+.tagcloud--item {
+  padding: 2px 4px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.tagcloud--item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid #333;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  opacity: 1 !important;
+  z-index: 100 !important;
+  color: red !important;
+}
+
+.light .tagcloud--item {
+  color: #fff;
+}
+
+.light .tagcloud--item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+}
+.tech {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 80%;
+  top: 0;
+  right: 0;
+  align-items: center;
+  .option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .about-container {
   display: grid;
   grid-template-rows: repeat(8, minmax(10px, 1fr));
@@ -121,6 +278,7 @@ useHead({
   place-items: center;
   height: 100vh;
   width: 100%;
+
   @media (min-width: 386px) {
     grid-template-columns: 20% 80%;
   }
@@ -169,6 +327,11 @@ useHead({
     grid-column: 1/2;
     place-self: center;
     transition: 0.4s all ease-in-out;
+    /*
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url("https://s3.amazonaws.com/usefulangle/news/95-5f6cc1ad5575e.jpg");*/
   }
 
   .about-link {
