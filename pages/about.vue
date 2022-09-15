@@ -216,6 +216,20 @@ onMounted(() => {
     // interact with cursor move on mouse out
     keep: true,
   });
+  function clickEventHandler(e) {
+    if (e.target.className === "tagcloud--item") {
+      window.open(
+        `https://www.google.com/search?q=${e.target.innerText}`,
+        "_blank"
+      );
+    }
+  }
+  let rootEl = document.querySelectorAll(".content");
+  rootEl.forEach((item) => {
+    item.addEventListener("", clickEventHandler);
+
+    item.addEventListener("click", clickEventHandler);
+  });
 });
 
 //To change the color of text randomly
