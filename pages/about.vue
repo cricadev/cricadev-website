@@ -3,9 +3,6 @@
     <div
       class="pt-20 pb-8 ml-6 font-black text-left text-xl3_m xss-m:text-xl4_m about-container"
     >
-      <h3 class="absolute top-16 text-base_m">Working</h3>
-      <span class="content text-xs_m"></span>
-
       <span class="letter c1">C </span>
       <span class="about-link link-01">urious</span>
 
@@ -105,6 +102,8 @@
           eighth one will show up: you'll think well of yourself.
         </p>
       </div>
+      <h3 class="absolute top-16 text-base_m">Working</h3>
+      <span class="content text-xs_m"></span>
     </div>
 
     <div class="tech">
@@ -349,6 +348,18 @@ onBeforeMount(async () => {
   .c1,
   .link-01 {
     grid-row: 1/2;
+  }
+  .c1,
+  .r,
+  .i,
+  .c2,
+  .a,
+  .d,
+  .e,
+  .v {
+    &:hover ~ .content {
+      opacity: 0;
+    }
   }
   .c1 {
     &:hover ~ .meaning-01,
