@@ -123,9 +123,6 @@ function closeModalOutside(e) {
     });
   }
 }
-function consolelog(e) {
-  console.log(e);
-}
 </script>
 <style lang="scss" scoped>
 .project-container:first-of-type {

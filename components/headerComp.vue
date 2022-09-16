@@ -6,7 +6,7 @@
       >
         <NuxtLink to="/" class="link">Home</NuxtLink>
         <NuxtLink to="/portfolio" class="link">Portfolio</NuxtLink>
-        <NuxtLink to="/about" class="link">About me</NuxtLink>
+        <a href="/about" class="link">About me</a>
         <NuxtLink to="/blog" class="link">Blog</NuxtLink>
       </nav>
       <header class="fixed z-20 flex justify-center w-full mx-auto top-16">

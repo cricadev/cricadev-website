@@ -164,14 +164,16 @@
         </div>
       </div>
     </div>
-    <div class="content z-[9999]"></div>
-    <div class="content z-[9999]"></div>
+    <span class="content"></span>
+    <span class="content"></span>
+
     <NuxtPage />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onBeforeMount } from "vue";
+
 useHead({
   title: "CricaDev | About me",
   script: [
@@ -181,25 +183,10 @@ useHead({
     },
   ],
 });
-const myTags = [
-  "JavaScript",
-  "CSS",
-  "HTML",
-  "C",
-  "C++",
-  "React",
-  "Python",
-  "Java",
-  "git",
-  "django",
-  "Node.js",
-  "OpenCV",
-  "GCP",
-  "MySQL",
-  "jQuery",
-];
-onMounted(() => {
-  let tagCloud = TagCloud(".content", myTags, {
+const myTags = ["JAVASCRIPT", "CSS", "HTML", "GIT", "GITHUB"];
+
+onBeforeMount(async () => {
+  var tagCloud = TagCloud(".content", myTags, {
     // radius in px
     radius: 250,
 
@@ -216,19 +203,25 @@ onMounted(() => {
     // interact with cursor move on mouse out
     keep: true,
   });
-  function clickEventHandler(e) {
+  function mouseOverHandler(e) {
     if (e.target.className === "tagcloud--item") {
-      window.open(
-        `https://www.google.com/search?q=${e.target.innerText}`,
-        "_blank"
-      );
+      if (!e.target.classList.contains("done")) {
+        if (e.target.lastChild.nodeValue === "JAVASCRIPT") {
+          e.target.insertAdjacentHTML(
+            "afterbegin",
+            `<svg style="padding:10px;"  width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M0 0h24v24H0V0Zm18.347 20.12c-1.113 0-1.742-.58-2.225-1.37l-1.833 1.065c.662 1.308 2.015 2.306 4.11 2.306c2.142 0 3.737-1.112 3.737-3.143c0-1.883-1.082-2.72-2.998-3.543l-.564-.241c-.968-.42-1.387-.693-1.387-1.37c0-.547.42-.966 1.08-.966c.647 0 1.064.273 1.451.966l1.756-1.127c-.743-1.307-1.773-1.806-3.207-1.806c-2.014 0-3.303 1.288-3.303 2.98c0 1.835 1.08 2.704 2.708 3.397l.564.242c1.029.45 1.642.724 1.642 1.497c0 .646-.597 1.113-1.531 1.113Zm-8.74-.015c-.775 0-1.098-.53-1.452-1.16l-1.836 1.112c.532 1.126 1.578 2.06 3.383 2.06c1.999 0 3.368-1.063 3.368-3.398v-7.7h-2.255v7.67c0 1.127-.468 1.416-1.209 1.416Z" clip-rule="evenodd"/></svg>`
+          );
+        }
+        if (e.target.lastChild.nodeValue === "JAVASCRIPT") {
+        }
+        e.target.classList.add("done");
+      }
     }
   }
+
   let rootEl = document.querySelectorAll(".content");
   rootEl.forEach((item) => {
-    item.addEventListener("", clickEventHandler);
-
-    item.addEventListener("click", clickEventHandler);
+    item.addEventListener("mouseover", mouseOverHandler);
   });
 });
 
@@ -237,35 +230,22 @@ onMounted(() => {
 // Giving color to each text in sphere
 </script>
 <style lang="scss" scoped>
+.logo {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
+.addImage {
+  background-image: url("../images/ambitious.png");
+}
 .tagcloud {
-  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 650;
+  margin-left: 30%;
 }
-
-.tagcloud--item {
-  padding: 2px 4px;
-  background-color: transparent;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-
 .tagcloud--item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid #333;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  opacity: 1 !important;
-  z-index: 100 !important;
-  color: red !important;
-}
-
-.light .tagcloud--item {
-  color: #fff;
-}
-
-.light .tagcloud--item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #fff;
+  color: #36454f;
 }
 .tech {
   display: flex;
