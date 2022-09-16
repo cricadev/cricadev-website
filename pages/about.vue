@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="">
+  <div class="overflow-x-hidden">
     <div
       class="pt-20 pb-8 ml-6 font-black text-left text-xl3_m xss-m:text-xl4_m about-container"
     >
@@ -107,14 +107,14 @@
       >
         Working
       </h3>
-      <span class="content text-xs_m"></span>
+      <span class="overflow-x-hidden content text-xs_m"></span>
       <h3
         class="absolute left-1/2 top-1/2 translate-x-[-30%] translate-y-[40%] text-base_m tech-titles"
       >
         Learning
       </h3>
 
-      <span class="content1 text-xs_m"></span>
+      <span class="overflow-x-hidden content1 text-xs_m"></span>
     </div>
     <!-- <div class="tech">
       <div class="working">
