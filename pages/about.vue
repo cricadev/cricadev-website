@@ -1,7 +1,7 @@
 <template lang="">
   <div class="overflow-x-hidden overflow-y-hidden">
     <div
-      class="pt-20 pb-8 ml-6 font-black text-left text-xl3_m xss-m:text-xl4_m about-container"
+      class="pt-20 pb-8 ml-6 font-black text-left text-xl3_m xss-m:text-xl4_m about-container lg-m:text-[12.5rem] 2xl-m:text-xl6_d lg-m:ml-0"
     >
       <span class="letter c1">C </span>
       <span class="about-link link-01">urious</span>
@@ -103,7 +103,7 @@
         </p>
       </div>
       <h3
-        class="absolute left-1/2 top-[10%] translate-x-[-30%] text-base_m tech-titles"
+        class="absolute left-1/2 top-[10%] translate-x-[-30%] text-base_m tech-titles tech-1 lg-m:relative"
       >
         Working
       </h3>
@@ -111,7 +111,7 @@
         class="overflow-x-hidden overflow-y-hidden content text-xs_m xs-m:text-sm_m"
       ></span>
       <h3
-        class="absolute left-1/2 top-1/2 translate-x-[-30%] translate-y-[40%] text-base_m tech-titles"
+        class="absolute left-1/2 top-1/2 translate-x-[-30%] translate-y-[40%] text-base_m tech-titles tech-2 lg-m:relative"
       >
         Learning
       </h3>
@@ -377,6 +377,40 @@ onBeforeMount(async () => {
     rootEl1.style.marginRight = "100px";
     rootEl1.addEventListener("mouseover", mouseOverHandler);
   } else if (window.innerWidth > 1100) {
+    var tagCloud = TagCloud(".content", myTags, {
+      maxSpeed: "fast",
+      initSpeed: "fast",
+      direction: 135,
+      keep: true,
+      radius: 250,
+    });
+
+    let rootEl = document.querySelector(".content");
+    rootEl.style.gridRow = "2/3";
+    rootEl.style.gridColumn = "2/5";
+    rootEl.style.height = "100%";
+    rootEl.style.width = "100%";
+    rootEl.style.display = "grid";
+    rootEl.style.placeItems = "center";
+
+    rootEl.addEventListener("mouseover", mouseOverHandler);
+
+    var tagCloud1 = TagCloud(".content1", myTags1, {
+      maxSpeed: "fast",
+      initSpeed: "fast",
+      direction: 135,
+      keep: true,
+      radius: 200,
+    });
+
+    let rootEl1 = document.querySelector(".content1");
+    rootEl1.style.gridRow = "2/3";
+    rootEl1.style.gridColumn = "5/8";
+    rootEl1.style.height = "100%";
+    rootEl1.style.width = "100%";
+    rootEl1.style.display = "grid";
+    rootEl1.style.placeItems = "center";
+    rootEl1.addEventListener("mouseover", mouseOverHandler);
   }
 });
 
@@ -433,7 +467,34 @@ onBeforeMount(async () => {
   @media (min-width: 386px) {
     grid-template-columns: 20% 80%;
   }
-
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(8, minmax(10px, 1fr));
+    grid-template-rows: 30% 70%;
+  }
+  .tech-titles {
+    @media (min-width: 1100px) {
+      position: relative;
+      place-self: start center;
+      top: 0;
+      left: 0;
+    }
+  }
+  .tech-1 {
+    grid-row: 2/3;
+    grid-column: 1/4;
+  }
+  .tech-1 {
+    @media (min-width: 1100px) {
+      grid-row: 2/3;
+      grid-column: 2/5;
+    }
+  }
+  .tech-2 {
+    @media (min-width: 1100px) {
+      grid-row: 2/3;
+      grid-column: 5/8;
+    }
+  }
   .meaning-container {
     grid-column: 2/3;
     width: 80%;
@@ -504,10 +565,7 @@ onBeforeMount(async () => {
   .tech-titles {
     transition: all 0.4s ease-in-out;
   }
-  .c1,
-  .link-01 {
-    grid-row: 1/2;
-  }
+
   .c1,
   .r,
   .i,
@@ -579,33 +637,68 @@ onBeforeMount(async () => {
       transition: 0.2s all ease-in-out;
     }
   }
+  .c1,
+  .link-01 {
+    grid-row: 1/2;
+    @media (min-width: 1100px) {
+      grid-column: 1/2;
+    }
+  }
   .r,
   .link-02 {
     grid-row: 2/3;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 2/3;
+    }
   }
   .i,
   .link-03 {
     grid-row: 3/4;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 3/4;
+    }
   }
   .c2,
   .link-04 {
     grid-row: 4/5;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 4/5;
+    }
   }
   .a,
   .link-05 {
     grid-row: 5/6;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 5/6;
+    }
   }
   .d,
   .link-06 {
     grid-row: 6/7;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 6/7;
+    }
   }
   .e,
   .link-07 {
     grid-row: 7/8;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 7/8;
+    }
   }
   .v,
   .link-08 {
     grid-row: 8/9;
+    @media (min-width: 1100px) {
+      grid-row: 1/2;
+      grid-column: 8/9;
+    }
   }
 }
 </style>
