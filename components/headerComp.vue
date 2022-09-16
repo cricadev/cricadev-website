@@ -50,9 +50,7 @@
         <NuxtLink to="/portfolio" class="link" @click="linkClick"
           >Portfolio</NuxtLink
         >
-        <NuxtLink to="/about" class="link" @click="linkClick"
-          >About me</NuxtLink
-        >
+        <a href="/about" class="link" @click="linkClick">About me</a>
         <NuxtLink to="/blog" class="link" @click="linkClick">Blog</NuxtLink>
       </nav>
 
