@@ -436,25 +436,7 @@ onBeforeMount(async () => {
 .tagcloud--item:hover {
   color: #36454f;
 }
-/*.link-03
-.tech {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  justify-content: space-evenly;
-  height: 100vh;
-  width: 80%;
-  top: 0;
-  right: 0;
-  align-items: center;
-  .option {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-*/
+
 .about-container {
   display: grid;
   grid-template-rows: repeat(8, minmax(10px, 1fr));
@@ -463,7 +445,9 @@ onBeforeMount(async () => {
   place-items: center;
   height: 100vh;
   width: 100%;
-
+  @media (max-height: 850px) {
+    font-size: 10.5rem;
+  }
   @media (min-width: 386px) {
     grid-template-columns: 20% 80%;
   }
@@ -478,6 +462,8 @@ onBeforeMount(async () => {
       place-self: start center;
       top: 0;
       left: 0;
+      font-style: italic;
+      letter-spacing: 0.1rem;
     }
   }
   .tech-1 {
@@ -507,13 +493,15 @@ onBeforeMount(async () => {
     p {
       padding-top: 20px;
       line-height: 1;
+      @media (max-height: 850px) {
+        font-size: 1.25rem;
+      }
     }
   }
 
   .meaning-01 {
     grid-row: 2/7;
     @media (min-width: 1100px) {
-      padding-top: 50px;
       width: 80%;
       grid-column: 2/6;
       grid-row: 2/3;
@@ -568,6 +556,10 @@ onBeforeMount(async () => {
     place-self: center start;
     opacity: 0;
     transition: 0.4s all ease-in-out;
+    letter-spacing: -0.2em;
+    @media (max-height: 850px) {
+      font-size: 3.75rem;
+    }
   }
   .content,
   .content1,
