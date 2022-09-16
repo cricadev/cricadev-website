@@ -14,7 +14,7 @@ body {
 
 @layer utilities {
   .about-link {
-    @apply italic font-light text-xl_m xss-m:text-xl2_m uppercase  text-left relative;
+    @apply italic font-light text-xl_m xss-m:text-xl2_m uppercase  text-left relative lg-m:text-xl4_d;
   }
   .btn {
     @apply flex items-center gap-1 px-4 py-1 font-normal bg-green2;

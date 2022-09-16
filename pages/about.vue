@@ -8,7 +8,7 @@
 
       <div class="meaning-container meaning-01">
         <img src="../images/curious.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Without questions, without interest, and without this curiosity, none
           of what we are would be possible. I am curious because I like to learn
           something new every day, and it keeps me from getting bored and keeps
@@ -21,7 +21,7 @@
       <span class="about-link link-02">isk-taking</span>
       <div class="meaning-container meaning-02">
         <img src="../images/risktaking.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           The ability to take risks is one of my favorite traits because it is
           what got me to where I am today. If I had stayed in school instead of
           choosing the self-taught route, I would not have achieved these
@@ -34,7 +34,7 @@
       <span class="about-link link-03">nnovative</span>
       <div class="meaning-container meaning-03">
         <img src="../images/innovative.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Innovation promotes development, new idea adoption, and overcoming
           change's obstacles. We must always innovate in order to compete in the
           modern world because if we don't, we stagnate.
@@ -45,7 +45,7 @@
       <span class="about-link link-04">reative</span>
       <div class="meaning-container meaning-04">
         <img src="../images/creative.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Our capacity for creativity enables us to approach issues in novel and
           open-minded ways. Working with code gives us the flexibility to come
           up with original ideas, create, and go above and beyond what the
@@ -58,7 +58,7 @@
       <span class="about-link link-05">mbitious</span>
       <div class="meaning-container meaning-05">
         <img src="../images/ambitious.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           To create a goal and pursue it normally takes a lot of effort and
           labor, but ambition may keep us motivated and will be crucial to
           achieving what we want. Ambition is a key component in getting what we
@@ -70,7 +70,7 @@
       <span class="about-link link-06">etermined</span>
       <div class="meaning-container meaning-06">
         <img src="../images/determined.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Determination is crucial because it enables us to persevere in the
           face of challenges. We are motivated to move forward fearlessly
           because we want to succeed. Although there are many challenges in
@@ -82,7 +82,7 @@
       <span class="about-link link-07">nthusistic</span>
       <div class="meaning-container meaning-07">
         <img src="../images/enthusiastic.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Numerous advantages come from being enthusiastic, including increased
           productivity, safety, the ability to inspire others by being so
           upbeat, and the finest benefit of all: wonderful peace at the end of
@@ -94,7 +94,7 @@
       <span class="about-link link-08">aluable</span>
       <div class="meaning-container meaning-08">
         <img src="../images/valuable.png" alt="" />
-        <p class="font-light text-sm_m">
+        <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           There is much more to you than what you possess that gives you value
           and a purpose; you were born with both. We all have a purpose, and if
           we still don't know what it is, we need to go out and search for it.
@@ -471,6 +471,7 @@ onBeforeMount(async () => {
     grid-template-columns: repeat(8, minmax(10px, 1fr));
     grid-template-rows: 30% 70%;
   }
+
   .tech-titles {
     @media (min-width: 1100px) {
       position: relative;
@@ -508,8 +509,16 @@ onBeforeMount(async () => {
       line-height: 1;
     }
   }
+
   .meaning-01 {
     grid-row: 2/7;
+    @media (min-width: 1100px) {
+      padding-top: 50px;
+      width: 80%;
+      grid-column: 2/6;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-02 {
     grid-row: 3/7;
@@ -698,6 +707,15 @@ onBeforeMount(async () => {
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 8/9;
+    }
+  }
+  .link-01 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 1/2;
+      grid-row: 2/3;
+      place-self: start center;
     }
   }
 }
