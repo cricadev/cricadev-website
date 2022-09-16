@@ -318,6 +318,8 @@ onBeforeMount(async () => {
     rootEl.style.width = "100%";
     rootEl.style.display = "grid";
     rootEl.style.placeItems = "center";
+    rootEl.style.marginRight = "30px";
+
     rootEl.addEventListener("mouseover", mouseOverHandler);
 
     var tagCloud1 = TagCloud(".content1", myTags1, {
@@ -334,6 +336,8 @@ onBeforeMount(async () => {
     rootEl1.style.width = "100%";
     rootEl1.style.display = "grid";
     rootEl1.style.placeItems = "center";
+    rootEl1.style.marginRight = "30px";
+
     rootEl1.addEventListener("mouseover", mouseOverHandler);
   } else if (window.innerWidth < 1100 && window.innerWidth > 600) {
     var tagCloud = TagCloud(".content", myTags, {
