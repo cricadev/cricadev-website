@@ -832,51 +832,87 @@ onBeforeMount(async () => {
   background-image: url("../images/I-bg.png");
 
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #f6f6f6;
+  }
 }
 .i {
   background-image: url("../images/I-bg-dark.png");
 
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #00010d;
+  }
 }
 .dark .c2 {
   background-image: url("../images/c-bg.png");
 
   color: transparent;
+  @media (min-width: 1100px) {
+    background-image: url("../images/c-bg-desktop.png");
+  }
 }
 .c2 {
   background-image: url("../images/c-bg-dark.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    background-image: url("../images/c-bg-dark-desktop.png");
+  }
 }
 .dark .a {
   background-image: url("../images/a-bg.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    background-image: url("../images/a-bg-desktop.png");
+  }
 }
 .a {
   background-image: url("../images/a-bg-dark.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    background-image: url("../images/a-bg-dark-desktop.png");
+  }
 }
 .dark .d {
   background-image: url("../images/d-bg.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #f6f6f6;
+  }
 }
 .d {
   background-image: url("../images/d-bg-dark.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #00010d;
+  }
 }
 .dark .e {
   background-image: url("../images/e-bg.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #f6f6f6;
+  }
 }
 .e {
   background-image: url("../images/e-bg-dark.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #00010d;
+  }
 }
 .dark .v {
   background-image: url("../images/v-bg.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #f6f6f6;
+  }
 }
 .v {
   background-image: url("../images/v-bg-dark.png");
   color: transparent;
+  @media (min-width: 1100px) {
+    color: #00010d;
+  }
 }
 </style>
