@@ -103,7 +103,7 @@
         </p>
       </div>
       <h3
-        class="absolute left-1/2 top-[10%] translate-x-[-30%] text-base_m tech-titles tech-1 lg-m:relative"
+        class="absolute left-1/2 top-[10%] translate-x-[-30%] text-base_m tech-titles tech-1 lg-m:relative italic"
       >
         Working
       </h3>
@@ -111,7 +111,7 @@
         class="overflow-x-hidden overflow-y-hidden content text-xs_m xs-m:text-sm_m"
       ></span>
       <h3
-        class="absolute left-1/2 top-1/2 translate-x-[-30%] translate-y-[40%] text-base_m tech-titles tech-2 lg-m:relative"
+        class="absolute left-1/2 top-1/2 translate-x-[-30%] translate-y-[40%] text-base_m tech-titles tech-2 lg-m:relative italic"
       >
         Learning
       </h3>
@@ -445,7 +445,7 @@ onBeforeMount(async () => {
   place-items: center;
   height: 100vh;
   width: 100%;
-  @media (max-height: 850px) {
+  @media (max-height: 850px) and (min-width: 1100px) {
     font-size: 10.5rem;
   }
   @media (min-width: 386px) {
@@ -493,7 +493,7 @@ onBeforeMount(async () => {
     p {
       padding-top: 20px;
       line-height: 1;
-      @media (max-height: 850px) {
+      @media (max-height: 850px) and (min-width: 1100px) {
         font-size: 1.25rem;
       }
     }
@@ -503,33 +503,75 @@ onBeforeMount(async () => {
     grid-row: 2/7;
     @media (min-width: 1100px) {
       width: 80%;
-      grid-column: 2/6;
+      grid-column: 2/5;
       grid-row: 2/3;
       place-self: start center;
     }
   }
   .meaning-02 {
     grid-row: 3/7;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 3/6;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-03 {
     grid-row: 4/7;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 4/7;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-04 {
     grid-row: 5/7;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 5/8;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-05 {
     grid-row: 1/5;
     place-self: end start;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 2/5;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-06 {
     grid-row: 2/7;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 3/6;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-07 {
     grid-row: 3/8;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 4/7;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .meaning-08 {
     grid-row: 3/8;
     place-self: end start;
+    @media (min-width: 1100px) {
+      width: 80%;
+      grid-column: 5/8;
+      grid-row: 2/3;
+      place-self: start center;
+    }
   }
   .letter {
     cursor: pointer;
@@ -557,8 +599,12 @@ onBeforeMount(async () => {
     opacity: 0;
     transition: 0.4s all ease-in-out;
     letter-spacing: -0.2em;
-    @media (max-height: 850px) {
-      font-size: 3.75rem;
+
+    @media (max-height: 900px) and (min-width: 1100px) {
+      font-size: 2.75rem;
+    }
+    @media (max-height: 2000px) and (min-width: 1100px) {
+      font-size: 3.25rem;
     }
   }
   .content,
@@ -706,6 +752,71 @@ onBeforeMount(async () => {
       writing-mode: vertical-rl;
       text-orientation: upright;
       grid-column: 1/2;
+      grid-row: 2/3;
+      place-self: start center;
+    }
+  }
+  .link-02 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 2/3;
+      grid-row: 2/3;
+      place-self: start center;
+      font-size: 2.75rem;
+    }
+  }
+  .link-03 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 3/4;
+      grid-row: 2/3;
+      place-self: start center;
+    }
+  }
+  .link-04 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 4/5;
+      grid-row: 2/3;
+      place-self: start center;
+    }
+  }
+  .link-05 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 5/6;
+      grid-row: 2/3;
+      place-self: start center;
+    }
+  }
+  .link-06 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 6/7;
+      grid-row: 2/3;
+      place-self: start center;
+    }
+  }
+  .link-07 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 7/8;
+      grid-row: 2/3;
+      place-self: start center;
+      font-size: 2.75rem;
+    }
+  }
+  .link-08 {
+    @media (min-width: 1100px) {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      grid-column: 8/9;
       grid-row: 2/3;
       place-self: start center;
     }
