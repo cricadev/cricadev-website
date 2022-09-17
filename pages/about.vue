@@ -446,6 +446,7 @@ onBeforeMount(async () => {
   height: 100vh;
   width: 100%;
   gap: 20px;
+
   @media (max-height: 850px) and (min-width: 1100px) {
     font-size: 10.5rem;
   }
@@ -586,11 +587,12 @@ onBeforeMount(async () => {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
-    /*
-    background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
-    background-image: url("https://s3.amazonaws.com/usefulangle/news/95-5f6cc1ad5575e.jpg");*/
+
+    background-clip: text;
+    object-fit: center;
+    background-size: contain;
+    background-position: center;
   }
 
   .about-link {
@@ -599,8 +601,9 @@ onBeforeMount(async () => {
     place-self: center start;
     opacity: 0;
     transition: 0.4s all ease-in-out;
-    letter-spacing: -0.2em;
-
+    @media (min-width: 1100px) {
+      letter-spacing: -0.2em;
+    }
     @media (max-height: 900px) and (min-width: 1100px) {
       font-size: 2.75rem;
     }
@@ -629,6 +632,7 @@ onBeforeMount(async () => {
       transition: all 0.2s ease-in-out;
     }
   }
+
   .c1 {
     &:hover ~ .meaning-01,
     &:hover ~ .link-01 {
@@ -822,5 +826,57 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+}
+
+.dark .i {
+  background-image: url("../images/I-bg.png");
+
+  color: transparent;
+}
+.i {
+  background-image: url("../images/I-bg-dark.png");
+
+  color: transparent;
+}
+.dark .c2 {
+  background-image: url("../images/c-bg.png");
+
+  color: transparent;
+}
+.c2 {
+  background-image: url("../images/c-bg-dark.png");
+  color: transparent;
+}
+.dark .a {
+  background-image: url("../images/a-bg.png");
+  color: transparent;
+}
+.a {
+  background-image: url("../images/a-bg-dark.png");
+  color: transparent;
+}
+.dark .d {
+  background-image: url("../images/d-bg.png");
+  color: transparent;
+}
+.d {
+  background-image: url("../images/d-bg-dark.png");
+  color: transparent;
+}
+.dark .e {
+  background-image: url("../images/e-bg.png");
+  color: transparent;
+}
+.e {
+  background-image: url("../images/e-bg-dark.png");
+  color: transparent;
+}
+.dark .v {
+  background-image: url("../images/v-bg.png");
+  color: transparent;
+}
+.v {
+  background-image: url("../images/v-bg-dark.png");
+  color: transparent;
 }
 </style>
