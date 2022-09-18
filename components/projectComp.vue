@@ -375,6 +375,7 @@ function closeModalOutside(e) {
     height: 100%;
     width: 100%;
     z-index: 1;
+    object-fit: cover;
   }
   .no-hover-h2 {
     grid-column: 3/4;
