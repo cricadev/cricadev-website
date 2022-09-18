@@ -354,6 +354,10 @@ function closeModalOutside(e) {
       grid-column: 4/6;
       grid-row: 2/5;
     }
+    @media (max-height: 850px) and (max-width: 600px) {
+      padding-left: 25px;
+      padding-top: 10px;
+    }
   }
 
   .bg {
@@ -419,6 +423,10 @@ function closeModalOutside(e) {
       opacity: 1;
       transition: 0.5s all ease-in-out;
       z-index: 3;
+      @media (max-height: 850px) and (max-width: 600px) {
+        margin: 0;
+        padding-top: 20px;
+      }
     }
     .bg-hover {
       opacity: 1;
