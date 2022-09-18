@@ -2,7 +2,7 @@ import { BlogComp } from '../.nuxt/components';
 <template lang="">
   <div class="px-10 pt-16">
     <div
-      class="fixed top-0 left-0 z-10 bg-white dark:bg-black bg-header-blog h-[10vh] w-full"
+      class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog"
     ></div>
     <h2 class="tracking-widest text-center uppercase text-xl_m">Cricablog</h2>
     <p class="italic font-bold tracking-widest text-center">
@@ -19,7 +19,7 @@ import { BlogComp } from '../.nuxt/components';
       date="18 Sep, 2022"
       Duration="18"
     ></BlogComp>
-    <div class="blogs-order">
+    <div class="pb-4 blogs-order">
       <p class="pt-4 font-medium text-sm_m">All Blogs</p>
       <BlogComp
         title="Self-education: how it save my life"
