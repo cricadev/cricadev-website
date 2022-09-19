@@ -36,7 +36,7 @@ defineProps({
   content: String,
   Avatar: String,
   Author: String,
-  Duration: Number,
+  Duration: String,
   date: String,
 });
 </script>

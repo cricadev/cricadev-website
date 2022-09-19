@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-icon",
     "@kevinmarrec/nuxt-pwa",
+    "@nuxtjs/prismic",
   ],
   pwa: {
     manifest: {
@@ -25,5 +26,9 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: "",
+  },
+  prismic: {
+    endpoint: "https://cricadev.prismic.io/api/v2",
+    linkResolver: "~/prismicLinkResolver.js",
   },
 });

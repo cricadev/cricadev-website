@@ -57,23 +57,17 @@ import { BlogComp } from '../.nuxt/components';
         Duration="18"
       ></BlogComp>
     </div>
+    <prismic-text :field="document.data.title" />
 
     <NuxtPage />
   </div>
 </template>
-<script>
+<script setup>
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-
-export default {
-  name: "App",
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-  },
-};
+const { client } = usePrismic();
+const document = await client.getSingle("blog_homepage");
+console.log(document);
 </script>
 <style lang="scss">
 .dark .carousel__prev,
