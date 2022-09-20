@@ -9,6 +9,7 @@
   "devDependencies": {
     "@iconify/vue": "^3.2.1",
     "@kevinmarrec/nuxt-pwa": "^0.4.2",
+    "@nuxt/content": "^2.1.1",
     "@nuxtjs/color-mode": "^3.1.4",
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/tailwindcss": "^5.3.1",
