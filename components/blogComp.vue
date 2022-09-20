@@ -1,9 +1,10 @@
 <template>
   <div class="">
-    <div
+    <NuxtLink
       class="my-4 blog-container"
       v-for="blogPost in blogPostList"
       :key="blogPost.path"
+      :to="blogPost._path"
     >
       <h2
         class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
@@ -32,27 +33,17 @@
           <span class="mr-1">
             <Icon name="ant-design:read-outlined" size="15" />
           </span>
-          {{ Duration }}Min
+          {{ blogPost.duration }}Min
         </span>
       </div>
       <div class="gradient"></div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 <script setup>
-/*defineProps({
-  title: String,
-  img: String,
-  content: String,
-  Avatar: String,
-  Author: String,
-  Duration: String,
-  date: String,
-});*/
 const { data: blogPostList } = useAsyncData("blogPostList", () => {
   return queryContent("/blog").find();
 });
-console.log(blogPostList);
 </script>
 <style lang="scss">
 .blog-container {

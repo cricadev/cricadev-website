@@ -5,7 +5,9 @@
         Current count: <strong> {{ currentCount }} </strong>
       </p>
       <button @click="incrementCount">+</button>
-      <button @click="decrementCount" :disable="currentCount <= 0">-</button>
+      <button @click="decrementCount" :disabled="currentCount.value === 0">
+        -
+      </button>
     </div>
   </div>
 </template>
