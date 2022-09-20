@@ -9,6 +9,19 @@ export default defineNuxtConfig({
     "@kevinmarrec/nuxt-pwa",
     "@nuxt/content",
   ],
+  content: {
+    highlight: {
+      // OR
+      theme: {
+        // Default theme (same as single string)
+        default: "github-light",
+        // Theme used if `html.dark`
+        dark: "github-dark",
+        // Theme used if `html.sepia`
+        sepia: "monokai",
+      },
+    },
+  },
   pwa: {
     manifest: {
       name: "CricaDev",
