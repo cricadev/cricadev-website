@@ -10,52 +10,17 @@ import { BlogComp } from '../.nuxt/components';
       Let's talk about technology
     </p>
     <p class="pt-8 pb-4 font-medium text-base_t">Recent</p>
-    <carousel :items-to-show="1">
-      <slide v-for="slide in 3" :key="slide">
-        <BlogComp
-          title="Self-education: how it save my life"
-          content="Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a..."
-          img="../blog-01.jpg"
-          Avatar="../avatar-crica.jpg"
-          Author="Cristian Casallas"
-          date="18 Sep, 2022"
-          Duration="18"
-        ></BlogComp>
-      </slide>
+    <!--    <carousel :items-to-show="1">
+      <slide v-for="slide in 3" :key="slide"> </slide>
 
       <template #addons>
         <navigation />
       </template>
-    </carousel>
+    </carousel>-->
+
     <div class="pb-4 blogs-order">
       <p class="pt-4 font-medium text-sm_m">All Blogs</p>
-      <BlogComp
-        title="Self-education: how it save my life"
-        content="Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a..."
-        img="../blog-01.jpg"
-        Avatar="../avatar-crica.jpg"
-        Author="Cristian Casallas"
-        date="18 Sep, 2022"
-        Duration="18"
-      ></BlogComp>
-      <BlogComp
-        title="Self-education: how it save my life"
-        content="Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a..."
-        img="../blog-01.jpg"
-        Avatar="../avatar-crica.jpg"
-        Author="Cristian Casallas"
-        date="18 Sep, 2022"
-        Duration="18"
-      ></BlogComp>
-      <BlogComp
-        title="Self-education: how it save my life"
-        content="Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a..."
-        img="../blog-01.jpg"
-        Avatar="../avatar-crica.jpg"
-        Author="Cristian Casallas"
-        date="18 Sep, 2022"
-        Duration="18"
-      ></BlogComp>
+      <BlogComp></BlogComp>
     </div>
 
     <NuxtPage />

@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-icon",
     "@kevinmarrec/nuxt-pwa",
+    "@nuxt/content",
   ],
   pwa: {
     manifest: {

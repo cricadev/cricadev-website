@@ -1,44 +1,58 @@
 <template>
-  <div class="blog-container">
-    <h2
-      class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
+  <div class="">
+    <div
+      class="my-4 blog-container"
+      v-for="blogPost in blogPostList"
+      :key="blogPost.path"
     >
-      {{ title }}
-    </h2>
-    <p
-      class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
-    >
-      {{ content }}
-    </p>
-    <img :src="img" alt="" class="img" />
-    <div class="py-1 blog-footer">
-      <img :src="Avatar" alt="" class="avatar" />
-      <div class="flex flex-col items-start author-date">
-        <span class="text-[0.688rem] font-medium author"> {{ Author }} </span>
-        <span class="text-[0.563rem] font-light date"> {{ date }} </span>
-      </div>
-      <span
-        class="text-[0.5rem] font-normal reading flex items-center justify-center"
+      <h2
+        class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
       >
-        <span class="mr-1">
-          <Icon name="ant-design:read-outlined" size="15" />
+        {{ blogPost.title }}
+      </h2>
+      <p
+        class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
+      >
+        {{ blogPost.description }}
+      </p>
+      <img :src="blogPost.img" alt="" class="img" />
+      <div class="my-2 blog-footer">
+        <img :src="blogPost.avatar" alt="" class="avatar" />
+        <div class="flex flex-col items-start author-date">
+          <span class="text-[0.688rem] font-medium author">
+            {{ blogPost.author }}
+          </span>
+          <span class="text-[0.563rem] font-light date">
+            {{ blogPost.dates.published }}
+          </span>
+        </div>
+        <span
+          class="text-[0.5rem] font-normal reading flex items-center justify-center"
+        >
+          <span class="mr-1">
+            <Icon name="ant-design:read-outlined" size="15" />
+          </span>
+          {{ Duration }}Min
         </span>
-        {{ Duration }}Min
-      </span>
+      </div>
+      <div class="gradient"></div>
     </div>
-    <div class="gradient"></div>
   </div>
 </template>
 <script setup>
-defineProps({
+/*defineProps({
   title: String,
   img: String,
   content: String,
   Avatar: String,
   Author: String,
-  Duration: Number,
+  Duration: String,
   date: String,
+});*/
+const { data: blogPostList } = useAsyncData("blogPostList", () => {
+  return queryContent("/blog").find();
 });
+console.log(blogPostList);
 </script>
 <style lang="scss">
 .blog-container {
