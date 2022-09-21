@@ -11,6 +11,7 @@
   --gray: #adadad;
   --blue: #02021e;
 }
+
 html {
   @apply scroll-smooth;
 }
@@ -21,6 +22,32 @@ body {
   @apply bg-black text-white min-h-screen font-lato;
 }
 
+.page-heading {
+  @apply p-12 bg-green;
+}
+.page-heading > .wrapper {
+  @apply max-w-3xl m-auto;
+}
+
+.page-section {
+  @apply p-4 py-8 m-auto max-w-3xl;
+}
+
+.article-list {
+  @apply flex flex-col gap-6;
+}
+
+.article-item {
+  @apply pt-6 first-of-type:border-none border-t border-green;
+}
+
+.article-item a {
+  @apply no-underline;
+}
+
+.article-item > * > .wrapper {
+  @apply flex items-start gap-4;
+}
 @layer utilities {
   .about-link {
     @apply italic font-light text-xl_m xss-m:text-xl2_m uppercase  text-left relative lg-m:text-xl4_d;

@@ -36,7 +36,7 @@ const props = defineProps(["type"]);
 <style scoped>
 .info-box {
   @apply flex items-start gap-2 p-4 bg-white border border-green text-black
- rounded-lg;
+ rounded-lg w-9;
 }
 
 details summary {
