@@ -16,10 +16,13 @@
       <div class="figure-1 figure lg:hidden"></div>
       <div class="figure-2 figure lg:hidden"></div>
     </div>
-    <div class="home-figure lg:hidden">
+    <div class="home-figure lg:hidden type-container">
       <p class="font-thin text-center text-base_d">
         I am a colombian<br />
-        <span class="italic font-normal">Web Developer</span>
+        <span class="italic font-normal typed-text">
+          {{ typeValue.value }}
+        </span>
+        <span class="cursor" :class="{ typing: typeStatus.value }">&nbsp;</span>
       </p>
     </div>
 
@@ -122,12 +125,17 @@
         <div class="figure-1 figure"></div>
         <div class="figure-2 figure"></div>
       </div>
-      <div class="home-figure">
+      <div class="home-figure type-container">
         <p
           class="font-thin text-center text-base_d lg:text-base_t lg:font-light"
         >
           I am a colombian<br />
-          <span class="italic font-bold">Web Developer</span>
+          <span class="italic font-bold typed-text">
+            {{ typeValue.value }}
+          </span>
+          <span class="cursor" :class="{ typing: typeStatus.value }"
+            >&nbsp;</span
+          >
         </p>
       </div>
     </div>
@@ -165,7 +173,49 @@
 </template>
 
 <script setup>
+import { reactive } from "vue";
 import IntersectionObserver from "@/components/IntersectionObserver.vue";
+
+let typeValue = reactive({ value: "" });
+let typeStatus = reactive({ value: false });
+let typeArray = ["Web Developer", "FrontEnd", "Creative", "Intrepid"];
+let typingSpeed = reactive({ value: 200 });
+let erasingSpeed = reactive({ value: 100 });
+let newTextDelay = reactive({ value: 2000 });
+let typeArrayIndex = reactive({ value: 0 });
+let charIndex = reactive({ value: 0 });
+
+function typeText() {
+  if (charIndex.value < typeArray[typeArrayIndex.value].length) {
+    if (!typeStatus.value) typeStatus.value = true;
+
+    typeValue.value += typeArray[typeArrayIndex.value].charAt(charIndex.value);
+    charIndex.value += 1;
+    setTimeout(typeText, typingSpeed.value);
+  } else {
+    typeStatus.value = false;
+    setTimeout(eraseText, newTextDelay.value);
+  }
+}
+
+function eraseText() {
+  if (charIndex.value > 0) {
+    if (!typeStatus.value) typeStatus.value = true;
+    typeValue.value = typeArray[typeArrayIndex.value].substring(
+      0,
+      charIndex.value - 1
+    );
+    charIndex.value -= 1;
+    setTimeout(eraseText, erasingSpeed.value);
+  } else {
+    typeStatus.value = false;
+    typeArrayIndex.value += 1;
+    if (typeArrayIndex.value >= typeArray.length) typeArrayIndex.value = 0;
+    setTimeout(typeText, typingSpeed.value + 1000);
+  }
+}
+setTimeout(typeText, newTextDelay.value + 200);
+
 const scrollToBottom = () => {
   window.scrollTo(0, document.body.scrollHeight);
 };
@@ -175,7 +225,6 @@ function onIntersectionElement(value) {
   const icon = document.querySelector(".icon-appear");
   const cricadevMobile = document.querySelector(".cricadev-mobile");
   if (value === true) {
-  
     cricadev.classList.add("cricadev-logo-open");
     icon.classList.add("icon-close");
     cricadevMobile.classList.add("cricadev-logo-open");
@@ -188,6 +237,32 @@ function onIntersectionElement(value) {
 </script>
 
 <style lang="scss" scoped>
+.type-container {
+  .typed-text {
+    color: var(--green);
+  }
+  .cursor {
+    display: inline-block;
+    margin-left: 3px;
+    width: 4px;
+    background: var(--green);
+    animation: cursorBlink 1s infinite;
+  }
+  .cursor.typing {
+    animation: none;
+  }
+}
+@keyframes cursorBlink {
+  49% {
+    background: var(--green);
+  }
+  50% {
+    background: transparent;
+  }
+  99% {
+    background: transparent;
+  }
+}
 .home {
   place-items: center;
   @media (max-width: 1100px) {
