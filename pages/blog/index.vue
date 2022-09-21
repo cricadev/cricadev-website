@@ -1,6 +1,6 @@
 import { BlogComp } from '../.nuxt/components';
 <template lang="">
-  <div class="px-10 pt-16">
+  <div class="px-10 pt-20">
     <div
       class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog"
     ></div>
@@ -10,13 +10,48 @@ import { BlogComp } from '../.nuxt/components';
       Let's talk about technology
     </p>
     <p class="pt-8 pb-4 font-medium text-base_t">Recent</p>
-    <!--    <carousel :items-to-show="1">
-      <slide v-for="slide in 3" :key="slide"> </slide>
+
+    <carousel :items-to-show="1">
+      <slide v-for="blogPost in blogPostList" :key="blogPost.path">
+        <NuxtLink class="blog-container" :to="blogPost._path">
+          <h2
+            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
+          >
+            {{ blogPost.title }}
+          </h2>
+          <p
+            class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
+          >
+            {{ blogPost.description }}
+          </p>
+          <img :src="blogPost.img" alt="" class="img" />
+          <div class="my-2 blog-footer">
+            <img :src="blogPost.avatar" alt="" class="avatar" />
+            <div class="flex flex-col items-start author-date">
+              <span class="text-[0.688rem] font-medium author">
+                {{ blogPost.author }}
+              </span>
+              <span class="text-[0.563rem] font-light date">
+                {{ blogPost.dates.published }}
+              </span>
+            </div>
+            <span
+              class="text-[0.5rem] font-normal reading flex items-center justify-center"
+            >
+              <span class="mr-1">
+                <Icon name="ant-design:read-outlined" size="15" />
+              </span>
+              {{ blogPost.duration }}Min
+            </span>
+          </div>
+          <div class="gradient"></div>
+        </NuxtLink>
+      </slide>
 
       <template #addons>
         <navigation />
       </template>
-    </carousel>-->
+    </carousel>
 
     <div class="pb-4 blogs-order">
       <p class="pt-4 font-medium text-sm_m">All Blogs</p>
@@ -26,19 +61,13 @@ import { BlogComp } from '../.nuxt/components';
     <NuxtPage />
   </div>
 </template>
-<script>
+<script setup>
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
-export default {
-  name: "App",
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-  },
-};
+const { data: blogPostList } = useAsyncData("blogPostList", () => {
+  return queryContent("/blog").find();
+});
 </script>
 <style lang="scss">
 .dark .carousel__prev,
