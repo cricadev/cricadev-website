@@ -56,6 +56,16 @@ module.exports = {
         green2: '#1f6853',
         gray: '#adadad',
         blue: '#02021e',
+        yellow: {
+          200:'#FEF08A',
+          400: '#facc15',
+          600: '#ca8a04',
+        },
+        red:{
+          200: '#fecaca',
+          400: '#f87171',
+          600: '#dc2626',
+        }
     },
    
     fontSize:{
@@ -140,5 +150,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }

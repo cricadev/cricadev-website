@@ -7,7 +7,7 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
 const router = useRouter();
 
 const goBack = () => {
-  router.go(-1);
+  router.push({ path: "/blog", replace: true });
 };
 const { data: blogPostListMobile } = useAsyncData("blogPostListMobile", () => {
   return queryContent("/blog").sort({ id: -1 }).limit(1).find();
@@ -24,7 +24,6 @@ const { data: blogPostListDesktop } = useAsyncData(
 const { data: blogPostTest } = await useAsyncData("blogPostTest", () => {
   return queryContent("/blog").findSurround({ _path: path });
 });
-console.log(blogPostTest);
 useHead({
   title: blogPostTest.title,
 });
@@ -65,7 +64,9 @@ useHead({
     <div class="px-10 pt-10 content-blog">
       <h2 class="font-black text-[1.313rem] mb-7">{{ blogPost.title }}</h2>
       <img :src="blogPost.img" alt="" class="mb-7 blog-img" />
-      <ContentDoc class="mb-7" />
+      <article class="prose dark:prose-invert">
+        <ContentDoc class="mb-7" />
+      </article>
       <div class="related-blogs">
         <div class="flex items-center justify-between mb-12 lines">
           <div class="w-[40%] h-[2px] bg-green"></div>

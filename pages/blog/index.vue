@@ -12,7 +12,7 @@ import { BlogComp } from '../.nuxt/components';
     <p class="pt-8 pb-4 font-medium text-base_t">Recent</p>
 
     <carousel :items-to-show="1">
-      <slide v-for="blogPost in blogPostList" :key="blogPost.path">
+      <slide v-for="blogPost in blogPostListCarousel" :key="blogPost.path">
         <NuxtLink class="blog-container" :to="blogPost._path">
           <h2
             class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
@@ -68,6 +68,12 @@ import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 const { data: blogPostList } = useAsyncData("blogPostList", () => {
   return queryContent("/blog").find();
 });
+const { data: blogPostListCarousel } = useAsyncData(
+  "blogPostListCarousel",
+  () => {
+    return queryContent("/blog").sort({ id: -1 }).limit(3).find();
+  }
+);
 </script>
 <style lang="scss">
 .dark .carousel__prev,
