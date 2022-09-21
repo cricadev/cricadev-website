@@ -1,6 +1,6 @@
 ---
 title: "My First Blog Post"
-author: "CricaDev"
+author: "Cristian Casallas"
 dates:
   published: "2022-09-01"
 description: "Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a..."
