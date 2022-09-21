@@ -9,8 +9,6 @@ avatar: "../avatar-crica.jpg"
 duration: 15
 ---
 
-## What is a coutner?
-
 It allows you to keep track of a number and increment and decrement it by clicking on a button.
 
 <Counter></Counter>
