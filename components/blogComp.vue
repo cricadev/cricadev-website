@@ -6,14 +6,19 @@
     :to="blogPost._path"
   >
     <h2
-      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m"
+      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
     >
       {{ blogPost.title }}
     </h2>
     <p
-      class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2"
+      class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden"
     >
       {{ blogPost.description }}
+    </p>
+    <p
+      class="hidden px-2 font-medium leading-none text-left lg-m:block content text-base_t"
+    >
+      {{ blogPost.descdesktop }}
     </p>
     <img :src="blogPost.img" alt="" class="img" />
     <div class="my-2 blog-footer">
