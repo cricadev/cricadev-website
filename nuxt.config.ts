@@ -16,9 +16,8 @@ export default defineNuxtConfig({
         // Default theme (same as single string)
         default: "one-dark-pro",
         // Theme used if `html.dark`
-        dark: "github-dark",
+        dark: "dracula",
         // Theme used if `html.sepia`
-        sepia: "monokai",
       },
     },
   },

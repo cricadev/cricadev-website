@@ -202,6 +202,9 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
+.dark.shiki.one-dark-pro {
+  --shiki-color-background: #f6f6f6;
+}
 .blog-container.blog-container-mobile {
   @media (min-width: 599px) {
     display: none;

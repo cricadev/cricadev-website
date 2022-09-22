@@ -9,16 +9,20 @@
         <a href="/about" class="link">About me</a>
         <NuxtLink to="/blog" class="link">Blog</NuxtLink>
       </nav>
-      <header class="fixed z-20 flex justify-center w-full mx-auto top-16">
+      <header
+        class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"
+      >
         <img
           src="../images/logo-logo-cricadev.png"
           alt="CricaDev"
-          class="h-[63px] w-[50px] lg:h-[32px] lg:w-[25px]"
+          class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px]"
         />
       </header>
     </div>
 
-    <header class="fixed z-20 hidden mt-6 ml-8 xs:inline">
+    <header
+      class="fixed z-20 hidden mt-6 ml-8 pointer-events-none xs:inline top"
+    >
       <img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"

@@ -1,6 +1,6 @@
 import { BlogComp } from '../.nuxt/components';
 <template lang="">
-  <div class="px-10 pt-20">
+  <div class="px-10 pt-20 xs-m:px-36 lg-m:px-80">
     <div
       class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog"
     ></div>
@@ -52,9 +52,8 @@ import { BlogComp } from '../.nuxt/components';
         <navigation />
       </template>
     </carousel>
-
-    <div class="pb-4 blogs-order">
-      <p class="pt-4 font-medium text-sm_m">All Blogs</p>
+    <div class="mt-12 mb-8 h3 text-base_m">Tags</div>
+    <div class="pb-4 blogs-order xs-m:pb-24">
       <BlogComp></BlogComp>
     </div>
 
@@ -95,12 +94,104 @@ const { data: blogPostListCarousel } = useAsyncData(
 .blogs-order {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
+  @media (min-width: 599px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media (min-width: 1100px) {
+    width: 100%;
+    height: 100%;
+  }
 }
 .dark .bg-header-blog {
   filter: drop-shadow(0px 17px 10px #00010d);
 }
 .bg-header-blog {
   filter: drop-shadow(0px 17px 10px #f6f6f6);
+}
+
+.blog-container {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  border-radius: 15px;
+  overflow: hidden;
+  place-items: center;
+  place-content: center;
+  width: 100%;
+  height: 200px;
+  @media (min-width: 599px) {
+    height: 300px;
+  }
+  @media (min-width: 1100px) {
+    height: 400px;
+  }
+  .blog-footer {
+    grid-column: 1/6;
+    grid-row: 5/6;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    width: 100%;
+    height: 100%;
+    .avatar {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 30px;
+      width: 30px;
+      z-index: 2;
+      grid-column: 1/2;
+      grid-row: 1/2;
+      place-self: center;
+    }
+    .author-date {
+      grid-column: 2/5;
+      place-self: center start;
+
+      margin-left: 10px;
+    }
+    .reading {
+      grid-column: 5/6;
+      grid-row: 1/2;
+      place-self: end center;
+      padding-right: 10px;
+      padding-bottom: 2px;
+    }
+  }
+  .title {
+    grid-column: 1/6;
+    grid-row: 3/4;
+    z-index: 2;
+  }
+  .content {
+    grid-column: 1/6;
+    grid-row: 4/5;
+    z-index: 2;
+  }
+  .img {
+    grid-column: 1/6;
+    grid-row: 1/6;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(60%);
+  }
+  .gradient {
+    grid-column: 1/6;
+    grid-row: 5/6;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+  }
+}
+.dark .gradient {
+  background: #00010d;
+}
+.gradient {
+  background: #f6f6f6;
 }
 </style>
