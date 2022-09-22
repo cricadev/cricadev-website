@@ -6,12 +6,12 @@
     :to="blogPost._path"
   >
     <h2
-      class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
+      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m"
     >
       {{ blogPost.title }}
     </h2>
     <p
-      class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
+      class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2"
     >
       {{ blogPost.description }}
     </p>
@@ -90,7 +90,7 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
     .reading {
       grid-column: 5/6;
       grid-row: 1/2;
-      place-self: end center;
+      place-self: center;
       padding-right: 10px;
       padding-bottom: 2px;
     }

@@ -34,7 +34,7 @@ useHead({
       class="justify-around w-full my-2 blog-footer z-[9999] relative py-2 px-4"
     >
       <div
-        class="z-10 w-6 h-6 text-black left-4 top-16 dark:text-white hover:cursor-pointer arrow"
+        class="z-10 w-6 h-6 mb-2 text-black dark:text-white hover:cursor-pointer arrow"
         @click="goBack"
       >
         <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
@@ -242,6 +242,7 @@ useHead({
   .arrow {
     grid-column: 1/2;
     grid-row: 1/2;
+    place-self: center;
   }
   .avatar {
     border-radius: 50%;

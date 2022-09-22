@@ -1,26 +1,34 @@
 import { BlogComp } from '../.nuxt/components';
 <template lang="">
-  <div class="px-10 pt-20 xs-m:px-36 lg-m:px-80">
+  <div class="px-10 pt-20 xs-m:px-36 2xl-m:px-96 xs-m:pt-24 lg-m:px-48">
     <div
       class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog"
     ></div>
-    <h2 class="tracking-widest text-center uppercase text-xl_m">Cricablog</h2>
-    <p class="italic font-bold tracking-widest text-center">
+    <h2
+      class="tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d"
+    >
+      Cricablog
+    </h2>
+    <p
+      class="italic font-bold tracking-widest text-center text-xs_t xs-m:text-lg_t xs-m:tracking-[0.2em] xs-m:pt-2"
+    >
       Welcome to my blog! <br />
-      Let's talk about technology
+      Let's talk about <s>technology</s>
+      <br />
+      pretty much everything.
     </p>
-    <p class="pt-8 pb-4 font-medium text-base_t">Recent</p>
+    <p class="pt-8 pb-4 font-medium text-base_t xs-m:text-lg_t">Recent</p>
 
     <carousel :items-to-show="1">
       <slide v-for="blogPost in blogPostListCarousel" :key="blogPost.path">
         <NuxtLink class="blog-container" :to="blogPost._path">
           <h2
-            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
+            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12"
           >
             {{ blogPost.title }}
           </h2>
           <p
-            class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
+            class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-xs_t xs-m:px-8 lg-m:text-base_t lg-m:leading-normal lg-m:px-12"
           >
             {{ blogPost.description }}
           </p>
@@ -28,18 +36,23 @@ import { BlogComp } from '../.nuxt/components';
           <div class="my-2 blog-footer">
             <img :src="blogPost.avatar" alt="" class="avatar" />
             <div class="flex flex-col items-start author-date">
-              <span class="text-[0.688rem] font-medium author">
+              <span
+                class="text-[0.688rem] font-medium author xs-m:text-sm_m lg-m:text-sm_d"
+              >
                 {{ blogPost.author }}
               </span>
-              <span class="text-[0.563rem] font-light date">
+              <span class="text-[0.563rem] font-light date xs-m:text-xs_t">
                 {{ blogPost.dates.published }}
               </span>
             </div>
             <span
-              class="text-[0.5rem] font-normal reading flex items-center justify-center"
+              class="text-[0.5rem] font-normal reading flex items-center justify-center xs-m:text-xs_t lg-m:text-sm_m"
             >
               <span class="mr-1">
-                <Icon name="ant-design:read-outlined" size="15" />
+                <Icon
+                  name="ant-design:read-outlined"
+                  class="w-[15px] h-[15px] xs-m:w-[20px] xs-m:h-[20px] lg-m:w-[25px] lg-m:h-[25px]"
+                />
               </span>
               {{ blogPost.duration }}Min
             </span>
@@ -147,6 +160,10 @@ const { data: blogPostListCarousel } = useAsyncData(
       grid-column: 1/2;
       grid-row: 1/2;
       place-self: center;
+      @media (min-width: 599px) {
+        height: 45px;
+        width: 45px;
+      }
     }
     .author-date {
       grid-column: 2/5;
@@ -157,7 +174,7 @@ const { data: blogPostListCarousel } = useAsyncData(
     .reading {
       grid-column: 5/6;
       grid-row: 1/2;
-      place-self: end center;
+      place-self: center;
       padding-right: 10px;
       padding-bottom: 2px;
     }
