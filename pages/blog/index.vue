@@ -87,7 +87,7 @@ const { data: blogPostListCarousel } = useAsyncData(
   }
 );
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .dark .carousel__prev,
 .dark .carousel__next {
   background: #f6f6f6;

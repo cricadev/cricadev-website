@@ -51,7 +51,7 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
   return queryContent("/blog").find();
 });
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .blog-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
