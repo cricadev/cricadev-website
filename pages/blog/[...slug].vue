@@ -5,10 +5,7 @@ const router = useRouter();
 const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent().where({ _path: path }).findOne();
 });
-router.afterEach((to, from) => {
-  console.log("to", to);
-  console.log("from", from);
-});
+
 const { data: suggested } = await useAsyncData(`suggested`, async () => {
   // fetch document where the document path matches with the current route
   let blogs = await queryContent()
@@ -18,7 +15,6 @@ const { data: suggested } = await useAsyncData(`suggested`, async () => {
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
-console.log(suggested);
 
 const goBack = () => {
   router.push({ path: "/blog", replace: true });
@@ -26,6 +22,7 @@ const goBack = () => {
 
 useHead({
   title: blogPost.title,
+  description: blogPost.description,
 });
 </script>
 <template>
