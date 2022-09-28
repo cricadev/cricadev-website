@@ -16,7 +16,7 @@
       {{ blogPost.description }}
     </p>
     <p
-      class="hidden px-2 font-medium leading-none text-left lg-m:block content text-base_t"
+      class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t"
     >
       {{ blogPost.descdesktop }}
     </p>

@@ -2,7 +2,7 @@ import { BlogComp } from '../.nuxt/components';
 <template lang="">
   <div class="px-10 pt-20 xs-m:px-36 2xl-m:px-96 xs-m:pt-24 lg-m:px-48">
     <div
-      class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog"
+      class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog xs-m:h-[6rem]"
     ></div>
     <h2
       class="tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d"
@@ -87,17 +87,37 @@ const { data: blogPostListCarousel } = useAsyncData(
   }
 );
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+.dark .carousel__prev,
+.carousel__prev {
+  transform: translateX(20%) scale(1.2) translateY(-70%);
+  @media (min-width: 599px) {
+    transform: translateX(20%) scale(1.5) translateY(-50%);
+  }
+  @media (min-width: 1100px) {
+    transform: translateX(20%) scale(2) translateY(-50%);
+  }
+}
+.dark .carousel__next,
+.carousel__next {
+  transform: translateX(-20%) scale(1.2) translateY(-70%);
+  @media (min-width: 599px) {
+    transform: translateX(-20%) scale(1.5) translateY(-50%);
+  }
+  @media (min-width: 1100px) {
+    transform: translateX(-20%) scale(2) translateY(-50%);
+  }
+}
 .dark .carousel__prev,
 .dark .carousel__next {
-  background: #f6f6f6;
+  background: transparent;
   .carousel__icon {
-    fill: #00010d;
+    fill: #f6f6f6;
   }
 }
 .carousel__prev,
 .carousel__next {
-  background: #000;
+  background: transparent;
 }
 .carousel__prev--in-active,
 .carousel__next--in-active {

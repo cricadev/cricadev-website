@@ -31,7 +31,7 @@ useHead({
 <template>
   <div class="relative pt-20">
     <div
-      class="justify-around w-full my-2 goback-header z-[9999] relative py-2 px-4 xs-m:px-8 lg-m:px-80"
+      class="justify-around w-full my-2 goback-header z-[9999] relative py-2 px-4 xs-m:px-8 lg-m:px-80 lg-m:pt-8 pt-6"
     >
       <div
         class="z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow"
@@ -66,12 +66,14 @@ useHead({
         {{ blogPost.duration }}Min
       </span>
       <div
-        class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog"
+        class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog xs-m:h-[6rem]"
       ></div>
     </div>
 
     <div class="px-10 pt-10 content-blog xs-m:px-16 lg-m:px-60">
-      <h2 class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t">
+      <h2
+        class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
+      >
         {{ blogPost.title }}
       </h2>
       <img :src="blogPost.img" alt="" class="mx-auto mb-7 blog-img" />
@@ -216,9 +218,21 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+  z-index: 2;
+
+  place-self: center;
+  @media (min-width: 599px) {
+    height: 45px;
+    width: 45px;
+  }
+}
 .order-tablet {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   gap: 16px;
   justify-content: center;
@@ -226,7 +240,6 @@ useHead({
 }
 .order-desktop {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   gap: 16px;
   margin-bottom: 100px;
