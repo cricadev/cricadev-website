@@ -1,31 +1,26 @@
-import { BlogComp } from '../../.nuxt/components';
 <script setup>
 const { path } = useRoute();
 const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent().where({ _path: path }).findOne();
 });
+
+const { data: suggested } = await useAsyncData(`suggested`, async () => {
+  // fetch document where the document path matches with the current route
+  return queryContent()
+    .where({ _title: { $eq: title } })
+    .find();
+  // get the surround information,
+  // which is an array of document that is all the documents but the current one
+});
+console.log(suggested);
 const router = useRouter();
 
 const goBack = () => {
   router.push({ path: "/blog", replace: true });
 };
-const { data: blogPostListMobile } = useAsyncData("blogPostListMobile", () => {
-  return queryContent("/blog").sort({ id: -1 }).limit(1).find();
-});
-const { data: blogPostListTablet } = useAsyncData("blogPostListTablet", () => {
-  return queryContent("/blog").sort({ id: -1 }).limit(2).find();
-});
-const { data: blogPostListDesktop } = useAsyncData(
-  "blogPostListDesktop",
-  () => {
-    return queryContent("/blog").sort({ id: -1 }).limit(3).find();
-  }
-);
-const { data: blogPostTest } = await useAsyncData("blogPostTest", () => {
-  return queryContent("/blog").findSurround({ _path: path });
-});
+
 useHead({
-  title: blogPostTest.title,
+  title: blogPost.title,
 });
 </script>
 <template>
@@ -77,7 +72,9 @@ useHead({
         {{ blogPost.title }}
       </h2>
       <img :src="blogPost.img" alt="" class="mx-auto mb-7 blog-img" />
-      <article class="w-full mx-auto prose dark:prose-invert">
+      <article
+        class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
+      >
         <ContentDoc class="mb-7" />
       </article>
       <div class="related-blogs">
@@ -90,129 +87,52 @@ useHead({
           />
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
         </div>
-        <div class="order-mobile">
-          <NuxtLink
-            class="my-4 blog-container blog-container-mobile"
-            v-for="blogPost in blogPostListMobile"
-            :key="blogPost.path"
-            :to="blogPost._path"
+        <NuxtLink
+          class="my-4 blog-container"
+          v-for="suggest in suggested"
+          :key="suggest.path"
+          :to="suggest._path"
+        >
+          <h2
+            class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
           >
-            <h2
-              class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
-            >
-              {{ blogPost.title }}
-            </h2>
-            <p
-              class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
-            >
-              {{ blogPost.description }}
-            </p>
-            <img :src="blogPost.img" alt="" class="img" />
-            <div class="my-2 blog-footer">
-              <img :src="blogPost.avatar" alt="" class="avatar" />
-              <div class="flex flex-col items-start author-date">
-                <span class="text-[0.688rem] font-medium author">
-                  {{ blogPost.author }}
-                </span>
-                <span class="text-[0.563rem] font-light date">
-                  {{ blogPost.dates.published }}
-                </span>
-              </div>
-              <span
-                class="text-[0.5rem] font-normal reading flex items-center justify-center"
-              >
-                <span class="mr-1">
-                  <Icon name="ant-design:read-outlined" size="15" />
-                </span>
-                {{ blogPost.duration }}Min
+            {{ suggest.title }}
+          </h2>
+          <p
+            class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden"
+          >
+            {{ suggest.description }}
+          </p>
+          <p
+            class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t"
+          >
+            {{ suggest.descdesktop }}
+          </p>
+          <img :src="suggest.img" alt="" class="img" />
+          <div class="my-2 blog-footer">
+            <img :src="suggest.avatar" alt="" class="avatar" />
+            <div class="flex flex-col items-start author-date">
+              <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
+                {{ suggest.author }}
+              </span>
+              <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
+                {{ suggest.dates.published }}
               </span>
             </div>
-            <div class="gradient"></div>
-          </NuxtLink>
-        </div>
-        <div class="order-tablet">
-          <NuxtLink
-            class="my-4 blog-container blog-container-tablet"
-            v-for="blogPost in blogPostListTablet"
-            :key="blogPost.path"
-            :to="blogPost._path"
-          >
-            <h2
-              class="px-4 mb-2 font-black tracking-wide text-center text-white title xs-m:text-sm_m"
+            <span
+              class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
             >
-              {{ blogPost.title }}
-            </h2>
-            <p
-              class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.813rem]"
-            >
-              {{ blogPost.description }}
-            </p>
-            <img :src="blogPost.img" alt="" class="img" />
-            <div class="my-2 blog-footer">
-              <img :src="blogPost.avatar" alt="" class="avatar" />
-              <div class="flex flex-col items-start author-date">
-                <span class="text-[0.75rem] font-medium author">
-                  {{ blogPost.author }}
-                </span>
-                <span class="text-[0.563rem] font-light date">
-                  {{ blogPost.dates.published }}
-                </span>
-              </div>
-              <span
-                class="text-[0.5rem] font-normal reading flex items-center justify-center"
-              >
-                <span class="mr-1">
-                  <Icon name="ant-design:read-outlined" size="15" />
-                </span>
-                {{ blogPost.duration }}Min
+              <span class="mr-1">
+                <Icon
+                  name="ant-design:read-outlined"
+                  class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
+                />
               </span>
-            </div>
-            <div class="gradient"></div>
-          </NuxtLink>
-        </div>
-        <div class="order-desktop">
-          <NuxtLink
-            class="my-4 blog-container blog-container-desktop"
-            v-for="blogPost in blogPostListDesktop"
-            :key="blogPost.path"
-            :to="blogPost._path"
-          >
-            <h2
-              class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2"
-            >
-              {{ blogPost.title }}
-            </h2>
-            <p
-              class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem]"
-            >
-              {{ blogPost.description }}
-            </p>
-            <img :src="blogPost.img" alt="" class="img" />
-            <div class="my-2 blog-footer">
-              <img :src="blogPost.avatar" alt="" class="avatar" />
-              <div class="flex flex-col items-start author-date">
-                <span class="text-[0.688rem] font-medium author">
-                  {{ blogPost.author }}
-                </span>
-                <span class="text-[0.563rem] font-light date">
-                  {{ blogPost.dates.published }}
-                </span>
-              </div>
-              <span
-                class="text-[0.5rem] font-normal reading flex items-center justify-center"
-              >
-                <span class="mr-1">
-                  <Icon
-                    name="ant-design:read-outlined"
-                    class="w-[15px] h-[15px] xs-m:w-[20px] xs-m:h-[20px] lg-m:w-[25px] lg-m:h-[25px]"
-                  />
-                </span>
-                {{ blogPost.duration }}Min
-              </span>
-            </div>
-            <div class="gradient"></div>
-          </NuxtLink>
-        </div>
+              {{ suggest.duration }}Min
+            </span>
+          </div>
+          <div class="gradient"></div>
+        </NuxtLink>
       </div>
     </div>
   </div>
