@@ -1,9 +1,9 @@
 <template>
-  <NuxtLink
+  <a
     class="my-4 blog-container"
     v-for="blogPost in blogPostList"
     :key="blogPost.path"
-    :to="blogPost._path"
+    :href="blogPost._path"
   >
     <h2
       class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
@@ -44,7 +44,7 @@
       </span>
     </div>
     <div class="gradient"></div>
-  </NuxtLink>
+  </a>
 </template>
 <script setup>
 const { data: blogPostList } = useAsyncData("blogPostList", () => {

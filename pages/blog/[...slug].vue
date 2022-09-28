@@ -1,19 +1,24 @@
 <script setup>
 const { path } = useRoute();
+const router = useRouter();
+
 const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent().where({ _path: path }).findOne();
 });
-
+router.afterEach((to, from) => {
+  console.log("to", to);
+  console.log("from", from);
+});
 const { data: suggested } = await useAsyncData(`suggested`, async () => {
   // fetch document where the document path matches with the current route
-  return queryContent()
-    .where({ _title: { $eq: title } })
+  let blogs = await queryContent()
+    .where({ _path: { $ne: path } })
     .find();
+  return blogs;
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
 console.log(suggested);
-const router = useRouter();
 
 const goBack = () => {
   router.push({ path: "/blog", replace: true });
@@ -65,13 +70,17 @@ useHead({
       ></div>
     </div>
 
-    <div class="px-10 pt-10 content-blog xs-m:px-16 lg-m:px-60">
+    <div class="px-10 pt-10 mx-auto content-blog xs-m:px-16 lg-m:px-60">
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
       >
         {{ blogPost.title }}
       </h2>
-      <img :src="blogPost.img" alt="" class="mx-auto mb-7 blog-img" />
+      <img
+        :src="blogPost.img"
+        alt=""
+        class="mx-auto overflow-hidden mb-7 blog-img lg-m:px-20 lg-m:rounded-3xl 2xl-m:px-96"
+      />
       <article
         class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
       >
@@ -87,57 +96,83 @@ useHead({
           />
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
         </div>
-        <NuxtLink
-          class="my-4 blog-container"
-          v-for="suggest in suggested"
-          :key="suggest.path"
-          :to="suggest._path"
-        >
-          <h2
-            class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
+        <div class="related-blog">
+          <a
+            class="my-4 blog-container"
+            v-for="suggest in suggested"
+            :key="suggest.path"
+            :href="suggest._path"
           >
-            {{ suggest.title }}
-          </h2>
-          <p
-            class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden"
-          >
-            {{ suggest.description }}
-          </p>
-          <p
-            class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t"
-          >
-            {{ suggest.descdesktop }}
-          </p>
-          <img :src="suggest.img" alt="" class="img" />
-          <div class="my-2 blog-footer">
-            <img :src="suggest.avatar" alt="" class="avatar" />
-            <div class="flex flex-col items-start author-date">
-              <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
-                {{ suggest.author }}
-              </span>
-              <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
-                {{ suggest.dates.published }}
+            <h2
+              class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
+            >
+              {{ suggest.title }}
+            </h2>
+            <p
+              class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden"
+            >
+              {{ suggest.description }}
+            </p>
+            <p
+              class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t"
+            >
+              {{ suggest.descdesktop }}
+            </p>
+            <img :src="suggest.img" alt="" class="img" />
+            <div class="my-2 blog-footer">
+              <img :src="suggest.avatar" alt="" class="avatar" />
+              <div class="flex flex-col items-start author-date">
+                <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
+                  {{ suggest.author }}
+                </span>
+                <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
+                  {{ suggest.dates.published }}
+                </span>
+              </div>
+              <span
+                class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
+              >
+                <span class="mr-1">
+                  <Icon
+                    name="ant-design:read-outlined"
+                    class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
+                  />
+                </span>
+                {{ suggest.duration }}Min
               </span>
             </div>
-            <span
-              class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
-            >
-              <span class="mr-1">
-                <Icon
-                  name="ant-design:read-outlined"
-                  class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
-                />
-              </span>
-              {{ suggest.duration }}Min
-            </span>
-          </div>
-          <div class="gradient"></div>
-        </NuxtLink>
+            <div class="gradient"></div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
+.related-blog {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+  @media (max-width: 1100px) {
+    margin-bottom: 50px;
+  }
+  @media (max-width: 599px) {
+    gap: 10px;
+  }
+  .blog-container {
+    width: 30%;
+    @media (max-width: 1100px) {
+      width: 48%;
+    }
+    @media (max-width: 599px) {
+      width: 100%;
+    }
+  }
+}
 .avatar {
   border-radius: 50%;
   object-fit: cover;
@@ -151,43 +186,9 @@ useHead({
     width: 45px;
   }
 }
-.order-tablet {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-}
-.order-desktop {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  margin-bottom: 100px;
-  justify-content: center;
-  align-items: center;
-}
+
 .dark.shiki.one-dark-pro {
   --shiki-color-background: #f6f6f6;
-}
-.blog-container.blog-container-mobile {
-  @media (min-width: 599px) {
-    display: none;
-  }
-}
-.blog-container.blog-container-tablet {
-  display: none;
-  @media (min-width: 599px) {
-    display: grid;
-  }
-  @media (min-width: 1100px) {
-    display: none;
-  }
-}
-.blog-container.blog-container-desktop {
-  display: none;
-  @media (min-width: 1100px) {
-    display: grid;
-  }
 }
 .content-blog {
   .blog-img {
