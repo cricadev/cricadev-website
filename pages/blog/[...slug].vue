@@ -67,7 +67,9 @@ useHead({
       ></div>
     </div>
 
-    <div class="px-10 pt-10 mx-auto content-blog xs-m:px-16 lg-m:px-60">
+    <div
+      class="px-10 pt-10 mx-auto content-blog xs-m:px-16 lg-m:px-48 2xl-m:px-96"
+    >
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
       >
@@ -76,7 +78,7 @@ useHead({
       <img
         :src="blogPost.img"
         alt=""
-        class="mx-auto overflow-hidden mb-7 blog-img lg-m:px-20 lg-m:rounded-3xl 2xl-m:px-96"
+        class="object-cover w-full mx-auto overflow-hidden mb-7 blog-img lg-m:rounded-3xl max-h-56 xs-m:max-h-96 lg-m:max-h-128"
       />
       <article
         class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
@@ -146,6 +148,9 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
+.prose {
+  max-width: 100%;
+}
 .related-blog {
   display: flex;
   flex-direction: row;
