@@ -40,8 +40,6 @@ useHead({
         />
       </div>
       <div class="flex flex-row items-start avatar-cont">
-        <img :src="blogPost.avatar" alt="" class="avatar" />
-
         <div class="flex flex-col w-full ml-2">
           <span class="text-[0.688rem] font-medium author xs-m:text-sm_m">
             {{ blogPost.author }}
