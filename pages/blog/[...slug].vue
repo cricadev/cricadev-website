@@ -8,10 +8,9 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
 
 const { data: suggested } = await useAsyncData(`suggested`, () => {
   // fetch document where the document path matches with the current route
-  let blogs = queryContent()
+  return queryContent()
     .where({ _path: { $ne: path } })
     .find();
-  return blogs;
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
