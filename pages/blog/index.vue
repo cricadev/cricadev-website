@@ -21,7 +21,7 @@ import { BlogComp } from '../.nuxt/components';
 
     <carousel :items-to-show="1">
       <slide v-for="blogPost in blogPostListCarousel" :key="blogPost.path">
-        <a class="blog-container" :href="blogPost._path">
+        <NuxtLink class="blog-container" :to="blogPost._path">
           <h2
             class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12"
           >
@@ -58,7 +58,7 @@ import { BlogComp } from '../.nuxt/components';
             </span>
           </div>
           <div class="gradient"></div>
-        </a>
+        </NuxtLink>
       </slide>
 
       <template #addons>
