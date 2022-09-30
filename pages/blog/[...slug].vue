@@ -99,7 +99,7 @@ useHead({
             class="my-4 blog-container"
             v-for="suggest in suggested"
             :key="suggest.path"
-            :href="suggest._path"
+            :href="suggest.path"
           >
             <h2
               class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
