@@ -8,7 +8,7 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
 
 const { data: suggested } = await useAsyncData(`suggested`, async () => {
   // fetch document where the document path matches with the current route
-  let blogs = await queryContent()
+  let blogs = queryContent()
     .where({ _path: { $ne: path } })
     .find();
   return blogs;
