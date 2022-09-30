@@ -65,10 +65,11 @@ useHead({
       <div
         class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog xs-m:h-[6rem]"
       ></div>
+      <Toc :links="blogPost.body.toc.links" />
     </div>
 
     <div
-      class="px-10 pt-10 mx-auto content-blog xs-m:px-16 lg-m:px-48 2xl-m:px-96 max-h-[80vh] overflow-y-auto"
+      class="px-10 pt-10 mx-auto overflow-y-auto content-blog xs-m:px-16 lg-m:px-48 2xl-m:px-96"
     >
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
