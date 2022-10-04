@@ -115,6 +115,8 @@ useHead({
             </p>
             <img :src="suggest.img" alt="" class="img" />
             <div class="my-2 blog-footer">
+              <img :src="blogPost.avatar" alt="" class="avatar" />
+
               <div class="flex flex-col items-start author-date">
                 <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
                   {{ suggest.author }}
