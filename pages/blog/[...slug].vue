@@ -19,7 +19,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
 const goBack = () => {
   router.push({ path: "/blog", replace: true });
 };
-console.log(suggested);
+console.log(suggested.value.forEach((item) => console.log(item)));
 useHead({
   title: blogPost.title,
   description: blogPost.description,
@@ -91,13 +91,12 @@ useHead({
           />
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
         </div>
-
         <div class="related-blog">
           <a
             class="my-4 blog-container"
             v-for="suggest in suggested"
-            :key="suggest.path"
-            :href="suggest.path"
+            :key="suggest._path"
+            :href="suggest._path"
           >
             <h2
               class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
