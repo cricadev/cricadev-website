@@ -1,4 +1,9 @@
 <script setup>
+import { ref } from "vue";
+import { vAutoAnimate } from "@formkit/auto-animate";
+
+const isOpen = ref(false);
+
 // define links prop
 defineProps(["links"]);
 // flatten TOC links nested arrays to one array
@@ -23,17 +28,17 @@ const active = (e) => {
 </script>
 
 <template>
-  <nav class="select-none toc">
+  <nav class="select-none toc" v-auto-animate>
     <header class="flex items-center justify-between toc-header">
       <h3 class="text-xl font-bold">Table of contents</h3>
       <Icon
         name="eva:arrow-ios-downward-fill"
         class="z-[999] w-7 h-7 icon"
-        @click="active"
+        @click="isOpen = !isOpen"
       />
     </header>
 
-    <ul class="toc-links">
+    <ul class="toc-links" v-if="isOpen">
       <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
@@ -50,26 +55,20 @@ const active = (e) => {
 <style lang="scss">
 .toc {
   @apply p-4 bg-green border border-green rounded-lg;
-  @apply max-h-[calc(100vh-6rem)] w-full mx-auto;
-
-  max-width: 65ch;
+  @apply w-full mx-auto;
+  /*
   position: fixed;
   top: 12%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9;
-  &.active ul {
-    display: block;
-  }
+  */
+
   & .icon {
     transition: 0.4s ease-in-out;
   }
   &.active .icon {
     transform: rotate(180deg);
     transition: 0.2s ease-in-out;
-  }
-  & ul {
-    display: none;
   }
 }
 .toc-header {

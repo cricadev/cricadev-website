@@ -19,7 +19,6 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
 const goBack = () => {
   router.push({ path: "/blog", replace: true });
 };
-console.log(suggested.value.forEach((item) => console.log(item)));
 useHead({
   title: blogPost.title,
   description: blogPost.description,
@@ -68,7 +67,9 @@ useHead({
     </div>
 
     <div class="px-10 pt-10 content-blog xs-m:px-16 lg-m:px-60">
-      <Toc :links="blogPost.body.toc.links" />
+      <div class="cont-toc">
+        <Toc :links="blogPost.body.toc.links" />
+      </div>
 
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
@@ -145,6 +146,13 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
+.cont-toc {
+  position: fixed;
+
+  top: 12%;
+  right: 10%;
+  z-index: 9;
+}
 .prose :where(h2):not(:where([class~="not-prose"] *)),
 .prose :where(h1):not(:where([class~="not-prose"] *)),
 .prose :where(h3):not(:where([class~="not-prose"] *)),
