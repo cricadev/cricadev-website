@@ -145,7 +145,12 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
-.prose :where(h2):not(:where([class~="not-prose"] *)) {
+.prose :where(h2):not(:where([class~="not-prose"] *)),
+.prose :where(h1):not(:where([class~="not-prose"] *)),
+.prose :where(h3):not(:where([class~="not-prose"] *)),
+.prose :where(h4):not(:where([class~="not-prose"] *)),
+.prose :where(h5):not(:where([class~="not-prose"] *)),
+.prose :where(h6):not(:where([class~="not-prose"] *)) {
   scroll-margin-top: 200px;
 }
 
