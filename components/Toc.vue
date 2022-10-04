@@ -15,13 +15,24 @@ const flattenLinks = (links) => {
     .flat(1);
   return _links;
 };
+const active = (e) => {
+  // get parent element
+  let parent = e.target.parentElement.parentElement;
+  parent.classList.toggle("active");
+};
 </script>
 
 <template>
-  <nav class="toc">
-    <header class="toc-header">
+  <nav class="select-none toc">
+    <header class="flex items-center justify-between toc-header">
       <h3 class="text-xl font-bold">Table of contents</h3>
+      <Icon
+        name="eva:arrow-ios-downward-fill"
+        class="z-[999] w-7 h-7 icon"
+        @click="active"
+      />
     </header>
+
     <ul class="toc-links">
       <!-- render each link with depth class -->
       <li
@@ -39,12 +50,30 @@ const flattenLinks = (links) => {
 <style lang="scss">
 .toc {
   @apply p-4 bg-green border border-green rounded-lg;
-  @apply max-h-[calc(100vh-6rem)] w-full;
-  grid-row: 2/3;
-  grid-column: 1/-1;
+  @apply max-h-[calc(100vh-6rem)] w-full mx-auto;
+
+  max-width: 65ch;
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  &.active ul {
+    display: block;
+  }
+  & .icon {
+    transition: 0.4s ease-in-out;
+  }
+  &.active .icon {
+    transform: rotate(180deg);
+    transition: 0.2s ease-in-out;
+  }
+  & ul {
+    display: none;
+  }
 }
 .toc-header {
-  @apply pb-2 mb-2 border-b border-green;
+  @apply border-b border-green;
 }
 .toc-links {
   @apply flex flex-col gap-2 px-2;
