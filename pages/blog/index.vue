@@ -23,12 +23,12 @@ import { BlogComp } from '../.nuxt/components';
       <slide v-for="blogPost in blogPostListCarousel" :key="blogPost.path">
         <NuxtLink class="blog-container" :to="blogPost._path">
           <h2
-            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12"
+            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12 justify-self-start text-left"
           >
             {{ blogPost.title }}
           </h2>
           <p
-            class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-xs_t xs-m:px-8 lg-m:text-base_t lg-m:leading-normal lg-m:px-12"
+            class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-xs_t xs-m:px-8 lg-m:text-base_t lg-m:leading-normal lg-m:px-12 justify-self-start text-left"
           >
             {{ blogPost.description }}
           </p>

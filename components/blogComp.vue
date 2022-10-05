@@ -6,17 +6,17 @@
     :to="blogPost._path"
   >
     <h2
-      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
+      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start"
     >
       {{ blogPost.title }}
     </h2>
     <p
-      class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden"
+      class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden justify-self-start text-left"
     >
       {{ blogPost.description }}
     </p>
     <p
-      class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t"
+      class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t justify-self-start"
     >
       {{ blogPost.descdesktop }}
     </p>
