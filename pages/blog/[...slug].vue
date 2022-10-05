@@ -264,7 +264,7 @@ useHead({
   .avatar-cont {
     grid-column: 2/4;
     grid-row: 1/2;
-    place-self: start;
+    place-self: center;
     .avatar {
       border-radius: 50%;
       object-fit: cover;
@@ -272,7 +272,6 @@ useHead({
       width: 30px;
       z-index: 2;
 
-      place-self: center;
       @media (min-width: 599px) {
         height: 45px;
         width: 45px;
@@ -282,6 +281,7 @@ useHead({
   .reading {
     grid-column: 5/6;
     grid-row: 1/2;
+    place-self: center;
   }
 }
 </style>
