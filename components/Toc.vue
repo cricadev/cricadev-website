@@ -32,11 +32,8 @@ const active = (e) => {
 </script>
 
 <template>
-  <nav class="select-none toc dropdown" ref="dropdown">
-    <header
-      class="flex items-center justify-between toc-header"
-      @click="show = !show"
-    >
+  <nav class="select-none toc dropdown" ref="dropdown" @click="show = !show">
+    <header class="flex items-center justify-between toc-header">
       <h3 class="text-xl font-bold text-white">Table of contents</h3>
       <Icon
         name="eva:arrow-ios-downward-fill"
@@ -44,14 +41,14 @@ const active = (e) => {
       />
     </header>
 
-    <ul class="toc-links dropdown dropdown-5">
+    <ul class="toc-links dropdown dropdown-5" v-if="show">
       <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
         :class="`toc-link _${link.depth} dropdown_item`"
       >
-        <a :href="`#${link.id}`" v-if="show">
+        <a :href="`#${link.id}`">
           {{ link.text }}
         </a>
       </li>
