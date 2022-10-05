@@ -29,12 +29,14 @@ const active = (e) => {
 
 <template>
   <nav class="select-none toc" v-auto-animate>
-    <header class="flex items-center justify-between toc-header">
-      <h3 class="text-xl font-bold">Table of contents</h3>
+    <header
+      class="flex items-center justify-between toc-header"
+      @click="isOpen = !isOpen"
+    >
+      <h3 class="text-xl font-bold text-white">Table of contents</h3>
       <Icon
         name="eva:arrow-ios-downward-fill"
-        class="z-[999] w-7 h-7 icon"
-        @click="isOpen = !isOpen"
+        class="z-[999] w-7 h-7 icon text-white"
       />
     </header>
 
@@ -54,14 +56,8 @@ const active = (e) => {
 </template>
 <style lang="scss">
 .toc {
-  @apply p-4 bg-green border border-green rounded-lg;
-  @apply w-full mx-auto;
-  /*
-  position: fixed;
-  top: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-  */
+  @apply bg-green border-none  rounded-lg;
+  @apply w-64;
 
   & .icon {
     transition: 0.4s ease-in-out;
@@ -72,10 +68,10 @@ const active = (e) => {
   }
 }
 .toc-header {
-  @apply border-b border-green;
+  @apply border-none p-4  rounded-lg;
 }
 .toc-links {
-  @apply flex flex-col gap-2 px-2;
+  @apply flex flex-col gap-2 px-6 py-4;
 }
 .toc-link {
   @apply text-white;

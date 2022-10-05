@@ -88,6 +88,30 @@ const { data: blogPostListCarousel } = useAsyncData(
 );
 </script>
 <style lang="scss">
+.related-blog {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+  @media (max-width: 1100px) {
+    margin-bottom: 50px;
+  }
+  @media (max-width: 599px) {
+    gap: 10px;
+  }
+  .blog-container {
+    width: 30%;
+    @media (max-width: 1100px) {
+      width: 48%;
+    }
+    @media (max-width: 599px) {
+      width: 100%;
+    }
+  }
+}
 .dark .carousel__prev,
 .carousel__prev {
   transform: translateX(20%) scale(1.2) translateY(-70%);
@@ -126,17 +150,26 @@ const { data: blogPostListCarousel } = useAsyncData(
 
 .blogs-order {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  gap: 20px;
   justify-content: center;
-  gap: 16px;
-  @media (min-width: 599px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+  @media (max-width: 1100px) {
+    margin-bottom: 50px;
   }
-  @media (min-width: 1100px) {
-    width: 100%;
-    height: 100%;
+  @media (max-width: 599px) {
+    gap: 10px;
+  }
+  .blog-container {
+    width: 30%;
+    @media (max-width: 1100px) {
+      width: 48%;
+    }
+    @media (max-width: 599px) {
+      width: 100%;
+    }
   }
 }
 .dark .bg-header-blog {

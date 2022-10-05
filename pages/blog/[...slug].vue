@@ -149,7 +149,7 @@ useHead({
 .cont-toc {
   position: fixed;
 
-  top: 12%;
+  top: 20%;
   right: 10%;
   z-index: 9;
 }
