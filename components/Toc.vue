@@ -40,9 +40,9 @@ const active = (e) => {
         class="z-[999] w-7 h-7 icon text-white"
       />
     </header>
-    <!--
-   <ul class="toc-links dropdown dropdown-5" v-if="show">
-  
+
+    <ul class="toc-links dropdown dropdown-5" v-if="show">
+      <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
@@ -51,23 +51,6 @@ const active = (e) => {
         <a :href="`#${link.id}`">
           {{ link.text }}
         </a>
-      </li>
-    </ul>
--->
-
-    <ul class="toc-links dropdown dropdown-5" v-if="show">
-      <!-- render each link with depth class -->
-      <li :class="`toc-link  dropdown_item`">
-        <a> first </a>
-      </li>
-      <li :class="`toc-link  dropdown_item`">
-        <a> first </a>
-      </li>
-      <li :class="`toc-link  dropdown_item`">
-        <a> first </a>
-      </li>
-      <li :class="`toc-link  dropdown_item`">
-        <a> first </a>
       </li>
     </ul>
   </nav>

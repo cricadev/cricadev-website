@@ -64,11 +64,10 @@ useHead({
       <div
         class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black xs-m:h-[6rem]"
       ></div>
-      <div class="cont-toc z-[999]">
-        <Toc :links="blogPost.body.toc.links" />
-      </div>
     </div>
-
+    <div class="cont-toc z-[999]">
+      <Toc :links="blogPost.body.toc.links" />
+    </div>
     <div class="px-10 pt-36 content-blog xs-m:px-16 lg-m:px-60">
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
@@ -151,9 +150,7 @@ useHead({
 <style lang="scss" scoped>
 .cont-toc {
   z-index: 9;
-  grid-row: 2/3;
-  grid-column: 1/-1;
-  place-self: end center;
+  position: fixed;
 }
 .prose :where(h2):not(:where([class~="not-prose"] *)),
 .prose :where(h1):not(:where([class~="not-prose"] *)),
