@@ -44,14 +44,14 @@ const active = (e) => {
       />
     </header>
 
-    <ul class="toc-links dropdown dropdown-5" v-if="show">
+    <ul class="toc-links dropdown dropdown-5">
       <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
         :class="`toc-link _${link.depth} dropdown_item`"
       >
-        <a :href="`#${link.id}`">
+        <a :href="`#${link.id}`" v-if="show">
           {{ link.text }}
         </a>
       </li>
