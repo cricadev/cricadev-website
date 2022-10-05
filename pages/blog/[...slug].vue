@@ -69,7 +69,7 @@ useHead({
       </div>
     </div>
 
-    <div class="px-10 pt-10 content-blog xs-m:px-16 lg-m:px-60">
+    <div class="px-10 pt-36 content-blog xs-m:px-16 lg-m:px-60">
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
       >
@@ -103,17 +103,17 @@ useHead({
             :href="suggest._path"
           >
             <h2
-              class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-center mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none"
+              class="font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start px-6"
             >
               {{ suggest.title }}
             </h2>
             <p
-              class="font-medium text-left content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden"
+              class="font-medium text-left content text-[.75rem] text-white leading-[.85rem] xs-m:text-[0.625rem] lg-m:hidden px-6"
             >
               {{ suggest.description }}
             </p>
             <p
-              class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t"
+              class="hidden px-6 font-medium leading-none text-left text-white lg-m:block content text-base_t"
             >
               {{ suggest.descdesktop }}
             </p>
@@ -231,17 +231,15 @@ useHead({
     height: 30px;
     width: 30px;
     z-index: 2;
-    grid-column: 2/3;
+    grid-column: 1/3;
     grid-row: 1/2;
     place-self: center;
   }
   .author-date {
-    grid-column: 3/5;
+    grid-column: 2/5;
     grid-row: 1/2;
 
-    place-self: center start;
-
-    width: 100%;
+    place-self: center;
   }
   .reading {
     grid-column: 5/6;
@@ -258,7 +256,6 @@ useHead({
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 80% 20%;
   place-items: center;
-  width: 100%;
   .arrow {
     grid-column: 1/2;
     grid-row: 1/2;
