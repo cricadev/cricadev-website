@@ -64,7 +64,7 @@ useHead({
       <div
         class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black xs-m:h-[6rem]"
       ></div>
-      <div class="cont-toc">
+      <div class="cont-toc z-[999]">
         <Toc :links="blogPost.body.toc.links" />
       </div>
     </div>
@@ -85,7 +85,7 @@ useHead({
       >
         <ContentDoc class="mb-7" />
       </article>
-      <div class="related-blogs">
+      <div class="relative z-0 related-blogs">
         <div class="flex items-center justify-between mb-12 lines">
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
           <img
