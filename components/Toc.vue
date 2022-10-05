@@ -59,9 +59,18 @@ const active = (e) => {
   & .icon {
     transition: 0.4s ease-in-out;
   }
-  &.active .icon {
+  & .icon-open {
     transform: rotate(180deg);
     transition: 0.2s ease-in-out;
+    animation: start 0.2s ease-in-out;
+  }
+  @keyframes start {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
   }
 }
 .toc-header {

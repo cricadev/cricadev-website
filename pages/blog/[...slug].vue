@@ -153,7 +153,7 @@ useHead({
   z-index: 9;
   grid-row: 2/3;
   grid-column: 1/-1;
-  place-self: start center;
+  place-self: end center;
 }
 .prose :where(h2):not(:where([class~="not-prose"] *)),
 .prose :where(h1):not(:where([class~="not-prose"] *)),
@@ -257,6 +257,7 @@ useHead({
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 80% 20%;
   place-items: center;
+  gap: 10px;
   .arrow {
     grid-column: 1/2;
     grid-row: 1/2;
