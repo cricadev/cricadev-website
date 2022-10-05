@@ -28,6 +28,12 @@ export default defineNuxtConfig({
       theme_color: "#f6f6f6",
       lang: "en",
     },
+    meta: {
+      name: "CricaDev",
+      description:
+        "Hey, I'm Cristian Casallas also known as CricaDev, A FullStack Web Developer from Colombia with a variety of qualifications and experience in the industry. Curious Risk-taking Innovative Creative Ambitious Determined Enthusiastic Valuable.",
+      theme_color: "#dddddd",
+    },
   },
   tailwindcss: {
     cssPath: "@/assets/css/tailwind.css",
