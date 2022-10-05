@@ -259,12 +259,12 @@ useHead({
   .arrow {
     grid-column: 1/2;
     grid-row: 1/2;
-    place-self: center;
+    place-self: start center;
   }
   .avatar-cont {
     grid-column: 2/4;
     grid-row: 1/2;
-    place-self: center;
+    place-self: start center;
     .avatar {
       border-radius: 50%;
       object-fit: cover;
@@ -281,7 +281,7 @@ useHead({
   .reading {
     grid-column: 5/6;
     grid-row: 1/2;
-    place-self: center;
+    place-self: start center;
   }
 }
 </style>
