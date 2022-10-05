@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from "vue";
-import { vAutoAnimate } from "@formkit/auto-animate";
+import { ref, onMounted } from "vue";
+import autoAnimate from "@formkit/auto-animate";
 
-const isOpen = ref(false);
+const dropdown = ref(); // we need a DOM node
+const show = ref(false);
 
+onMounted(() => {
+  autoAnimate(dropdown.value); // thats it!
+});
 // define links prop
 defineProps(["links"]);
 // flatten TOC links nested arrays to one array
@@ -28,8 +32,11 @@ const active = (e) => {
 </script>
 
 <template>
-  <nav class="select-none toc" v-auto-animate @click="isOpen = !isOpen">
-    <header class="flex items-center justify-between toc-header">
+  <nav class="select-none toc dropdown" ref="dropdown">
+    <header
+      class="flex items-center justify-between toc-header"
+      @click="show = !show"
+    >
       <h3 class="text-xl font-bold text-white">Table of contents</h3>
       <Icon
         name="eva:arrow-ios-downward-fill"
@@ -37,12 +44,12 @@ const active = (e) => {
       />
     </header>
 
-    <ul class="toc-links" v-if="isOpen">
+    <ul class="toc-links dropdown dropdown-5" v-if="show">
       <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
-        :class="`toc-link _${link.depth}`"
+        :class="`toc-link _${link.depth} dropdown_item`"
       >
         <a :href="`#${link.id}`">
           {{ link.text }}
