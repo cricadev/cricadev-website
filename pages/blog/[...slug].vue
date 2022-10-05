@@ -25,9 +25,9 @@ useHead({
 });
 </script>
 <template>
-  <div class="relative pt-20">
+  <div class="relative pt-16 xs-m:pt-24">
     <div
-      class="justify-around w-full my-2 goback-header z-[9999] relative py-2 px-4 xs-m:px-8 lg-m:px-80 lg-m:pt-8 pt-6"
+      class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
     >
       <div
         class="z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow"
@@ -62,21 +62,24 @@ useHead({
         {{ blogPost.duration }}Min
       </span>
       <div
-        class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog xs-m:h-[6rem]"
+        class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black xs-m:h-[6rem]"
       ></div>
-    </div>
-
-    <div class="px-10 pt-10 content-blog xs-m:px-16 lg-m:px-60">
       <div class="cont-toc">
         <Toc :links="blogPost.body.toc.links" />
       </div>
+    </div>
 
+    <div class="px-10 pt-10 content-blog xs-m:px-16 lg-m:px-60">
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
       >
         {{ blogPost.title }}
       </h2>
-      <img :src="blogPost.img" alt="" class="mx-auto mb-7 blog-img" />
+      <img
+        :src="blogPost.img"
+        alt=""
+        class="h-56 mx-auto mb-7 blog-img xs-m:h-96 lg-m:h-[420px]"
+      />
       <article
         class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
       >
@@ -147,11 +150,9 @@ useHead({
 </template>
 <style lang="scss" scoped>
 .cont-toc {
-  position: fixed;
-
-  top: 20%;
-  right: 10%;
   z-index: 9;
+  grid-row: 2/3;
+  grid-column: 1/-1;
 }
 .prose :where(h2):not(:where([class~="not-prose"] *)),
 .prose :where(h1):not(:where([class~="not-prose"] *)),
@@ -160,6 +161,9 @@ useHead({
 .prose :where(h5):not(:where([class~="not-prose"] *)),
 .prose :where(h6):not(:where([class~="not-prose"] *)) {
   scroll-margin-top: 200px;
+  @media (min-width: 599px) {
+    scroll-margin-top: 250px;
+  }
 }
 
 .prose {
@@ -250,11 +254,11 @@ useHead({
 .goback-header {
   z-index: 1;
   display: grid;
+  position: fixed;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 80% 20%;
   place-items: center;
   width: 100%;
-  height: 100%;
   .arrow {
     grid-column: 1/2;
     grid-row: 1/2;

@@ -28,11 +28,8 @@ const active = (e) => {
 </script>
 
 <template>
-  <nav class="select-none toc" v-auto-animate>
-    <header
-      class="flex items-center justify-between toc-header"
-      @click="isOpen = !isOpen"
-    >
+  <nav class="select-none toc" v-auto-animate @click="isOpen = !isOpen">
+    <header class="flex items-center justify-between toc-header">
       <h3 class="text-xl font-bold text-white">Table of contents</h3>
       <Icon
         name="eva:arrow-ios-downward-fill"
