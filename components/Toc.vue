@@ -59,6 +59,9 @@ const active = (e) => {
 .toc {
   @apply bg-green border-none  rounded-lg;
   @apply w-64;
+  @media (max-width: 885px) {
+    @apply w-screen;
+  }
 
   & .icon {
     transition: 0.4s ease-in-out;

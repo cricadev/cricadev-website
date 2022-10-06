@@ -151,6 +151,18 @@ useHead({
 .cont-toc {
   z-index: 9;
   position: fixed;
+  top: 18%;
+  right: 10%;
+  transform: translateX(-50%);
+  @media (max-width: 1500px) {
+    right: 0%;
+  }
+  @media (max-width: 1100px) {
+    transform: translateX(-10%);
+  }
+  @media (max-width: 885px) {
+    transform: translateX(0%);
+  }
 }
 .prose :where(h2):not(:where([class~="not-prose"] *)),
 .prose :where(h1):not(:where([class~="not-prose"] *)),
