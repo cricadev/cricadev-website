@@ -39,10 +39,10 @@
       class="fixed top-0 left-0 w-full h-screen z-[999] background overflow-y-hidden"
     ></div>
     <div
-      class="w-full h-screen wrap-tablet-header z-[9999] fixed top-0 left-0 overflow-y-hidden"
+      class="w-full h-screen wrap-tablet-header z-[9998] fixed top-0 left-0 overflow-y-hidden"
     >
       <div
-        class="absolute w-6 h-6 left-8 top-8 z-[9999]"
+        class="absolute w-6 h-6 left-8 top-8 z-[9998]"
         @click="handleClickBack"
       >
         <Icon name="akar-icons:cross" class="relative w-6 h-6" />

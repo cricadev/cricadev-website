@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
 const { path } = useRoute();
 const router = useRouter();
 
@@ -15,6 +15,22 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
+const isActive = ref(false);
+onBeforeMount(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const handleScroll = () => {
+  const scrollY = window.scrollY;
+  if (scrollY > 100) {
+    isActive.value = true;
+  } else {
+    isActive.value = false;
+  }
+};
 
 const goBack = () => {
   router.push({ path: "/blog", replace: true });
@@ -25,7 +41,21 @@ useHead({
 });
 </script>
 <template>
-  <div class="relative pt-16 xs-m:pt-24">
+  <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
+    <div
+      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] grid grid-cols-3 place-items-center text-base_m lg-m:text-xl_t appear-from-top"
+      v-if="isActive"
+    >
+      <img src="../../images/cricadev-letters.png" alt="" class="h-10 pl-64" />
+      {{ blogPost.title }}
+    </div>
+    <div
+      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] grid grid-cols-3 place-items-center text-base_m lg-m:text-xl_t disappear-to-top"
+      v-if="!isActive"
+    >
+      <img src="../../images/cricadev-letters.png" alt="" class="h-10 pl-64" />
+      {{ blogPost.title }}
+    </div>
     <div
       class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
     >
@@ -148,6 +178,38 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
+.disappear-to-top {
+  animation: disappear-to-top 0.5s ease-in-out forwards;
+  img {
+    place-self: center start;
+  }
+  @keyframes disappear-to-top {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+}
+.appear-from-top {
+  animation: appear-from-top 0.5s ease-in-out forwards;
+  img {
+    place-self: center start;
+  }
+  @keyframes appear-from-top {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 .cont-toc {
   z-index: 9;
   position: fixed;
