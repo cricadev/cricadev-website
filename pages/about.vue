@@ -129,6 +129,17 @@ import { onBeforeMount } from "vue";
 
 useHead({
   title: "CricaDev | About me",
+  meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      hid: "description",
+      name: "description",
+      content:
+        "Welcome to the about me, here you will find all of my tech stack and my qualities.",
+    },
+  ],
+  link: [{ rel: "icon", type: "image/png", href: "/cricadev.png" }],
   script: [
     {
       src: "https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js",

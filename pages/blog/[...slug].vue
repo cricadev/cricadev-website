@@ -43,18 +43,37 @@ useHead({
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
     <div
-      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] grid grid-cols-3 place-items-center text-base_m lg-m:text-xl_t appear-from-top"
+      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] flex justify-around items-center text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16"
       v-if="isActive"
     >
-      <img src="../../images/cricadev-letters.png" alt="" class="h-10 pl-64" />
+      <img
+        src="../../images/cricadev-letters.png"
+        alt=""
+        class="h-10 lg:h-6 xs:h-4"
+      />
       {{ blogPost.title }}
+      <img
+        src="../../images/cricadev-letters.png"
+        alt=""
+        class="h-10 lg:h-6 xs:h-4"
+      />
     </div>
+
     <div
-      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] grid grid-cols-3 place-items-center text-base_m lg-m:text-xl_t disappear-to-top"
+      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] flex justify-around items-center text-base_m lg-m:text-xl_t disappear-to-top"
       v-if="!isActive"
     >
-      <img src="../../images/cricadev-letters.png" alt="" class="h-10 pl-64" />
+      <img
+        src="../../images/cricadev-letters.png"
+        alt=""
+        class="h-10 lg:h-6 xs:h-4"
+      />
       {{ blogPost.title }}
+      <img
+        src="../../images/cricadev-letters.png"
+        alt=""
+        class="h-10 lg:h-6 xs:h-4"
+      />
     </div>
     <div
       class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
@@ -69,7 +88,7 @@ useHead({
         />
       </div>
       <div class="flex flex-row items-start avatar-cont">
-        <img :src="blogPost.avatar" alt="" class="avatar" />
+        <img :src="blogPost.avatar" alt="" class="avatar-2" />
 
         <div class="flex flex-col w-full ml-2">
           <span class="text-[0.688rem] font-medium author xs-m:text-sm_m">
@@ -338,7 +357,11 @@ useHead({
     grid-column: 2/4;
     grid-row: 1/2;
     place-self: start center;
-    .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .avatar-2 {
       border-radius: 50%;
       object-fit: cover;
       height: 30px;

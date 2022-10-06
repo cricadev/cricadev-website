@@ -234,6 +234,20 @@ function onIntersectionElement(value) {
     cricadevMobile.classList.remove("cricadev-logo-open");
   }
 }
+useHead({
+  title: "CricaDev",
+  meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      hid: "description",
+      name: "description",
+      content:
+        "Hey, I'm Cristian Casallas also known as CricaDev, A FullStack Web Developer from Colombia with a variety of qualifications and experience in the industry. Curious Risk-taking Innovative Creative Ambitious Determined Enthusiastic Valuable.",
+    },
+  ],
+  link: [{ rel: "icon", type: "image/png", href: "/cricadev.png" }],
+});
 </script>
 
 <style lang="scss" scoped>
