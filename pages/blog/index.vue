@@ -1,4 +1,3 @@
-import { BlogComp } from '../.nuxt/components';
 <template lang="">
   <div class="px-10 pt-20 xs-m:px-36 2xl-m:px-96 xs-m:pt-24 lg-m:px-48">
     <div
@@ -86,6 +85,12 @@ const { data: blogPostListCarousel } = useAsyncData(
     return queryContent("/blog").sort({ id: -1 }).limit(3).find();
   }
 );
+useHead({
+  // put title and description for my blog
+  title: "Cricablog",
+  description:
+    "Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.",
+});
 </script>
 <style lang="scss">
 .related-blog {
