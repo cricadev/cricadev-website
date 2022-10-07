@@ -69,6 +69,16 @@
 <script setup>
 useHead({
   title: "CricaDev | Portfolio",
+  meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      hid: "description",
+      name: "description",
+      content:
+        "Welcome to my portfolio, this is where all my projects live, you can find all of them as subdomains on this website!",
+    },
+  ],
 });
 function handleClick(e) {
   const link = document.querySelectorAll(".link-project");

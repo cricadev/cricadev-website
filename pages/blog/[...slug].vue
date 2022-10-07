@@ -43,40 +43,8 @@ useHead({
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
     <div
-      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] flex justify-around items-center text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16"
+      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu"
       v-if="isActive"
-    >
-      <img
-        src="../../images/cricadev-letters.png"
-        alt=""
-        class="h-10 lg:h-6 xs:h-4"
-      />
-      {{ blogPost.title }}
-      <img
-        src="../../images/cricadev-letters.png"
-        alt=""
-        class="h-10 lg:h-6 xs:h-4"
-      />
-    </div>
-
-    <div
-      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] flex justify-around items-center text-base_m lg-m:text-xl_t disappear-to-top"
-      v-if="!isActive"
-    >
-      <img
-        src="../../images/cricadev-letters.png"
-        alt=""
-        class="h-10 lg:h-6 xs:h-4"
-      />
-      {{ blogPost.title }}
-      <img
-        src="../../images/cricadev-letters.png"
-        alt=""
-        class="h-10 lg:h-6 xs:h-4"
-      />
-    </div>
-    <div
-      class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
     >
       <div
         class="z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow"
@@ -84,20 +52,43 @@ useHead({
       >
         <Icon
           name="akar-icons:arrow-back"
-          class="relative w-[25px] h-[18px] xs-m:w-[35px] xs-m:h-[28px]"
+          class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
         />
       </div>
-      <div class="flex flex-row items-start avatar-cont">
-        <img :src="blogPost.avatar" alt="" class="avatar-2" />
+      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64">
+        {{ blogPost.title }}
+      </p>
+    </div>
 
-        <div class="flex flex-col w-full ml-2">
-          <span class="text-[0.688rem] font-medium author xs-m:text-sm_m">
-            {{ blogPost.author }}
-          </span>
-          <span class="text-[0.563rem] font-light date xs-m:text-[0.813rem]">
-            {{ blogPost.dates.published }}
-          </span>
-        </div>
+    <div
+      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu"
+      v-if="!isActive"
+    >
+      <div
+        class="absolute z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow left-64 lg:left-32"
+        @click="goBack"
+      >
+        <Icon
+          name="akar-icons:arrow-back"
+          class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
+        />
+      </div>
+      <p class="w-[1100px] text">
+        {{ blogPost.title }}
+      </p>
+    </div>
+    <div
+      class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
+    >
+      <img :src="blogPost.avatar" alt="" class="avatar-2" />
+
+      <div class="flex flex-col ml-2">
+        <span class="text-[0.688rem] font-medium author xs-m:text-sm_m">
+          {{ blogPost.author }}
+        </span>
+        <span class="text-[0.563rem] font-light date xs-m:text-[0.813rem]">
+          {{ blogPost.dates.published }}
+        </span>
       </div>
       <span
         class="text-[0.5rem] font-normal reading flex items-center justify-center xs-m:text-[0.813rem]"
@@ -197,6 +188,17 @@ useHead({
   </div>
 </template>
 <style lang="scss" scoped>
+.appear-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 .disappear-to-top {
   animation: disappear-to-top 0.5s ease-in-out forwards;
   img {
@@ -342,42 +344,9 @@ useHead({
 }
 .goback-header {
   z-index: 1;
-  display: grid;
-  position: fixed;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 80% 20%;
-  place-items: center;
-  gap: 10px;
-  .arrow {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    place-self: start center;
-  }
-  .avatar-cont {
-    grid-column: 2/4;
-    grid-row: 1/2;
-    place-self: start center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .avatar-2 {
-      border-radius: 50%;
-      object-fit: cover;
-      height: 30px;
-      width: 30px;
-      z-index: 2;
-
-      @media (min-width: 599px) {
-        height: 45px;
-        width: 45px;
-      }
-    }
-  }
-  .reading {
-    grid-column: 5/6;
-    grid-row: 1/2;
-    place-self: start center;
+  @apply flex fixed;
+  img {
+    @apply w-10 h-10 object-cover rounded-full lg:w-8 lg:h-8 xs:w-6 xs:h-6;
   }
 }
 </style>
