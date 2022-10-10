@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     "@kevinmarrec/nuxt-pwa",
     "@nuxt/content",
   ],
+  generate: {
+    fallback: "error.vue",
+  },
   content: {
     highlight: {
       // OR
@@ -44,8 +47,5 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: "",
-  },
-  generate: {
-    fallback: true,
   },
 });
