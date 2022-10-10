@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleError">Go Home</button>
+  <button @click="handleError">Go Home a</button>
 </template>
 
 <script setup>

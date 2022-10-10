@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
   ],
   generate: {
-    fallback: "error.vue",
+    fallback: "error.html",
   },
   content: {
     highlight: {
