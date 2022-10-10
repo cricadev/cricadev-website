@@ -59,13 +59,12 @@ useHead({
         {{ blogPost.title }}
       </p>
     </div>
-
     <div
       class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu"
       v-if="!isActive"
     >
       <div
-        class="absolute z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow left-64 lg:left-32"
+        class="z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow"
         @click="goBack"
       >
         <Icon
@@ -73,10 +72,11 @@ useHead({
           class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
         />
       </div>
-      <p class="w-[1100px] text">
+      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64">
         {{ blogPost.title }}
       </p>
     </div>
+
     <div
       class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
     >
