@@ -22,7 +22,7 @@
       <slide v-for="blogPost in blogPostListCarousel" :key="blogPost.path">
         <NuxtLink class="blog-container" :to="blogPost._path">
           <h2
-            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12 justify-self-start text-left"
+            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-none mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12 justify-self-start text-left"
           >
             {{ blogPost.title }}
           </h2>
