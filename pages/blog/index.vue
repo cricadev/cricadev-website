@@ -68,7 +68,9 @@
     <div class="pb-4 blogs-order xs-m:pb-24">
       <BlogComp></BlogComp>
     </div>
-
+    <div
+      class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20"
+    ></div>
     <NuxtPage />
   </div>
 </template>
