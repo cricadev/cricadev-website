@@ -29,18 +29,42 @@
     </div>
     <div
       class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu"
-    ></div>
+    >
+      <div class="absolute top-0 z-20 parent-toggle right-20 toggle-menu">
+        <input
+          type="checkbox"
+          class="bg-white toggle dark:bg-black"
+          id="checkbox"
+          @change="
+            setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')
+          "
+        />
+        <div v-if="$colorMode.value === 'light'">
+          <Icon name="akar-icons:sun-fill" class="moon svg" />
+        </div>
+        <div v-if="$colorMode.value === 'dark'">
+          <Icon name="akar-icons:moon-fill" class="sun svg" />
+        </div>
+      </div>
+    </div>
 
     <NuxtPage />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+type Theme = "light" | "dark";
+
+const colorMode = useColorMode();
+const setColorTheme = (newTheme: Theme) => {
+  colorMode.preference = newTheme;
+};
 const props = defineProps({
   error: Object,
 });
 
 const handleError = () => clearError({ redirect: "/" });
+
 useHead({
   title: "CricaDev | 404",
   meta: [
