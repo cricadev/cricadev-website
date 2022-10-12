@@ -139,4 +139,75 @@ useHead({
     @apply bg-green2  text-white transition-all;
   }
 }
+.toggle-menu {
+  @media (max-width: 599px) {
+    transform: scale(0.6) rotate(90deg);
+  }
+}
+.parent-toggle {
+  height: 80px;
+  width: 40px;
+}
+input {
+  appearance: none;
+  border: 2px solid #5aaf98;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 80px;
+  margin: 0;
+}
+.sun {
+  top: 0;
+  transform: translateY(0%) scale(0.75);
+
+  color: #00010d;
+  animation: fade-sun 0.5s ease-in-out forwards;
+  @media (max-width: 599px) {
+    animation: fade-sun-mobile 0.5s ease-in-out forwards;
+  }
+}
+
+.moon {
+  bottom: 0;
+  transform: translateY(0%) scale(0.75);
+  color: #f6f6f6;
+  animation: fade-moon 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-sun-mobile {
+  0% {
+    transform: translateY(100%) scale(0.75) rotate(165deg) translateX(60%);
+  }
+  100% {
+    transform: translateY(0%) scale(0.75) rotate(165deg) translateX(60%);
+  }
+}
+@keyframes fade-moon {
+  0% {
+    transform: translateY(-100%) scale(0.75) translateX(-60%);
+  }
+  100% {
+    transform: translateY(0%) scale(0.75) translateX(-60%);
+  }
+}
+
+.svg {
+  position: absolute;
+  box-sizing: content-box;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  transition: 0.2s all ease-in;
+  pointer-events: none;
+  background: #5aaf98;
+  border-radius: 50%;
+}
+
+.fade {
+  opacity: 0;
+}
 </style>

@@ -28,7 +28,7 @@ const setColorTheme = (newTheme: Theme) => {
   colorMode.preference = newTheme;
 };
 </script>
-<style lang="css">
+<style lang="css" scoped>
 .toggle-menu {
   @media (max-width: 599px) {
     transform: scale(0.6) rotate(90deg);
