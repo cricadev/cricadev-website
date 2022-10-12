@@ -30,7 +30,9 @@
     <div
       class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu"
     >
-      <div class="absolute top-0 z-20 parent-toggle right-20 toggle-menu">
+      <div
+        class="absolute top-0 z-20 parent-toggle right-20 toggle-menu toggle-404"
+      >
         <input
           type="checkbox"
           class="bg-white toggle dark:bg-black"
@@ -81,6 +83,11 @@ useHead({
 });
 </script>
 <style lang="scss">
+.toggle-404 {
+  @media (min-width: 599px) {
+    display: none;
+  }
+}
 .rotate-face {
   animation: tilt-face 2s infinite;
   animation-delay: 2s;
