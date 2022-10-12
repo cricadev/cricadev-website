@@ -9,6 +9,7 @@
     </p>
     <div class="relative z-20">
       <img src="../images/404-bg.png" alt="" class="relative" />
+
       <div class="absolute top-0 left-0 z-10 grid w-full place-items-center">
         <div class="relative rotate-face">
           <img src="../images/face-img.png" alt="" class="relative" />
@@ -180,18 +181,18 @@ input {
 
 @keyframes fade-sun-mobile {
   0% {
-    transform: translateY(100%) scale(0.75) rotate(165deg) translateX(60%);
+    transform: translateY(100%) scale(0.75) rotate(165deg) translateX(70%);
   }
   100% {
-    transform: translateY(0%) scale(0.75) rotate(165deg) translateX(60%);
+    transform: translateY(0%) scale(0.75) rotate(165deg) translateX(70%);
   }
 }
 @keyframes fade-moon {
   0% {
-    transform: translateY(-100%) scale(0.75) translateX(-60%);
+    transform: translateY(-100%) scale(0.75) translateX(-70%);
   }
   100% {
-    transform: translateY(0%) scale(0.75) translateX(-60%);
+    transform: translateY(0%) scale(0.75) translateX(-70%);
   }
 }
 
