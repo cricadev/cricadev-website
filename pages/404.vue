@@ -184,7 +184,7 @@ input {
     transform: translateY(100%) scale(0.75) rotate(165deg) translateX(70%);
   }
   100% {
-    transform: translateY(0%) scale(0.75) rotate(165deg) translateX(70%);
+    transform: translateY(-10%) scale(0.75) rotate(165deg) translateX(70%);
   }
 }
 @keyframes fade-moon {
