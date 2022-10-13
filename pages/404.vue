@@ -1,15 +1,28 @@
 <template>
   <div
-    class="grid w-full h-screen py-32 text-center place-items-center lg:py-24 xs:py-8"
+    class="grid w-full h-screen py-32 text-center place-items-center lg:py-24 xs:py-16"
   >
-    <p class="absolute font-extrabold leading-[0.5] text-xl5_d z-10 opacity-5">
+    <p
+      class="absolute font-extrabold leading-[0.5] text-xl5_d z-10 opacity-5"
+      ref="dvd"
+    >
       Oops:(
       <br />
       <span class="font-normal text-xl2_d"> Page not found </span>
     </p>
     <div class="relative z-20">
-      <img src="../images/404-bg.png" alt="" class="relative" />
-
+      <img
+        src="../images/404-bg.png"
+        alt=""
+        class="relative"
+        v-if="$colorMode.value === 'dark'"
+      />
+      <img
+        src="../images/404-bg-dark.png"
+        alt=""
+        class="relative"
+        v-if="$colorMode.value === 'light'"
+      />
       <div class="absolute top-0 left-0 z-10 grid w-full place-items-center">
         <div class="relative rotate-face">
           <img src="../images/face-img.png" alt="" class="relative" />
@@ -24,9 +37,9 @@
 
     <div class="z-20 flex flex-col items-center justify-center gap-2 w-60">
       <button @click="handleError" class="btn-green">Go Home</button>
-      <button class="btn-border">Learn</button
-      ><button class="btn-border">Test</button
-      ><button class="btn-border">Chill</button>
+      <button class="btn-border" @click="openModal">Learn</button
+      ><button class="btn-border" @click="openModal">Test</button
+      ><button class="btn-border" @click="openModal">Chill</button>
     </div>
     <div
       class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu"
@@ -50,7 +63,62 @@
         </div>
       </div>
     </div>
+    <div
+      class="grid items-center justify-center modal modal1 dark:bg-black/80 bg-white/80 place-items-center"
+      @click="closeModalOutside"
+    >
+      <div
+        class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content"
+      >
+        <div
+          class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white"
+          @click="closeModal"
+        >
+          <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
+        </div>
+        <div class="absolute left-0 px-4 py-2 rounded-r-lg top-16 bg-green2">
+          <Icon name="akar-icons:vue-fill" class="relative w-6 h-6" />
 
+          <span> Vue.js </span>
+        </div>
+        <div class="title">
+          <h2>What is Vue.js?</h2>
+        </div>
+        <div class="opacity-0">Learn</div>
+      </div>
+    </div>
+    <div
+      class="grid items-center justify-center modal modal2 dark:bg-black/80 bg-white/80 place-items-center"
+      @click="closeModalOutside"
+    >
+      <div
+        class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content"
+      >
+        <div
+          class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white"
+          @click="closeModal"
+        >
+          <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
+        </div>
+        <div class="opacity-0">Test</div>
+      </div>
+    </div>
+    <div
+      class="grid items-center justify-center modal modal3 dark:bg-black/80 bg-white/80 place-items-center"
+      @click="closeModalOutside"
+    >
+      <div
+        class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content"
+      >
+        <div
+          class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white"
+          @click="closeModal"
+        >
+          <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
+        </div>
+        <div class="opacity-0">Chill</div>
+      </div>
+    </div>
     <NuxtPage />
   </div>
 </template>
@@ -67,7 +135,31 @@ const props = defineProps({
 });
 
 const handleError = () => clearError({ redirect: "/" });
-
+function openModal(e) {
+  const modal = document.querySelectorAll(".modal");
+  const target = e.currentTarget.innerText;
+  modal.forEach((item) => {
+    if (item.firstChild.lastChild.innerText == target) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+}
+function closeModal(e) {
+  const modal = document.querySelectorAll(".modal");
+  modal.forEach((item) => {
+    item.classList.remove("active");
+  });
+}
+function closeModalOutside(e) {
+  const modal = document.querySelectorAll(".modal");
+  if (e.currentTarget === e.target) {
+    modal.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+}
 useHead({
   title: "CricaDev | 404",
   meta: [
@@ -84,6 +176,43 @@ useHead({
 });
 </script>
 <style lang="scss">
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0%);
+  transition: all 0.2s ease-in-out;
+}
+.modal {
+  transition: all 0.5s ease-in-out;
+
+  transform: translateY(100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  .modal-content {
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(6, 1fr);
+    grid-auto-flow: column;
+    place-self: center;
+    place-items: center;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(90, 175, 152, 1);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(90, 175, 152, 1);
+    box-shadow: 0px 0px 10px 2px rgba(90, 175, 152, 1);
+    @media (min-width: 1100px) {
+      width: 40%;
+    }
+    @media (max-height: 780px) {
+      height: 90%;
+    }
+  }
+}
 .toggle-404 {
   @media (min-width: 599px) {
     display: none;
