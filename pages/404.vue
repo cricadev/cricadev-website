@@ -74,16 +74,14 @@
           class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white"
           @click="closeModal"
         >
-          <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
+          <Icon
+            name="akar-icons:arrow-back"
+            class="relative p-2 text-white rounded-lg bg-green2"
+            size="40px"
+          />
         </div>
-        <div class="absolute left-0 px-4 py-2 rounded-r-lg top-16 bg-green2">
-          <Icon name="akar-icons:vue-fill" class="relative w-6 h-6" />
+        <Q&A></Q&A>
 
-          <span> Vue.js </span>
-        </div>
-        <div class="title">
-          <h2>What is Vue.js?</h2>
-        </div>
         <div class="opacity-0">Learn</div>
       </div>
     </div>
