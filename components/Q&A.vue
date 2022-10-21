@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute flex flex-col items-start justify-center w-full h-full gap-10 px-8 mt-16"
+    class="absolute flex flex-col items-start justify-center w-full h-full gap-10 px-8 mt-16 qa"
   >
     <div
       class="absolute left-0 flex items-center px-6 py-3 rounded-r-lg bg-green2 top-10"
@@ -35,6 +35,7 @@
       <h3 class="font-normal text-green text-[1.125rem]">Answer:</h3>
       <p class="mt-4 font-light leading-snug text-sm_m">
         {{ content }}
+        <img src="" alt="" />
       </p>
     </div>
     <Icon :name="`${icon}`" size="60px" class="place-self-center" />

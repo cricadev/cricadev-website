@@ -4,12 +4,12 @@ const { path } = useRoute();
 const router = useRouter();
 
 const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
-  return queryContent().where({ _path: path }).findOne();
+  return queryContent("/blog").where({ _path: path }).findOne();
 });
 
 const { data: suggested } = await useAsyncData(`suggested`, () => {
   // fetch document where the document path matches with the current route
-  return queryContent()
+  return queryContent("/blog")
     .where({ _path: { $ne: path } })
     .find();
   // get the surround information,
@@ -122,7 +122,7 @@ useHead({
       <article
         class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
       >
-        <ContentDoc class="mb-7" />
+        <ContentRenderer :value="blogPost" />
       </article>
       <div class="relative z-0 related-blogs">
         <div class="flex items-center justify-between mb-12 lines">

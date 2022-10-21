@@ -45,7 +45,7 @@
       class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu"
     >
       <div
-        class="absolute top-0 z-20 parent-toggle right-20 toggle-menu toggle-404"
+        class="absolute top-0 z-20 parent-toggle right-4 toggle-menu toggle-404"
       >
         <input
           type="checkbox"
