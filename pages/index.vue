@@ -3,11 +3,11 @@
     class="grid w-screen h-screen min-w-full min-h-screen grid-cols-12 grid-rows-6 home lg:grid"
   >
     <div
-      v-if="$colorMode.value === 'dark'"
+      v-show="$colorMode.value === 'dark'"
       class="dark-home-bg home-bg lg:hidden"
     ></div>
     <div
-      v-if="$colorMode.value === 'light'"
+      v-show="$colorMode.value === 'light'"
       class="light-home-bg home-bg lg:hidden"
     ></div>
     <div class="line-container lg:hidden">
@@ -111,11 +111,11 @@
     </div>
     <div class="wrap-tablet">
       <div
-        v-if="$colorMode.value === 'dark'"
+        v-show="$colorMode.value === 'dark'"
         class="dark-home-bg home-bg lg:block"
       ></div>
       <div
-        v-if="$colorMode.value === 'light'"
+        v-show="$colorMode.value === 'light'"
         class="light-home-bg home-bg"
       ></div>
       <div class="w-full box-appear"></div>

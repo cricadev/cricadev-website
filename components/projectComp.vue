@@ -37,8 +37,8 @@
       <Icon name="bxl:tailwind-css" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
     </div>
     <img :src="img" alt="" class="bg-project" />
-    <div class="dark-grad-project" v-if="$colorMode.value === 'dark'"></div>
-    <div class="grad-project" v-if="$colorMode.value === 'light'"></div>
+    <div class="dark-grad-project" v-show="$colorMode.value === 'dark'"></div>
+    <div class="grad-project" v-show="$colorMode.value === 'light'"></div>
     <div class="bg-white dark:bg-black bg-hover"></div>
     <div
       class="grid items-center justify-center modal dark:bg-black/80 bg-white/80 place-items-center"

@@ -15,13 +15,13 @@
         src="../images/404-bg.png"
         alt=""
         class="relative"
-        v-if="$colorMode.value === 'dark'"
+        v-show="$colorMode.value === 'dark'"
       />
       <img
         src="../images/404-bg-dark.png"
         alt=""
         class="relative"
-        v-if="$colorMode.value === 'light'"
+        v-show="$colorMode.value === 'light'"
       />
       <div class="absolute top-0 left-0 z-10 grid w-full place-items-center">
         <div class="relative rotate-face">
@@ -55,10 +55,10 @@
             setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')
           "
         />
-        <div v-if="$colorMode.value === 'light'">
+        <div v-show="$colorMode.value === 'light'">
           <Icon name="akar-icons:sun-fill" class="moon svg" />
         </div>
-        <div v-if="$colorMode.value === 'dark'">
+        <div v-show="$colorMode.value === 'dark'">
           <Icon name="akar-icons:moon-fill" class="sun svg" />
         </div>
       </div>

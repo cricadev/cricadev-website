@@ -11,10 +11,10 @@
           setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')
         "
       />
-      <div v-if="$colorMode.value === 'light'">
+      <div v-show="$colorMode.value === 'light'">
         <Icon name="akar-icons:sun-fill" class="moon svg" />
       </div>
-      <div v-if="$colorMode.value === 'dark'">
+      <div v-show="$colorMode.value === 'dark'">
         <Icon name="akar-icons:moon-fill" class="sun svg" />
       </div>
     </div>
