@@ -64,6 +64,7 @@
         <navigation />
       </template>
     </carousel>
+    <BlogTags></BlogTags>
     <div class="mt-12 mb-8 h3 text-base_m">Tags</div>
     <div class="pb-4 blogs-order xs-m:pb-24">
       <BlogComp></BlogComp>
@@ -93,8 +94,41 @@ useHead({
   description:
     "Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.",
 });
+definePageMeta({
+  pageTransition: {
+    name: "slide-right",
+    mode: "out-in",
+  },
+  middleware(to, from) {
+    to.meta.pageTransition.name =
+      +to.params.id > +from.params.id ? "slide-left" : "slide-right";
+  },
+});
 </script>
 <style lang="scss">
+// page transition
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.2s;
+}
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translate(50px, 0);
+}
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translate(-50px, 0);
+}
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translate(-50px, 0);
+}
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translate(50px, 0);
+}
 .related-blog {
   display: flex;
   flex-direction: row;

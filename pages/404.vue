@@ -173,7 +173,7 @@ useHead({
   link: [{ rel: "icon", type: "image/png", href: "/404-img.png" }],
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .modal.active {
   opacity: 1;
   pointer-events: all;

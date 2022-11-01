@@ -59,11 +59,11 @@ body {
     @apply px-4  text-xl_d font-extralight transition-all lg:text-xl_t lg:font-light;
     &:focus,
     &:active {
-      @apply font-normal transition-all;
+      @apply transition-all;
     }
     &:hover {
       text-shadow: 2px 2px $green;
-      @apply font-light  transition-all;
+      @apply transition-all;
     }
   }
   .link-project {
