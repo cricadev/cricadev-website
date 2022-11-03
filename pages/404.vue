@@ -80,7 +80,7 @@
             size="40px"
           />
         </div>
-        <Q&AContainer></Q&AContainer>
+        <QandAContainer></QandAContainer>
 
         <div class="opacity-0">Learn</div>
       </div>
