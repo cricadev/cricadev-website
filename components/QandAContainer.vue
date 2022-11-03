@@ -10,7 +10,7 @@
         size="40px"
       />
     </div>
-    <Q&A
+    <QandA
       tag="akar-icons:vue-fill"
       tagline="Vue.js"
       question="What is Vue.js?"
@@ -21,32 +21,32 @@
     to install any thing to use Vue js just need add Vue js library in your
     project."
       icon="logos:vue"
-    ></Q&A>
-    <Q&A
+    ></QandA>
+    <QandA
       tag="logos:javascript"
       tagline="JavaScript"
       question="What is typeof operator?"
       stars="1"
       content="JavaScript provides a typeof operator that can examine a value and tell you what type it is:"
       icon="logos:javascript"
-    ></Q&A>
-    <Q&A
+    ></QandA>
+    <QandA
       tag="logos:react"
       tagline="React"
       question="How would you prevent a component from rendering in React?"
       stars="1"
       content="Returning null from a component's render method does not affect the firing of the component's lifecycle methods."
       icon="logos:react"
-    ></Q&A>
-    <Q&A
+    ></QandA>
+    <QandA
       tag="vscode-icons:file-type-html"
       tagline="HTML"
       question="What is an iframe and how it works?"
       stars="1"
       content="An iframe is an HTML document which can be embedded inside another HTML page."
       icon="vscode-icons:file-type-html"
-    ></Q&A>
-    <Q&A
+    ></QandA>
+    <QandA
       tag="vscode-icons:file-type-css"
       tagline="CSS"
       question="What is Sass?"
@@ -54,7 +54,7 @@
       content="Sass or Syntactically Awesome StyleSheets is a CSS preprocessor that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly.
       A CSS preprocessor is a scripting language that extends CSS by allowing developers to write code in one language and then compile it into CSS."
       icon="vscode-icons:file-type-css"
-    ></Q&A>
+    ></QandA>
   </div>
 </template>
 <script setup>
