@@ -65,12 +65,12 @@
       </template>
     </carousel>
     <BlogTags></BlogTags>
-    <div class="mt-12 mb-8 h3 text-base_m">Tags</div>
-    <div class="pb-4 blogs-order xs-m:pb-24">
+
+    <div class="py-4 blogs-order xs-m:pb-24">
       <BlogComp></BlogComp>
     </div>
     <div
-      class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20"
+      class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20 xs:hidden"
     ></div>
     <NuxtPage />
   </div>

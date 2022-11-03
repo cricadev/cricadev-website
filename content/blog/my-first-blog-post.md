@@ -9,6 +9,7 @@ img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.
 avatar: "../avatar-crica.jpg"
 duration: 15
 id: 1
+tags: ["Vue", "Nuxt"]
 ---
 
 Cricadev is cool

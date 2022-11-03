@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="my-4 blog-container"
+    class="my-1 blog-container"
     v-for="blogPost in blogPostList"
     :key="blogPost.path"
     :to="blogPost._path"

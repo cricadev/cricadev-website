@@ -6,15 +6,17 @@ const router = useRouter();
 const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent("/blog").where({ _path: path }).findOne();
 });
+const getTags = [...blogPost.value.tags];
 
 const { data: suggested } = await useAsyncData(`suggested`, () => {
   // fetch document where the document path matches with the current route
   return queryContent("/blog")
-    .where({ _path: { $ne: path } })
+    .where({ tags: { $contains: getTags } })
     .find();
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
+
 const isActive = ref(false);
 onBeforeMount(() => {
   window.addEventListener("scroll", handleScroll);
@@ -114,11 +116,8 @@ useHead({
       >
         {{ blogPost.title }}
       </h2>
-      <img
-        :src="blogPost.img"
-        alt=""
-        class="h-56 mx-auto mb-7 blog-img xs-m:h-96 lg-m:h-[420px]"
-      />
+      <BlogImg :src="blogPost.img" :tags="getTags"></BlogImg>
+
       <article
         class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
       >
@@ -186,7 +185,7 @@ useHead({
       </div>
     </div>
     <div
-      class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20"
+      class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20 xs:hidden"
     ></div>
   </div>
 </template>

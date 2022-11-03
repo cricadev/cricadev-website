@@ -9,7 +9,7 @@ img: "https://images.unsplash.com/photo-1664938112749-4a1e1e11abf7?ixlib=rb-1.2.
 avatar: "../avatar-crica.jpg"
 duration: 15
 id: 3
-tags: [Nuxt, Content, Learning]
+tags: ["About me"]
 ---
 
 # My first blog post
