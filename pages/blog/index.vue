@@ -1,3 +1,31 @@
+<script setup>
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+
+const { data: blogPostListCarousel } = useAsyncData(
+  "blogPostListCarousel",
+  () => {
+    return queryContent("/blog").sort({ id: -1 }).limit(3).find();
+  }
+);
+
+useHead({
+  // put title and description for my blog
+  title: "Cricablog",
+  description:
+    "Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.",
+});
+definePageMeta({
+  pageTransition: {
+    name: "slide-right",
+    mode: "out-in",
+  },
+  middleware(to, from) {
+    to.meta.pageTransition.name =
+      +to.params.id > +from.params.id ? "slide-left" : "slide-right";
+  },
+});
+</script>
 <template lang="">
   <div class="px-10 pt-20 xs-m:px-36 2xl-m:px-96 xs-m:pt-24 lg-m:px-48">
     <div
@@ -22,16 +50,17 @@
       <slide v-for="blogPost in blogPostListCarousel" :key="blogPost.path">
         <NuxtLink class="blog-container" :to="blogPost._path">
           <h2
-            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-none mb-2 xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12 justify-self-start text-left"
+            class="px-4 font-black text-white title text-[1.313rem] tracking-wide leading-none xs-m:text-xl_t xs-m:px-8 lg-m:text-xl2_d lg-m:px-12 justify-self-start text-left truncate-text"
           >
             {{ blogPost.title }}
           </h2>
           <p
-            class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-xs_t xs-m:px-8 lg-m:text-base_t lg-m:leading-normal lg-m:px-12 justify-self-start text-left"
+            class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-xs_t xs-m:px-8 lg-m:text-base_t lg-m:leading-normal lg-m:px-12 justify-self-start text-left truncate-text"
           >
             {{ blogPost.description }}
           </p>
-          <img :src="blogPost.img" alt="" class="img" />
+          <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="8"></BlogImg>
+
           <div class="my-2 blog-footer">
             <img :src="blogPost.avatar" alt="" class="avatar" />
             <div class="flex flex-col items-start author-date">
@@ -75,37 +104,16 @@
     <NuxtPage />
   </div>
 </template>
-<script setup>
-import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
-const { data: blogPostList } = useAsyncData("blogPostList", () => {
-  return queryContent("/blog").find();
-});
-const { data: blogPostListCarousel } = useAsyncData(
-  "blogPostListCarousel",
-  () => {
-    return queryContent("/blog").sort({ id: -1 }).limit(3).find();
-  }
-);
-useHead({
-  // put title and description for my blog
-  title: "Cricablog",
-  description:
-    "Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.",
-});
-definePageMeta({
-  pageTransition: {
-    name: "slide-right",
-    mode: "out-in",
-  },
-  middleware(to, from) {
-    to.meta.pageTransition.name =
-      +to.params.id > +from.params.id ? "slide-left" : "slide-right";
-  },
-});
-</script>
 <style lang="scss">
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 // page transition
 .slide-left-enter-active,
 .slide-left-leave-active,
@@ -155,7 +163,7 @@ definePageMeta({
 }
 .dark .carousel__prev,
 .carousel__prev {
-  transform: translateX(20%) scale(1.2) translateY(-70%);
+  transform: translateX(-40%) scale(0.8) translateY(-70%);
   @media (min-width: 599px) {
     transform: translateX(20%) scale(1.5) translateY(-50%);
   }
@@ -165,7 +173,7 @@ definePageMeta({
 }
 .dark .carousel__next,
 .carousel__next {
-  transform: translateX(-20%) scale(1.2) translateY(-70%);
+  transform: translateX(40%) scale(0.8) translateY(-70%);
   @media (min-width: 599px) {
     transform: translateX(-20%) scale(1.5) translateY(-50%);
   }

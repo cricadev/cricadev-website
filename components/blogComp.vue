@@ -1,17 +1,17 @@
 <template>
   <NuxtLink
-    class="my-1 blog-container"
+    class="relative my-1 blog-container"
     v-for="blogPost in blogPostList"
     :key="blogPost.path"
     :to="blogPost._path"
   >
     <h2
-      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start"
+      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start truncate-text"
     >
       {{ blogPost.title }}
     </h2>
     <p
-      class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden justify-self-start text-left"
+      class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
     >
       {{ blogPost.description }}
     </p>
@@ -20,7 +20,7 @@
     >
       {{ blogPost.descdesktop }}
     </p>
-    <img :src="blogPost.img" alt="" class="img" />
+    <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="8"></BlogImg>
     <div class="my-2 blog-footer">
       <img :src="blogPost.avatar" alt="" class="avatar" />
       <div class="flex flex-col items-start author-date">
@@ -52,6 +52,14 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
 });
 </script>
 <style lang="scss">
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 .blog-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
@@ -107,6 +115,7 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
     grid-column: 1/6;
     grid-row: 3/4;
     z-index: 2;
+    place-self: end start;
   }
   .content {
     grid-column: 1/6;

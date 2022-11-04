@@ -57,7 +57,7 @@ useHead({
           class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
         />
       </div>
-      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64">
+      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64 overflow-ellipsis">
         {{ blogPost.title }}
       </p>
     </div>
@@ -116,7 +116,12 @@ useHead({
       >
         {{ blogPost.title }}
       </h2>
-      <BlogImg :src="blogPost.img" :tags="getTags"></BlogImg>
+      <BlogImg
+        :src="blogPost.img"
+        :tags="getTags"
+        relative="true"
+        top="4"
+      ></BlogImg>
 
       <article
         class="w-full mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
@@ -141,12 +146,12 @@ useHead({
             :href="suggest._path"
           >
             <h2
-              class="font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left mb-2 xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start px-6"
+              class="font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start px-6 truncate-text"
             >
               {{ suggest.title }}
             </h2>
             <p
-              class="font-medium text-left content text-[.75rem] text-white leading-[.85rem] xs-m:text-[0.625rem] lg-m:hidden px-6"
+              class="font-medium text-left content text-[.75rem] text-white leading-[.85rem] xs-m:text-[0.625rem] lg-m:hidden px-6 truncate-text"
             >
               {{ suggest.description }}
             </p>
@@ -155,7 +160,12 @@ useHead({
             >
               {{ suggest.descdesktop }}
             </p>
-            <img :src="suggest.img" alt="" class="img" />
+            <BlogImg
+              :src="blogPost.img"
+              :tags="blogPost.tags"
+              top="4"
+            ></BlogImg>
+
             <div class="my-2 blog-footer">
               <img :src="blogPost.avatar" alt="" class="avatar" />
 

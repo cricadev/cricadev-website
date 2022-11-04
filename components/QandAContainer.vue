@@ -52,7 +52,7 @@
       question="What is Sass?"
       stars="1"
       content="Sass or Syntactically Awesome StyleSheets is a CSS preprocessor that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly.
-      A CSS preprocessor is a scripting language that extends CSS by allowing developers to write code in one language and then compile it into CSS."
+      A CSS preprocessor is a scripting language that extenpds CSS by allowing developers to write code in one language and then compile it into CSS."
       icon="vscode-icons:file-type-css"
     ></QandA>
   </div>
