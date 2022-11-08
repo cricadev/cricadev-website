@@ -59,7 +59,7 @@ definePageMeta({
           >
             {{ blogPost.description }}
           </p>
-          <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="8"></BlogImg>
+          <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"></BlogImg>
 
           <div class="my-2 blog-footer">
             <img :src="blogPost.avatar" alt="" class="avatar" />
@@ -95,7 +95,7 @@ definePageMeta({
     </carousel>
     <BlogTags></BlogTags>
 
-    <div class="py-4 blogs-order xs-m:pb-24">
+    <div class="py-16 blogs-order">
       <BlogComp></BlogComp>
     </div>
     <div

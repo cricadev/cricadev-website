@@ -15,39 +15,42 @@ const props = defineProps({
     default: false,
   },
   top: {
-    type: Number,
+    type: String,
     required: false,
-    default: 0,
+    default: "0",
+  },
+  width: {
+    type: String,
+    required: false,
+    default: "100%",
   },
 });
 const convertTagsIntoIcons = computed(() => {
   return props.tags.map((tag) => {
     if (tag === "javascript") {
-      return "akar-icons:javascript-fill";
+      return { name: "akar-icons:javascript-fill", text: "Javascript" };
     } else if (tag === "Vue") {
-      return "akar-icons:vue-fill";
+      return { name: "akar-icons:vue-fill", text: "Vue" };
     } else if (tag === "react") {
-      return "akar-icons:react-fill";
+      return { name: "akar-icons:react-fill", text: "React" };
     } else if (tag === "node") {
-      return "akar-icons:nodejs-fill";
+      return { name: "akar-icons:node-fill", text: "Node" };
     } else if (tag === "Typescript") {
-      return "akar-icons:typescript-fill";
+      return { name: "akar-icons:typescript-fill", text: "Typescript" };
     } else if (tag === "css") {
-      return "akar-icons:css-fill";
+      return { name: "akar-icons:css-fill", text: "CSS" };
     } else if (tag === "html") {
-      return "akar-icons:html-fill";
+      return { name: "akar-icons:html-fill", text: "HTML" };
     } else if (tag === "sass") {
-      return "akar-icons:sass-fill";
+      return { name: "akar-icons:sass-fill", text: "Sass" };
     } else if (tag === "Tailwind") {
-      return "file-icons:tailwind";
+      return { name: "file-icons:tailwind", text: "Tailwind" };
     } else if (tag === "Nuxt") {
-      return "cib:nuxt-js";
-    } else if (tag === "git") {
-      return "akar-icons:git-fill";
+      return { name: "cib:nuxt-js", text: "Nuxt" };
     } else if (tag === "github") {
-      return "akar-icons:github-fill";
+      return { name: "akar-icons:github-fill", text: "Github" };
     } else {
-      return "../images/logo-logo-cricadev.png";
+      return { name: "../images/logo-logo-cricadev.png", text: "About me" };
     }
   });
 });
@@ -55,7 +58,7 @@ console.log(convertTagsIntoIcons);
 </script>
 <template>
   <div
-    class="w-full fuck"
+    class="w-full h-full mx-auto fuck"
     :class="[
       //relative if relative is true
       { relative: relative },
@@ -63,29 +66,59 @@ console.log(convertTagsIntoIcons);
       { absolute: !relative },
     ]"
   >
-    <img
-      :src="src"
-      alt=""
-      class="h-56 mx-auto mb-7 blog-img xs-m:h-96 lg-m:h-[420px] w-full object-cover grayscale rounded-lg"
-    />
-    <div
-      class="absolute left-0 grid grid-flow-col grid-rows-2 gap-x-1 gap-y-2"
-      :class="`top-${top}`"
-    >
-      <span
-        class="p-2 text-white rounded-r-lg bg-green2"
-        v-for="(index, key) of convertTagsIntoIcons"
-        :key="key"
+    <div class="relative">
+      <img
+        :src="src"
+        alt=""
+        class="object-cover w-full h-full mx-auto rounded-lg grayscale brightness-75"
+        :class="{
+          'w-128': width,
+          'h-128': width,
+        }"
+      />
+      <div
+        class="absolute left-0 grid grid-flow-col grid-rows-2 gap-1"
+        :class="`top-${top}`"
       >
-        <div class="" v-if="index == '../images/logo-logo-cricadev.png'">
-          <img
-            src="../images/logo-logo-cricadev.png"
-            alt=""
-            class="w-4 brightness-[4]"
-          />
-        </div>
-        <Icon :name="index" v-else></Icon>
-      </span>
+        <span
+          class="flex items-center w-full gap-2 p-2 text-white rounded-r-lg bg-green2 icon-anim"
+          v-for="(index, key) of convertTagsIntoIcons"
+          :key="key"
+        >
+          <div class="" v-if="index.name == '../images/logo-logo-cricadev.png'">
+            <img
+              src="../images/logo-logo-cricadev.png"
+              alt=""
+              class="w-4 brightness-[4]"
+            />
+          </div>
+          <Icon :name="index.name" v-else></Icon>
+          <span class="flex w-full bg-green2 border-r-lg text-sm_m">
+            {{ index.text }}
+          </span>
+        </span>
+      </div>
     </div>
   </div>
 </template>
+<style lang="scss">
+.fuck {
+  grid-column: 1/6;
+  grid-row: 1/6;
+}
+.icon-anim {
+  span {
+    text-align: justify;
+
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    span {
+      opacity: 1;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+</style>

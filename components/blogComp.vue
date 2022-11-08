@@ -11,16 +11,12 @@
       {{ blogPost.title }}
     </h2>
     <p
-      class="font-medium content text-[.75rem] text-white px-4 leading-[.85rem] xs-m:text-[0.625rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
+      class="font-medium content text-[.75rem] xs-m:text-xs_t lg-m:text-sm_m text-white px-4 leading-[.85rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
     >
       {{ blogPost.description }}
     </p>
-    <p
-      class="hidden px-2 font-medium leading-none text-left text-white lg-m:block content text-base_t justify-self-start"
-    >
-      {{ blogPost.descdesktop }}
-    </p>
-    <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="8"></BlogImg>
+
+    <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"> </BlogImg>
     <div class="my-2 blog-footer">
       <img :src="blogPost.avatar" alt="" class="avatar" />
       <div class="flex flex-col items-start author-date">
@@ -52,14 +48,6 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
 });
 </script>
 <style lang="scss">
-.truncate-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
 .blog-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
@@ -69,15 +57,7 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
   place-items: center;
   place-content: center;
   width: 100%;
-  height: 200px;
-  @media (min-width: 599px) {
-    height: 250px;
-    width: 48%;
-  }
-  @media (min-width: 1100px) {
-    height: 400px;
-    width: 31%;
-  }
+  height: 220px;
   .blog-footer {
     grid-column: 1/6;
     grid-row: 5/6;

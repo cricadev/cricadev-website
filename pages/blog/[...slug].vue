@@ -45,11 +45,11 @@ useHead({
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
     <div
-      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center"
+      class="fixed top-16 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center"
       v-if="isActive"
     >
       <div
-        class="z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow"
+        class="absolute z-10 mb-4 text-black top-2 left-8 dark:text-white hover:cursor-pointer arrow"
         @click="goBack"
       >
         <Icon
@@ -57,16 +57,18 @@ useHead({
           class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
         />
       </div>
-      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64 overflow-ellipsis">
+      <p
+        class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64 overflow-ellipsis mx-16"
+      >
         {{ blogPost.title }}
       </p>
     </div>
     <div
-      class="fixed top-0 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu text-center"
+      class="fixed top-16 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu text-center"
       v-if="!isActive"
     >
       <div
-        class="z-10 mb-4 text-black dark:text-white hover:cursor-pointer arrow"
+        class="absolute z-10 mb-4 text-black top-2 left-8 dark:text-white hover:cursor-pointer arrow"
         @click="goBack"
       >
         <Icon
@@ -74,7 +76,9 @@ useHead({
           class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
         />
       </div>
-      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64">
+      <p
+        class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64 overflow-ellipsis mx-16"
+      >
         {{ blogPost.title }}
       </p>
     </div>
@@ -155,15 +159,13 @@ useHead({
             >
               {{ suggest.description }}
             </p>
-            <p
-              class="hidden px-6 font-medium leading-none text-left text-white lg-m:block content text-base_t"
-            >
-              {{ suggest.descdesktop }}
-            </p>
+
             <BlogImg
               :src="blogPost.img"
               :tags="blogPost.tags"
-              top="4"
+              top="0"
+              relative="true"
+              width="40%"
             ></BlogImg>
 
             <div class="my-2 blog-footer">
@@ -240,6 +242,7 @@ useHead({
     to {
       opacity: 1;
       transform: translateY(0);
+      font-size: 0.75rem;
     }
   }
 }
