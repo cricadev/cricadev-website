@@ -32,16 +32,19 @@ const active = (e) => {
 </script>
 
 <template>
-  <nav class="select-none toc dropdown" ref="dropdown" @click="show = !show">
-    <header class="flex items-center justify-between toc-header">
-      <h3 class="text-xl font-bold text-white">Table of contents</h3>
-      <Icon
-        name="eva:arrow-ios-downward-fill"
-        class="z-[999] w-7 h-7 icon text-white"
-      />
-    </header>
+  <nav
+    class="left-0 flex w-screen select-none toc dropdown top-36 z-[9999] fixed"
+    ref="dropdown"
+    @click="show = !show"
+  >
+    <Icon
+      name="ic:baseline-toc"
+      class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2"
+      :class="{ 'bg-green2/0': show }"
+    />
 
     <ul class="toc-links dropdown dropdown-5" v-if="show">
+      <h3 class="pl-10 mb-8">Table of Content</h3>
       <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
@@ -49,6 +52,7 @@ const active = (e) => {
         :class="`toc-link _${link.depth} dropdown_item`"
       >
         <a :href="`#${link.id}`">
+          <span class="w-4 h-12 bg-green"></span>
           {{ link.text }}
         </a>
       </li>
@@ -57,11 +61,7 @@ const active = (e) => {
 </template>
 <style lang="scss">
 .toc {
-  @apply bg-green border-none  rounded-lg;
-  @apply w-64;
-  @media (max-width: 885px) {
-    @apply w-screen;
-  }
+  @apply border-none  rounded-lg bg-green2/50;
 
   & .icon {
     transition: 0.4s ease-in-out;
@@ -81,7 +81,7 @@ const active = (e) => {
   }
 }
 .toc-header {
-  @apply border-none p-4  rounded-lg;
+  @apply border-none   rounded-lg;
 }
 .toc-links {
   @apply flex flex-col gap-2 px-6 py-4;
@@ -92,11 +92,22 @@ const active = (e) => {
     @apply text-black;
   }
 }
+.toc-link._2 {
+  @apply pl-12;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background: white;
+    height: 50%;
+    left: 10%;
+  }
+}
 .toc-link._3 {
-  @apply pl-3;
+  @apply pl-16;
 }
 .toc-link._4 {
-  @apply pl-6;
+  @apply pl-24;
 }
 .toc-link._undefined {
   @apply pl-8;

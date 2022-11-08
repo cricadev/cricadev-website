@@ -45,11 +45,11 @@ useHead({
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
     <div
-      class="fixed top-16 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center"
+      class="fixed xs:top-16 top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center px-96 lg:px-16 xs:px-8 lg:top-20"
       v-if="isActive"
     >
       <div
-        class="absolute z-10 mb-4 text-black top-2 left-8 dark:text-white hover:cursor-pointer arrow"
+        class="z-10 text-black top-2 left-8 dark:text-white hover:cursor-pointer arrow"
         @click="goBack"
       >
         <Icon
@@ -57,18 +57,16 @@ useHead({
           class="relative w-[25px] h-[18px] lg-m:w-[35px] lg-m:h-[28px]"
         />
       </div>
-      <p
-        class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64 overflow-ellipsis mx-16"
-      >
+      <p class="w-[1100px] lg:w-144 xs:w-96 text xss:w-64 overflow-ellipsis">
         {{ blogPost.title }}
       </p>
     </div>
     <div
-      class="fixed top-16 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu text-center"
+      class="fixed top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu text-center px-96 lg:px-16 xs:px-8 lg:top-20"
       v-if="!isActive"
     >
       <div
-        class="absolute z-10 mb-4 text-black top-2 left-8 dark:text-white hover:cursor-pointer arrow"
+        class="z-10 text-black top-2 left-8 dark:text-white hover:cursor-pointer arrow"
         @click="goBack"
       >
         <Icon
@@ -111,10 +109,8 @@ useHead({
         class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black xs-m:h-[6rem]"
       ></div>
     </div>
-    <div class="cont-toc z-[999]">
-      <Toc :links="blogPost.body.toc.links" />
-    </div>
-    <div class="px-10 pt-36 content-blog xs-m:px-16 lg-m:px-60">
+    <Toc :links="blogPost.body.toc.links" />
+    <div class="px-16 pt-36 content-blog xs-m:px-32 lg-m:px-60">
       <h2
         class="font-black text-[1.313rem] mb-7 xs-m:text-xl_t mx-auto text-center"
       >
@@ -206,7 +202,7 @@ useHead({
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 5px;
   .text {
     white-space: nowrap;
     overflow: hidden;
@@ -221,11 +217,12 @@ useHead({
   @keyframes disappear-to-top {
     0% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0);
+      font-size: 0.85rem;
     }
     100% {
       opacity: 0;
-      transform: translateY(-100%);
+      transform: translateX(-100%);
     }
   }
 }
@@ -237,31 +234,16 @@ useHead({
   @keyframes appear-from-top {
     from {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateX(-100%);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
-      font-size: 0.75rem;
+      transform: translateX(0);
+      font-size: 0.85rem;
     }
   }
 }
-.cont-toc {
-  z-index: 9;
-  position: fixed;
-  top: 18%;
-  right: 10%;
-  transform: translateX(-50%);
-  @media (max-width: 1500px) {
-    right: 0%;
-  }
-  @media (max-width: 1100px) {
-    transform: translateX(-10%);
-  }
-  @media (max-width: 885px) {
-    transform: translateX(0%);
-  }
-}
+
 .prose :where(h2):not(:where([class~="not-prose"] *)),
 .prose :where(h1):not(:where([class~="not-prose"] *)),
 .prose :where(h3):not(:where([class~="not-prose"] *)),
