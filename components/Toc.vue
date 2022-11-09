@@ -47,7 +47,7 @@ const active = (e) => {
       />
 
       <ul
-        class="z-[9999] toc-links dropdown dropdown-5 toc-activate"
+        class="z-[9999] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2"
         v-if="show"
       >
         <div class="flex items-center justify-between">
@@ -60,7 +60,7 @@ const active = (e) => {
           <h3 class="top-0 pl-14 text-sm_d">Table of Content</h3>
           <Icon
             name="clarity:caret-line"
-            class="w-6 h-6"
+            class="w-6 h-6 transition-all caret-rotate-negative"
             @click="show = !show"
           ></Icon>
         </div>
@@ -78,14 +78,14 @@ const active = (e) => {
         </li>
       </ul>
       <ul
-        class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate"
+        class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate border-b-green border-b-2"
         v-if="!show"
       >
         <div class="flex items-center">
           <h3 class="pl-14">Table of Content</h3>
           <Icon
             name="clarity:caret-line"
-            class="absolute w-6 h-6 right-4 top-4"
+            class="absolute w-6 h-6 right-4 top-4 caret-rotate"
           ></Icon>
         </div>
         <!-- render each link with depth class -->
@@ -104,6 +104,30 @@ const active = (e) => {
   </div>
 </template>
 <style lang="scss">
+.caret-rotate {
+  // animate a rotation of 180 degrees with keyframes
+  animation: caret-rotate 0.3s ease-in-out;
+  @keyframes caret-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+}
+.caret-rotate-negative {
+  // animate a rotation of 180 degrees with keyframes
+  animation: caret-rotate-negative 0.3s ease-in-out;
+  @keyframes caret-rotate-negative {
+    0% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
 .toc {
   @apply border-none;
 
