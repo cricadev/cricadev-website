@@ -45,7 +45,7 @@ useHead({
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
     <div
-      class="fixed xs:top-16 top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center px-96 lg:px-16 xs:px-8 lg:top-20"
+      class="fixed xs:top-16 top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9998] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center px-96 lg:px-16 xs:px-8 lg:top-20"
       v-if="isActive"
     >
       <div
@@ -62,7 +62,7 @@ useHead({
       </p>
     </div>
     <div
-      class="fixed top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9999] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu text-center px-96 lg:px-16 xs:px-8 lg:top-20"
+      class="fixed top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9998] text-base_m lg-m:text-xl_t disappear-to-top lg:h-20 xs:h-16 appear-menu text-center px-96 lg:px-16 xs:px-8 lg:top-20"
       v-if="!isActive"
     >
       <div

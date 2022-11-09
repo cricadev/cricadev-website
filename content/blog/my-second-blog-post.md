@@ -11,8 +11,6 @@ id: 2
 tags: ["Vue", "Tailwind"]
 ---
 
-## My first blog post
-
 Welcome to my first blog post using [content v2 module](https://content.nuxtjs.org/)
 
 > Hey there! 👋🏾 This is my first blog post learning nuxt content.
@@ -31,9 +29,12 @@ I'm currently building it using the following:
 ```bash
 npx nuxi init nuxt-app
 cd nuxt-app
+
 yarn install
 yarn dev -o
 ```
+
+### Nuxt.js Item
 
 ```ts
 // ./nuxt.config.ts
@@ -54,6 +55,8 @@ This will be rendered inside the `description` slot. _It's important_ to see how
 ## Nuxt content module
 
 Empower your NuxtJS application with [@nuxt/content module](https://content.nuxtjs.org/): write in a content/ directory and fetch your Markdown, JSON, YAML, XML and CSV files through a MongoDB like API, acting as a Git-based Headless CMS.
+
+### Nuxt item
 
 You can get started with Nuxt Content by installing a fresh project
 

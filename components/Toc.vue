@@ -5,9 +5,6 @@ import autoAnimate from "@formkit/auto-animate";
 const dropdown = ref(); // we need a DOM node
 const show = ref(false);
 
-onMounted(() => {
-  autoAnimate(dropdown.value); // thats it!
-});
 // define links prop
 defineProps(["links"]);
 // flatten TOC links nested arrays to one array
@@ -32,36 +29,83 @@ const active = (e) => {
 </script>
 
 <template>
-  <nav
-    class="left-0 flex w-screen select-none toc dropdown top-36 z-[9999] fixed"
-    ref="dropdown"
-    @click="show = !show"
-  >
-    <Icon
-      name="ic:baseline-toc"
-      class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2"
-      :class="{ 'bg-green2/0': show }"
-    />
+  <div>
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all"
+      v-if="show"
+      @click="show = false"
+    ></div>
+    <nav
+      class="left-0 flex w-screen select-none toc dropdown top-36 z-[9999] fixed"
+      ref="dropdown"
+    >
+      <Icon
+        name="ic:baseline-toc"
+        class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999]"
+        :class="{ 'bg-green2/0 opacity-0': show }"
+        @click="show = !show"
+      />
 
-    <ul class="toc-links dropdown dropdown-5" v-if="show">
-      <h3 class="pl-10 mb-8">Table of Content</h3>
-      <!-- render each link with depth class -->
-      <li
-        v-for="link of flattenLinks(links)"
-        :key="link.id"
-        :class="`toc-link _${link.depth} dropdown_item`"
+      <ul
+        class="z-[9999] toc-links dropdown dropdown-5 toc-activate"
+        v-if="show"
       >
-        <a :href="`#${link.id}`">
-          <span class="w-4 h-12 bg-green"></span>
-          {{ link.text }}
-        </a>
-      </li>
-    </ul>
-  </nav>
+        <div class="flex items-center justify-between">
+          <Icon
+            name="ic:baseline-toc"
+            class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999]"
+            :class="{ 'bg-green2/0': show }"
+          />
+
+          <h3 class="top-0 pl-14 text-sm_d">Table of Content</h3>
+          <Icon
+            name="clarity:caret-line"
+            class="w-6 h-6"
+            @click="show = !show"
+          ></Icon>
+        </div>
+        <!-- render each link with depth class -->
+        <li
+          v-for="link of flattenLinks(links)"
+          :key="link.id"
+          :class="`toc-link _${link.depth} dropdown_item`"
+          @click="show = !show"
+        >
+          <a :href="`#${link.id}`">
+            <span class="w-4 h-12 bg-green"></span>
+            {{ link.text }}
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate"
+        v-if="!show"
+      >
+        <div class="flex items-center">
+          <h3 class="pl-14">Table of Content</h3>
+          <Icon
+            name="clarity:caret-line"
+            class="absolute w-6 h-6 right-4 top-4"
+          ></Icon>
+        </div>
+        <!-- render each link with depth class -->
+        <li
+          v-for="link of flattenLinks(links)"
+          :key="link.id"
+          :class="`toc-link _${link.depth} dropdown_item side-nav__item`"
+        >
+          <a :href="`#${link.id}`">
+            <span class="w-4 h-12 bg-green"></span>
+            {{ link.text }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 <style lang="scss">
 .toc {
-  @apply border-none  rounded-lg bg-green2/50;
+  @apply border-none;
 
   & .icon {
     transition: 0.4s ease-in-out;
@@ -83,25 +127,54 @@ const active = (e) => {
 .toc-header {
   @apply border-none   rounded-lg;
 }
+.toc-deactivate {
+  animation: toc-de 0.5s ease-in-out forwards;
+  @keyframes toc-de {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-100%);
+    }
+  }
+}
+.toc-activate {
+  animation: toc 0.5s ease-in-out forwards;
+  @keyframes toc {
+    0% {
+      opacity: 1;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
 .toc-links {
-  @apply flex flex-col gap-2 px-6 py-4;
+  @apply flex flex-col gap-2 w-full bg-[#238166]/60  p-4;
 }
 .toc-link {
-  @apply text-white;
-  &:hover > a {
-    @apply text-black;
+  @apply text-white font-medium text-sm_d bg-[#238166]/60;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.6s;
+  background: rgba(0, 0, 0, 0);
+  &:hover {
+    background-size: 200%;
+    background-image: linear-gradient(
+      to left,
+      #1f6853,
+      rgba(90, 175, 152, 1),
+      #1f6853
+    );
+    background-position: right;
   }
 }
 .toc-link._2 {
   @apply pl-12;
-  &:after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    background: white;
-    height: 50%;
-    left: 10%;
-  }
 }
 .toc-link._3 {
   @apply pl-16;
