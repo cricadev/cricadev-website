@@ -41,7 +41,7 @@ const active = (e) => {
     >
       <Icon
         name="ic:baseline-toc"
-        class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999]"
+        class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
         :class="{ 'bg-green2/0 opacity-0': show }"
         @click="show = !show"
       />
@@ -53,14 +53,14 @@ const active = (e) => {
         <div class="flex items-center justify-between">
           <Icon
             name="ic:baseline-toc"
-            class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999]"
+            class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
             :class="{ 'bg-green2/0': show }"
           />
 
-          <h3 class="top-0 pl-14 text-sm_d">Table of Content</h3>
+          <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
           <Icon
             name="clarity:caret-line"
-            class="w-6 h-6 transition-all caret-rotate-negative"
+            class="w-6 h-6 text-white transition-all caret-rotate-negative"
             @click="show = !show"
           ></Icon>
         </div>
@@ -81,18 +81,26 @@ const active = (e) => {
         class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate border-b-green border-b-2"
         v-if="!show"
       >
-        <div class="flex items-center">
-          <h3 class="pl-14">Table of Content</h3>
+        <div class="flex items-center justify-between">
+          <Icon
+            name="ic:baseline-toc"
+            class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+            :class="{ 'bg-green2/0': show }"
+          />
+
+          <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
           <Icon
             name="clarity:caret-line"
-            class="absolute w-6 h-6 right-4 top-4 caret-rotate"
+            class="w-6 h-6 text-white transition-all caret-rotate-negative"
+            @click="show = !show"
           ></Icon>
         </div>
         <!-- render each link with depth class -->
         <li
           v-for="link of flattenLinks(links)"
           :key="link.id"
-          :class="`toc-link _${link.depth} dropdown_item side-nav__item`"
+          :class="`toc-link _${link.depth} dropdown_item`"
+          @click="show = !show"
         >
           <a :href="`#${link.id}`">
             <span class="w-4 h-12 bg-green"></span>

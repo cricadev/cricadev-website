@@ -7,11 +7,10 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent("/blog").where({ _path: path }).findOne();
 });
 const getTags = [...blogPost.value.tags];
-
 const { data: suggested } = await useAsyncData(`suggested`, () => {
   // fetch document where the document path matches with the current route
   return queryContent("/blog")
-    .where({ tags: { $contains: getTags } })
+    .where({ _path: { $ne: path }, tags: { $in: getTags } })
     .find();
   // get the surround information,
   // which is an array of document that is all the documents but the current one
@@ -121,6 +120,7 @@ useHead({
         :tags="getTags"
         relative="true"
         top="4"
+        width="true"
       ></BlogImg>
 
       <article
@@ -157,8 +157,8 @@ useHead({
             </p>
 
             <BlogImg
-              :src="blogPost.img"
-              :tags="blogPost.tags"
+              :src="suggest.img"
+              :tags="suggest.tags"
               top="0"
               relative="true"
               width="40%"

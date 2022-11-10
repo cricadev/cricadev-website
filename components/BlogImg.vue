@@ -20,14 +20,14 @@ const props = defineProps({
     default: "0",
   },
   width: {
-    type: String,
+    type: Boolean,
     required: false,
-    default: "100%",
+    default: false,
   },
 });
 const convertTagsIntoIcons = computed(() => {
   return props.tags.map((tag) => {
-    if (tag === "javascript") {
+    if (tag === "Javascript") {
       return { name: "akar-icons:javascript-fill", text: "Javascript" };
     } else if (tag === "Vue") {
       return { name: "akar-icons:vue-fill", text: "Vue" };
@@ -54,7 +54,6 @@ const convertTagsIntoIcons = computed(() => {
     }
   });
 });
-console.log(convertTagsIntoIcons);
 </script>
 <template>
   <div
@@ -116,7 +115,7 @@ console.log(convertTagsIntoIcons);
   }
   &:hover {
     span {
-      opacity: 1;
+      opacity: 0;
       transition: all 0.3s ease-in-out;
     }
   }

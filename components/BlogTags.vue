@@ -84,7 +84,7 @@ function closeModal(e) {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.5rem 0.8rem;
   justify-content: flex-start;
 }
 .dark .modal {
