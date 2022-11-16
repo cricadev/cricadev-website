@@ -1,7 +1,28 @@
+<script setup>
+import { ref, computed } from "vue";
+const props = defineProps({
+  tags: {
+    type: Array,
+    required: true,
+  },
+});
+const { data: blogPostList } = useAsyncData("blogPostList", () => {
+  return queryContent("/blog").find();
+});
+
+const { data: suggested } = await useAsyncData(`suggested`, () => {
+  // fetch document where the document path matches with the current route
+  return queryContent("/blog")
+    .where({ tags: { $in: props.tags } })
+    .find();
+  // get the surround information,
+  // which is an array of document that is all the documents but the current one
+});
+</script>
 <template>
   <NuxtLink
     class="relative my-1 blog-container"
-    v-for="blogPost in blogPostList"
+    v-for="blogPost in suggested"
     :key="blogPost.path"
     :to="blogPost._path"
   >
@@ -42,11 +63,7 @@
     <div class="gradient"></div>
   </NuxtLink>
 </template>
-<script setup>
-const { data: blogPostList } = useAsyncData("blogPostList", () => {
-  return queryContent("/blog").find();
-});
-</script>
+
 <style lang="scss">
 .blog-container {
   display: grid;

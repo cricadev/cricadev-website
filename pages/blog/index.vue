@@ -95,9 +95,6 @@ definePageMeta({
     </carousel>
     <BlogTags></BlogTags>
 
-    <div class="py-16 blogs-order">
-      <BlogComp></BlogComp>
-    </div>
     <div
       class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20 xs:hidden"
     ></div>

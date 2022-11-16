@@ -1,3 +1,4 @@
+|
 <script setup>
 function openModal(e) {
   const modal = document.querySelector(".modal");
@@ -7,14 +8,18 @@ function closeModal(e) {
   const modal = document.querySelector(".modal");
   modal.classList.remove("active");
 }
-/*
-1. make that if the button is selected then it highlights you can select as much buttons as you want, but if you select the same button it will unselect it, and if you select "all" it will unselect all the other buttons and select "all" and if you select "all" and then another button it will unselect "all" and select the other button
 
-2. A blog can have multiple tags, so when you click on a tag it will show you all the blogs that have that tag, and if you click on another tag it will show you all the blogs that have both tags, and if you click on "all" it will show you all the blogs
+const active = ref(false);
+const activateButton = (e) => {
+  e.target.classList.toggle("active");
+  active.value = !active.value;
+};
+const counter = ref(0);
 
-3. the blogs will have tags on its image in and outside the article.
-
-*/
+const activate = (e) => {
+  console.log("clicked");
+  console.log(e);
+};
 </script>
 <template>
   <div class="pt-8">
@@ -27,12 +32,12 @@ function closeModal(e) {
         </button>
       </div>
       <div class="filter-container">
-        <ButtonTag name="All"></ButtonTag>
-        <ButtonTag name="Coding"></ButtonTag>
-        <ButtonTag name="About me"></ButtonTag>
-        <ButtonTag name="Javascript"></ButtonTag>
-        <ButtonTag name="Vue"></ButtonTag>
-        <ButtonTag name="Nuxt"></ButtonTag>
+        <ButtonTag @active="activate()" name="All"></ButtonTag>
+        <ButtonTag @active="activate()" name="Coding"></ButtonTag>
+        <ButtonTag @active="activate()" name="About me"></ButtonTag>
+        <ButtonTag @active="activate()" name="Javascript"></ButtonTag>
+        <ButtonTag @active="activate()" name="Vue"></ButtonTag>
+        <ButtonTag @active="activate()" name="Nuxt"></ButtonTag>
       </div>
     </div>
     <div class="px-8 modal">
@@ -45,36 +50,49 @@ function closeModal(e) {
         <p class="relative font-bold text-left text-xl_m">What are you into?</p>
 
         <div class="filter-container">
-          <ButtonTag name="All"></ButtonTag>
-          <ButtonTag name="Coding"></ButtonTag>
-          <ButtonTag name="About me"></ButtonTag>
-          <ButtonTag name="Javascript"></ButtonTag>
-          <ButtonTag name="Vue"></ButtonTag>
-          <ButtonTag name="Nuxt"></ButtonTag>
-          <ButtonTag name="CSS"></ButtonTag>
-          <ButtonTag name="HTML"></ButtonTag>
-          <ButtonTag name="Sass"></ButtonTag>
-          <ButtonTag name="Git"></ButtonTag>
-          <ButtonTag name="Github"></ButtonTag>
-          <ButtonTag name="Bootstrap"></ButtonTag>
-          <ButtonTag name="Typescript"></ButtonTag>
-          <ButtonTag name="Tailwind"></ButtonTag>
-          <ButtonTag name="NPM"></ButtonTag>
-          <ButtonTag name="NodeJS"></ButtonTag>
-          <ButtonTag name="React"></ButtonTag>
-          <ButtonTag name="GraphQL"></ButtonTag>
-          <ButtonTag name="Tips"></ButtonTag>
-          <ButtonTag name="Job"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="All"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Coding"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="About me"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Javascript"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Vue"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Nuxt"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="CSS"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="HTML"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Sass"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Git"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Github"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Bootstrap"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Typescript"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Tailwind"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="NPM"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="NodeJS"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="React"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="GraphQL"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Tips"></ButtonTag>
+          <ButtonTag @active="() => activate(e)" name="Job"></ButtonTag>
         </div>
         <div class="flex flex-col w-full gap-4">
-          <ButtonTag name="Continue"></ButtonTag>
-          <ButtonTag name="Cancel"></ButtonTag>
+          <button
+            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative"
+            @click="activateButton"
+          >
+            Continue
+          </button>
+          <button
+            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative"
+            @click="activateButton"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
+    <div class="py-16 blogs-order">
+      <BlogComp></BlogComp>
+    </div>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .modal-into {
   justify-content: space-around;
   align-items: center;

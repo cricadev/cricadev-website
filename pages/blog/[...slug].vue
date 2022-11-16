@@ -83,9 +83,9 @@ useHead({
     <div
       class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-80 dark:bg-black bg-white"
     >
-      <img :src="blogPost.avatar" alt="" class="avatar-2" />
-
       <div class="flex flex-col ml-2">
+        <img :src="blogPost.avatar" alt="" class="avatar-2" />
+
         <span class="text-[0.688rem] font-medium author xs-m:text-sm_m">
           {{ blogPost.author }}
         </span>

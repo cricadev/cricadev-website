@@ -12,9 +12,9 @@ const props = defineProps({
   },
 });
 const active = ref(false);
-const activateButton = (e) => {
-  e.target.classList.toggle("active");
-  active.value = !active.value;
+const emit = defineEmits(["active", "inactive"]);
+const emitFunction = function () {
+  emit("active");
 };
 
 const convertTagsIntoIcons = computed(() => {
@@ -51,51 +51,46 @@ const convertTagsIntoIcons = computed(() => {
   } else if (props.name === "Coding") {
     return { name: "ant-design:code-filled", text: "Coding" };
   } else if (props.name === "Bootstrap") {
-    return {
-      name: "akar-icons:bootstrap-fill",
-      text: "Bootstrap",
-    };
+    return { name: "akar-icons:bootstrap-fill", text: "Bootstrap" };
   } else if (props.name === "Tips") {
-    return {
-      name: "ic:baseline-tips-and-updates",
-      text: "Bootstrap",
-    };
+    return { name: "ic:baseline-tips-and-updates", text: "Bootstrap" };
   } else if (props.name === "Job") {
-    return {
-      name: "ep:suitcase",
-      text: "Bootstrap",
-    };
+    return { name: "ep:suitcase", text: "Bootstrap" };
+  } else if (props.name === "Cancel") {
+    return { name: "ic:baseline-cancel", text: "Cancel" };
   } else if (props.name === "About me") {
-    return { name: "../images/logo-logo-cricadev.png", text: "About me" };
+    return { name: "About me", text: "About me" };
+  } else if (props.name === "All") {
+    return { name: "akar-icons:check", text: "" };
+  } else if (props.name === "Continue") {
+    return { name: "akar-icons:check", text: "" };
   } else {
-    return { name: "else", text: "else" };
+    return {
+      name: "",
+    };
   }
 });
 console.log(convertTagsIntoIcons);
 </script>
 <template>
   <button
-    class="px-8 py-2 transition-all border-2 border-green2 rounded-xl text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative"
-    @click="activateButton"
+    class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special"
+    @click="emitFunction"
   >
     <Transition name="slide-up">
-      <div class="absolute top-0 w-0 text-white -left-2" v-if="active">
+      <div class="absolute top-0 text-white -left-2" v-if="active">
         <div
-          class="absolute top-0 left-0 rounded-lg bg-green2"
-          v-if="convertTagsIntoIcons.name == '../images/logo-logo-cricadev.png'"
+          class="p-2 rounded-lg bg-green2"
+          v-if="convertTagsIntoIcons.name == 'About me'"
         >
           <img
             src="../images/logo-logo-cricadev.png"
             alt=""
-            class="w-3 brightness-[4]"
+            class="h-5 brightness-[4] top-0 left-0"
           />
         </div>
         <div
-          class="absolute top-0"
-          v-else-if="convertTagsIntoIcons.name == 'else'"
-        ></div>
-        <div
-          class="absolute top-0 left-0 p-2 scale-125 rounded-lg bg-green2"
+          class="absolute top-0 left-0 p-2 rounded-lg scale-[1.15] bg-green2"
           v-else
         >
           <Icon :name="convertTagsIntoIcons.name"></Icon>
@@ -129,6 +124,9 @@ console.log(convertTagsIntoIcons);
 .button {
   @apply text-green;
   transition: all 0.2s;
+  &:hover {
+    @apply bg-green2 text-white;
+  }
   &.active {
     transition: all 0.2s;
 

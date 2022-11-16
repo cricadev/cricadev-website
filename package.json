@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.3",
+    "mitt": "^3.0.0",
     "vue3-carousel": "^0.2.5"
   }
 }
