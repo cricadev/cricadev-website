@@ -89,7 +89,6 @@ const getNameTag = (lang) => {
     return "../public/icon.png";
   }
 };
-checkAll();
 </script>
 <template>
   <div class="pt-8">
