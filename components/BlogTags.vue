@@ -133,7 +133,7 @@ const activeAll = ref(false);
               ]"
             >
               <div
-                class="absolute left-0 p-3 transition-all rounded-lg -top-1 bg-green2"
+                class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
                 v-if="getNameTag(lang) == '../public/icon.png'"
                 :class="[
                   {
@@ -143,10 +143,14 @@ const activeAll = ref(false);
                   },
                 ]"
               >
-                <img src="../icon.png" alt="" class="w-4 h-4 brightness-200" />
+                <img
+                  src="../public/icon.png"
+                  alt=""
+                  class="w-4 h-4 brightness-[4]"
+                />
               </div>
               <div
-                class="absolute left-0 p-3 transition-all rounded-lg -top-1 bg-green2"
+                class="absolute top-0 left-0 p-2 px-3 transition-all rounded-md bg-green2"
                 :class="[
                   {
                     'bg-[green2] text-white scale-100':
