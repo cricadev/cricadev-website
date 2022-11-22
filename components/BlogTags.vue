@@ -166,9 +166,10 @@ const activeAll = ref(false);
                 class="transition-all"
                 :class="[
                   {
-                    'bg-[green2] text-white translate-x-4':
+                    'bg-[green2] text-black dark:text-white translate-x-4':
                       languages.includes(lang),
-                    'translate-x-0': !languages.includes(lang),
+                    'translate-x-0 text-green2 dark:text-green':
+                      !languages.includes(lang),
                   },
                 ]"
               >
