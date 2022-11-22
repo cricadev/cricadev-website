@@ -6,17 +6,16 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  tags: {
-    type: Array,
-    required: false,
-  },
 });
-const active = ref(false);
-const emit = defineEmits(["active", "inactive"]);
-const emitFunction = function () {
-  emit("active");
-};
 
+const active = ref(false);
+const activeAll = ref(false);
+const toggle = (e) => {
+  if (e.target.innerText == "All") {
+    const allTags = document.querySelectorAll(".button-special");
+    allTags.forEach((item) => console.log(item));
+  }
+};
 const convertTagsIntoIcons = computed(() => {
   if (props.name === "Javascript") {
     return { name: "akar-icons:javascript-fill", text: "Javascript" };
@@ -70,12 +69,12 @@ const convertTagsIntoIcons = computed(() => {
     };
   }
 });
-console.log(convertTagsIntoIcons);
 </script>
 <template>
-  <button
-    class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special"
-    @click="emitFunction"
+  <label
+    class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
+    @click="toggle"
+    id="tag"
   >
     <Transition name="slide-up">
       <div class="absolute top-0 text-white -left-2" v-if="active">
@@ -96,10 +95,17 @@ console.log(convertTagsIntoIcons);
           <Icon :name="convertTagsIntoIcons.name"></Icon>
         </div>
       </div>
+      <div class="hidden" v-else></div>
     </Transition>
 
     {{ props.name }}
-  </button>
+    <input
+      type="checkbox"
+      for="tag"
+      @click="active.value != active.value"
+      v-model="active"
+    />
+  </label>
 </template>
 <style lang="scss">
 .slide-up-enter-active,

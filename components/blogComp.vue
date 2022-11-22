@@ -1,9 +1,10 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
+
 const props = defineProps({
   tags: {
     type: Array,
-    required: true,
+    required: false,
   },
 });
 const { data: blogPostList } = useAsyncData("blogPostList", () => {
@@ -20,48 +21,63 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
 });
 </script>
 <template>
-  <NuxtLink
-    class="relative my-1 blog-container"
-    v-for="blogPost in suggested"
-    :key="blogPost.path"
-    :to="blogPost._path"
+  <ContentList
+    path="/blog"
+    :query="{
+      where: {
+        tags: {
+          $in: props.tags,
+        },
+      },
+    }"
   >
-    <h2
-      class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start truncate-text"
-    >
-      {{ blogPost.title }}
-    </h2>
-    <p
-      class="font-medium content text-[.75rem] xs-m:text-xs_t lg-m:text-sm_m text-white px-4 leading-[.85rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
-    >
-      {{ blogPost.description }}
-    </p>
-
-    <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"> </BlogImg>
-    <div class="my-2 blog-footer">
-      <img :src="blogPost.avatar" alt="" class="avatar" />
-      <div class="flex flex-col items-start author-date">
-        <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
-          {{ blogPost.author }}
-        </span>
-        <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
-          {{ blogPost.dates.published }}
-        </span>
-      </div>
-      <span
-        class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
+    <template v-slot="{ list }">
+      <NuxtLink
+        class="relative my-1 blog-container"
+        v-for="blogPost in list"
+        :key="blogPost.path"
+        :to="blogPost._path"
       >
-        <span class="mr-1">
-          <Icon
-            name="ant-design:read-outlined"
-            class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
-          />
-        </span>
-        {{ blogPost.duration }}Min
-      </span>
-    </div>
-    <div class="gradient"></div>
-  </NuxtLink>
+        <h2
+          class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start truncate-text"
+        >
+          {{ blogPost.title }}
+        </h2>
+        <p
+          class="font-medium content text-[.75rem] xs-m:text-xs_t lg-m:text-sm_m text-white px-4 leading-[.85rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
+        >
+          {{ blogPost.description }}
+        </p>
+        <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"> </BlogImg>
+        <div class="my-2 blog-footer">
+          <img :src="blogPost.avatar" alt="" class="avatar" />
+          <div class="flex flex-col items-start author-date">
+            <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
+              {{ blogPost.author }}
+            </span>
+            <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
+              {{ blogPost.dates.published }}
+            </span>
+          </div>
+          <span
+            class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
+          >
+            <span class="mr-1">
+              <Icon
+                name="ant-design:read-outlined"
+                class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
+              />
+            </span>
+            {{ blogPost.duration }}Min
+          </span>
+        </div>
+        <div class="gradient"></div>
+      </NuxtLink>
+    </template>
+    <template #not-found>
+      <p>No articles found.</p>
+    </template>
+  </ContentList>
 </template>
 
 <style lang="scss">

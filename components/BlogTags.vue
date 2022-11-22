@@ -1,94 +1,190 @@
-|
 <script setup>
-function openModal(e) {
-  const modal = document.querySelector(".modal");
-  modal.classList.add("active");
-}
-function closeModal(e) {
-  const modal = document.querySelector(".modal");
-  modal.classList.remove("active");
-}
+const isCheckAll = ref(false);
+const langsdata = [
+  "Coding",
+  "About me",
+  "Javascript",
+  "Vue",
+  "Nuxt",
+  "CSS",
+  "HTML",
+  "Sass",
+  "Git",
+  "Github",
+  "Bootstrap",
+  "Typescript",
+  "Tailwind",
+  "NPM",
+  "NodeJS",
+  "React",
+];
+let languages = ref([]);
+let addedLAngs = ref([]);
 
+const checkAll = () => {
+  isCheckAll.value = !isCheckAll.value;
+  languages = [];
+  if (isCheckAll.value) {
+    // Check all
+    for (var key in langsdata) {
+      languages.push(langsdata[key]);
+      addedLAngs.value.push(langsdata[key]);
+    }
+  }
+};
+
+const updateCheckall = (lang) => {
+  if (languages.length == langsdata.length) {
+    isCheckAll.value = true;
+  } else {
+    isCheckAll.value = false;
+  }
+  if (addedLAngs.value.includes(lang)) {
+    addedLAngs.value.findIndex((item) => {
+      if (item == lang) {
+        addedLAngs.value.splice(addedLAngs.value.indexOf(lang), 1);
+      }
+    });
+  } else {
+    addedLAngs.value.push(lang);
+  }
+  active.value = true;
+};
+const getNameTag = (lang) => {
+  if (lang == "Javascript") {
+    return "akar-icons:javascript-fill";
+  } else if (lang == "Vue") {
+    return "akar-icons:vue-fill";
+  } else if (lang == "CSS") {
+    return "akar-icons:css-fill";
+  } else if (lang == "React") {
+    return "akar-icons:react-fill";
+  } else if (lang == "NodeJS") {
+    return "akar-icons:node-fill";
+  } else if (lang == "Typescript") {
+    return "akar-icons:typescript-fill";
+  } else if (lang == "Css") {
+    return "akar-icons:css-fill";
+  } else if (lang == "HTML") {
+    return "akar-icons:html-fill";
+  } else if (lang == "Sass") {
+    return "akar-icons:sass-fill";
+  } else if (lang == "Tailwind") {
+    return "file-icons:tailwind";
+  } else if (lang == "Nuxt") {
+    return "cib:nuxt-js";
+  } else if (lang == "Github") {
+    return "akar-icons:github-fill";
+  } else if (lang == "Git") {
+    return "bi:git";
+  } else if (lang == "NPM") {
+    return "akar-icons:npm-fill";
+  } else if (lang == "GraphQL") {
+    return "akar-icons:graphql-fill";
+  } else if (lang == "Coding") {
+    return "ant-design:code-filled";
+  } else if (lang == "Bootstrap") {
+    return "akar-icons:bootstrap-fill";
+  } else if (lang == "About me") {
+    return "../public/icon.png";
+  }
+};
 const active = ref(false);
-const activateButton = (e) => {
-  e.target.classList.toggle("active");
-  active.value = !active.value;
-};
-const counter = ref(0);
-
-const activate = (e) => {
-  console.log("clicked");
-  console.log(e);
-};
+const activeAll = ref(false);
 </script>
 <template>
   <div class="pt-8">
     <div class="flex flex-col gap-y-4">
       <div class="flex justify-between">
         <p class="font-semibold text-base_t">Filter by</p>
-        <button class="text-green2 dark:text-green" @click="openModal">
+        <button class="text-green2 dark:text-green">
           View more
           <Icon name="dashicons:arrow-down-alt2" class="ml-2 -rotate-90"></Icon>
         </button>
       </div>
-      <div class="filter-container">
-        <ButtonTag @active="activate()" name="All"></ButtonTag>
-        <ButtonTag @active="activate()" name="Coding"></ButtonTag>
-        <ButtonTag @active="activate()" name="About me"></ButtonTag>
-        <ButtonTag @active="activate()" name="Javascript"></ButtonTag>
-        <ButtonTag @active="activate()" name="Vue"></ButtonTag>
-        <ButtonTag @active="activate()" name="Nuxt"></ButtonTag>
+      <div class="">
+        <!-- Check All -->
+        <span class="hidden">{{ languages }} {{ addedLAngs }}</span>
+        <!-- Checkboxes list -->
+        <ul class="filter-container">
+          <label
+            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
+            :class="[
+              { 'bg-green2 text-white': isCheckAll },
+              { 'bg-[transparent] text-green': !isCheckAll },
+            ]"
+          >
+            All
+            <input
+              type="checkbox"
+              class="hidden"
+              @click="checkAll()"
+              v-model="isCheckAll"
+            />
+          </label>
+          <li v-for="lang in langsdata">
+            <label
+              class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none text-center justify-center"
+              :class="[
+                {
+                  'bg-[transparent] text-white': languages.includes(lang),
+                  'bg-[transparent] text-green': !languages.includes(lang),
+                },
+              ]"
+            >
+              <div
+                class="absolute left-0 p-3 transition-all rounded-lg -top-1 bg-green2"
+                v-if="getNameTag(lang) == '../public/icon.png'"
+                :class="[
+                  {
+                    'bg-[green2] text-white scale-100':
+                      languages.includes(lang),
+                    'scale-0': !languages.includes(lang),
+                  },
+                ]"
+              >
+                <img src="../icon.png" alt="" class="w-4 h-4 brightness-200" />
+              </div>
+              <div
+                class="absolute left-0 p-3 transition-all rounded-lg -top-1 bg-green2"
+                :class="[
+                  {
+                    'bg-[green2] text-white scale-100':
+                      languages.includes(lang),
+                    'scale-0': !languages.includes(lang),
+                  },
+                ]"
+                v-else
+              >
+                <Icon :name="getNameTag(lang)" class="text-white"></Icon>
+              </div>
+              <span
+                class="transition-all"
+                :class="[
+                  {
+                    'bg-[green2] text-white translate-x-4':
+                      languages.includes(lang),
+                    'translate-x-0': !languages.includes(lang),
+                  },
+                ]"
+              >
+                {{ lang }}
+              </span>
+              <input
+                type="checkbox"
+                class="hidden"
+                v-bind:value="lang"
+                v-model="languages"
+                @change="updateCheckall(lang)"
+              />
+            </label>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="px-8 modal">
-      <div class="flex flex-col modal-into">
-        <Icon
-          name="akar-icons:arrow-back"
-          class="absolute w-6 h-6 arrow"
-          @click="closeModal"
-        />
-        <p class="relative font-bold text-left text-xl_m">What are you into?</p>
 
-        <div class="filter-container">
-          <ButtonTag @active="() => activate(e)" name="All"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Coding"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="About me"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Javascript"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Vue"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Nuxt"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="CSS"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="HTML"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Sass"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Git"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Github"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Bootstrap"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Typescript"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Tailwind"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="NPM"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="NodeJS"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="React"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="GraphQL"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Tips"></ButtonTag>
-          <ButtonTag @active="() => activate(e)" name="Job"></ButtonTag>
-        </div>
-        <div class="flex flex-col w-full gap-4">
-          <button
-            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative"
-            @click="activateButton"
-          >
-            Continue
-          </button>
-          <button
-            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative"
-            @click="activateButton"
-          >
-            Cancel
-          </button>
-        </div>
-      </div>
-    </div>
     <div class="py-16 blogs-order">
-      <BlogComp></BlogComp>
+      <BlogComp :tags="languages"></BlogComp>
     </div>
   </div>
 </template>

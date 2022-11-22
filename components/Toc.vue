@@ -71,7 +71,7 @@ const active = (e) => {
           :class="`toc-link _${link.depth} dropdown_item`"
           @click="show = !show"
         >
-          <a :href="`#${link.id}`">
+          <a :href="`#${link.id}`" class="block w-full">
             <span class="w-4 h-12 bg-green"></span>
             {{ link.text }}
           </a>

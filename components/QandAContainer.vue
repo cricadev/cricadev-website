@@ -92,11 +92,9 @@ onMounted((e) => {
     item.classList.add("activeSlide");
   });
   qa[0].classList.add("deactiveSlide");
-  console.log(qa);
 });
 function nextSlide(e) {
   const target = e.currentTarget.nextElementSibling;
-  console.log(target);
   target.classList.add("activeSlide");
   target.nextElementSibling.classList.add("deactiveSlide");
 }

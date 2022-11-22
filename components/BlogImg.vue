@@ -7,7 +7,7 @@ const props = defineProps({
   },
   tags: {
     type: Array,
-    required: true,
+    required: false,
   },
   relative: {
     type: Boolean,

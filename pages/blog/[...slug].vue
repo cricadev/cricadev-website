@@ -7,14 +7,6 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent("/blog").where({ _path: path }).findOne();
 });
 const getTags = [...blogPost.value.tags];
-const { data: suggested } = await useAsyncData(`suggested`, () => {
-  // fetch document where the document path matches with the current route
-  return queryContent("/blog")
-    .where({ _path: { $ne: path }, tags: { $in: getTags } })
-    .find();
-  // get the surround information,
-  // which is an array of document that is all the documents but the current one
-});
 
 const isActive = ref(false);
 onBeforeMount(() => {
@@ -139,56 +131,7 @@ useHead({
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
         </div>
         <div class="related-blog">
-          <a
-            class="my-4 blog-container"
-            v-for="suggest in suggested"
-            :key="suggest._path"
-            :href="suggest._path"
-          >
-            <h2
-              class="font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start px-6 truncate-text"
-            >
-              {{ suggest.title }}
-            </h2>
-            <p
-              class="font-medium text-left content text-[.75rem] text-white leading-[.85rem] xs-m:text-[0.625rem] lg-m:hidden px-6 truncate-text"
-            >
-              {{ suggest.description }}
-            </p>
-
-            <BlogImg
-              :src="suggest.img"
-              :tags="suggest.tags"
-              top="0"
-              relative="true"
-              width="40%"
-            ></BlogImg>
-
-            <div class="my-2 blog-footer">
-              <img :src="blogPost.avatar" alt="" class="avatar" />
-
-              <div class="flex flex-col items-start author-date">
-                <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
-                  {{ suggest.author }}
-                </span>
-                <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
-                  {{ suggest.dates.published }}
-                </span>
-              </div>
-              <span
-                class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
-              >
-                <span class="mr-1">
-                  <Icon
-                    name="ant-design:read-outlined"
-                    class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
-                  />
-                </span>
-                {{ suggest.duration }}Min
-              </span>
-            </div>
-            <div class="gradient"></div>
-          </a>
+          <BlogComp :tags="getTags"></BlogComp>
         </div>
       </div>
     </div>

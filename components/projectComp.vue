@@ -100,7 +100,6 @@ function openModal(e) {
   const target = e.currentTarget.parentElement.previousSibling.innerText;
 
   modal.forEach((item) => {
-    //    console.log(item.firstChild.firstChild.data == target);
     if (item.firstChild.firstChild.data == target) {
       item.classList.add("active");
     } else {
