@@ -21,11 +21,6 @@ const flattenLinks = (links) => {
     .flat(1);
   return _links;
 };
-const active = (e) => {
-  // get parent element
-  let parent = e.target.parentElement.parentElement;
-  parent.classList.toggle("active");
-};
 </script>
 
 <template>
@@ -141,13 +136,13 @@ const active = (e) => {
           <li
             v-for="link of flattenLinks(links)"
             :key="link.id"
-            class="my-2"
+            class=""
             :class="` _${link.depth} dropdown_item `"
             @click="show = !show"
           >
             <a
               :href="`#${link.id}`"
-              class="block w-full toc-link"
+              class="block w-full py-1 toc-link"
               :class="` _${link.depth} dropdown_item `"
             >
               <span class="w-4 h-12 bg-green"></span>
@@ -291,7 +286,8 @@ const active = (e) => {
   color: #fff;
   transition: 0.6s;
   background: rgba(0, 0, 0, 0);
-  &:hover {
+  &:hover,
+  &.active {
     background-size: 200%;
     background-image: linear-gradient(
       to left,
