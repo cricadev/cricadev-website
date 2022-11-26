@@ -11,6 +11,12 @@ id: 2
 tags: ["Vue", "Tailwind"]
 ---
 
+# What is a counter?
+
+Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a...
+
+![An old rock in the desert](https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80 "Shiprock, New Mexico by Beau Rogers")
+
 Welcome to my first blog post using [content v2 module](https://content.nuxtjs.org/)
 
 > Hey there! 👋🏾 This is my first blog post learning nuxt content.

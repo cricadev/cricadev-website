@@ -49,6 +49,8 @@ const convertTagsIntoIcons = computed(() => {
       return { name: "cib:nuxt-js", text: "Nuxt" };
     } else if (tag === "github") {
       return { name: "akar-icons:github-fill", text: "Github" };
+    } else if (tag === "Coding") {
+      return { name: "ant-design:code-filled", text: "Coding" };
     } else {
       return { name: "../images/logo-logo-cricadev.png", text: "About me" };
     }

@@ -11,6 +11,12 @@ id: 1
 tags: ["Vue", "Nuxt"]
 ---
 
+# This blog is the fourth
+
+Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a...
+
+![An old rock in the desert](https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80 "Shiprock, New Mexico by Beau Rogers")
+
 Cricadev is cool
 
 _italic_

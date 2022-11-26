@@ -62,16 +62,19 @@ definePageMeta({
           <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"></BlogImg>
 
           <div class="my-2 blog-footer">
-            <img :src="blogPost.avatar" alt="" class="avatar" />
-            <div class="flex flex-col items-start author-date">
-              <span
-                class="text-[0.688rem] font-medium author xs-m:text-sm_m lg-m:text-sm_d"
-              >
-                {{ blogPost.author }}
-              </span>
-              <span class="text-[0.563rem] font-light date xs-m:text-xs_t">
-                {{ blogPost.dates.published }}
-              </span>
+            <div class="flex items-start gap-2 author-date">
+              <img :src="blogPost.avatar" alt="" class="ml-10 avatar" />
+
+              <div class="flex flex-col items-start justify-start">
+                <span
+                  class="text-[0.688rem] font-medium author xs-m:text-sm_m lg-m:text-sm_d"
+                >
+                  {{ blogPost.author }}
+                </span>
+                <span class="text-[0.563rem] font-light date xs-m:text-xs_t">
+                  {{ blogPost.dates.published }}
+                </span>
+              </div>
             </div>
             <span
               class="text-[0.5rem] font-normal reading flex items-center justify-center xs-m:text-xs_t lg-m:text-sm_m"
@@ -188,6 +191,9 @@ definePageMeta({
 .carousel__prev,
 .carousel__next {
   background: transparent;
+  .carousel__icon {
+    fill: #f6f6f6;
+  }
 }
 .carousel__prev--in-active,
 .carousel__next--in-active {
@@ -250,14 +256,14 @@ definePageMeta({
 
     width: 100%;
     height: 100%;
+
     .avatar {
       border-radius: 50%;
       object-fit: cover;
       height: 30px;
       width: 30px;
       z-index: 2;
-      grid-column: 1/2;
-      grid-row: 1/2;
+
       place-self: center;
       @media (min-width: 599px) {
         height: 45px;
@@ -265,7 +271,7 @@ definePageMeta({
       }
     }
     .author-date {
-      grid-column: 2/5;
+      grid-column: 1/5;
       place-self: center start;
 
       margin-left: 10px;

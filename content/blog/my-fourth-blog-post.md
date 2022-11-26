@@ -1,5 +1,5 @@
 ---
-title: This blog has a very very very long title, so long that it will break the layout and it will be a very bad experience for the user
+title: This blog is the fourth
 author: "Cristian Casallas"
 dates:
   published: "2022-09-01"
@@ -8,10 +8,16 @@ img: "https://images.unsplash.com/photo-1664938112749-4a1e1e11abf7?ixlib=rb-1.2.
 avatar: "../avatar-crica.jpg"
 duration: 15
 id: 3
-tags: ["About me"]
+tags: ["About me", "Coding"]
 ---
 
-# My first blog post
+# This blog is the fourth
+
+Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a...
+
+![An old rock in the desert](https://images.unsplash.com/photo-1664938112749-4a1e1e11abf7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 "Shiprock, New Mexico by Beau Rogers")
+
+### My first blog post
 
 Welcome to my first blog post using [content v2 module](https://content.nuxtjs.org/)
 Hey there! 👋🏾

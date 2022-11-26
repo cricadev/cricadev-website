@@ -30,88 +30,114 @@ const active = (e) => {
 
 <template>
   <div>
-    <div
-      class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all"
-      v-if="show"
-      @click="show = false"
-    ></div>
-    <nav
-      class="left-0 flex w-screen select-none toc dropdown top-36 z-[9999] fixed"
-      ref="dropdown"
-    >
-      <Icon
-        name="ic:baseline-toc"
-        class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
-        :class="{ 'bg-green2/0 opacity-0': show }"
-        @click="show = !show"
-      />
-
-      <ul
-        class="z-[9999] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2"
+    <div class="lg-m:hidden">
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all"
         v-if="show"
+        @click="show = false"
+      ></div>
+      <nav
+        class="left-0 flex w-screen select-none toc dropdown top-36 z-[9999] fixed"
+        ref="dropdown"
       >
-        <div class="flex items-center justify-between">
-          <Icon
-            name="ic:baseline-toc"
-            class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
-            :class="{ 'bg-green2/0': show }"
-          />
-
-          <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
-          <Icon
-            name="clarity:caret-line"
-            class="w-6 h-6 text-white transition-all caret-rotate-negative"
-            @click="show = !show"
-          ></Icon>
-        </div>
-        <!-- render each link with depth class -->
-        <li
-          v-for="link of flattenLinks(links)"
-          :key="link.id"
-          :class="`toc-link _${link.depth} dropdown_item`"
+        <Icon
+          name="ic:baseline-toc"
+          class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+          :class="{ 'bg-green2/0 opacity-0': show }"
           @click="show = !show"
+        />
+        <ul
+          class="z-[9999] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2"
+          v-if="show"
         >
-          <a :href="`#${link.id}`" class="block w-full">
-            <span class="w-4 h-12 bg-green"></span>
-            {{ link.text }}
-          </a>
-        </li>
-      </ul>
-      <ul
-        class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate border-b-green border-b-2"
-        v-if="!show"
-      >
-        <div class="flex items-center justify-between">
-          <Icon
-            name="ic:baseline-toc"
-            class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
-            :class="{ 'bg-green2/0': show }"
-          />
-
-          <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
-          <Icon
-            name="clarity:caret-line"
-            class="w-6 h-6 text-white transition-all caret-rotate-negative"
+          <div class="flex items-center justify-between">
+            <Icon
+              name="ic:baseline-toc"
+              class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+              :class="{ 'bg-green2/0': show }"
+            />
+            <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
+            <Icon
+              name="clarity:caret-line"
+              class="w-6 h-6 text-white transition-all caret-rotate-negative"
+              @click="show = !show"
+            ></Icon>
+          </div>
+          <!-- render each link with depth class -->
+          <li
+            v-for="link of flattenLinks(links)"
+            :key="link.id"
+            :class="`toc-link _${link.depth} dropdown_item`"
             @click="show = !show"
-          ></Icon>
-        </div>
-        <!-- render each link with depth class -->
-        <li
-          v-for="link of flattenLinks(links)"
-          :key="link.id"
-          :class="`toc-link _${link.depth} dropdown_item`"
-          @click="show = !show"
+          >
+            <a :href="`#${link.id}`" class="block w-full">
+              <span class="w-4 h-12 bg-green"></span>
+              {{ link.text }}
+            </a>
+          </li>
+        </ul>
+        <ul
+          class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate border-b-green border-b-2"
+          v-if="!show"
         >
-          <a :href="`#${link.id}`">
-            <span class="w-4 h-12 bg-green"></span>
-            {{ link.text }}
-          </a>
-        </li>
-      </ul>
-    </nav>
+          <div class="flex items-center justify-between">
+            <Icon
+              name="ic:baseline-toc"
+              class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+              :class="{ 'bg-green2/0': show }"
+            />
+            <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
+            <Icon
+              name="clarity:caret-line"
+              class="w-6 h-6 text-white transition-all caret-rotate-negative"
+              @click="show = !show"
+            ></Icon>
+          </div>
+          <!-- render each link with depth class -->
+          <li
+            v-for="link of flattenLinks(links)"
+            :key="link.id"
+            :class="`toc-link _${link.depth} dropdown_item`"
+            @click="show = !show"
+          >
+            <a :href="`#${link.id}`">
+              <span class="w-4 h-12 bg-green"></span>
+              {{ link.text }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hidden lg-m:block desktop-toc">
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all"
+        v-if="show"
+        @click="show = false"
+      ></div>
+      <div class="fixed flex top-48">
+        <Icon
+          name="ic:baseline-toc"
+          class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+          :class="{ 'bg-green2/0': show }"
+        />
+        <h3 class="text-white pl-14 text-sm_d z-[9999] relative">
+          Table of Content
+        </h3>
+        <Icon
+          name="clarity:caret-line"
+          class="w-6 h-6 text-white transition-all caret-rotate-negative z-[9999] relative"
+          @click="show = !show"
+        ></Icon>
+      </div>
+    </div>
   </div>
 </template>
 <style lang="scss">
+.desktop-toc {
+  grid-column: 1/2;
+  width: 100%;
+  position: relative;
+}
 .caret-rotate {
   // animate a rotation of 180 degrees with keyframes
   animation: caret-rotate 0.3s ease-in-out;
@@ -171,6 +197,19 @@ const active = (e) => {
       transform: translateX(-100%);
     }
   }
+  @media (min-width: 1100px) {
+    animation: toc-de-m 0.5s ease-in-out forwards;
+    @keyframes toc-de-m {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10%);
+      }
+    }
+  }
 }
 .toc-activate {
   animation: toc 0.5s ease-in-out forwards;
@@ -182,6 +221,19 @@ const active = (e) => {
     100% {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+  @media (min-width: 1100px) {
+    animation: toc-m 0.5s ease-in-out forwards;
+    @keyframes toc-m {
+      0% {
+        opacity: 0;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(10%);
+      }
     }
   }
 }

@@ -50,14 +50,16 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
         </p>
         <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"> </BlogImg>
         <div class="my-2 blog-footer">
-          <img :src="blogPost.avatar" alt="" class="avatar" />
-          <div class="flex flex-col items-start author-date">
-            <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
-              {{ blogPost.author }}
-            </span>
-            <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
-              {{ blogPost.dates.published }}
-            </span>
+          <div class="flex items-start gap-2 author-date">
+            <img :src="blogPost.avatar" alt="" class="avatar" />
+            <div class="flex flex-col">
+              <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
+                {{ blogPost.author }}
+              </span>
+              <span class="text-[0.563rem] font-light date lg-m:text-xs_t">
+                {{ blogPost.dates.published }}
+              </span>
+            </div>
           </div>
           <span
             class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
@@ -80,7 +82,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   </ContentList>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .blog-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
@@ -111,7 +113,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
       place-self: center;
     }
     .author-date {
-      grid-column: 2/5;
+      grid-column: 1/5;
       place-self: center start;
 
       margin-left: 10px;

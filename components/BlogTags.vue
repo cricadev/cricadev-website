@@ -48,7 +48,6 @@ const updateCheckall = (lang) => {
   } else {
     addedLAngs.value.push(lang);
   }
-  active.value = true;
 };
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
@@ -89,18 +88,33 @@ const getNameTag = (lang) => {
     return "../public/icon.png";
   }
 };
+const showMore = ref(true);
+const showMoreToggle = () => {
+  showMore.value = !showMore.value;
+};
 </script>
 <template>
   <div class="pt-8">
     <div class="flex flex-col gap-y-4">
       <div class="flex justify-between">
         <p class="font-semibold text-base_t">Filter by</p>
-        <button class="text-green2 dark:text-green">
+        <button
+          @click="showMoreToggle"
+          class="transition-all text-green2 dark:text-green lg-m:hidden"
+        >
           View more
-          <Icon name="dashicons:arrow-down-alt2" class="ml-2 -rotate-90"></Icon>
+          <Icon
+            name="dashicons:arrow-down-alt2"
+            class="ml-2 transition-all -rotate-0"
+            :class="[
+              {
+                'rotate-180': !showMore,
+              },
+            ]"
+          ></Icon>
         </button>
       </div>
-      <div class="">
+      <div class="view-less lg-m:hidden" v-if="showMore">
         <!-- Check All -->
         <span class="hidden">{{ languages }} {{ addedLAngs }}</span>
         <!-- Checkboxes list -->
@@ -109,7 +123,94 @@ const getNameTag = (lang) => {
             class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
             :class="[
               { 'bg-green2 text-white': isCheckAll },
-              { 'bg-[transparent] text-green': !isCheckAll },
+              { 'bg-[transparent] text-green2 dark:text-green': !isCheckAll },
+            ]"
+          >
+            All
+            <input
+              type="checkbox"
+              class="hidden"
+              @click="checkAll()"
+              v-model="isCheckAll"
+            />
+          </label>
+          <li v-for="lang in langsdata.slice(0, 5)">
+            <label
+              class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none text-center justify-center"
+              :class="[
+                {
+                  'bg-[transparent] text-white': languages.includes(lang),
+                  'bg-[transparent] text-green': !languages.includes(lang),
+                },
+              ]"
+            >
+              <div
+                class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
+                v-if="getNameTag(lang) == '../public/icon.png'"
+                :class="[
+                  {
+                    'bg-[green2] text-white scale-100':
+                      languages.includes(lang),
+                    'scale-0': !languages.includes(lang),
+                  },
+                ]"
+              >
+                <img
+                  src="../public/icon.png"
+                  alt=""
+                  class="w-4 h-4 brightness-[4]"
+                />
+              </div>
+              <div
+                class="absolute top-0 left-0 p-2 px-2 transition-all rounded-md bg-green2"
+                :class="[
+                  {
+                    'bg-[green2] text-white scale-100':
+                      languages.includes(lang),
+                    'scale-0': !languages.includes(lang),
+                  },
+                ]"
+                v-else
+              >
+                <Icon
+                  :name="getNameTag(lang)"
+                  class="w-4 h-4 text-white"
+                ></Icon>
+              </div>
+              <span
+                class="transition-all"
+                :class="[
+                  {
+                    'bg-[green2] text-black dark:text-white translate-x-4':
+                      languages.includes(lang),
+                    'translate-x-0 text-green2 dark:text-green':
+                      !languages.includes(lang),
+                  },
+                ]"
+              >
+                {{ lang }}
+              </span>
+              <input
+                type="checkbox"
+                class="hidden"
+                v-bind:value="lang"
+                v-model="languages"
+                @change="updateCheckall(lang)"
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="view-more lg-m:hidden" v-else>
+        <!-- Check All -->
+        <span class="hidden">{{ languages }} {{ addedLAngs }}</span>
+        <!-- Checkboxes list -->
+        <ul class="filter-container">
+          <label
+            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
+            :class="[
+              { 'bg-green2 text-white': isCheckAll },
+              { 'bg-[transparent] text-green2 dark:text-green': !isCheckAll },
             ]"
           >
             All
@@ -148,7 +249,7 @@ const getNameTag = (lang) => {
                 />
               </div>
               <div
-                class="absolute top-0 left-0 p-2 px-3 transition-all rounded-md bg-green2"
+                class="absolute top-0 left-0 p-2 px-2 transition-all rounded-md bg-green2"
                 :class="[
                   {
                     'bg-[green2] text-white scale-100':
@@ -158,7 +259,97 @@ const getNameTag = (lang) => {
                 ]"
                 v-else
               >
-                <Icon :name="getNameTag(lang)" class="text-white"></Icon>
+                <Icon
+                  :name="getNameTag(lang)"
+                  class="w-4 h-4 text-white"
+                ></Icon>
+              </div>
+              <span
+                class="transition-all"
+                :class="[
+                  {
+                    'bg-[green2] text-black dark:text-white translate-x-4':
+                      languages.includes(lang),
+                    'translate-x-0 text-green2 dark:text-green':
+                      !languages.includes(lang),
+                  },
+                ]"
+              >
+                {{ lang }}
+              </span>
+              <input
+                type="checkbox"
+                class="hidden"
+                v-bind:value="lang"
+                v-model="languages"
+                @change="updateCheckall(lang)"
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="hidden view-more lg-m:block">
+        <!-- Check All -->
+        <span class="hidden">{{ languages }} {{ addedLAngs }}</span>
+        <!-- Checkboxes list -->
+        <ul class="filter-container">
+          <label
+            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
+            :class="[
+              { 'bg-green2 text-white': isCheckAll },
+              { 'bg-[transparent] text-green2 dark:text-green': !isCheckAll },
+            ]"
+          >
+            All
+            <input
+              type="checkbox"
+              class="hidden"
+              @click="checkAll()"
+              v-model="isCheckAll"
+            />
+          </label>
+          <li v-for="lang in langsdata">
+            <label
+              class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none text-center justify-center"
+              :class="[
+                {
+                  'bg-[transparent] text-white': languages.includes(lang),
+                  'bg-[transparent] text-green': !languages.includes(lang),
+                },
+              ]"
+            >
+              <div
+                class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
+                v-if="getNameTag(lang) == '../public/icon.png'"
+                :class="[
+                  {
+                    'bg-[green2] text-white scale-100':
+                      languages.includes(lang),
+                    'scale-0': !languages.includes(lang),
+                  },
+                ]"
+              >
+                <img
+                  src="../public/icon.png"
+                  alt=""
+                  class="w-4 h-4 brightness-[4]"
+                />
+              </div>
+              <div
+                class="absolute top-0 left-0 p-2 px-2 transition-all rounded-md bg-green2"
+                :class="[
+                  {
+                    'bg-[green2] text-white scale-100':
+                      languages.includes(lang),
+                    'scale-0': !languages.includes(lang),
+                  },
+                ]"
+                v-else
+              >
+                <Icon
+                  :name="getNameTag(lang)"
+                  class="w-4 h-4 text-white"
+                ></Icon>
               </div>
               <span
                 class="transition-all"
@@ -192,6 +383,32 @@ const getNameTag = (lang) => {
   </div>
 </template>
 <style lang="scss" scoped>
+.view-more {
+  animation: view 0.5s ease-in-out forwards;
+  @keyframes view {
+    0% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+.view-less {
+  animation: view-less 0.5s ease-in-out forwards;
+  @keyframes view-less {
+    0% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
 .modal-into {
   justify-content: space-around;
   align-items: center;
