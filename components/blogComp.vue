@@ -6,6 +6,10 @@ const props = defineProps({
     type: Array,
     required: false,
   },
+  isSmall: {
+    type: Boolean,
+    required: false,
+  },
 });
 const { data: blogPostList } = useAsyncData("blogPostList", () => {
   return queryContent("/blog").find();
@@ -33,7 +37,13 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   >
     <template v-slot="{ list }">
       <NuxtLink
-        class="relative my-1 blog-container"
+        class="relative my-1"
+        :class="[
+          {
+            'blog-small': props.isSmall,
+            'blog-container': !props.isSmall,
+          },
+        ]"
         v-for="blogPost in list"
         :key="blogPost.path"
         :to="blogPost._path"
@@ -45,6 +55,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
         </h2>
         <p
           class="font-medium content text-[.75rem] xs-m:text-xs_t lg-m:text-sm_m text-white px-4 leading-[.85rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
+          v-if="!props.isSmall"
         >
           {{ blogPost.description }}
         </p>
@@ -83,6 +94,78 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
 </template>
 
 <style lang="scss" scoped>
+.blog-small {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  border-radius: 5px;
+  overflow: hidden;
+  place-items: center;
+  place-content: center;
+  width: 80%;
+  margin: 20px auto;
+  height: 200px;
+  .blog-footer {
+    grid-column: 1/6;
+    grid-row: 5/6;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    width: 100%;
+    height: 100%;
+    .avatar {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 30px;
+      width: 30px;
+      z-index: 2;
+      grid-column: 1/2;
+      grid-row: 1/2;
+      place-self: center;
+    }
+    .author-date {
+      grid-column: 1 /5;
+      place-self: center start;
+
+      margin-left: 10px;
+    }
+    .reading {
+      grid-column: 5/6;
+      grid-row: 1/2;
+      place-self: center;
+      padding-right: 10px;
+      padding-bottom: 2px;
+    }
+  }
+  .title {
+    font-size: 1.5rem !important;
+    grid-column: 1/6;
+    grid-row: 4/5;
+    z-index: 2;
+    place-self: start;
+  }
+  .content {
+    grid-column: 1/6;
+    grid-row: 4/5;
+    z-index: 2;
+  }
+  .img {
+    grid-column: 1/6;
+    grid-row: 1/6;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(60%);
+  }
+  .gradient {
+    grid-column: 1/6;
+    grid-row: 5/6;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+  }
+}
 .blog-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);

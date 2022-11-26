@@ -186,8 +186,11 @@ const getNameTag = (lang) => {
           <BlogComp :tags="getTags"></BlogComp>
         </div>
       </div>
-      <div class="sticky right-0 hidden h-96 bg-green2 top-48 lg-m:block">
-        <BlogComp :tags="getTags" class=""></BlogComp>
+      <div class="sticky right-0 hidden h-96 top-48 lg-m:block">
+        <span class="relative font-bold text-center text-sm_m left-10"
+          >More Posts</span
+        >
+        <BlogComp :tags="getTags" is-small="true"></BlogComp>
       </div>
     </div>
     <div
@@ -316,6 +319,7 @@ const getNameTag = (lang) => {
     padding: 0 80px;
     margin: 0;
     grid-template-columns: 25% 50% 25%;
+    gap: 20px;
   }
   .blog-img {
     filter: grayscale(100%);
