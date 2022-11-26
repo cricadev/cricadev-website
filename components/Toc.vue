@@ -114,19 +114,47 @@ const active = (e) => {
         v-if="show"
         @click="show = false"
       ></div>
-      <div class="fixed flex top-48">
+
+      <div
+        class="fixed flex items-center justify-between px-4 rounded-md top-48 bg-green2 gap-x-2"
+        @click="show = !show"
+        v-if="show"
+      >
         <Icon
           name="ic:baseline-toc"
           class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
           :class="{ 'bg-green2/0': show }"
         />
-        <h3 class="text-white pl-14 text-sm_d z-[9999] relative">
-          Table of Content
-        </h3>
+        <h3 class="text-white text-sm_d">Table of Content</h3>
         <Icon
           name="clarity:caret-line"
-          class="w-6 h-6 text-white transition-all caret-rotate-negative z-[9999] relative"
-          @click="show = !show"
+          class="w-6 h-6 text-white transition-all"
+          :class="[
+            {
+              'rotate-180': show,
+            },
+          ]"
+        ></Icon>
+      </div>
+      <div
+        class="fixed flex items-center justify-between px-4 rounded-md top-48 bg-green2 gap-x-2"
+        @click="show = !show"
+        v-else
+      >
+        <Icon
+          name="ic:baseline-toc"
+          class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+          :class="{ 'bg-green2/0': show }"
+        />
+        <h3 class="text-white text-sm_d">Table of Content</h3>
+        <Icon
+          name="clarity:caret-line"
+          class="w-6 h-6 text-white transition-all"
+          :class="[
+            {
+              'rotate-180': show,
+            },
+          ]"
         ></Icon>
       </div>
     </div>

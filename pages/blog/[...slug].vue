@@ -149,7 +149,7 @@ const getNameTag = (lang) => {
       <article
         class="relative w-full pb-32 mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl"
       >
-        <div class="flex items-center gap-2 pb-16">
+        <div class="flex items-center gap-2 pt-32 pb-8">
           <div v-for="tag in getTags">
             <div
               v-if="getNameTag(tag) == ''"
