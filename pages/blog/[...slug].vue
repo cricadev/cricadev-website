@@ -30,7 +30,8 @@ const goBack = () => {
 };
 useHead({
   title: blogPost.value.title,
-  description: blogPost.value.description,
+  titleTemplate: (title) => `${title} | Cricadev`,
+  meta: [{ name: "description", content: blogPost.value.description }],
 });
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
