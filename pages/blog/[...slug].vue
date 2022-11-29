@@ -29,8 +29,8 @@ const goBack = () => {
   router.push({ path: "/blog", replace: true });
 };
 useHead({
-  title: blogPost.title,
-  description: blogPost.description,
+  title: blogPost.value.title,
+  description: blogPost.value.description,
 });
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
@@ -72,14 +72,14 @@ const getNameTag = (lang) => {
   }
 };
 const shareData = {
-  title: blogPost.titlte,
-  text: blogPost.description,
-  url: `https://cricadev.com/${path}`,
+  title: blogPost.value.title,
+  text: blogPost.value.description,
+  url: `https://cricadev.com${path}`,
 };
 const share = (e) => {
   navigator.share(shareData);
 };
-console.log(path);
+console.log(path, blogPost.value.title);
 </script>
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
