@@ -72,13 +72,14 @@ const getNameTag = (lang) => {
   }
 };
 const shareData = {
-  title: "MDN",
-  text: "Learn web development on MDN!",
-  url: "https://developer.mozilla.org",
+  title: blogPost.titlte,
+  text: blogPost.description,
+  url: `https://cricadev.com/${path}`,
 };
 const share = (e) => {
   navigator.share(shareData);
 };
+console.log(path);
 </script>
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
