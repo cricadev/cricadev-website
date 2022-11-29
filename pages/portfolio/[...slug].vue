@@ -71,14 +71,6 @@ const getNameTag = (lang) => {
     return "";
   }
 };
-const shareData = {
-  title: "MDN",
-  text: "Learn web development on MDN!",
-  url: "https://developer.mozilla.org",
-};
-const share = (e) => {
-  navigator.share(shareData);
-};
 </script>
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
@@ -180,25 +172,6 @@ const share = (e) => {
         </div>
         <ContentRenderer :value="blogPost" />
       </article>
-      <!-- BUtton like and share -->
-      <div class="fixed bottom-48 right-24 z-[9999] grid h-32 w-32 group-icons">
-        <Icon
-          name="fluent:thumb-like-20-regular"
-          class="w-12 h-12 p-3 text-white thumb rounded-full bg-green hover:rotate-[360deg] place-self-end translate-x-5 -translate-y-10 dark:text-black hover:drop-shadow-[0px_0px_20px_rgba(90,175,152,1)] thumb-icon icon order-4"
-          @click="share"
-        >
-        </Icon>
-        <Icon
-          name="akar-icons:share-box"
-          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-end border-green border-2 share-icon icon"
-        >
-        </Icon>
-        <Icon
-          name="charm:cross"
-          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-center border-green border-2 cross-icon icon"
-        >
-        </Icon>
-      </div>
       <div class="relative z-0 related-blogs lg-m:hidden">
         <div class="flex items-center justify-between mb-12 lines">
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
@@ -226,24 +199,6 @@ const share = (e) => {
   </div>
 </template>
 <style lang="scss" scoped>
-.group-icons {
-  &:hover > .share-icon,
-  &:hover > .cross-icon {
-    opacity: 1;
-  }
-}
-.cross-icon {
-  opacity: 0;
-}
-.share-icon {
-  opacity: 0;
-}
-.thumb-icon {
-}
-
-.thumb {
-  transition: 0.4s;
-}
 .logo-custom {
   width: 1.5rem !important;
   height: 1.5rem !important;
