@@ -31,7 +31,13 @@ const goBack = () => {
 useHead({
   title: blogPost.value.title,
   titleTemplate: (title) => `${title} | Cricadev`,
-  meta: [{ name: "description", content: blogPost.value.description }],
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: blogPost.value.description,
+    },
+  ],
 });
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
