@@ -193,17 +193,17 @@ console.log(path, blogPost.value.title);
         <Icon
           name="fluent:thumb-like-20-regular"
           class="w-12 h-12 p-3 text-white thumb rounded-full bg-green hover:rotate-[360deg] place-self-end translate-x-5 -translate-y-10 dark:text-black hover:drop-shadow-[0px_0px_20px_rgba(90,175,152,1)] thumb-icon icon order-4"
-          @click="share"
         >
         </Icon>
         <Icon
           name="akar-icons:share-box"
           class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-end border-green border-2 share-icon icon"
+          @click="share"
         >
         </Icon>
         <Icon
           name="charm:cross"
-          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-center border-green border-2 cross-icon icon"
+          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-center border-green border-2 cross-icon icon pointer-events-none"
         >
         </Icon>
       </div>
@@ -237,14 +237,23 @@ console.log(path, blogPost.value.title);
 .group-icons {
   &:hover > .share-icon,
   &:hover > .cross-icon {
+    @media (max-width: 1100px) {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  &:hover > .share-icon {
     opacity: 1;
+    pointer-events: all;
   }
 }
 .cross-icon {
   opacity: 0;
+  pointer-events: none;
 }
 .share-icon {
   opacity: 0;
+  pointer-events: none;
 }
 .thumb-icon {
 }
