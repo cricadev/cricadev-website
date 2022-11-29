@@ -33,12 +33,52 @@ useHead({
   titleTemplate: (title) => `${title} | Cricadev`,
   meta: [
     {
+      property: "og:title",
+      content: blogPost.value.title.slice(0, 75),
+    },
+    {
+      property: "og:type",
+      content: "article",
+    },
+    {
+      property: "og:description",
+      content: blogPost.value.description.slice(0, 75),
+    },
+
+    {
+      property: "og:url",
+      content: `https://cricadev.com${path}`,
+    },
+    {
+      property: "article:author",
+      content: blogPost.value.author,
+    },
+    {
+      property: "og:title",
+      content: blogPost.value.title.slice(0, 75),
+    },
+
+    {
+      property: "twitter:title",
+      content: blogPost.value.title.slice(0, 75),
+    },
+    {
       hid: "description",
       name: "description",
-      content: blogPost.value.description,
+      content: blogPost.value.description.slice(0, 195),
+    },
+    {
+      hid: "robots",
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      rel: "cannonical",
+      href: `https://cricadev.com${path}`,
     },
   ],
 });
+console.log(blogPost.value.description.slice(0, 195));
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
     return "akar-icons:javascript-fill";
@@ -197,7 +237,7 @@ console.log(path, blogPost.value.title);
         </Icon>
         <Icon
           name="akar-icons:share-box"
-          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-end border-green border-2 share-icon icon"
+          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-end border-green border-2 share-icon icon hover:bg-green hover:text-white"
           @click="share"
         >
         </Icon>
