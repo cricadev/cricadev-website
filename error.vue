@@ -12,20 +12,20 @@
     </p>
     <div class="relative z-[9999]">
       <img
-        src="../images/404-bg.png"
+        src="./images/404-bg.png"
         alt=""
         class="relative"
         v-show="$colorMode.value === 'dark'"
       />
       <img
-        src="../images/404-bg-dark.png"
+        src="./images/404-bg-dark.png"
         alt=""
         class="relative"
         v-show="$colorMode.value === 'light'"
       />
       <div class="absolute top-0 left-0 z-10 grid w-full place-items-center">
         <div class="relative rotate-face">
-          <img src="../images/face-img.png" alt="" class="relative" />
+          <img src="./images/face-img.png" alt="" class="relative" />
           <div class="waterdrop"></div>
         </div>
       </div>
@@ -123,7 +123,6 @@
 
 <script setup lang="ts">
 type Theme = "light" | "dark";
-
 const colorMode = useColorMode();
 const setColorTheme = (newTheme: Theme) => {
   colorMode.preference = newTheme;
@@ -131,7 +130,6 @@ const setColorTheme = (newTheme: Theme) => {
 const props = defineProps({
   error: Object,
 });
-
 const handleError = () => clearError({ redirect: "/" });
 function openModal(e) {
   const modal = document.querySelectorAll(".modal");
@@ -182,7 +180,6 @@ useHead({
 }
 .modal {
   transition: all 0.5s ease-in-out;
-
   transform: translateY(100%);
   position: fixed;
   top: 0;
@@ -291,21 +288,18 @@ input {
 .sun {
   top: 0;
   transform: translateY(0%) scale(0.75);
-
   color: #00010d;
   animation: fade-sun 0.5s ease-in-out forwards;
   @media (max-width: 599px) {
     animation: fade-sun-mobile 0.5s ease-in-out forwards;
   }
 }
-
 .moon {
   bottom: 0;
   transform: translateY(0%) scale(0.75);
   color: #f6f6f6;
   animation: fade-moon 0.5s ease-in-out forwards;
 }
-
 @keyframes fade-sun-mobile {
   0% {
     transform: translateY(100%) scale(0.75) rotate(165deg) translateX(70%);
@@ -322,7 +316,6 @@ input {
     transform: translateY(0%) scale(0.75) translateX(-70%);
   }
 }
-
 .svg {
   position: absolute;
   box-sizing: content-box;
@@ -334,7 +327,6 @@ input {
   background: #5aaf98;
   border-radius: 50%;
 }
-
 .fade {
   opacity: 0;
 }
