@@ -126,13 +126,35 @@ const shareData = {
   text: blogPost.value.description,
   url: `https://cricadev.com${path}`,
 };
-const share = (e) => {
+onMounted(() => {
+  const resultPara = document.querySelector(".result");
+
+  resultPara.style.opacity = "0.0";
+});
+const share = async (e) => {
+  const resultPara = document.querySelector(".result");
+
+  try {
+    await navigator.share(shareData);
+    resultPara.style.opacity = "1.0";
+
+    resultPara.textContent = "Cricablog shared succesfully!";
+  } catch (err) {
+    resultPara.style.opacity = "1.0";
+    setTimeout(() => {
+      resultPara.style.opacity = "0.0";
+    }, 5000);
+    resultPara.textContent = `Error: ${err}`;
+  }
   navigator.share(shareData);
 };
 console.log(path, blogPost.value.title);
 </script>
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
+    <div
+      class="fixed bottom-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] result text-[#f00] px-8 z-[9998] py-4 border-red-200 border-2 rounded-2xl bg-white"
+    ></div>
     <div
       class="fixed xs:top-16 top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9998] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center px-96 2xl-m:px-128 lg:px-16 xs:px-8 lg:top-20"
       v-if="isActive"
