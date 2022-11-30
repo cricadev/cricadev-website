@@ -29,12 +29,12 @@ const goBack = () => {
   router.push({ path: "/blog", replace: true });
 };
 useHead({
-  title: blogPost.value.title,
-  titleTemplate: (title) => `${title} | Cricadev`,
+  title: blogPost.value.title.slice(0, 75),
+  titleTemplate: (title) => `${title} | Cricablog`,
   meta: [
     {
       property: "og:title",
-      content: `${blogPost.value.title.slice(0, 75)} | Cricadev`,
+      content: `${blogPost.value.title.slice(0, 75)} | Cricablog`,
     },
     {
       property: "og:type",

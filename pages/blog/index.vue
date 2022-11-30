@@ -15,7 +15,7 @@ useHead({
   meta: [
     {
       property: "og:title",
-      content: "Cricablog | Cricadev",
+      content: "Cricadev | Cricablog",
     },
     {
       property: "og:description",

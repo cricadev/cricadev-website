@@ -4,10 +4,10 @@
       <nav
         class="fixed z-20 flex justify-between w-full p-4 px-32 mx-auto lg:px-16 lg:p-4 sm:px-4"
       >
-        <NuxtLink to="/" class="link">Home</NuxtLink>
-        <NuxtLink to="/portfolio" class="link">Portfolio</NuxtLink>
-        <a href="/about" class="link">About me</a>
-        <NuxtLink to="/blog" class="link">Blog</NuxtLink>
+        <NuxtLink to="/" class="link cool-link">Home</NuxtLink>
+        <NuxtLink to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
+        <a href="/about" class="link cool-link">About me</a>
+        <NuxtLink to="/blog" class="link cool-link">Blog</NuxtLink>
       </nav>
       <header
         class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"
@@ -50,12 +50,16 @@
       <nav
         class="fixed z-10 flex flex-col items-center justify-center w-full h-full space-y-16 nav-tablet"
       >
-        <NuxtLink to="/" class="link" @click="linkClick">Home</NuxtLink>
-        <NuxtLink to="/portfolio" class="link" @click="linkClick"
+        <NuxtLink to="/" class="link cool-link" @click="linkClick"
+          >Home</NuxtLink
+        >
+        <NuxtLink to="/portfolio" class="link cool-link" @click="linkClick"
           >Portfolio</NuxtLink
         >
-        <a href="/about" class="link" @click="linkClick">About me</a>
-        <NuxtLink to="/blog" class="link" @click="linkClick">Blog</NuxtLink>
+        <a href="/about" class="link cool-link" @click="linkClick">About me</a>
+        <NuxtLink to="/blog" class="link cool-link" @click="linkClick"
+          >Blog</NuxtLink
+        >
       </nav>
 
       <div class="footer-desktop">

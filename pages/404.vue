@@ -10,7 +10,7 @@
       <br />
       <span class="font-normal text-xl2_d"> Page not found </span>
     </p>
-    <div class="relative z-20">
+    <div class="relative z-[9999]">
       <img
         src="../images/404-bg.png"
         alt=""
