@@ -34,7 +34,7 @@ useHead({
   meta: [
     {
       property: "og:title",
-      content: blogPost.value.title.slice(0, 75),
+      content: `${blogPost.value.title.slice(0, 75)} | Cricadev`,
     },
     {
       property: "og:type",
@@ -63,7 +63,7 @@ useHead({
     },
     {
       property: "twitter:title",
-      content: blogPost.value.title.slice(0, 75),
+      content: `${blogPost.value.title.slice(0, 75)} | Cricadev`,
     },
     {
       hid: "description",

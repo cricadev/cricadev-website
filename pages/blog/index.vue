@@ -10,11 +10,52 @@ const { data: blogPostListCarousel } = useAsyncData(
 );
 
 useHead({
-  // put title and description for my blog
   title: "Cricablog",
-  description:
-    "Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.",
+  titleTemplate: (title) => `${title} | Cricadev`,
+  meta: [
+    {
+      property: "og:title",
+      content: "Cricablog | Cricadev",
+    },
+    {
+      property: "og:description",
+      content: `Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.`,
+    },
+
+    {
+      property: "og:url",
+      content: `https://cricadev.com/blog`,
+    },
+
+    {
+      property: "og:image",
+      content: "../../public/avatar-crica.jpg",
+    },
+    {
+      property: "og:site_name",
+      content: "CricaDev",
+    },
+    {
+      property: "twitter:title",
+      content: "Cricablog | Cricadev",
+    },
+    {
+      hid: "description",
+      name: "description",
+      content: `Welcome to my blog! Let's talk about t̶e̶c̶h̶n̶o̶l̶o̶g̶y̶ pretty  much everything.`,
+    },
+    {
+      hid: "robots",
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      rel: "cannonical",
+      href: `https://cricadev.com/blog`,
+    },
+  ],
 });
+
 definePageMeta({
   pageTransition: {
     name: "slide-right",
