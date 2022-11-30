@@ -54,10 +54,13 @@ useHead({
       content: blogPost.value.author,
     },
     {
-      property: "og:title",
-      content: blogPost.value.title.slice(0, 75),
+      property: "og:image",
+      content: blogPost.value.img,
     },
-
+    {
+      property: "og:site_name",
+      content: "CricaDev",
+    },
     {
       property: "twitter:title",
       content: blogPost.value.title.slice(0, 75),
