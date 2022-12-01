@@ -238,7 +238,7 @@ const share = async (e) => {
       ></div>
     </div>
 
-    <div class="px-16 pt-36 content-blog xs-m:px-32 lg-m:px-60">
+    <div class="px-8 pt-36 content-blog xs-m:px-32 lg-m:px-60">
       <Toc :links="blogPost.body.toc.links" />
 
       <article
@@ -269,7 +269,9 @@ const share = async (e) => {
         <ContentRenderer :value="blogPost" />
       </article>
       <!-- BUtton like and share -->
-      <div class="fixed bottom-48 right-24 z-[9999] grid h-32 w-16 group-icons">
+      <div
+        class="fixed bottom-4 right-8 z-[9999] grid h-32 w-16 group-icons xs-m:bottom-32 xs-m:right-12 lg-m:right-20"
+      >
         <Icon
           name="fluent:thumb-like-20-filled"
           class="w-12 h-12 p-3 thumb rounded-full bg-green hover:rotate-[360deg] place-self-end translate-x-5 -translate-y-10 hover:drop-shadow-[0px_0px_20px_rgba(90,175,152,1)] thumb-icon icon order-4 transition-all"
