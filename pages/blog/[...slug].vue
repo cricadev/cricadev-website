@@ -126,10 +126,20 @@ const shareData = {
   text: blogPost.value.description,
   url: `https://cricadev.com${path}`,
 };
+const like = ref(false);
+
+const activelike = () => {
+  like.value = !like.value;
+  localStorage.setItem("like", JSON.stringify(like.value));
+};
 onMounted(() => {
   const resultPara = document.querySelector(".result");
 
   resultPara.style.opacity = "0.0";
+  const itemGot = JSON.parse(localStorage.getItem("like"));
+
+  like.value = itemGot;
+  console.log(like.value, itemGot);
 });
 const share = async (e) => {
   const resultPara = document.querySelector(".result");
@@ -143,8 +153,9 @@ const share = async (e) => {
       resultPara.style.opacity = "0.0";
     }, 5000);
   } catch (err) {
+    navigator.clipboard.writeText(window.location.href);
     resultPara.style.opacity = "1.0";
-    resultPara.textContent = `Error: ${err}`;
+    resultPara.textContent = `Copied to clipboard, post it anywhere you want!`;
 
     setTimeout(() => {
       resultPara.style.opacity = "0.0";
@@ -152,12 +163,11 @@ const share = async (e) => {
   }
   navigator.share(shareData);
 };
-console.log(path, blogPost.value.title);
 </script>
 <template>
   <div class="relative pt-16 xs-m:pt-24" @scroll="handleScroll">
     <div
-      class="fixed bottom-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] result text-green2 px-8 z-[9998] py-4 border-green2 border-2 rounded-2xl bg-white dark:bg-black dark:text-green dark:border-green enter-alert"
+      class="fixed bottom-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] result text-green2 px-8 z-[9998] py-4 border-green2 border-2 rounded-2xl bg-white dark:bg-black dark:text-green dark:border-green enter-alert justify-center text-center"
     ></div>
     <div
       class="fixed xs:top-16 top-24 left-0 w-full h-24 bg-white dark:bg-black z-[9998] text-base_m lg-m:text-xl_t appear-from-top lg:h-20 xs:h-16 appear-menu text-center px-96 2xl-m:px-128 lg:px-16 xs:px-8 lg:top-20"
@@ -255,15 +265,28 @@ console.log(path, blogPost.value.title);
             </div>
           </div>
         </div>
+
         <ContentRenderer :value="blogPost" />
       </article>
       <!-- BUtton like and share -->
-      <div class="fixed bottom-48 right-24 z-[9999] grid h-32 w-32 group-icons">
+      <div class="fixed bottom-48 right-24 z-[9999] grid h-32 w-16 group-icons">
         <Icon
-          name="fluent:thumb-like-20-regular"
-          class="w-12 h-12 p-3 text-white thumb rounded-full bg-green hover:rotate-[360deg] place-self-end translate-x-5 -translate-y-10 dark:text-black hover:drop-shadow-[0px_0px_20px_rgba(90,175,152,1)] thumb-icon icon order-4"
+          name="fluent:thumb-like-20-filled"
+          class="w-12 h-12 p-3 thumb rounded-full bg-green hover:rotate-[360deg] place-self-end translate-x-5 -translate-y-10 hover:drop-shadow-[0px_0px_20px_rgba(90,175,152,1)] thumb-icon icon order-4 transition-all"
+          @click="activelike"
+          :class="[
+            {
+              'text-black dark:text-white scale-110 -translate-y-12 border-2 border-green':
+                like,
+            },
+            {
+              'text-black/50 dark:text-white/50 scale-100  -translate-y-10':
+                !like,
+            },
+          ]"
         >
         </Icon>
+
         <Icon
           name="akar-icons:share-box"
           class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-end border-green border-2 share-icon icon hover:bg-green hover:text-white"
@@ -272,7 +295,7 @@ console.log(path, blogPost.value.title);
         </Icon>
         <Icon
           name="charm:cross"
-          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-center border-green border-2 cross-icon icon pointer-events-none"
+          class="w-12 h-12 p-3 text-green thumb rounded-full bg-white hover:rotate-[360deg] place-self-center border-green border-2 cross-icon icon pointer-events-none hidden"
         >
         </Icon>
       </div>
@@ -303,9 +326,24 @@ console.log(path, blogPost.value.title);
   </div>
 </template>
 <style lang="scss" scoped>
+.animate-like {
+  &:hover {
+    transform: scale(1.01) translateX(20px) translateY(-90px) rotate(90deg);
+    transition: 0.2s all;
+  }
+  animation: scale-like 0.4s ease-in-out forwards;
+  @keyframes scale-like {
+    0% {
+      transform: scale(1) translateX(20px) translateY(-90px);
+    }
+    100% {
+      transform: scale(1.01) translateX(20px) translateY(-90px);
+    }
+  }
+}
 .group-icons {
   &:hover > .share-icon,
-  &:hover > .cross-icon {
+  & {
     @media (max-width: 1100px) {
       opacity: 1;
       pointer-events: all;
