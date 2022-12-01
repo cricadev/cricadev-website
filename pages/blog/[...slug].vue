@@ -270,7 +270,7 @@ const share = async (e) => {
       </article>
       <!-- BUtton like and share -->
       <div
-        class="fixed bottom-4 right-8 z-[9999] grid h-32 w-16 group-icons xs-m:bottom-32 xs-m:right-12 lg-m:right-20"
+        class="fixed bottom-4 right-8 z-[9999] grid h-32 w-16 group-icons xs-m:bottom-32 xs-m:right-12 lg-m:right-24"
       >
         <Icon
           name="fluent:thumb-like-20-filled"
