@@ -72,10 +72,10 @@ function closeModalOutside(e) {
         </p>
 
         <div class="flex gap-4 mb-4 text-white box-buttons xs-m:text-xs_t">
-          <a href="" class="button-1 btn"
+          <a :href="blogPost.code" target="_blank" class="button-1 btn"
             >Code <span><Icon name="ant-design:code-filled" /> </span
           ></a>
-          <a href="" class="button-2 btn"
+          <a :href="blogPost.project" target="_blank" class="button-2 btn"
             >Project <span><Icon name="carbon:view-filled" /> </span
           ></a>
         </div>
@@ -135,11 +135,11 @@ function closeModalOutside(e) {
             <div
               class="flex gap-4 text-white box-buttons-modal text-xs_m xs-m:text-sm_m"
             >
-              <a href="" class="button-1 btn"
+              <a :href="blogPost.code" target="_blank" class="button-1 btn"
                 >Code
                 <span><Icon name="ant-design:code-filled" size="16" /> </span
               ></a>
-              <a href="" class="button-2 btn"
+              <a :href="blogPost.project" target="_blank" class="button-2 btn"
                 >Project
                 <span><Icon name="carbon:view-filled" size="16" /> </span
               ></a>

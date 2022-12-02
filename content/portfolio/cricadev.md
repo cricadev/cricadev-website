@@ -5,6 +5,8 @@ img: "https://i.ibb.co/DCzDBRf/cricadev-project.png)"
 square: "https://i.ibb.co/CW5q0KV/cricadev-square.png"
 madeWith: ["Vue", "Nuxt"]
 tags: ["Apps", "Landing Pages"]
+code: "https://github.com/cricadev/cricadev-website"
+project: "https://cricadev.com"
 ---
 
 # FinanceGod

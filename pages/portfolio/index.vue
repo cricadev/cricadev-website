@@ -1,11 +1,13 @@
 <template lang="">
   <div class="pt-16 sm-m:pt-32">
     <div
-      class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog xs-m:h-[6rem]"
+      class="fixed top-0 left-0 z-10 w-full h-64 bg-white dark:bg-black bg-header-blog"
     ></div>
-    <div class="fixed top-32 left-1/2 z-[9998] bg-black">
-      <h1 class="text-center">Portfolio</h1>
-    </div>
+    <h2
+      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title"
+    >
+      Projects
+    </h2>
     <PortfolioTags></PortfolioTags>
     <div
       class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20 xs:hidden"

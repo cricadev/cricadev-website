@@ -77,9 +77,9 @@ const showMoreToggle = () => {
 };
 </script>
 <template>
-  <div class="pt-8">
+  <div class="pt-24">
     <div
-      class="fixed flex flex-col gap-y-4 z-[9998] w-full bg-white dark:bg-black"
+      class="fixed flex flex-col gap-y-4 z-[999] w-full bg-white dark:bg-black py-16"
     >
       <div class="flex justify-between"></div>
       <div class="">
@@ -88,7 +88,7 @@ const showMoreToggle = () => {
         <!-- Checkboxes list -->
         <ul class="filter-container">
           <label
-            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
+            class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none animate-bounce"
             :class="[
               { 'bg-green2 text-white': isCheckAll },
               { 'bg-[transparent] text-green2 dark:text-green': !isCheckAll },
@@ -104,7 +104,7 @@ const showMoreToggle = () => {
           </label>
           <li v-for="lang in langsdata.slice(0, 5)">
             <label
-              class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none text-center justify-center"
+              class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none text-center justify-center animate-bounce"
               :class="[
                 {
                   'bg-[transparent] text-white': languages.includes(lang),
