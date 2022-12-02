@@ -4,7 +4,7 @@
       class="fixed top-0 left-0 z-10 w-full h-64 bg-white dark:bg-black bg-header-blog xs:h-52"
     ></div>
     <h2
-      class="fixed z-[9998] w-full tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title"
+      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title"
     >
       Projects
     </h2>
