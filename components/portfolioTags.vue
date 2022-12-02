@@ -49,7 +49,7 @@ const showMoreToggle = () => {
 <template>
   <div class="pt-24 xs:pt-16">
     <div
-      class="fixed flex flex-col gap-y-4 z-[99] w-full bg-white dark:bg-black py-16 lg:py-4 xs:py-0"
+      class="fixed z-10 flex flex-col w-full py-16 bg-white gap-y-4 dark:bg-black lg:py-4 xs:py-0"
     >
       <div class="flex justify-between"></div>
       <div class="">
