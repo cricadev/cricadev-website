@@ -4,7 +4,7 @@ description: "This application will be your financial friend; you will be able t
 img: "https://i.ibb.co/DCzDBRf/cricadev-project.png)"
 square: "https://i.ibb.co/CW5q0KV/cricadev-square.png"
 madeWith: ["Vue", "Nuxt"]
-tags: ["Apps", "Landing Pages"]
+tags: ["Portfolios"]
 code: "https://github.com/cricadev/cricadev-website"
 project: "https://cricadev.com"
 ---

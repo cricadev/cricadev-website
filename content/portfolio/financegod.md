@@ -5,7 +5,7 @@ img: "https://i.ibb.co/RpjVN2L/financegod.png"
 square: "https://i.ibb.co/CvN62MF/finacegod-square.png"
 
 madeWith: ["Vue", "Nuxt"]
-tags: ["Portfolios"]
+tags: ["Apps"]
 code: "https://github.com/cricadev/financegod-webapp"
 project: "https://financegod.cricadev.com"
 ---

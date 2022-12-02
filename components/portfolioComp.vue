@@ -46,7 +46,7 @@ function closeModalOutside(e) {
   >
     <template v-slot="{ list }">
       <div
-        class="grid w-full h-64 grid-cols-5 grid-rows-4 my-4 lg:h-128 project-container"
+        class="grid w-full h-64 grid-cols-5 grid-rows-5 my-2 lg:h-96 project-container"
         v-for="blogPost in list"
         :key="blogPost.path"
       >
@@ -71,7 +71,7 @@ function closeModalOutside(e) {
           >
         </p>
 
-        <div class="flex gap-4 mb-4 text-white box-buttons xs-m:text-xs_t">
+        <div class="flex gap-4 text-white box-buttons xs-m:text-xs_t">
           <a :href="blogPost.code" target="_blank" class="button-1 btn"
             >Code <span><Icon name="ant-design:code-filled" /> </span
           ></a>
@@ -281,7 +281,7 @@ function closeModalOutside(e) {
         rgb(246, 246, 246) 100%
       );
       grid-column: 3/4;
-      grid-row: 1/5;
+      grid-row: 1/6;
     }
   }
   .dark-grad-project {
@@ -306,7 +306,7 @@ function closeModalOutside(e) {
         rgb(0, 1, 13) 100%
       );
       grid-column: 3/4;
-      grid-row: 1/5;
+      grid-row: 1/6;
     }
   }
   .bg-hover {
@@ -320,12 +320,12 @@ function closeModalOutside(e) {
     z-index: 2;
     @media (min-width: 1100px) {
       grid-column: 4/6;
-      grid-row: 1/5;
+      grid-row: 1/6;
     }
   }
   .box-buttons {
     grid-column: 1/6;
-    grid-row: 4/5;
+    grid-row: 5/6;
     opacity: 0;
     @media (min-width: 1100px) {
       grid-column: 1/4;
@@ -361,7 +361,7 @@ function closeModalOutside(e) {
   .hover-h2 {
     opacity: 0;
     grid-column: 1/6;
-    grid-row: 3/4;
+    grid-row: 3/5;
     padding-left: 25px;
     place-self: start;
     z-index: 3;
@@ -374,7 +374,7 @@ function closeModalOutside(e) {
   .hover-p {
     opacity: 0;
     grid-column: 1/6;
-    grid-row: 3/5;
+    grid-row: 3/6;
     width: 80%;
     place-self: center start;
     padding-bottom: 20px;
@@ -382,7 +382,7 @@ function closeModalOutside(e) {
     z-index: 3;
     @media (min-width: 1100px) {
       grid-column: 4/6;
-      grid-row: 2/5;
+      grid-row: 2/6;
     }
     @media (max-height: 850px) and (max-width: 600px) {
       padding-left: 25px;
@@ -392,7 +392,7 @@ function closeModalOutside(e) {
 
   .bg {
     grid-column: 1/6;
-    grid-row: 1/5;
+    grid-row: 1/6;
     height: 100%;
     width: 100%;
     background: transparent;
@@ -401,7 +401,7 @@ function closeModalOutside(e) {
   }
   .bg-project {
     grid-column: 1/6;
-    grid-row: 1/5;
+    grid-row: 1/6;
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -409,7 +409,7 @@ function closeModalOutside(e) {
   }
   .no-hover-h2 {
     grid-column: 3/4;
-    grid-row: 2/4;
+    grid-row: 2/5;
     z-index: 3;
     color: #f6f6f6;
   }
@@ -430,7 +430,7 @@ function closeModalOutside(e) {
       grid-row: 1/3;
       transition: all 0.2s ease-in-out;
       @media (min-width: 1100px) {
-        grid-row: 1/5;
+        grid-row: 1/6;
         grid-column: 1/4;
       }
     }

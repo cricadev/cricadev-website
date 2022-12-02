@@ -161,7 +161,7 @@ function closeModalOutside(e) {
         rgb(246, 246, 246) 100%
       );
       grid-column: 3/4;
-      grid-row: 1/5;
+      grid-row: 1/6;
     }
   }
   .dark-grad-project {
@@ -186,7 +186,7 @@ function closeModalOutside(e) {
         rgb(0, 1, 13) 100%
       );
       grid-column: 3/4;
-      grid-row: 1/5;
+      grid-row: 1/6;
     }
   }
   .bg-hover {
@@ -200,7 +200,7 @@ function closeModalOutside(e) {
     z-index: 2;
     @media (min-width: 1100px) {
       grid-column: 4/6;
-      grid-row: 1/5;
+      grid-row: 1/6;
     }
   }
   .box-buttons {
@@ -272,7 +272,7 @@ function closeModalOutside(e) {
 
   .bg {
     grid-column: 1/6;
-    grid-row: 1/5;
+    grid-row: 1/6;
     height: 100%;
     width: 100%;
     background: transparent;
@@ -281,7 +281,7 @@ function closeModalOutside(e) {
   }
   .bg-project {
     grid-column: 1/6;
-    grid-row: 1/5;
+    grid-row: 1/6;
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -310,7 +310,7 @@ function closeModalOutside(e) {
       grid-row: 1/3;
       transition: all 0.2s ease-in-out;
       @media (min-width: 1100px) {
-        grid-row: 1/5;
+        grid-row: 1/6;
         grid-column: 1/4;
       }
     }
