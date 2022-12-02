@@ -1,64 +1,12 @@
 <template lang="">
   <div class="pt-16 sm-m:pt-32">
     <div
-      class="fixed top-0 left-0 z-10 w-full h-[20vh] xs-m:h-[40vh] bg-white dark:bg-black header-mobile"
+      class="fixed top-0 left-0 z-10 w-full h-[4rem] bg-white dark:bg-black bg-header-blog xs-m:h-[6rem]"
     ></div>
-    <h2
-      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title"
-    >
-      Projects
-    </h2>
-    <div
-      class="fixed grid grid-cols-5 grid-rows-3 mt-16 text-center project-carousel lg-m:mt-32"
-    >
-      <img
-        src="../../images/border-mobile.png"
-        alt=""
-        class="w-full image-border xs-m:w-3/4 lg-m:w-1/2"
-      />
-
-      <span class="link-project app" @click="handleClick">Apps</span
-      ><span class="link-project landing" @click="handleClick"
-        >Landing Pages</span
-      ><span class="link-project all" @click="handleClick">All</span
-      ><span class="link-project portfolio" @click="handleClick"
-        >Portfolios</span
-      ><span class="link-project challenges" @click="handleClick"
-        >Challenges</span
-      >
+    <div class="fixed top-32 left-1/2 z-[9998] bg-black">
+      <h1 class="text-center">Portfolio</h1>
     </div>
-    <div
-      class="relative items-center my-64 space-y-2 overflow-y-scroll project-order lg-m:space-y-4"
-    >
-      <ProjectComp
-        title="FinanceGod"
-        img="../financegod.png"
-        content="This application will be your financial friend; you will be able to add all of your cards..."
-        square="../finacegod-square.png"
-        content2="This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card, receive money through the application and then transfer it to one of your preferred cards later on, or make payments via PSE with our application; enjoy your financial independence with this all-in-one application."
-      ></ProjectComp>
-      <ProjectComp
-        title="MathGod"
-        img="../mathgod.png"
-        content=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by..."
-        square="../mathgod-square.png"
-        content2=" With capabilities like Text-To-Speech, MathGod is a mathematical helper created to be usable by everyone. It can answer just about any problem, from changing a currency to resolving issues with photographs using our API."
-      ></ProjectComp>
-      <ProjectComp
-        title="CRICADEV"
-        img="../cricadev-project.png"
-        content="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains..."
-        square="../cricadev-square.png"
-        content2="A unique website created for web developer Cristian Casallas, which is me, CricaDev contains intriguing elements like a blog and is both completely interactive and accessible."
-      ></ProjectComp>
-      <ProjectComp
-        title="TEF"
-        img="../tef.png"
-        content="A distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully..."
-        square="../tef-square.png"
-        content2="a distinctive website that was entirely made for designer Stefanny Ascencio. TefDsgn is a fully interactive, accessible website with intriguing aspects and a distinctive style."
-      ></ProjectComp>
-    </div>
+    <PortfolioTags></PortfolioTags>
     <div
       class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20 xs:hidden"
     ></div>
@@ -67,6 +15,16 @@
   </div>
 </template>
 <script setup>
+import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
+
+const { path } = useRoute();
+const router = useRouter();
+
+const { data: projects } = useAsyncData("projects", () => {
+  return queryContent("/portfolio").sort({ id: -1 }).find();
+});
+console.log(projects);
+
 useHead({
   title: "CricaDev | Portfolio",
   meta: [

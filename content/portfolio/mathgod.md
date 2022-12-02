@@ -1,11 +1,11 @@
 ---
-title: "FinanceGod"
+title: "Mathgod"
 description: "This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card, receive money through the application and then transfer it to one of your preferred cards later on, or make payments via PSE with our application; enjoy your financial independence with this all-in-one application."
-img: "https://i.ibb.co/RpjVN2L/financegod.png"
-square: "https://i.ibb.co/CvN62MF/finacegod-square.png"
+img: "https://i.ibb.co/6BcPTQn/mathgod.png"
+square: "https://i.ibb.co/7VNgN6V/mathgod-square.png"
 
 madeWith: ["Vue", "Nuxt"]
-tags: ["Portfolios"]
+tags: ["Apps"]
 ---
 
 # FinanceGod

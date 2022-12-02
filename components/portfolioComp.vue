@@ -1,12 +1,11 @@
-<template lang=""></template>
 <script setup>
-defineProps({
-  title: String,
-  img: String,
-  content: String,
-  square: String,
-  content2: String,
+const props = defineProps({
+  tags: {
+    type: Array,
+    required: false,
+  },
 });
+
 function openModal(e) {
   const modal = document.querySelectorAll(".modal");
   const target = e.currentTarget.parentElement.previousSibling.innerText;
@@ -34,6 +33,127 @@ function closeModalOutside(e) {
   }
 }
 </script>
+<template>
+  <ContentList
+    path="/portfolio"
+    :query="{
+      where: {
+        tags: {
+          $in: props.tags,
+        },
+      },
+    }"
+  >
+    <template v-slot="{ list }">
+      <div
+        class="grid w-full h-64 grid-cols-5 grid-rows-4 my-4 lg:h-128 project-container"
+        v-for="blogPost in list"
+        :key="blogPost.path"
+      >
+        <div class="bg"></div>
+
+        <h2
+          class="font-black text-center text-base_m no-hover-h2 xs-m:text-xl2_t lg-m:text-xl2_d"
+        >
+          {{ blogPost.title }}
+        </h2>
+        <h2
+          class="font-black text-center hover-h2 text-sm_m xs-m:text-lg_m lg-m:text-lg_d"
+        >
+          {{ blogPost.title }}
+        </h2>
+        <p
+          class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5 lg-m:text-xs_d"
+        >
+          {{ blogPost.description }}
+          <a class="block pt-1 font-normal text-green" @click="openModal"
+            >Read more...</a
+          >
+        </p>
+
+        <div class="flex gap-4 mb-4 text-white box-buttons xs-m:text-xs_t">
+          <a href="" class="button-1 btn"
+            >Code <span><Icon name="ant-design:code-filled" /> </span
+          ></a>
+          <a href="" class="button-2 btn"
+            >Project <span><Icon name="carbon:view-filled" /> </span
+          ></a>
+        </div>
+        <div class="flex flex-col text-black dark:text-white icons">
+          <Icon name="cib:nuxt-js" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+          <Icon name="akar-icons:vue-fill" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+          <Icon name="bxl:tailwind-css" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+        </div>
+        <img :src="blogPost.img" alt="" class="bg-project" />
+        <div
+          class="dark-grad-project"
+          v-show="$colorMode.value === 'dark'"
+        ></div>
+        <div class="grad-project" v-show="$colorMode.value === 'light'"></div>
+        <div class="bg-white dark:bg-black bg-hover"></div>
+        <div
+          class="grid items-center justify-center modal dark:bg-black/80 bg-white/80 place-items-center"
+          @click="closeModalOutside"
+        >
+          <div class="absolute top-0 right-0 opacity-0 span">
+            {{ blogPost.title }}
+          </div>
+          <div
+            class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content"
+          >
+            <div
+              class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white"
+              @click="closeModal"
+            >
+              <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
+            </div>
+            <img :src="blogPost.square" alt="" class="bg-modal" />
+            <h2 class="font-black text-base_m xs-m:text-xl2_t">
+              {{ blogPost.title }}
+            </h2>
+            <p
+              class="font-medium text-[0.75rem] leading-4 px-8 xs-m:text-xs_t xs-m:leading-5 xs-m:px-20"
+            >
+              {{ blogPost.description }}
+            </p>
+            <span
+              class="made font-medium text-[0.75rem] leading-3 xs-m:text-sm_m"
+              >Made with</span
+            >
+
+            <div
+              class="flex flex-row space-x-4 text-black dark:text-white icons-modal"
+            >
+              <Icon name="cib:nuxt-js" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+              <Icon
+                name="akar-icons:vue-fill"
+                class="w-4 h-4 xs-m:w-6 xs-m:h-6"
+              />
+              <Icon name="bxl:tailwind-css" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+            </div>
+
+            <div
+              class="flex gap-4 text-white box-buttons-modal text-xs_m xs-m:text-sm_m"
+            >
+              <a href="" class="button-1 btn"
+                >Code
+                <span><Icon name="ant-design:code-filled" size="16" /> </span
+              ></a>
+              <a href="" class="button-2 btn"
+                >Project
+                <span><Icon name="carbon:view-filled" size="16" /> </span
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template #not-found>
+      <p class="text-center">No projects found.</p>
+    </template>
+  </ContentList>
+</template>
+
 <style lang="scss" scoped>
 .project-container:first-of-type {
   margin-top: 20px;
