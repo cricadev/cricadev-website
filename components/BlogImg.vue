@@ -52,7 +52,7 @@ const convertTagsIntoIcons = computed(() => {
     } else if (tag === "Coding") {
       return { name: "ant-design:code-filled", text: "Coding" };
     } else {
-      return { name: "../images/logo-logo-cricadev.png", text: "About me" };
+      return { name: "/logo-logo-cricadev.png", text: "About me" };
     }
   });
 });
@@ -86,9 +86,9 @@ const convertTagsIntoIcons = computed(() => {
           v-for="(index, key) of convertTagsIntoIcons"
           :key="key"
         >
-          <div class="" v-if="index.name == '../images/logo-logo-cricadev.png'">
+          <div class="" v-if="index.name == '/logo-logo-cricadev.png'">
             <nuxt-img
-              src="../images/logo-logo-cricadev.png"
+              src="/logo-logo-cricadev.png"
               alt=""
               class="w-4 brightness-[4]"
             />

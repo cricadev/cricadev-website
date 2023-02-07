@@ -83,7 +83,7 @@ const convertTagsIntoIcons = computed(() => {
           v-if="convertTagsIntoIcons.name == 'About me'"
         >
           <nuxt-img
-            src="../images/logo-logo-cricadev.png"
+            src="/logo-logo-cricadev.png"
             alt=""
             class="h-5 brightness-[4] top-0 left-0"
           />

@@ -12,20 +12,20 @@
     </p>
     <div class="relative z-[9999]">
       <nuxt-img
-        src="./images/404-bg.png"
+        src="/404-bg.png"
         alt=""
         class="relative"
         v-show="$colorMode.value === 'dark'"
       />
       <nuxt-img
-        src="./images/404-bg-dark.png"
+        src="/404-bg-dark.png"
         alt=""
         class="relative"
         v-show="$colorMode.value === 'light'"
       />
       <div class="absolute top-0 left-0 z-10 grid w-full place-items-center">
         <div class="relative rotate-face">
-          <nuxt-img src="./images/face-img.png" alt="" class="relative" />
+          <nuxt-img src="/face-img.png" alt="" class="relative" />
           <div class="waterdrop"></div>
         </div>
       </div>

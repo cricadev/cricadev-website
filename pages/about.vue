@@ -7,7 +7,7 @@
       <span class="about-link link-01">urious</span>
 
       <div class="meaning-container meaning-01">
-        <nuxt-img src="../images/curious.png" alt="" />
+        <nuxt-img src="/curious.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Without questions, without interest, and without this curiosity, none
           of what we are would be possible. I am curious because I like to learn
@@ -20,7 +20,7 @@
 
       <span class="about-link link-02">isk-taking</span>
       <div class="meaning-container meaning-02">
-        <nuxt-img src="../images/risktaking.png" alt="" />
+        <nuxt-img src="/risktaking.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           The ability to take risks is one of my favorite traits because it is
           what got me to where I am today. If I had stayed in school instead of
@@ -33,7 +33,7 @@
 
       <span class="about-link link-03">nnovative</span>
       <div class="meaning-container meaning-03">
-        <nuxt-img src="../images/innovative.png" alt="" />
+        <nuxt-img src="/innovative.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Innovation promotes development, new idea adoption, and overcoming
           change's obstacles. We must always innovate in order to compete in the
@@ -44,7 +44,7 @@
 
       <span class="about-link link-04">reative</span>
       <div class="meaning-container meaning-04">
-        <nuxt-img src="../images/creative.png" alt="" />
+        <nuxt-img src="/creative.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Our capacity for creativity enables us to approach issues in novel and
           open-minded ways. Working with code gives us the flexibility to come
@@ -57,7 +57,7 @@
 
       <span class="about-link link-05">mbitious</span>
       <div class="meaning-container meaning-05">
-        <nuxt-img src="../images/ambitious.png" alt="" />
+        <nuxt-img src="/ambitious.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           To create a goal and pursue it normally takes a lot of effort and
           labor, but ambition may keep us motivated and will be crucial to
@@ -69,7 +69,7 @@
 
       <span class="about-link link-06">etermined</span>
       <div class="meaning-container meaning-06">
-        <nuxt-img src="../images/determined.png" alt="" />
+        <nuxt-img src="/determined.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Determination is crucial because it enables us to persevere in the
           face of challenges. We are motivated to move forward fearlessly
@@ -81,7 +81,7 @@
 
       <span class="about-link link-07">nthusistic</span>
       <div class="meaning-container meaning-07">
-        <nuxt-img src="../images/enthusiastic.png" alt="" />
+        <nuxt-img src="/enthusiastic.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Numerous advantages come from being enthusiastic, including increased
           productivity, safety, the ability to inspire others by being so
@@ -93,7 +93,7 @@
 
       <span class="about-link link-08">aluable</span>
       <div class="meaning-container meaning-08">
-        <nuxt-img src="../images/valuable.png" alt="" />
+        <nuxt-img src="/valuable.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           There is much more to you than what you possess that gives you value
           and a purpose; you were born with both. We all have a purpose, and if
@@ -840,7 +840,7 @@ onBeforeMount(async () => {
 }
 
 .dark .i {
-  background-image: url("../images/I-bg.png");
+  background-image: url("../public/I-bg.png");
 
   color: transparent;
   @media (min-width: 1100px) {
@@ -848,7 +848,7 @@ onBeforeMount(async () => {
   }
 }
 .i {
-  background-image: url("../images/I-bg-dark.png");
+  background-image: url("../public/I-bg-dark.png");
 
   color: transparent;
   @media (min-width: 1100px) {
@@ -856,71 +856,71 @@ onBeforeMount(async () => {
   }
 }
 .dark .c2 {
-  background-image: url("../images/c-bg.png");
+  background-image: url("../public/c-bg.png");
 
   color: transparent;
   @media (min-width: 1100px) {
-    background-image: url("../images/c-bg-desktop.png");
+    background-image: url("../public/c-bg-desktop.png");
   }
 }
 .c2 {
-  background-image: url("../images/c-bg-dark.png");
+  background-image: url("../public/c-bg-dark.png");
   color: transparent;
   @media (min-width: 1100px) {
-    background-image: url("../images/c-bg-dark-desktop.png");
+    background-image: url("../public/c-bg-dark-desktop.png");
   }
 }
 .dark .a {
-  background-image: url("../images/a-bg.png");
+  background-image: url("../public/a-bg.png");
   color: transparent;
   @media (min-width: 1100px) {
-    background-image: url("../images/a-bg-desktop.png");
+    background-image: url("../public/a-bg-desktop.png");
   }
 }
 .a {
-  background-image: url("../images/a-bg-dark.png");
+  background-image: url("../public/a-bg-dark.png");
   color: transparent;
   @media (min-width: 1100px) {
-    background-image: url("../images/a-bg-dark-desktop.png");
+    background-image: url("../public/a-bg-dark-desktop.png");
   }
 }
 .dark .d {
-  background-image: url("../images/d-bg.png");
+  background-image: url("../public/d-bg.png");
   color: transparent;
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
 .d {
-  background-image: url("../images/d-bg-dark.png");
+  background-image: url("../public/d-bg-dark.png");
   color: transparent;
   @media (min-width: 1100px) {
     color: #00010d;
   }
 }
 .dark .e {
-  background-image: url("../images/e-bg.png");
+  background-image: url("../public/e-bg.png");
   color: transparent;
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
 .e {
-  background-image: url("../images/e-bg-dark.png");
+  background-image: url("../public/e-bg-dark.png");
   color: transparent;
   @media (min-width: 1100px) {
     color: #00010d;
   }
 }
 .dark .v {
-  background-image: url("../images/v-bg.png");
+  background-image: url("../public/v-bg.png");
   color: transparent;
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
 .v {
-  background-image: url("../images/v-bg-dark.png");
+  background-image: url("../public/v-bg-dark.png");
   color: transparent;
   @media (min-width: 1100px) {
     color: #00010d;

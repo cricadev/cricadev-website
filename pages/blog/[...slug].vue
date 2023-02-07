@@ -305,7 +305,7 @@ const share = async (e) => {
         <div class="flex items-center justify-between mb-12 lines">
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
           <nuxt-img
-            src="../../images/logo-logo-cricadev.png"
+            src="/logo-logo-cricadev.png"
             alt=""
             class="w-[17px] h-[22px] xs-m:w-[25px] xs-m:h-[30px]"
           />
