@@ -1,6 +1,7 @@
 <template lang="">
   <div>
     <NuxtLayout>
+      <BannerBuilding></BannerBuilding>
       <HeaderComp></HeaderComp>
       <NuxtPage />
       <FooterComp></FooterComp>
