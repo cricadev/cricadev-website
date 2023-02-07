@@ -13,7 +13,7 @@
         class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"
       >
         <nuxt-img
-          src="@/logo-logo-cricadev.png"
+          src="../public/logo-logo-cricadev.png"
           alt="CricaDev"
           class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px]"
         />
