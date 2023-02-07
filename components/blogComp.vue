@@ -62,7 +62,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
         <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"> </BlogImg>
         <div class="my-2 blog-footer">
           <div class="flex items-start gap-2 author-date">
-            <img :src="blogPost.avatar" alt="" class="avatar" />
+            <nuxt-img :src="blogPost.avatar" alt="" class="avatar" />
             <div class="flex flex-col">
               <span class="text-[0.688rem] font-medium author lg-m:text-sm_m">
                 {{ blogPost.author }}

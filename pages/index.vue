@@ -46,31 +46,31 @@
     <div
       class="left-0 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32 z-[998]"
     >
-      <img src="../images/C.png" alt="" class="c-1 letter" />
-      <img src="../images/R.png" alt="" class="r-1 letter" />
-      <img src="../images/I.png" alt="" class="i-1 letter" />
-      <img src="../images/C.png" alt="" class="c letter" />
-      <img src="../images/A.png" alt="" class="a letter" />
-      <img src="../images/D.png" alt="" class="d letter" />
-      <img src="../images/E.png" alt="" class="e letter" />
-      <img src="../images/V.png" alt="" class="v letter" />
+      <nuxt-img src="../images/C.png" alt="" class="c-1 letter" />
+      <nuxt-img src="../images/R.png" alt="" class="r-1 letter" />
+      <nuxt-img src="../images/I.png" alt="" class="i-1 letter" />
+      <nuxt-img src="../images/C.png" alt="" class="c letter" />
+      <nuxt-img src="../images/A.png" alt="" class="a letter" />
+      <nuxt-img src="../images/D.png" alt="" class="d letter" />
+      <nuxt-img src="../images/E.png" alt="" class="e letter" />
+      <nuxt-img src="../images/V.png" alt="" class="v letter" />
     </div>
     <div
       class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 lg:hidden md:scale-75"
     >
       <div class="flex space-x-4 cri xs:absolute">
-        <img src="../images/C.png" alt="" class="c-1 letter" />
-        <img src="../images/R.png" alt="" class="r-1 letter" />
-        <img src="../images/I.png" alt="" class="i-1 letter" />
+        <nuxt-img src="../images/C.png" alt="" class="c-1 letter" />
+        <nuxt-img src="../images/R.png" alt="" class="r-1 letter" />
+        <nuxt-img src="../images/I.png" alt="" class="i-1 letter" />
       </div>
       <div class="flex space-x-4 ca">
-        <img src="../images/C.png" alt="" class="c letter" />
-        <img src="../images/A.png" alt="" class="a letter" />
+        <nuxt-img src="../images/C.png" alt="" class="c letter" />
+        <nuxt-img src="../images/A.png" alt="" class="a letter" />
       </div>
       <div class="flex space-x-4 xs:translate-x-[-10%]">
-        <img src="../images/D.png" alt="" class="d letter" />
-        <img src="../images/E.png" alt="" class="e letter" />
-        <img src="../images/V.png" alt="" class="v letter" />
+        <nuxt-img src="../images/D.png" alt="" class="d letter" />
+        <nuxt-img src="../images/E.png" alt="" class="e letter" />
+        <nuxt-img src="../images/V.png" alt="" class="v letter" />
       </div>
     </div>
     <div
@@ -80,32 +80,32 @@
         class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%] xs:space-x-0"
       >
         <div class="flex space-x-4 cri-2 xs:scale-[.4]">
-          <img src="../images/C.png" alt="" class="c letter" />
-          <img src="../images/R.png" alt="" class="r letter" />
-          <img src="../images/I.png" alt="" class="i letter" />
+          <nuxt-img src="../images/C.png" alt="" class="c letter" />
+          <nuxt-img src="../images/R.png" alt="" class="r letter" />
+          <nuxt-img src="../images/I.png" alt="" class="i letter" />
         </div>
         <div class="flex space-x-4 stian xs:scale-[.4]">
-          <img src="../images/S.png" alt="" class="s letter" />
-          <img src="../images/T.png" alt="" class="t letter" />
-          <img src="../images/I.png" alt="" class="i letter" />
-          <img src="../images/A.png" alt="" class="a letter" />
-          <img src="../images/N.png" alt="" class="n letter" />
+          <nuxt-img src="../images/S.png" alt="" class="s letter" />
+          <nuxt-img src="../images/T.png" alt="" class="t letter" />
+          <nuxt-img src="../images/I.png" alt="" class="i letter" />
+          <nuxt-img src="../images/A.png" alt="" class="a letter" />
+          <nuxt-img src="../images/N.png" alt="" class="n letter" />
         </div>
       </div>
       <div
         class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%] lg:translate-x-0 lg:space-x-4 sm:space-x-20 sm:translate-x-[-15%]"
       >
         <div class="flex space-x-4 ca-2 xs:scale-[.4]">
-          <img src="../images/C.png" alt="" class="c letter" />
-          <img src="../images/A.png" alt="" class="a letter" />
+          <nuxt-img src="../images/C.png" alt="" class="c letter" />
+          <nuxt-img src="../images/A.png" alt="" class="a letter" />
         </div>
         <div class="flex space-x-4 sallas xs:scale-[.4]">
-          <img src="../images/S.png" alt="" class="s letter" />
-          <img src="../images/A.png" alt="" class="a letter" />
-          <img src="../images/L.png" alt="" class="l letter" />
-          <img src="../images/L.png" alt="" class="l letter" />
-          <img src="../images/A.png" alt="" class="a letter" />
-          <img src="../images/S.png" alt="" class="s letter" />
+          <nuxt-img src="../images/S.png" alt="" class="s letter" />
+          <nuxt-img src="../images/A.png" alt="" class="a letter" />
+          <nuxt-img src="../images/L.png" alt="" class="l letter" />
+          <nuxt-img src="../images/L.png" alt="" class="l letter" />
+          <nuxt-img src="../images/A.png" alt="" class="a letter" />
+          <nuxt-img src="../images/S.png" alt="" class="s letter" />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@kevinmarrec/nuxt-pwa",
     "@nuxt/content",
+    "@nuxt/image-edge",
   ],
 
   content: {

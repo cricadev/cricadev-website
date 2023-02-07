@@ -35,7 +35,7 @@
       <h3 class="font-normal text-green text-[1.125rem]">Answer:</h3>
       <p class="mt-4 font-light leading-snug text-sm_m">
         {{ content }}
-        <img src="" alt="" />
+        <nuxt-img src="" alt="" />
       </p>
     </div>
     <Icon :name="`${icon}`" size="60px" class="place-self-center" />

@@ -104,7 +104,7 @@ definePageMeta({
 
           <div class="my-2 blog-footer">
             <div class="flex items-start gap-2 author-date">
-              <img :src="blogPost.avatar" alt="" class="ml-10 avatar" />
+              <nuxt-img :src="blogPost.avatar" alt="" class="ml-10 avatar" />
 
               <div class="flex flex-col items-start justify-start">
                 <span

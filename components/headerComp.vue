@@ -12,8 +12,8 @@
       <header
         class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"
       >
-        <img
-          src="../images/logo-logo-cricadev.png"
+        <nuxt-img
+          src="@/images/logo-logo-cricadev.png"
           alt="CricaDev"
           class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px]"
         />
@@ -23,7 +23,7 @@
     <header
       class="fixed z-20 hidden mt-6 ml-8 pointer-events-none xs:inline top"
     >
-      <img
+      <nuxt-img
         src="../images/logo-logo-cricadev.png"
         alt="CricaDev"
         class="h-[32px] w-[25px]"

@@ -123,7 +123,7 @@ const getNameTag = (lang) => {
             <Icon :name="getNameTag(icon)" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
           </div>
         </div>
-        <img :src="blogPost.img" alt="" class="bg-project" />
+        <nuxt-img :src="blogPost.img" alt="" class="bg-project" />
         <div
           class="dark-grad-project"
           v-show="$colorMode.value === 'dark'"
@@ -146,7 +146,7 @@ const getNameTag = (lang) => {
             >
               <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
             </div>
-            <img :src="blogPost.square" alt="" class="bg-modal" />
+            <nuxt-img :src="blogPost.square" alt="" class="bg-modal" />
             <h2 class="font-black text-base_m xs-m:text-xl2_t">
               {{ blogPost.title }}
             </h2>

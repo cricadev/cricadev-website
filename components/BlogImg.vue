@@ -68,7 +68,7 @@ const convertTagsIntoIcons = computed(() => {
     ]"
   >
     <div class="relative">
-      <img
+      <nuxt-img
         :src="src"
         alt=""
         class="object-cover w-full h-full mx-auto rounded-lg grayscale brightness-75"
@@ -87,7 +87,7 @@ const convertTagsIntoIcons = computed(() => {
           :key="key"
         >
           <div class="" v-if="index.name == '../images/logo-logo-cricadev.png'">
-            <img
+            <nuxt-img
               src="../images/logo-logo-cricadev.png"
               alt=""
               class="w-4 brightness-[4]"

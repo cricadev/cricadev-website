@@ -212,7 +212,7 @@ const share = async (e) => {
       class="justify-around w-full goback-header z-[9999] py-2 px-4 xs-m:px-8 lg-m:px-2 xl-m:px-32 2xl-m:px-128 dark:bg-black bg-white"
     >
       <div class="flex gap-2 ml-2">
-        <img :src="blogPost.avatar" alt="" class="avatar-2" />
+        <nuxt-img :src="blogPost.avatar" alt="" class="avatar-2" />
         <div class="flex flex-col">
           <span class="text-[0.688rem] font-medium author xs-m:text-sm_m">
             {{ blogPost.author }}
@@ -250,7 +250,7 @@ const share = async (e) => {
               v-if="getNameTag(tag) == ''"
               class="p-1 translate-y-[2px] xs:-translate-y-0 rounded-md bg-green2"
             >
-              <img
+              <nuxt-img
                 src="../../public/icon.png"
                 alt=""
                 class="brightness-[4] logo-custom"
@@ -304,7 +304,7 @@ const share = async (e) => {
       <div class="relative z-0 related-blogs lg-m:hidden">
         <div class="flex items-center justify-between mb-12 lines">
           <div class="w-[40%] h-[2px] bg-green xs-m:w-[45%]"></div>
-          <img
+          <nuxt-img
             src="../../images/logo-logo-cricadev.png"
             alt=""
             class="w-[17px] h-[22px] xs-m:w-[25px] xs-m:h-[30px]"

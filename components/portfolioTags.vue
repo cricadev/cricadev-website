@@ -93,7 +93,7 @@ const showMoreToggle = () => {
                   },
                 ]"
               >
-                <img
+                <nuxt-img
                   src="../public/icon.png"
                   alt=""
                   class="w-4 h-4 brightness-[4]"

@@ -11,13 +11,13 @@
       <span class="font-normal text-xl2_d"> Page not found </span>
     </p>
     <div class="relative z-[9999]">
-      <img
+      <nuxt-img
         src="./images/404-bg.png"
         alt=""
         class="relative"
         v-show="$colorMode.value === 'dark'"
       />
-      <img
+      <nuxt-img
         src="./images/404-bg-dark.png"
         alt=""
         class="relative"
@@ -25,7 +25,7 @@
       />
       <div class="absolute top-0 left-0 z-10 grid w-full place-items-center">
         <div class="relative rotate-face">
-          <img src="./images/face-img.png" alt="" class="relative" />
+          <nuxt-img src="./images/face-img.png" alt="" class="relative" />
           <div class="waterdrop"></div>
         </div>
       </div>
