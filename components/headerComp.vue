@@ -13,7 +13,8 @@
         class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"
       >
         <nuxt-img
-          src="../public/logo-logo-cricadev.png"
+          src="/logo-logo-cricadev_oqjfno.png"
+          provider="cloudinary"
           alt="CricaDev"
           class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px]"
         />
@@ -24,7 +25,8 @@
       class="fixed z-20 hidden mt-6 ml-8 pointer-events-none xs:inline top"
     >
       <nuxt-img
-        src="/logo-logo-cricadev.png"
+        src="/logo-logo-cricadev_oqjfno.png"
+        provider="cloudinary"
         alt="CricaDev"
         class="h-[32px] w-[25px]"
       />
@@ -178,71 +180,86 @@ function handleClickBack(e) {
 <style lang="scss" scoped>
 .wrap-tablet-header {
   display: none;
+
   @media (max-width: 599px) {
     display: block;
     overflow-y: hidden;
   }
+
   .background {
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto 100%;
   }
 }
+
 .dark .background {
   background: transparent;
   backdrop-filter: blur(30px);
 }
+
 .background {
   background: transparent;
   backdrop-filter: blur(30px);
 }
+
 .hover-toggle {
   display: none;
+
   @media (max-width: 599px) {
     display: block;
   }
 }
+
 .dark .wrap-tablet-header {
   animation: close-menu 0.5s ease-in-out forwards;
 }
+
 .wrap-tablet-header {
   animation: close-menu 0.5s ease-in-out forwards;
 }
+
 .background {
   animation: close-menu 0.5s ease-in-out forwards;
 }
+
 @keyframes close-menu {
   0% {
     transform: translateX(0%);
     opacity: 1;
   }
+
   100% {
     transform: translateX(100%);
     opacity: 1;
   }
 }
 
-.hover-toggle.active + .background + .wrap-tablet-header,
-.hover-toggle.active + .background {
+.hover-toggle.active+.background+.wrap-tablet-header,
+.hover-toggle.active+.background {
   animation: open-menu 0.5s ease-in-out forwards;
   transition: all 0.5s ease-in-out;
 }
+
 @keyframes open-menu {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(0%);
   }
 }
-.hover-toggle.active + .wrap-tablet-header > .background {
-}
-.hover-toggle.active > .menu-toggle,
-.hover-toggle.active > .menu-toggle::after,
-.hover-toggle.active > .menu-toggle::before {
+
+.hover-toggle.active+.wrap-tablet-header>.background {}
+
+.hover-toggle.active>.menu-toggle,
+.hover-toggle.active>.menu-toggle::after,
+.hover-toggle.active>.menu-toggle::before {
   transition: all 0.2s ease-in-out;
 }
-.hover-toggle.active + .wrap-tablet-header {
+
+.hover-toggle.active+.wrap-tablet-header {
   opacity: 1;
 }
 
@@ -250,6 +267,7 @@ function handleClickBack(e) {
 .dark .menu-toggle::before {
   background: white;
 }
+
 .menu-toggle::after,
 .menu-toggle::before {
   content: "";
@@ -260,9 +278,11 @@ function handleClickBack(e) {
   background: black;
   transition: all 0.2s ease-in-out;
 }
+
 .menu-toggle::after {
   top: 8px;
 }
+
 .menu-toggle::before {
   top: 16px;
 }

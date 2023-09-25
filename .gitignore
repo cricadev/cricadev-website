@@ -6,4 +6,7 @@ node_modules
 .output
 .env
 dist
-.vscode
+.DS_Store
+assets/images
+# Local Netlify folder
+.netlify

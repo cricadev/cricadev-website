@@ -81,7 +81,7 @@ const showMoreToggle = () => {
                     'scale-0': !languages.includes(lang),
                   },
                 ]">
-                <nuxt-img src="../public/icon.png" alt="" class="w-4 h-4 brightness-[4]" />
+                <nuxt-img src="/icon_gmj8uz.png" provider="cloudinary" alt="" class="w-4 h-4 brightness-[4]" />
               </div>
               <div class="absolute top-0 left-0 p-2 px-2 transition-all rounded-md bg-green2" :class="[
                 {

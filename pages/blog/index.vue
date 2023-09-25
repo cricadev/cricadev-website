@@ -29,7 +29,7 @@ useHead({
 
     {
       property: "og:image",
-      content: "../../public/avatar-crica.jpg",
+      content: "https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676210/CricaDev/avatar-crica_d9a0pc.jpg",
     },
     {
       property: "og:site_name",
@@ -104,7 +104,7 @@ definePageMeta({
 
           <div class="my-2 blog-footer">
             <div class="flex items-start gap-2 author-date">
-              <nuxt-img :src="blogPost.avatar" alt="" class="ml-10 avatar" />
+              <nuxt-img :src="blogPost.avatar" provider="cloudinary" alt="" class="ml-10 avatar" />
 
               <div class="flex flex-col items-start justify-start">
                 <span
@@ -151,10 +151,12 @@ definePageMeta({
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
 // page transition
 .slide-left-enter-active,
 .slide-left-leave-active,
@@ -162,22 +164,27 @@ definePageMeta({
 .slide-right-leave-active {
   transition: all 0.2s;
 }
+
 .slide-left-enter-from {
   opacity: 0;
   transform: translate(50px, 0);
 }
+
 .slide-left-leave-to {
   opacity: 0;
   transform: translate(-50px, 0);
 }
+
 .slide-right-enter-from {
   opacity: 0;
   transform: translate(-50px, 0);
 }
+
 .slide-right-leave-to {
   opacity: 0;
   transform: translate(50px, 0);
 }
+
 .related-blog {
   display: flex;
   flex-direction: row;
@@ -186,56 +193,72 @@ definePageMeta({
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 100px;
+
   @media (max-width: 1100px) {
     margin-bottom: 50px;
   }
+
   @media (max-width: 599px) {
     gap: 10px;
   }
+
   .blog-container {
     width: 30%;
+
     @media (max-width: 1100px) {
       width: 48%;
     }
+
     @media (max-width: 599px) {
       width: 100%;
     }
   }
 }
+
 .dark .carousel__prev,
 .carousel__prev {
   transform: translateX(-40%) scale(0.8) translateY(-70%);
+
   @media (min-width: 599px) {
     transform: translateX(20%) scale(1.5) translateY(-50%);
   }
+
   @media (min-width: 1100px) {
     transform: translateX(20%) scale(2) translateY(-50%);
   }
 }
+
 .dark .carousel__next,
 .carousel__next {
   transform: translateX(40%) scale(0.8) translateY(-70%);
+
   @media (min-width: 599px) {
     transform: translateX(-20%) scale(1.5) translateY(-50%);
   }
+
   @media (min-width: 1100px) {
     transform: translateX(-20%) scale(2) translateY(-50%);
   }
 }
+
 .dark .carousel__prev,
 .dark .carousel__next {
   background: transparent;
+
   .carousel__icon {
     fill: #f6f6f6;
   }
 }
+
 .carousel__prev,
 .carousel__next {
   background: transparent;
+
   .carousel__icon {
     fill: #f6f6f6;
   }
 }
+
 .carousel__prev--in-active,
 .carousel__next--in-active {
   display: none;
@@ -249,25 +272,32 @@ definePageMeta({
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 100px;
+
   @media (max-width: 1100px) {
     margin-bottom: 50px;
   }
+
   @media (max-width: 599px) {
     gap: 10px;
   }
+
   .blog-container {
     width: 30%;
+
     @media (max-width: 1100px) {
       width: 48%;
     }
+
     @media (max-width: 599px) {
       width: 100%;
     }
   }
 }
+
 .dark .bg-header-blog {
   filter: drop-shadow(0px 17px 10px #00010d);
 }
+
 .bg-header-blog {
   filter: drop-shadow(0px 17px 10px #f6f6f6);
 }
@@ -282,12 +312,15 @@ definePageMeta({
   place-content: center;
   width: 100%;
   height: 200px;
+
   @media (min-width: 599px) {
     height: 300px;
   }
+
   @media (min-width: 1100px) {
     height: 400px;
   }
+
   .blog-footer {
     grid-column: 1/6;
     grid-row: 5/6;
@@ -306,17 +339,20 @@ definePageMeta({
       z-index: 2;
 
       place-self: center;
+
       @media (min-width: 599px) {
         height: 45px;
         width: 45px;
       }
     }
+
     .author-date {
       grid-column: 1/5;
       place-self: center start;
 
       margin-left: 10px;
     }
+
     .reading {
       grid-column: 5/6;
       grid-row: 1/2;
@@ -325,16 +361,19 @@ definePageMeta({
       padding-bottom: 2px;
     }
   }
+
   .title {
     grid-column: 1/6;
     grid-row: 3/4;
     z-index: 2;
   }
+
   .content {
     grid-column: 1/6;
     grid-row: 4/5;
     z-index: 2;
   }
+
   .img {
     grid-column: 1/6;
     grid-row: 1/6;
@@ -343,6 +382,7 @@ definePageMeta({
     object-fit: cover;
     filter: grayscale(100%) brightness(60%);
   }
+
   .gradient {
     grid-column: 1/6;
     grid-row: 5/6;
@@ -351,9 +391,11 @@ definePageMeta({
     opacity: 0.6;
   }
 }
+
 .dark .gradient {
   background: #00010d;
 }
+
 .gradient {
   background: #f6f6f6;
 }

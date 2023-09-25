@@ -58,40 +58,23 @@ const convertTagsIntoIcons = computed(() => {
 });
 </script>
 <template>
-  <div
-    class="w-full h-full mx-auto fuck"
-    :class="[
-      //relative if relative is true
-      { relative: relative },
-      //absolute if relative is false
-      { absolute: !relative },
-    ]"
-  >
+  <div class="w-full h-full mx-auto fuck" :class="[
+    //relative if relative is true
+    { relative: relative },
+    //absolute if relative is false
+    { absolute: !relative },
+  ]">
     <div class="relative">
-      <nuxt-img
-        :src="src"
-        alt=""
-        class="object-cover w-full h-full mx-auto rounded-lg grayscale brightness-75"
-        :class="{
+      <nuxt-img :src="src" provider="cloudinary" alt=""
+        class="object-cover w-full h-full mx-auto rounded-lg grayscale brightness-75" :class="{
           'w-128': width,
           'h-128': width,
-        }"
-      />
-      <div
-        class="absolute left-0 grid grid-flow-col grid-rows-2 gap-1"
-        :class="`top-${top}`"
-      >
-        <span
-          class="flex items-center w-full gap-2 p-2 text-white rounded-r-lg bg-green2 icon-anim"
-          v-for="(index, key) of convertTagsIntoIcons"
-          :key="key"
-        >
+        }" />
+      <div class="absolute left-0 grid grid-flow-col grid-rows-2 gap-1" :class="`top-${top}`">
+        <span class="flex items-center w-full gap-2 p-2 text-white rounded-r-lg bg-green2 icon-anim"
+          v-for="(index, key) of convertTagsIntoIcons" :key="key">
           <div class="" v-if="index.name == '/logo-logo-cricadev.png'">
-            <nuxt-img
-              src="/logo-logo-cricadev.png"
-              alt=""
-              class="w-4 brightness-[4]"
-            />
+            <nuxt-img src="/logo-logo-cricadev_oqjfno.png" alt="" provider="cloudinary" class="w-4 brightness-[4]" />
           </div>
           <Icon :name="index.name" v-else></Icon>
           <span class="flex w-full bg-green2 border-r-lg text-sm_m">
@@ -107,6 +90,7 @@ const convertTagsIntoIcons = computed(() => {
   grid-column: 1/6;
   grid-row: 1/6;
 }
+
 .icon-anim {
   span {
     text-align: justify;
@@ -115,6 +99,7 @@ const convertTagsIntoIcons = computed(() => {
     opacity: 0;
     transition: all 0.3s ease-in-out;
   }
+
   &:hover {
     span {
       opacity: 0;

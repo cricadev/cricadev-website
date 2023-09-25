@@ -7,7 +7,7 @@
       <span class="about-link link-01">urious</span>
 
       <div class="meaning-container meaning-01">
-        <nuxt-img src="/curious.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/curious_tcrkqh.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Without questions, without interest, and without this curiosity, none
           of what we are would be possible. I am curious because I like to learn
@@ -20,7 +20,7 @@
 
       <span class="about-link link-02">isk-taking</span>
       <div class="meaning-container meaning-02">
-        <nuxt-img src="/risktaking.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/risktaking_b7pgyi.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           The ability to take risks is one of my favorite traits because it is
           what got me to where I am today. If I had stayed in school instead of
@@ -33,7 +33,7 @@
 
       <span class="about-link link-03">nnovative</span>
       <div class="meaning-container meaning-03">
-        <nuxt-img src="/innovative.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/innovative_m11csj.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Innovation promotes development, new idea adoption, and overcoming
           change's obstacles. We must always innovate in order to compete in the
@@ -44,7 +44,7 @@
 
       <span class="about-link link-04">reative</span>
       <div class="meaning-container meaning-04">
-        <nuxt-img src="/creative.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/creative_mygehc.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Our capacity for creativity enables us to approach issues in novel and
           open-minded ways. Working with code gives us the flexibility to come
@@ -57,7 +57,7 @@
 
       <span class="about-link link-05">mbitious</span>
       <div class="meaning-container meaning-05">
-        <nuxt-img src="/ambitious.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/ambitious_ceck8y.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           To create a goal and pursue it normally takes a lot of effort and
           labor, but ambition may keep us motivated and will be crucial to
@@ -69,7 +69,7 @@
 
       <span class="about-link link-06">etermined</span>
       <div class="meaning-container meaning-06">
-        <nuxt-img src="/determined.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/determined_vebyxa.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Determination is crucial because it enables us to persevere in the
           face of challenges. We are motivated to move forward fearlessly
@@ -81,7 +81,7 @@
 
       <span class="about-link link-07">nthusistic</span>
       <div class="meaning-container meaning-07">
-        <nuxt-img src="/enthusiastic.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/enthusiastic_guaexf.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           Numerous advantages come from being enthusiastic, including increased
           productivity, safety, the ability to inspire others by being so
@@ -93,7 +93,7 @@
 
       <span class="about-link link-08">aluable</span>
       <div class="meaning-container meaning-08">
-        <nuxt-img src="/valuable.png" alt="" />
+        <nuxt-img provider="cloudinary" src="/valuable_faij1b.png" alt="" />
         <p class="font-light text-sm_m xs-m:text-base_t lg-m:text-base_m">
           There is much more to you than what you possess that gives you value
           and a purpose; you were born with both. We all have a purpose, and if
@@ -435,15 +435,18 @@ onBeforeMount(async () => {
   height: 100px;
   width: 100px;
 }
+
 .addImage {
-  background-image: url("../images/ambitious.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676209/CricaDev/ambitious_ceck8y.png");
 }
+
 .tagcloud {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 650;
   margin-left: 30%;
 }
+
 .tagcloud--item:hover {
   color: #36454f;
 }
@@ -461,9 +464,11 @@ onBeforeMount(async () => {
   @media (max-height: 850px) and (min-width: 1100px) {
     font-size: 10.5rem;
   }
+
   @media (min-width: 386px) {
     grid-template-columns: 20% 80%;
   }
+
   @media (min-width: 1100px) {
     grid-template-columns: repeat(8, minmax(10px, 1fr));
     grid-template-rows: 30% 70%;
@@ -479,22 +484,26 @@ onBeforeMount(async () => {
       letter-spacing: 0.1rem;
     }
   }
+
   .tech-1 {
     grid-row: 2/3;
     grid-column: 1/4;
   }
+
   .tech-1 {
     @media (min-width: 1100px) {
       grid-row: 2/3;
       grid-column: 2/5;
     }
   }
+
   .tech-2 {
     @media (min-width: 1100px) {
       grid-row: 2/3;
       grid-column: 5/8;
     }
   }
+
   .meaning-container {
     grid-column: 2/3;
     width: 80%;
@@ -506,6 +515,7 @@ onBeforeMount(async () => {
     p {
       padding-top: 20px;
       line-height: 1;
+
       @media (max-height: 850px) and (min-width: 1100px) {
         font-size: 1.25rem;
       }
@@ -514,6 +524,7 @@ onBeforeMount(async () => {
 
   .meaning-01 {
     grid-row: 2/7;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 2/5;
@@ -521,8 +532,10 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-02 {
     grid-row: 3/7;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 3/6;
@@ -530,8 +543,10 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-03 {
     grid-row: 4/7;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 4/7;
@@ -539,8 +554,10 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-04 {
     grid-row: 5/7;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 5/8;
@@ -548,9 +565,11 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-05 {
     grid-row: 1/5;
     place-self: end start;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 2/5;
@@ -558,8 +577,10 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-06 {
     grid-row: 2/7;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 3/6;
@@ -567,8 +588,10 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-07 {
     grid-row: 3/8;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 4/7;
@@ -576,9 +599,11 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .meaning-08 {
     grid-row: 3/8;
     place-self: end start;
+
     @media (min-width: 1100px) {
       width: 80%;
       grid-column: 5/8;
@@ -586,17 +611,24 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .letter {
     cursor: pointer;
     grid-column: 1/2;
     place-self: center;
     transition: 0.4s all ease-in-out;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
     -webkit-background-clip: text;
 
@@ -612,16 +644,20 @@ onBeforeMount(async () => {
     place-self: center start;
     opacity: 0;
     transition: 0.4s all ease-in-out;
+
     @media (min-width: 1100px) {
       letter-spacing: -0.2em;
     }
+
     @media (max-height: 900px) and (min-width: 1100px) {
       font-size: 2.75rem;
     }
+
     @media (max-height: 2000px) and (min-width: 1100px) {
       font-size: 3.25rem;
     }
   }
+
   .content,
   .content1,
   .tech-titles {
@@ -636,133 +672,166 @@ onBeforeMount(async () => {
   .d,
   .e,
   .v {
-    &:hover ~ .content,
-    &:hover ~ .content1,
-    &:hover ~ .tech-titles {
+
+    &:hover~.content,
+    &:hover~.content1,
+    &:hover~.tech-titles {
       opacity: 0;
       transition: all 0.2s ease-in-out;
     }
   }
 
   .c1 {
-    &:hover ~ .meaning-01,
-    &:hover ~ .link-01 {
+
+    &:hover~.meaning-01,
+    &:hover~.link-01 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .r {
-    &:hover ~ .meaning-02,
-    &:hover ~ .link-02 {
+
+    &:hover~.meaning-02,
+    &:hover~.link-02 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .i {
-    &:hover ~ .meaning-03,
-    &:hover ~ .link-03 {
+
+    &:hover~.meaning-03,
+    &:hover~.link-03 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .c2 {
-    &:hover ~ .meaning-04,
-    &:hover ~ .link-04 {
+
+    &:hover~.meaning-04,
+    &:hover~.link-04 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .a {
-    &:hover ~ .meaning-05,
-    &:hover ~ .link-05 {
+
+    &:hover~.meaning-05,
+    &:hover~.link-05 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .d {
-    &:hover ~ .meaning-06,
-    &:hover ~ .link-06 {
+
+    &:hover~.meaning-06,
+    &:hover~.link-06 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .e {
-    &:hover ~ .meaning-07,
-    &:hover ~ .link-07 {
+
+    &:hover~.meaning-07,
+    &:hover~.link-07 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .v {
-    &:hover ~ .meaning-08,
-    &:hover ~ .link-08 {
+
+    &:hover~.meaning-08,
+    &:hover~.link-08 {
       opacity: 1;
       transition: 0.2s all ease-in-out;
     }
   }
+
   .c1,
   .link-01 {
     grid-row: 1/2;
+
     @media (min-width: 1100px) {
       grid-column: 1/2;
     }
   }
+
   .r,
   .link-02 {
     grid-row: 2/3;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 2/3;
     }
   }
+
   .i,
   .link-03 {
     grid-row: 3/4;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 3/4;
     }
   }
+
   .c2,
   .link-04 {
     grid-row: 4/5;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 4/5;
     }
   }
+
   .a,
   .link-05 {
     grid-row: 5/6;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 5/6;
     }
   }
+
   .d,
   .link-06 {
     grid-row: 6/7;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 6/7;
     }
   }
+
   .e,
   .link-07 {
     grid-row: 7/8;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 7/8;
     }
   }
+
   .v,
   .link-08 {
     grid-row: 8/9;
+
     @media (min-width: 1100px) {
       grid-row: 1/2;
       grid-column: 8/9;
     }
   }
+
   .link-01 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -772,6 +841,7 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .link-02 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -782,6 +852,7 @@ onBeforeMount(async () => {
       font-size: 2.75rem;
     }
   }
+
   .link-03 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -791,6 +862,7 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .link-04 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -800,6 +872,7 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .link-05 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -809,6 +882,7 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .link-06 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -818,6 +892,7 @@ onBeforeMount(async () => {
       place-self: start center;
     }
   }
+
   .link-07 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -828,6 +903,7 @@ onBeforeMount(async () => {
       font-size: 2.75rem;
     }
   }
+
   .link-08 {
     @media (min-width: 1100px) {
       writing-mode: vertical-rl;
@@ -840,88 +916,111 @@ onBeforeMount(async () => {
 }
 
 .dark .i {
-  background-image: url("../public/I-bg.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676220/CricaDev/I-bg_r97pxh.png");
 
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
+
 .i {
-  background-image: url("../public/I-bg-dark.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676221/CricaDev/I-bg-dark_jzazu0.png");
 
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #00010d;
   }
 }
+
 .dark .c2 {
-  background-image: url("../public/c-bg.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676210/CricaDev/c-bg_wg9f0w.png");
 
   color: transparent;
+
   @media (min-width: 1100px) {
-    background-image: url("../public/c-bg-desktop.png");
+    background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676211/CricaDev/c-bg-desktop_jelhuf.png");
   }
 }
+
 .c2 {
-  background-image: url("../public/c-bg-dark.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676210/CricaDev/c-bg-dark_u12i2t.png");
   color: transparent;
+
   @media (min-width: 1100px) {
-    background-image: url("../public/c-bg-dark-desktop.png");
+    background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676210/CricaDev/c-bg-dark-desktop_qtxlmt.png");
   }
 }
+
 .dark .a {
-  background-image: url("../public/a-bg.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676208/CricaDev/a-bg_jyxrwl.png");
   color: transparent;
+
   @media (min-width: 1100px) {
-    background-image: url("../public/a-bg-desktop.png");
+    background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676208/CricaDev/a-bg-desktop_xcokrq.png");
   }
 }
+
 .a {
-  background-image: url("../public/a-bg-dark.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676207/CricaDev/a-bg-dark_yiphjg.pngg");
   color: transparent;
+
   @media (min-width: 1100px) {
-    background-image: url("../public/a-bg-dark-desktop.png");
+    background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676208/CricaDev/a-bg-dark-desktop_q7fmnd.png");
   }
 }
+
 .dark .d {
-  background-image: url("../public/d-bg.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676216/CricaDev/d-bg_azrqej.png");
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
+
 .d {
-  background-image: url("../public/d-bg-dark.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676216/CricaDev/d-bg-dark_wufjzj.png");
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #00010d;
   }
 }
+
 .dark .e {
-  background-image: url("../public/e-bg.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676218/CricaDev/e-bg_wcmk1u.png");
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
+
 .e {
-  background-image: url("../public/e-bg-dark.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676218/CricaDev/e-bg-dark_tn0mam.png");
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #00010d;
   }
 }
+
 .dark .v {
-  background-image: url("../public/v-bg.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676227/CricaDev/v-bg_dn6nd3.png");
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #f6f6f6;
   }
 }
+
 .v {
-  background-image: url("../public/v-bg-dark.png");
+  background-image: url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676228/CricaDev/v-bg-dark_la2rro.png");
   color: transparent;
+
   @media (min-width: 1100px) {
     color: #00010d;
   }

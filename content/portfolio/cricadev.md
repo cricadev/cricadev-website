@@ -1,8 +1,8 @@
 ---
 title: "Cricadev"
 description: "This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card, receive money through the application and then transfer it to one of your preferred cards later on, or make payments via PSE with our application; enjoy your financial independence with this all-in-one application."
-img: "https://i.ibb.co/DCzDBRf/cricadev-project.png)"
-square: "https://i.ibb.co/CW5q0KV/cricadev-square.png"
+img: "/cricadev-project_jl1e1k.png"
+square: "/cricadev-square_bizwry.png"
 madeWith: ["Vue", "Nuxt"]
 tags: ["Portfolios"]
 code: "https://github.com/cricadev/cricadev-website"
@@ -13,7 +13,6 @@ project: "https://cricadev.com"
 
 This application will be your financial friend; you will be able to add all of your cards, create various monthly budgets, control who you send money to and from which card, receive money through the application and then transfer it to one of your preferred cards later on, or make payments via PSE with our application; enjoy your financial independence with this all-in-one application.
 
-![An old rock in the desert](../../public/financegod.png "Shiprock, New Mexico by Beau Rogers")
 
 Cricadev is cool
 

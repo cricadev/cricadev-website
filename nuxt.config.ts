@@ -15,7 +15,11 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-
+  image: {
+    cloudinary: {
+      baseURL: "https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676230/CricaDev/",
+    },
+  },
   content: {
     highlight: {
       // OR

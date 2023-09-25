@@ -73,25 +73,14 @@ const convertTagsIntoIcons = computed(() => {
 <template>
   <label
     class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
-    @click="toggle"
-    id="tag"
-  >
+    @click="toggle" id="tag">
     <Transition name="slide-up">
       <div class="absolute top-0 text-white -left-2" v-if="active">
-        <div
-          class="p-2 rounded-lg bg-green2"
-          v-if="convertTagsIntoIcons.name == 'About me'"
-        >
-          <nuxt-img
-            src="/logo-logo-cricadev.png"
-            alt=""
-            class="h-5 brightness-[4] top-0 left-0"
-          />
+        <div class="p-2 rounded-lg bg-green2" v-if="convertTagsIntoIcons.name == 'About me'">
+          <nuxt-img src="/logo-logo-cricadev_oqjfno.png" provider="cloudinary" alt=""
+            class="h-5 brightness-[4] top-0 left-0" />
         </div>
-        <div
-          class="absolute top-0 left-0 p-2 rounded-lg scale-[1.15] bg-green2"
-          v-else
-        >
+        <div class="absolute top-0 left-0 p-2 rounded-lg scale-[1.15] bg-green2" v-else>
           <Icon :name="convertTagsIntoIcons.name"></Icon>
         </div>
       </div>
@@ -99,12 +88,7 @@ const convertTagsIntoIcons = computed(() => {
     </Transition>
 
     {{ props.name }}
-    <input
-      type="checkbox"
-      for="tag"
-      @click="active.value != active.value"
-      v-model="active"
-    />
+    <input type="checkbox" for="tag" @click="active.value != active.value" v-model="active" />
   </label>
 </template>
 <style lang="scss">
@@ -112,9 +96,11 @@ const convertTagsIntoIcons = computed(() => {
 .slide-up-leave-active {
   transition: all 0.25s ease-out;
 }
+
 .slide-up-leave-active {
   transform: scale(0);
 }
+
 .slide-up-enter-active {
   transform: scale(1);
 }
@@ -127,18 +113,22 @@ const convertTagsIntoIcons = computed(() => {
 .slide-up-leave-to {
   opacity: 0;
 }
+
 .button {
   @apply text-green;
   transition: all 0.2s;
+
   &:hover {
     @apply bg-green2 text-white;
   }
+
   &.active {
     transition: all 0.2s;
 
     &:first-child {
       @apply bg-green2;
     }
+
     @apply text-white;
   }
 }

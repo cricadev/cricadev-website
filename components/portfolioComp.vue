@@ -111,7 +111,7 @@ const query = {
             <Icon :name="getNameTag(icon)" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
           </div>
         </div>
-        <nuxt-img :src="blogPost.img" alt="" class="bg-project" />
+        <nuxt-img :src="blogPost.img" provider="cloudinary" alt="" class="bg-project" />
         <div class="dark-grad-project" v-show="$colorMode.value === 'dark'"></div>
         <div class="grad-project" v-show="$colorMode.value === 'light'"></div>
         <div class="bg-white dark:bg-black bg-hover"></div>
@@ -124,7 +124,7 @@ const query = {
             <div class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white" @click="closeModal">
               <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
             </div>
-            <nuxt-img :src="blogPost.square" alt="" class="bg-modal" />
+            <nuxt-img :src="blogPost.square" provider="cloudinary" alt="" class="bg-modal" />
             <h2 class="font-black text-base_m xs-m:text-xl2_t">
               {{ blogPost.title }}
             </h2>

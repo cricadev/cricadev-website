@@ -46,31 +46,31 @@
     <div
       class="left-0 justify-center hidden w-full mx-auto space-x-2 xs:bottom-20 lg:absolute lg:flex xss:bottom-20 cricadev-mobile lg:bottom-32 z-[998]"
     >
-      <nuxt-img src="/C.png" alt="" class="c-1 letter" />
-      <nuxt-img src="/R.png" alt="" class="r-1 letter" />
-      <nuxt-img src="/I.png" alt="" class="i-1 letter" />
-      <nuxt-img src="/C.png" alt="" class="c letter" />
-      <nuxt-img src="/A.png" alt="" class="a letter" />
-      <nuxt-img src="/D.png" alt="" class="d letter" />
-      <nuxt-img src="/E.png" alt="" class="e letter" />
-      <nuxt-img src="/V.png" alt="" class="v letter" />
+      <nuxt-img provider="cloudinary"  src="/C_ukccuh.png" alt="" class="c-1 letter" />
+      <nuxt-img provider="cloudinary"  src="/R_nd1wdg.png" alt="" class="r-1 letter" />
+      <nuxt-img provider="cloudinary"  src="/I_lno1vl.png" alt="" class="i-1 letter" />
+      <nuxt-img provider="cloudinary"  src="/C_ukccuh.png" alt="" class="c letter" />
+      <nuxt-img provider="cloudinary"  src="/A_zy0fy4.png" alt="" class="a letter" />
+      <nuxt-img provider="cloudinary"  src="/D_jy2cjg.png" alt="" class="d letter" />
+      <nuxt-img provider="cloudinary"  src="/E_suquw4.png" alt="" class="e letter" />
+      <nuxt-img provider="cloudinary"  src="/V_gm7moy.png" alt="" class="v letter" />
     </div>
     <div
       class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 lg:hidden md:scale-75"
     >
       <div class="flex space-x-4 cri xs:absolute">
-        <nuxt-img src="/C.png" alt="" class="c-1 letter" />
-        <nuxt-img src="/R.png" alt="" class="r-1 letter" />
-        <nuxt-img src="/I.png" alt="" class="i-1 letter" />
+        <nuxt-img  src="/C_ukccuh.png" alt="" class="c-1 letter" />
+        <nuxt-img src="/R_nd1wdg.png" alt="" class="r-1 letter" />
+        <nuxt-img  src="/I_lno1vl.png" alt="" class="i-1 letter" />
       </div>
       <div class="flex space-x-4 ca">
-        <nuxt-img src="/C.png" alt="" class="c letter" />
-        <nuxt-img src="/A.png" alt="" class="a letter" />
+        <nuxt-img  src="/C_ukccuh.png" alt="" class="c letter" />
+        <nuxt-img src="/A_zy0fy4.png" alt="" class="a letter" />
       </div>
       <div class="flex space-x-4 xs:translate-x-[-10%]">
-        <nuxt-img src="/D.png" alt="" class="d letter" />
-        <nuxt-img src="/E.png" alt="" class="e letter" />
-        <nuxt-img src="/V.png" alt="" class="v letter" />
+        <nuxt-img src="/D_jy2cjg.png" alt="" class="d letter" />
+        <nuxt-img src="/E_suquw4.png" alt="" class="e letter" />
+        <nuxt-img src="/V_gm7moy.png" alt="" class="v letter" />
       </div>
     </div>
     <div
@@ -80,32 +80,32 @@
         class="flex space-x-4 group-1 xl:space-x-20 xl:translate-x-[-22%] lg:translate-x-0 lg:space-x-4 sm:space-x-12 sm:translate-x-[-7%] xs:space-x-0"
       >
         <div class="flex space-x-4 cri-2 xs:scale-[.4]">
-          <nuxt-img src="/C.png" alt="" class="c letter" />
-          <nuxt-img src="/R.png" alt="" class="r letter" />
-          <nuxt-img src="/I.png" alt="" class="i letter" />
+          <nuxt-img provider="cloudinary"   src="/C_ukccuh.png" alt="" class="c letter" />
+          <nuxt-img provider="cloudinary"  src="/R_nd1wdg.png" alt="" class="r letter" />
+          <nuxt-img provider="cloudinary"   src="/I_lno1vl.png" alt="" class="i letter" />
         </div>
         <div class="flex space-x-4 stian xs:scale-[.4]">
-          <nuxt-img src="/S.png" alt="" class="s letter" />
-          <nuxt-img src="/T.png" alt="" class="t letter" />
-          <nuxt-img src="/I.png" alt="" class="i letter" />
-          <nuxt-img src="/A.png" alt="" class="a letter" />
-          <nuxt-img src="/N.png" alt="" class="n letter" />
+          <nuxt-img provider="cloudinary"  src="/S_mjet34.png" alt="" class="s letter" />
+          <nuxt-img provider="cloudinary"  src="/T_ukqqla.png" alt="" class="t letter" />
+          <nuxt-img provider="cloudinary"   src="/I_lno1vl.png" alt="" class="i letter" />
+          <nuxt-img provider="cloudinary"  src="/A_zy0fy4.png" alt="" class="a letter" />
+          <nuxt-img provider="cloudinary"  src="/N_yoetqr.png" alt="" class="n letter" />
         </div>
       </div>
       <div
         class="flex space-x-4 group-2 xl:space-x-20 xl:translate-x-[-15%] lg:translate-x-0 lg:space-x-4 sm:space-x-20 sm:translate-x-[-15%]"
       >
         <div class="flex space-x-4 ca-2 xs:scale-[.4]">
-          <nuxt-img src="/C.png" alt="" class="c letter" />
-          <nuxt-img src="/A.png" alt="" class="a letter" />
+          <nuxt-img provider="cloudinary"   src="/C_ukccuh.png" alt="" class="c letter" />
+          <nuxt-img provider="cloudinary"  src="/A_zy0fy4.png" alt="" class="a letter" />
         </div>
         <div class="flex space-x-4 sallas xs:scale-[.4]">
-          <nuxt-img src="/S.png" alt="" class="s letter" />
-          <nuxt-img src="/A.png" alt="" class="a letter" />
-          <nuxt-img src="/L.png" alt="" class="l letter" />
-          <nuxt-img src="/L.png" alt="" class="l letter" />
-          <nuxt-img src="/A.png" alt="" class="a letter" />
-          <nuxt-img src="/S.png" alt="" class="s letter" />
+          <nuxt-img provider="cloudinary"  src="/S_mjet34.png" alt="" class="s letter" />
+          <nuxt-img provider="cloudinary"  src="/A_zy0fy4.png" alt="" class="a letter" />
+          <nuxt-img provider="cloudinary"  src="/L_v8bun6.png" alt="" class="l letter" />
+          <nuxt-img provider="cloudinary"  src="/L_v8bun6.png" alt="" class="l letter" />
+          <nuxt-img provider="cloudinary"  src="/A_zy0fy4.png" alt="" class="a letter" />
+          <nuxt-img provider="cloudinary"   src="/S_mjet34.png" alt="" class="s letter" />
         </div>
       </div>
     </div>
@@ -479,14 +479,14 @@ useHead({
           #f6f6f6 0%,
           transparent 5%,
           transparent 100%),
-        url("@/public/lightMode-cricadev.png");
+        url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676223/CricaDev/lightMode-cricadev_hbe5l6.png");
 
       @media (max-width: 599px) {
         background-image: linear-gradient(90deg,
             transparent 0%,
             transparent 5%,
             transparent 100%),
-          url("@/public/light-m.png");
+          url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676222/CricaDev/light-m_i2knou.png");
       }
     }
 
@@ -496,14 +496,14 @@ useHead({
 
           transparent 5%,
           transparent 100%),
-        url("@/darkMode-cricadev.png");
+        url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676216/CricaDev/darkMode-cricadev_qxqwee.png");
 
       @media (max-width: 599px) {
         background-image: linear-gradient(90deg,
             transparent 0%,
             transparent 5%,
             transparent 100%),
-          url("@/dark-m.png");
+          url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676216/CricaDev/dark-m_lx83dg.png");
       }
     }
 
@@ -600,7 +600,7 @@ useHead({
       #f6f6f6 20%,
       #f6f6f6 30%,
       transparent 40%),
-    url("@/lightMode-cricadev.png");
+    url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676223/CricaDev/lightMode-cricadev_hbe5l6.png");
 }
 
 .dark-home-bg {
@@ -610,7 +610,7 @@ useHead({
       #00010d 30%,
 
       transparent 40%),
-    url("@/darkMode-cricadev.png");
+    url("https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676216/CricaDev/darkMode-cricadev_qxqwee.png");
 }
 
 .home-paragraph {
@@ -1120,4 +1120,5 @@ useHead({
   100% {
     opacity: 1;
   }
-}</style>
+}
+</style>

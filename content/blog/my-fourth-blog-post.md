@@ -1,11 +1,11 @@
 ---
-title: This blog is the fourth
+title: "This blog is the fourth"
 author: "Cristian Casallas"
 dates:
   published: "2022-09-01"
 description: "Just like you, I didn't really fit anywhere when I was a kid. I still don’t, so I've built my own place. Modern psychology has evolved to understand a..."
-img: "https://images.unsplash.com/photo-1664938112749-4a1e1e11abf7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-avatar: "../public/avatar-crica.jpg"
+img: "/blog-04_ubrcmv.webp"
+avatar: "/avatar-crica_d9a0pc.jpg"
 duration: 15
 id: 3
 tags: ["About me", "Coding"]
