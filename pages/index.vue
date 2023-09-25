@@ -255,6 +255,7 @@ useHead({
   .typed-text {
     color: var(--green);
   }
+
   .cursor {
     display: inline-block;
     margin-left: 3px;
@@ -262,88 +263,94 @@ useHead({
     background: var(--green);
     animation: cursorBlink 1s infinite;
   }
+
   .cursor.typing {
     animation: none;
   }
 }
+
 @keyframes cursorBlink {
   49% {
     background: var(--green);
   }
+
   50% {
     background: transparent;
   }
+
   99% {
     background: transparent;
   }
 }
+
 .home {
   place-items: center;
+
   @media (max-width: 1100px) {
     grid-template-rows: 100% 80vh;
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 .box-appear {
   display: none;
+
   @media (max-width: 1100px) {
     grid-column: 1/5;
     grid-row: 3/4;
     z-index: 99;
     display: block;
-    background-image: linear-gradient(
-      0deg,
-      rgb(246, 246, 246) 0%,
-      rgb(246, 246, 246) 10%,
-      transparent 20%,
-      transparent 100%
-    );
+    background-image: linear-gradient(0deg,
+        rgb(246, 246, 246) 0%,
+        rgb(246, 246, 246) 10%,
+        transparent 20%,
+        transparent 100%);
   }
+
   @media (max-width: 599px) {
     display: block;
-    background-image: linear-gradient(
-      0deg,
-      rgb(246, 246, 246) 0%,
-      rgb(246, 246, 246) 10%,
-      transparent 20%,
-      transparent 100%
-    );
+    background-image: linear-gradient(0deg,
+        rgb(246, 246, 246) 0%,
+        rgb(246, 246, 246) 10%,
+        transparent 20%,
+        transparent 100%);
     grid-column: 1/4;
     grid-row: 3/4;
     z-index: 99;
   }
 }
+
 .dark .box-appear {
   display: none;
+
   @media (max-width: 1100px) {
     grid-column: 1/5;
     grid-row: 3/4;
     z-index: 99;
     display: block;
-    background-image: linear-gradient(
-      0deg,
-      #00010d 0%,
-      #00010d 10%,
-      transparent 20%,
+    background-image: linear-gradient(0deg,
+        #00010d 0%,
+        #00010d 10%,
+        transparent 20%,
 
-      transparent 100%
-    );
+        transparent 100%);
   }
+
   @media (max-width: 599px) {
     display: block;
 
-    background-image: linear-gradient(
-      0deg,
-      #00010d 0%,
-      #00010d 10%,
-      transparent 20%,
+    background-image: linear-gradient(0deg,
+        #00010d 0%,
+        #00010d 10%,
+        transparent 20%,
 
-      transparent 100%
-    );
+        transparent 100%);
   }
 }
+
 .icon-appear {
   display: none;
+
   @media (max-width: 1100px) {
     display: flex;
     justify-content: center;
@@ -352,8 +359,10 @@ useHead({
     position: absolute;
   }
 }
+
 .icon-appear-2 {
   display: none;
+
   @media (max-width: 1100px) {
     display: flex;
     justify-content: center;
@@ -365,27 +374,33 @@ useHead({
     animation: bounce-2 1s infinite;
     z-index: 99;
   }
+
   @media (max-width: 599px) {
     top: 60%;
   }
 }
+
 @keyframes bounce-2 {
   0% {
     transform: translateY(-25%) rotate(-45deg);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   100% {
     transform: translateY(-25%) rotate(-45deg);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   50% {
     transform: translateY(0%) rotate(-45deg);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+
 .icon-close {
   opacity: 0;
 }
+
 .wrap-desktop {
   display: none;
 
@@ -400,20 +415,24 @@ useHead({
 
     place-items: center;
     place-content: center;
+
     .home-paragraph {
       grid-column: 1/4;
       grid-row: 1/3;
       text-align: center;
       padding: 0 160px;
+
       @media (max-width: 599px) {
         grid-column: 1/-1;
         grid-row: 1/3;
         padding: 0 40px;
       }
     }
+
     .home-list {
       grid-row: 3/4;
       text-align: center;
+
       @media (max-width: 599px) {
         grid-column: 1/-1;
         grid-row: 3/5;
@@ -421,8 +440,10 @@ useHead({
     }
   }
 }
+
 .wrap-tablet {
   display: none;
+
   @media (max-width: 1100px) {
     display: grid;
     grid-column: 1/4;
@@ -445,55 +466,54 @@ useHead({
         background-position: cover;
         transform: translateX(5%);
       }
+
       @media (max-width: 599px) {
         background-size: auto;
         background-position: cover;
         transform: translateX(0);
       }
     }
+
     .light-home-bg {
-      background-image: linear-gradient(
-          90deg,
+      background-image: linear-gradient(90deg,
           #f6f6f6 0%,
           transparent 5%,
-          transparent 100%
-        ),
+          transparent 100%),
         url("@/public/lightMode-cricadev.png");
+
       @media (max-width: 599px) {
-        background-image: linear-gradient(
-            90deg,
+        background-image: linear-gradient(90deg,
             transparent 0%,
             transparent 5%,
-            transparent 100%
-          ),
+            transparent 100%),
           url("@/public/light-m.png");
       }
     }
+
     .dark-home-bg {
-      background-image: linear-gradient(
-          90deg,
+      background-image: linear-gradient(90deg,
           #00010d 0%,
 
           transparent 5%,
-          transparent 100%
-        ),
-        url("@/public/darkMode-cricadev.png");
+          transparent 100%),
+        url("@/darkMode-cricadev.png");
+
       @media (max-width: 599px) {
-        background-image: linear-gradient(
-            90deg,
+        background-image: linear-gradient(90deg,
             transparent 0%,
             transparent 5%,
-            transparent 100%
-          ),
-          url("@/public/dark-m.png");
+            transparent 100%),
+          url("@/dark-m.png");
       }
     }
+
     .home-figure {
       grid-column: 4/5;
       grid-row: 2/3;
       place-self: center;
       padding-top: 130px;
       padding-right: 30px;
+
       @media (max-width: 599px) {
         grid-column: 2/4;
         grid-row: 2/3;
@@ -504,11 +524,13 @@ useHead({
         place-self: end center;
       }
     }
+
     .line-container {
       grid-column: 2/5;
       grid-row: 2/3;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(5, 1fr);
+
       @media (max-width: 599px) {
         grid-column: 2/4;
         grid-row: 2/3;
@@ -517,33 +539,40 @@ useHead({
       .line-1 {
         grid-column: 4/5;
         grid-row: 3/4;
+
         @media (max-width: 599px) {
           grid-column: 3/4;
           grid-row: 3/4;
         }
       }
+
       .line-2 {
         grid-column: 5/6;
         grid-row: 3/4;
+
         @media (max-width: 599px) {
           grid-column: 4/5;
           grid-row: 3/4;
         }
       }
+
       .figure-1 {
         grid-column: 2 / 6;
         grid-row: 2 / 4;
         place-self: center;
+
         @media (max-width: 599px) {
           grid-column: 2/3;
           grid-row: 2/4;
           place-self: center end;
         }
       }
+
       .figure-2 {
         grid-column: 4 / 6;
         grid-row: 2 / 4;
         place-self: end center;
+
         @media (max-width: 599px) {
           grid-column: 3/5;
           grid-row: 2/4;
@@ -553,6 +582,7 @@ useHead({
     }
   }
 }
+
 .home-bg {
   grid-column: 1 / 13;
   grid-row: 1 / 7;
@@ -563,26 +593,24 @@ useHead({
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .light-home-bg {
-  background-image: linear-gradient(
-      90deg,
+  background-image: linear-gradient(90deg,
       #f6f6f6 0%,
       #f6f6f6 20%,
       #f6f6f6 30%,
-      transparent 40%
-    ),
-    url("@/public/lightMode-cricadev.png");
+      transparent 40%),
+    url("@/lightMode-cricadev.png");
 }
+
 .dark-home-bg {
-  background-image: linear-gradient(
-      90deg,
+  background-image: linear-gradient(90deg,
       #00010d 0%,
       #00010d 20%,
       #00010d 30%,
 
-      transparent 40%
-    ),
-    url("@/public/darkMode-cricadev.png");
+      transparent 40%),
+    url("@/darkMode-cricadev.png");
 }
 
 .home-paragraph {
@@ -593,6 +621,7 @@ useHead({
   transition: 1s ease-in-out all;
   animation: home-paragraph-animation 1s ease-in-out forwards;
 }
+
 .home-figure {
   grid-column: 8 / 11;
   grid-row: 4 / 5;
@@ -600,21 +629,25 @@ useHead({
   place-self: center;
   transition: 1s ease-in-out all;
   animation: home-figure-animation 1s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     grid-column: 3/4;
     grid-row: 1/2;
   }
 }
+
 .home-list {
   grid-column: 11 / 12;
   grid-row: 3 / 5;
   transition: 1s ease-in-out all;
   animation: home-list-animation 1s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     grid-column: 1/4;
     grid-row: 2/3;
   }
 }
+
 .line-container {
   position: relative;
   grid-column: 8 / 11;
@@ -639,6 +672,7 @@ useHead({
   animation-delay: 1s;
   opacity: 0;
 }
+
 .line-2 {
   width: 2px;
   height: 100%;
@@ -651,43 +685,52 @@ useHead({
   animation-delay: 2s;
   opacity: 0;
 }
+
 .dark .line-1 {
   background: #f6f6f6;
 }
+
 .dark .line-2 {
   background: #f6f6f6;
 }
+
 @keyframes grow {
   0% {
     width: 0;
     opacity: 1;
   }
+
   100% {
     width: 100%;
     opacity: 1;
   }
 }
+
 @keyframes grow2 {
   0% {
     height: 0;
     opacity: 1;
   }
+
   100% {
     height: 100%;
     opacity: 1;
   }
 }
+
 .figure {
   border-radius: 50%;
   background: #00010d;
 
   width: 10px;
   height: 10px;
+
   @media (max-width: 599px) {
     width: 8px;
     height: 8px;
   }
 }
+
 .figure-1 {
   grid-column: 1 / 3;
   grid-row: 1 / 3;
@@ -696,6 +739,7 @@ useHead({
   animation-delay: 0.5s;
   opacity: 0;
 }
+
 .figure-2 {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
@@ -705,9 +749,11 @@ useHead({
   animation-delay: 3s;
   opacity: 0;
 }
+
 .dark .figure {
   background: #f6f6f6;
 }
+
 @keyframes opacity-animation {
   0% {
     opacity: 0;
@@ -717,11 +763,14 @@ useHead({
     opacity: 1;
   }
 }
+
 .letter {
   display: inline;
+
   @media (max-width: 605px) {
     height: 60px;
   }
+
   @media (max-width: 400px) {
     height: 40px;
   }
@@ -733,10 +782,12 @@ useHead({
   bottom: 15%;
   animation: logo-open 1s ease-in-out forwards;
 }
+
 .cricadev-logo-open {
   bottom: 0;
   pointer-events: none;
 }
+
 .cricadev-logo-hover {
   position: absolute;
   z-index: 4;
@@ -745,100 +796,131 @@ useHead({
   opacity: 0;
   animation: logo-close 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
+
   @media (max-width: 1100px) {
     bottom: 5%;
   }
+
   @media (max-width: 800px) {
     bottom: 6%;
   }
+
   @media (max-width: 599px) {
     bottom: 2%;
   }
 }
-.cricadev-logo:hover + .cricadev-logo-hover {
+
+.cricadev-logo:hover+.cricadev-logo-hover {
   animation: cricadev-logo-hover-animation 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
 }
+
 .cricadev-logo:hover {
   animation: cricadev-logo-animation 1s ease-in-out forwards;
   transition: 1s ease-in-out all;
 }
-.cricadev-logo:hover > .cri {
+
+.cricadev-logo:hover>.cri {
   animation: cri-animation 0.5s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     animation: cri-animation-tablet 0.5s ease-in-out forwards;
   }
+
   @media (max-width: 599px) {
     animation: cri-animation-mobile 0.5s ease-in-out forwards;
   }
 }
-.cricadev-logo:hover > .ca {
+
+.cricadev-logo:hover>.ca {
   animation: ca-animation 0.5s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     animation: ca-animation-tablet 0.5s ease-in-out forwards;
   }
+
   @media (max-width: 639px) {
     animation: ca-animation-mobile 0.5s ease-in-out forwards;
   }
 }
-.cricadev-logo:hover > .dev {
+
+.cricadev-logo:hover>.dev {
   animation: dev-animation 0.5s ease-in-out forwards;
 }
+
 .cri-2 {
   @media (max-width: 599px) {
     animation: cri-2-open-animation-mobile 1s ease-in-out forwards;
   }
 }
+
 .cri {
   animation: cri-close-animation 1s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     animation: cri-close-animation-tablet 1s ease-in-out forwards;
   }
 }
+
 .ca {
   animation: ca-close-animation 1s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     animation: ca-close-animation-tablet 1s ease-in-out forwards;
   }
+
   @media (max-width: 599px) {
     animation: ca-close-animation-mobile 1s ease-in-out forwards;
   }
 }
+
 .stian {
   animation: stian-close-animation 1s ease-in-out forwards;
+
   @media (max-width: 599px) {
     animation: stian-close-animation-mobile 1s ease-in-out forwards;
   }
 }
+
 .sallas {
   animation: stian-close-animation 1s ease-in-out forwards;
+
   @media (max-width: 599px) {
     animation: stian-close-animation-mobile 1s ease-in-out forwards;
   }
 }
-.cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .cri-2 {
+
+.cricadev-logo:hover+.cricadev-logo-hover>.group-1>.cri-2 {
   animation: cri-2-close-animation 1.3s ease-in-out forwards;
+
   @media (max-width: 599px) {
     animation: cri-2-close-animation-mobile 1.3s ease-in-out forwards;
   }
 }
-.cricadev-logo:hover + .cricadev-logo-hover > .group-1 > .stian {
+
+.cricadev-logo:hover+.cricadev-logo-hover>.group-1>.stian {
   animation: stian-animation 1s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     animation: stian-animation-tablet 1s ease-in-out forwards;
   }
+
   @media (max-width: 599px) {
     animation: stian-animation-mobile 1s ease-in-out forwards;
   }
 }
-.cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .ca-2 {
+
+.cricadev-logo:hover+.cricadev-logo-hover>.group-2>.ca-2 {
   animation: ca-2-close-animation 1.3s ease-in-out forwards;
 }
-.cricadev-logo:hover + .cricadev-logo-hover > .group-2 > .sallas {
+
+.cricadev-logo:hover+.cricadev-logo-hover>.group-2>.sallas {
   animation: stian-animation 1s ease-in-out forwards;
+
   @media (max-width: 1100px) {
     animation: stian-animation-tablet 1s ease-in-out forwards;
   }
+
   @media (max-width: 599px) {
     animation: stian-animation-mobile 1s ease-in-out forwards;
   }
@@ -849,16 +931,19 @@ useHead({
     transform: translateX(100%);
     opacity: 0.2;
   }
+
   100% {
     transform: translateX(0%);
     opacity: 1;
   }
 }
+
 @keyframes stian-animation-tablet {
   0% {
     transform: translateX(100%);
     opacity: 0.2;
   }
+
   100% {
     transform: translateX(0%);
     opacity: 1;
@@ -870,6 +955,7 @@ useHead({
     transform: translateX(0);
     opacity: 1;
   }
+
   100% {
     transform: translateX(100%);
     opacity: 0;
@@ -880,14 +966,17 @@ useHead({
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-179%);
   }
 }
+
 @keyframes cri-animation-tablet {
   0% {
     transform: translateX(0%) translateY(-5%);
   }
+
   100% {
     transform: translateX(25%) translateY(-5%);
   }
@@ -897,14 +986,17 @@ useHead({
   0% {
     transform: translateX(-179%);
   }
+
   100% {
     transform: translateX(0);
   }
 }
+
 @keyframes cri-close-animation-tablet {
   0% {
     transform: translateX(25%) translateY(-5%);
   }
+
   100% {
     transform: translateX(0) translateY(-5%);
   }
@@ -914,6 +1006,7 @@ useHead({
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -923,22 +1016,27 @@ useHead({
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(50%);
   }
 }
+
 @keyframes ca-animation-tablet {
   0% {
     transform: translateX(0) translateY(0%);
   }
+
   100% {
     transform: translateX(-110%) translateY(110%);
   }
 }
+
 @keyframes ca-animation-mobile {
   0% {
     transform: translateX(0) translateY(0%);
   }
+
   100% {
     transform: translateX(-100%) translateY(200%);
   }
@@ -948,14 +1046,17 @@ useHead({
   0% {
     transform: translateX(50%);
   }
+
   100% {
     transform: translateX(0);
   }
 }
+
 @keyframes ca-close-animation-tablet {
   0% {
     transform: translateX(-110%) translateY(110%);
   }
+
   100% {
     transform: translateX(0) translateY(0%);
   }
@@ -965,48 +1066,58 @@ useHead({
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes dev-animation {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
+
 @keyframes logo-open {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes logo-close {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
+
 @keyframes cricadev-logo-animation {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
+
 @keyframes cricadev-logo-hover-animation {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
-}
-</style>
+}</style>

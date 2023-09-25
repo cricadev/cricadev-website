@@ -9,51 +9,51 @@ dependencies:
     specifier: ^1.0.0-beta.6
     version: 1.0.0-pre-alpha.3(vue@3.3.4)
   mitt:
-    specifier: ^3.0.0
+    specifier: ^3.0.1
     version: 3.0.1
   vue3-carousel:
-    specifier: ^0.2.9
-    version: 0.2.16(vue@3.3.4)
+    specifier: ^0.3.1
+    version: 0.3.1(vue@3.3.4)
 
 devDependencies:
   '@heroicons/vue':
-    specifier: ^2.0.14
+    specifier: ^2.0.18
     version: 2.0.18(vue@3.3.4)
   '@iconify/vue':
-    specifier: ^4.1.0
+    specifier: ^4.1.1
     version: 4.1.1(vue@3.3.4)
   '@kevinmarrec/nuxt-pwa':
-    specifier: ^0.16.1
-    version: 0.16.2
+    specifier: ^0.17.0
+    version: 0.17.0
   '@nuxt/content':
-    specifier: ^2.4.3
+    specifier: ^2.8.2
     version: 2.8.2(vue@3.3.4)
-  '@nuxt/image-edge':
-    specifier: ^1.0.0-27919678.2f5b64b
-    version: 1.0.0-rc.2-28257829.3628546
+  '@nuxt/image':
+    specifier: 1.0.0-rc.2
+    version: 1.0.0-rc.2
   '@nuxtjs/color-mode':
-    specifier: ^3.2.0
+    specifier: ^3.3.0
     version: 3.3.0
   '@nuxtjs/style-resources':
     specifier: ^1.2.1
     version: 1.2.1
   '@nuxtjs/tailwindcss':
-    specifier: ^6.3.1
+    specifier: ^6.8.0
     version: 6.8.0(webpack@5.88.2)
   '@tailwindcss/typography':
-    specifier: ^0.5.9
+    specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
   nuxt:
-    specifier: ^3.1.2
+    specifier: ^3.7.3
     version: 3.7.3(sass@1.68.0)
   nuxt-icon:
-    specifier: ^0.2.11
-    version: 0.2.11(vue@3.3.4)
+    specifier: ^0.5.0
+    version: 0.5.0(vue@3.3.4)
   sass:
-    specifier: ^1.58.0
+    specifier: ^1.68.0
     version: 1.68.0
   sass-loader:
-    specifier: ^13.2.0
+    specifier: ^13.3.2
     version: 13.3.2(sass@1.68.0)(webpack@5.88.2)
 
 packages:
@@ -877,8 +877,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@kevinmarrec/nuxt-pwa@0.16.2:
-    resolution: {integrity: sha512-KRQtJ9hrIDogG7OrofmyOG+dM/vERF6KQGeI5IvINeZmmQxoO27IWO8D/ues10Ed/qYzjs6vj0vASsbJq0IY7A==}
+  /@kevinmarrec/nuxt-pwa@0.17.0:
+    resolution: {integrity: sha512-TI/0Fe30g6/VL2Y2jDLF/q5sov8UBE5K4/+CRPUnJbQPCXhCzTBM8EjllDUwslZ3bPtCk2TqwDFZOHaKtY/eoA==}
     dependencies:
       hasha: 5.2.2
       sharp: 0.31.3
@@ -1005,8 +1005,8 @@ packages:
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
     dev: true
 
-  /@nuxt/image-edge@1.0.0-rc.2-28257829.3628546:
-    resolution: {integrity: sha512-iM18VbiVm+cKzgiNRJHSYiHh1MCWSXyTgbCU+jR3xPHo0vcUCn+yU5CX1nZbIL8HnfVyZjjDalOOsnJJ9Ubx3g==}
+  /@nuxt/image@1.0.0-rc.2:
+    resolution: {integrity: sha512-AGvg9ujhz6yj8N4Uf9rrR4bvNWvKxcu0KTJk1Sc2njMd8prFXGf+pY3zZwbXP3k2nXc1cuy/EswIBQGzt24IbQ==}
     engines: {node: ^14.16.0 || >=16.11.0}
     dependencies:
       '@nuxt/kit': 3.7.3
@@ -1358,6 +1358,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -5210,6 +5211,10 @@ packages:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: true
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: true
+
   /negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
@@ -5437,25 +5442,11 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /nuxt-config-schema@0.4.6:
-    resolution: {integrity: sha512-kHLWJFynj5QrxVZ1MjY2xmDaTSN1BCMLGExA+hMMLoCb3wn9TJlDVqnE/nSdUJPMRkNn/NQ5WP9NLA9vlAXRUw==}
-    dependencies:
-      '@nuxt/kit': 3.7.3
-      defu: 6.1.2
-      jiti: 1.20.0
-      pathe: 1.1.1
-      untyped: 1.4.0
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: true
-
-  /nuxt-icon@0.2.11(vue@3.3.4):
-    resolution: {integrity: sha512-mHFgTMrf+CzG7l6cdVQ7vF2XaXz8fs53QC6bk+zVZEHBCCwFtRoG0H+62y+y0iAo2+cD4VYmvsAiRMKIlIGxVA==}
+  /nuxt-icon@0.5.0(vue@3.3.4):
+    resolution: {integrity: sha512-ND4yh8kW4VyIbORP3cWjgVrOAvy6QSDFDTJltakdqmxVfVysNIs/bx2NzlkHeR1EOS8E/jVcemfTPmRsJ7WUVw==}
     dependencies:
       '@iconify/vue': 4.1.1(vue@3.3.4)
       '@nuxt/kit': 3.7.3
-      nuxt-config-schema: 0.4.6
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7857,8 +7848,8 @@ packages:
       vue: 3.3.4
     dev: true
 
-  /vue3-carousel@0.2.16(vue@3.3.4):
-    resolution: {integrity: sha512-M0erVlg00e79YF1N0puxPfGSpVTTkk0RUHgJaqv+gerw5sZC33SL5NYHJLqit1Kbm8ebS/KyiTi9gjtW2D6bZw==}
+  /vue3-carousel@0.3.1(vue@3.3.4):
+    resolution: {integrity: sha512-86vUkNPBzL2PVuR9w6hUsI90ccFjLp+K8cSFpRTISf+SjUQY3fMHc5CFF5MUL62v1xYYm27zEBmQupO9VQx9Kw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
