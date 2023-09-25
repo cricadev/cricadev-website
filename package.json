@@ -23,7 +23,7 @@
     "sass-loader": "^13.3.2"
   },
   "dependencies": {
-    "@formkit/auto-animate": "^1.0.0-beta.6",
+    "@formkit/auto-animate": "1.0.0-pre-alpha.3",
     "mitt": "^3.0.1",
     "vue3-carousel": "^0.3.1"
   }
