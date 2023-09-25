@@ -48,9 +48,7 @@ const showMoreToggle = () => {
 </script>
 <template>
   <div class="pt-24 xs:pt-16">
-    <div
-      class="fixed z-10 flex flex-col w-full py-16 bg-white gap-y-4 dark:bg-black lg:py-4 xs:py-0"
-    >
+    <div class="fixed z-10 flex flex-col w-full py-16 bg-white gap-y-4 dark:bg-black lg:py-4 xs:py-0">
       <div class="flex justify-between"></div>
       <div class="">
         <!-- Check All -->
@@ -62,15 +60,9 @@ const showMoreToggle = () => {
             :class="[
               { 'bg-green2 text-white': isCheckAll },
               { 'bg-[transparent] text-green2 dark:text-green': !isCheckAll },
-            ]"
-          >
+            ]">
             All
-            <input
-              type="checkbox"
-              class="hidden"
-              @click="checkAll()"
-              v-model="isCheckAll"
-            />
+            <input type="checkbox" class="hidden" @click="checkAll()" v-model="isCheckAll" />
           </label>
           <li v-for="lang in langsdata.slice(0, 5)">
             <label
@@ -80,61 +72,38 @@ const showMoreToggle = () => {
                   'bg-[transparent] text-white': languages.includes(lang),
                   'bg-[transparent] text-green': !languages.includes(lang),
                 },
-              ]"
-            >
-              <div
-                class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
-                v-if="getNameTag(lang) == '../public/icon.png'"
-                :class="[
+              ]">
+              <div class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
+                v-if="getNameTag(lang) == '../public/icon.png'" :class="[
                   {
                     'bg-[green2] text-white scale-100':
                       languages.includes(lang),
                     'scale-0': !languages.includes(lang),
                   },
-                ]"
-              >
-                <nuxt-img
-                  src="../public/icon.png"
-                  alt=""
-                  class="w-4 h-4 brightness-[4]"
-                />
+                ]">
+                <nuxt-img src="../public/icon.png" alt="" class="w-4 h-4 brightness-[4]" />
               </div>
-              <div
-                class="absolute top-0 left-0 p-2 px-2 transition-all rounded-md bg-green2"
-                :class="[
-                  {
-                    'bg-[green2] text-white scale-100':
-                      languages.includes(lang),
-                    'scale-0': !languages.includes(lang),
-                  },
-                ]"
-                v-else
-              >
-                <Icon
-                  :name="getNameTag(lang)"
-                  class="w-4 h-4 text-white"
-                ></Icon>
+              <div class="absolute top-0 left-0 p-2 px-2 transition-all rounded-md bg-green2" :class="[
+                {
+                  'bg-[green2] text-white scale-100':
+                    languages.includes(lang),
+                  'scale-0': !languages.includes(lang),
+                },
+              ]" v-else>
+                <Icon :name="getNameTag(lang)" class="w-4 h-4 text-white"></Icon>
               </div>
-              <span
-                class="transition-all"
-                :class="[
-                  {
-                    'bg-[green2] text-black dark:text-white translate-x-4':
-                      languages.includes(lang),
-                    'translate-x-0 text-green2 dark:text-green':
-                      !languages.includes(lang),
-                  },
-                ]"
-              >
+              <span class="transition-all" :class="[
+                {
+                  'bg-[green2] text-black dark:text-white translate-x-4':
+                    languages.includes(lang),
+                  'translate-x-0 text-green2 dark:text-green':
+                    !languages.includes(lang),
+                },
+              ]">
                 {{ lang }}
               </span>
-              <input
-                type="checkbox"
-                class="hidden"
-                v-bind:value="lang"
-                v-model="languages"
-                @change="updateCheckall(lang)"
-              />
+              <input type="checkbox" class="hidden" v-bind:value="lang" v-model="languages"
+                @change="updateCheckall(lang)" />
             </label>
           </li>
         </ul>
@@ -149,35 +118,42 @@ const showMoreToggle = () => {
 <style lang="scss" scoped>
 .view-more {
   animation: view 0.5s ease-in-out forwards;
+
   @keyframes view {
     0% {
       opacity: 1;
       transform: translateY(-10px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0px);
     }
   }
 }
+
 .view-less {
   animation: view-less 0.5s ease-in-out forwards;
+
   @keyframes view-less {
     0% {
       opacity: 1;
       transform: translateY(10px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0px);
     }
   }
 }
+
 .modal-into {
   justify-content: space-around;
   align-items: center;
   height: 80%;
 }
+
 .filter-container {
   width: 100%;
   display: flex;
@@ -185,16 +161,16 @@ const showMoreToggle = () => {
   gap: 0.5rem 0.8rem;
   justify-content: center;
 }
-.dark .modal {
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 7%,
-    rgba(0, 1, 13, 1) 7%,
 
-    rgba(0, 1, 13, 1) 100%
-  );
+.dark .modal {
+  background-image: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 7%,
+      rgba(0, 1, 13, 1) 7%,
+
+      rgba(0, 1, 13, 1) 100%);
 }
+
 .modal {
   display: grid;
   place-items: center;
@@ -205,14 +181,12 @@ const showMoreToggle = () => {
   z-index: 998;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 7%,
-    rgba(246, 246, 246, 1) 7%,
+  background-image: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 7%,
+      rgba(246, 246, 246, 1) 7%,
 
-    rgba(246, 246, 246, 1) 100%
-  );
+      rgba(246, 246, 246, 1) 100%);
   transition: all 0.2s;
   // slide out animation
   transform: translateX(100%);
@@ -221,6 +195,7 @@ const showMoreToggle = () => {
     transform: translateX(0%);
 
     transition: all 0.2s;
+
     .arrow {
       pointer-events: all;
       place-self: center start;

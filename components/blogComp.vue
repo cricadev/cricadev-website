@@ -23,40 +23,32 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
+
+const query = {
+  path: '/blog',
+  where: [{
+    tags: {
+      $in: props.tags
+    }
+  }]
+}
 </script>
+
 <template>
-  <ContentList
-    path="/blog"
-    :query="{
-      where: {
-        tags: {
-          $in: props.tags,
-        },
-      },
-    }"
-  >
+  <ContentList :query="query">
     <template v-slot="{ list }">
-      <NuxtLink
-        class="relative my-1"
-        :class="[
-          {
-            'blog-small': props.isSmall,
-            'blog-container': !props.isSmall,
-          },
-        ]"
-        v-for="blogPost in list"
-        :key="blogPost.path"
-        :to="blogPost._path"
-      >
+      <NuxtLink class="relative my-1" :class="[
+        {
+          'blog-small': isSmall,
+          'blog-container': !isSmall,
+        },
+      ]" v-for="blogPost in list" :key="blogPost.path" :to="blogPost._path">
         <h2
-          class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start truncate-text"
-        >
+          class="px-4 xs-m:px-2 font-black text-white title text-[1.313rem] tracking-wide leading-[1.313rem] text-left xs-m:text-sm_m lg-m:text-lg_d lg-m:leading-none justify-self-start truncate-text">
           {{ blogPost.title }}
         </h2>
-        <p
-          class="font-medium content text-[.75rem] xs-m:text-xs_t lg-m:text-sm_m text-white px-4 leading-[.85rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
-          v-if="!props.isSmall"
-        >
+        <p class="font-medium content text-[.75rem] xs-m:text-xs_t lg-m:text-sm_m text-white px-4 leading-[.85rem] xs-m:px-2 lg-m:hidden justify-self-start text-left truncate-text"
+          v-if="!isSmall">
           {{ blogPost.description }}
         </p>
         <BlogImg :src="blogPost.img" :tags="blogPost.tags" top="0"> </BlogImg>
@@ -72,14 +64,9 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
               </span>
             </div>
           </div>
-          <span
-            class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]"
-          >
+          <span class="text-[0.5rem] font-normal reading flex items-center justify-center lg-m:text-[0.75rem]">
             <span class="mr-1">
-              <Icon
-                name="ant-design:read-outlined"
-                class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]"
-              />
+              <Icon name="ant-design:read-outlined" class="w-[15px] h-[15px] lg-m:w-[20px] lg-m:h-[20px]" />
             </span>
             {{ blogPost.duration }}Min
           </span>
@@ -105,6 +92,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   width: 80%;
   margin: 20px auto;
   height: 200px;
+
   .blog-footer {
     grid-column: 1/6;
     grid-row: 5/6;
@@ -114,6 +102,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
 
     width: 100%;
     height: 100%;
+
     .avatar {
       border-radius: 50%;
       object-fit: cover;
@@ -124,12 +113,14 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
       grid-row: 1/2;
       place-self: center;
     }
+
     .author-date {
       grid-column: 1 /5;
       place-self: center start;
 
       margin-left: 10px;
     }
+
     .reading {
       grid-column: 5/6;
       grid-row: 1/2;
@@ -138,6 +129,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
       padding-bottom: 2px;
     }
   }
+
   .title {
     font-size: 1.5rem !important;
     grid-column: 1/6;
@@ -145,11 +137,13 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
     z-index: 2;
     place-self: start;
   }
+
   .content {
     grid-column: 1/6;
     grid-row: 4/5;
     z-index: 2;
   }
+
   .img {
     grid-column: 1/6;
     grid-row: 1/6;
@@ -158,6 +152,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
     object-fit: cover;
     filter: grayscale(100%) brightness(60%);
   }
+
   .gradient {
     grid-column: 1/6;
     grid-row: 5/6;
@@ -166,6 +161,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
     opacity: 0.6;
   }
 }
+
 .blog-container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
@@ -176,6 +172,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   place-content: center;
   width: 100%;
   height: 220px;
+
   .blog-footer {
     grid-column: 1/6;
     grid-row: 5/6;
@@ -185,6 +182,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
 
     width: 100%;
     height: 100%;
+
     .avatar {
       border-radius: 50%;
       object-fit: cover;
@@ -195,12 +193,14 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
       grid-row: 1/2;
       place-self: center;
     }
+
     .author-date {
       grid-column: 1/5;
       place-self: center start;
 
       margin-left: 10px;
     }
+
     .reading {
       grid-column: 5/6;
       grid-row: 1/2;
@@ -209,17 +209,20 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
       padding-bottom: 2px;
     }
   }
+
   .title {
     grid-column: 1/6;
     grid-row: 3/4;
     z-index: 2;
     place-self: end start;
   }
+
   .content {
     grid-column: 1/6;
     grid-row: 4/5;
     z-index: 2;
   }
+
   .img {
     grid-column: 1/6;
     grid-row: 1/6;
@@ -228,6 +231,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
     object-fit: cover;
     filter: grayscale(100%) brightness(60%);
   }
+
   .gradient {
     grid-column: 1/6;
     grid-row: 5/6;
@@ -236,9 +240,11 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
     opacity: 0.6;
   }
 }
+
 .dark .gradient {
   background: #00010d;
 }
+
 .gradient {
   background: #f6f6f6;
 }
