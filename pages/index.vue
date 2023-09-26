@@ -59,18 +59,18 @@
       class="flex justify-center w-full mx-auto space-x-4 text-center cricadev-logo xl:scale-75 2xl:scale-90 lg:scale-100 lg:hidden md:scale-75"
     >
       <div class="flex space-x-4 cri xs:absolute">
-        <nuxt-img  src="/C_ukccuh.png" alt="" class="c-1 letter" />
-        <nuxt-img src="/R_nd1wdg.png" alt="" class="r-1 letter" />
-        <nuxt-img  src="/I_lno1vl.png" alt="" class="i-1 letter" />
+        <nuxt-img provider="cloudinary"  src="/C_ukccuh.png" alt="" class="c-1 letter" />
+        <nuxt-img provider="cloudinary" src="/R_nd1wdg.png" alt="" class="r-1 letter" />
+        <nuxt-img provider="cloudinary"  src="/I_lno1vl.png" alt="" class="i-1 letter" />
       </div>
       <div class="flex space-x-4 ca">
-        <nuxt-img  src="/C_ukccuh.png" alt="" class="c letter" />
-        <nuxt-img src="/A_zy0fy4.png" alt="" class="a letter" />
+        <nuxt-img provider="cloudinary"  src="/C_ukccuh.png" alt="" class="c letter" />
+        <nuxt-img provider="cloudinary" src="/A_zy0fy4.png" alt="" class="a letter" />
       </div>
       <div class="flex space-x-4 xs:translate-x-[-10%]">
-        <nuxt-img src="/D_jy2cjg.png" alt="" class="d letter" />
-        <nuxt-img src="/E_suquw4.png" alt="" class="e letter" />
-        <nuxt-img src="/V_gm7moy.png" alt="" class="v letter" />
+        <nuxt-img provider="cloudinary"  src="/D_jy2cjg.png" alt="" class="d letter" />
+        <nuxt-img provider="cloudinary" src="/E_suquw4.png" alt="" class="e letter" />
+        <nuxt-img provider="cloudinary" src="/V_gm7moy.png" alt="" class="v letter" />
       </div>
     </div>
     <div
@@ -105,7 +105,7 @@
           <nuxt-img provider="cloudinary"  src="/L_v8bun6.png" alt="" class="l letter" />
           <nuxt-img provider="cloudinary"  src="/L_v8bun6.png" alt="" class="l letter" />
           <nuxt-img provider="cloudinary"  src="/A_zy0fy4.png" alt="" class="a letter" />
-          <nuxt-img provider="cloudinary"   src="/S_mjet34.png" alt="" class="s letter" />
+          <nuxt-img provider="cloudinary"  src="/S_mjet34.png" alt="" class="s letter" />
         </div>
       </div>
     </div>
