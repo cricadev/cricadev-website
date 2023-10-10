@@ -85,7 +85,7 @@ const getNameTag = (lang) => {
   } else if (lang == "Bootstrap") {
     return "akar-icons:bootstrap-fill";
   } else if (lang == "About me") {
-    return "../public/icon.png";
+    return "/icon.png";
   }
 };
 const showMore = ref(true);
@@ -131,7 +131,7 @@ const showMoreToggle = () => {
                 },
               ]">
               <div class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
-                v-if="getNameTag(lang) == '../public/icon.png'" :class="[
+                v-if="getNameTag(lang) == '/icon.png'" :class="[
                   {
                     'bg-[green2] text-white scale-100':
                       languages.includes(lang),
@@ -189,7 +189,7 @@ const showMoreToggle = () => {
                 },
               ]">
               <div class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
-                v-if="getNameTag(lang) == '../public/icon.png'" :class="[
+                v-if="getNameTag(lang) == '/icon.png'" :class="[
                   {
                     'bg-[green2] text-white scale-100':
                       languages.includes(lang),
@@ -247,7 +247,7 @@ const showMoreToggle = () => {
                 },
               ]">
               <div class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
-                v-if="getNameTag(lang) == '../public/icon.png'" :class="[
+                v-if="getNameTag(lang) == '/icon.png'" :class="[
                   {
                     'bg-[green2] text-white scale-100':
                       languages.includes(lang),

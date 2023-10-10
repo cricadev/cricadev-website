@@ -6,7 +6,7 @@
       >
         <NuxtLink to="/" class="link cool-link">Home</NuxtLink>
         <NuxtLink to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
-        <a href="/about" class="link cool-link">About me</a>
+        <NuxtLink to="/about" class="link cool-link">About me</NuxtLink>
         <NuxtLink to="/blog" class="link cool-link">Blog</NuxtLink>
       </nav>
       <header

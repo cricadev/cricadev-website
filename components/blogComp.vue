@@ -23,7 +23,7 @@ const { data: suggested } = await useAsyncData(`suggested`, () => {
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
-
+console.log(props.tags ? props.tags : "no tags");
 const query = {
   path: '/blog',
   where: [{

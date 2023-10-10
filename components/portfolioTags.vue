@@ -74,7 +74,7 @@ const showMoreToggle = () => {
                 },
               ]">
               <div class="absolute top-0 left-0 p-[10px] px-3 transition-all rounded-md bg-green2"
-                v-if="getNameTag(lang) == '../public/icon.png'" :class="[
+                v-if="getNameTag(lang) == '/icon.png'" :class="[
                   {
                     'bg-[green2] text-white scale-100':
                       languages.includes(lang),

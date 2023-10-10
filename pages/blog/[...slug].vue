@@ -2,12 +2,11 @@
 import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
 const { path } = useRoute();
 const router = useRouter();
-
+const getTags = ref([])
 const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
   return queryContent("/blog").where({ _path: path }).findOne();
 });
-console.log(blogPost)
-const getTags = [...blogPost.value.tags];
+getTags.value = blogPost.value.tags
 
 const isActive = ref(false);
 onBeforeMount(() => {
@@ -30,12 +29,12 @@ const goBack = () => {
   router.push({ path: "/blog", replace: true });
 };
 useHead({
-  title: blogPost.value.title.slice(0, 75),
+  title: blogPost.value?.title?.slice(0, 75),
   titleTemplate: (title) => `${title} | Cricablog`,
   meta: [
     {
       property: "og:title",
-      content: `${blogPost.value.title.slice(0, 75)} | Cricablog`,
+      content: `${blogPost.value?.title?.slice(0, 75)} | Cricablog`,
     },
     {
       property: "og:type",
@@ -43,7 +42,7 @@ useHead({
     },
     {
       property: "og:description",
-      content: blogPost.value.description.slice(0, 75),
+      content: blogPost.value?.description?.slice(0, 75),
     },
 
     {
@@ -82,7 +81,6 @@ useHead({
     },
   ],
 });
-console.log(blogPost.value.description.slice(0, 195));
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
     return "akar-icons:javascript-fill";
@@ -221,7 +219,7 @@ const share = async (e) => {
         <div class="flex items-center gap-2 pt-32 pb-8">
           <div v-for="tag in getTags">
             <div v-if="getNameTag(tag) == ''" class="p-1 translate-y-[2px] xs:-translate-y-0 rounded-md bg-green2">
-              <nuxt-img src="../../public/icon.png" alt="" class="brightness-[4] logo-custom" />
+              <nuxt-img src="/icon.png" alt="" class="brightness-[4] logo-custom" />
             </div>
             <div class="h-full" v-else>
               <Icon :name="getNameTag(tag)" class="top-0 w-8 h-8 p-2 text-white rounded-md bg-green2">
@@ -269,7 +267,7 @@ const share = async (e) => {
       </div>
       <div class="sticky right-0 hidden h-96 top-48 lg-m:block">
         <span class="relative font-bold text-center text-sm_m left-10">More Posts</span>
-        <BlogComp :tags="getTags" is-small="true"></BlogComp>
+        <BlogComp :tags="getTags" :is-small="true"></BlogComp>
       </div>
     </div>
     <div class="fixed bottom-0 left-0 z-10 w-full bg-white h-14 dark:bg-black footer-mobile lg-m:h-20 xs:hidden"></div>

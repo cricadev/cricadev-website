@@ -8,7 +8,7 @@ img: "/blog-02_cfkvmu.webp"
 avatar: "/avatar-crica_d9a0pc.jpg"
 duration: 15
 id: 2
-tags: ["Vue", "Tailwind"]
+tags: ["Tailwind"]
 ---
 
 # What is a counter?

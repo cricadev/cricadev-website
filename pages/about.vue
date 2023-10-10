@@ -125,7 +125,7 @@
 </template>
 
 <script setup>
-import { onBeforeMount } from "vue";
+import { onMounted } from "vue";
 
 useHead({
   title: "CricaDev | About me",
@@ -139,7 +139,7 @@ useHead({
         "Welcome to the about me, here you will find all of my tech stack and my qualities.",
     },
   ],
-  link: [{ rel: "icon", type: "image/png", href: "/cricadev.png" }],
+  link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
   script: [
     {
       src: "https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js",
@@ -162,7 +162,7 @@ const myTags = [
 ];
 const myTags1 = ["REACT", "MONGODB", "MYSQL", "", "TYPESCRIPT", "GRAPHQL"];
 
-onBeforeMount(async () => {
+onMounted(() => {
   function mouseOverHandler(e) {
     if (e.target.className === "tagcloud--item") {
       if (!e.target.classList.contains("done")) {

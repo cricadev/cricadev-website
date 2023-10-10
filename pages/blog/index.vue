@@ -1,4 +1,5 @@
 <script setup>
+
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
@@ -8,8 +9,7 @@ const { data: blogPostListCarousel } = useAsyncData(
     return queryContent("/blog").sort({ id: -1 }).limit(3).find();
   }
 );
-
-useHead({
+useServerSeoMeta({
   title: "Cricablog",
   titleTemplate: (title) => `${title} | Cricadev`,
   meta: [
@@ -54,7 +54,7 @@ useHead({
       href: `https://cricadev.com/blog`,
     },
   ],
-});
+})
 
 definePageMeta({
   pageTransition: {
