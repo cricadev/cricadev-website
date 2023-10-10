@@ -5,9 +5,11 @@
         class="fixed z-20 flex justify-between w-full p-4 px-32 mx-auto lg:px-16 lg:p-4 sm:px-4"
       >
         <NuxtLink to="/" class="link cool-link">Home</NuxtLink>
+        <a href="/cv" class="link cool-link">CV</a>
         <NuxtLink to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
-        <NuxtLink to="/about" class="link cool-link">About me</NuxtLink>
+        <a href="/about" class="link cool-link">About me</a>
         <NuxtLink to="/blog" class="link cool-link">Blog</NuxtLink>
+
       </nav>
       <header
         class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"

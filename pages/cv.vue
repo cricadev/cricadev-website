@@ -10,23 +10,25 @@ const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
 
 <template>
   <div class="flex flex-col items-center justify-center gap-4 py-32">
-    <div class="buttons-wrapper">
-      <button class="button" @click="page = page > 1 ? page - 1 : page">
-        Prev
-      </button>
-      <span>{{ page }} / {{ pages }}</span>
-      <button class="button" @click="page = page < pages ? page + 1 : page">
-        Next
-      </button>
-    </div>
-    <div class="buttons-wrapper">
-      <button class="button" @click="scale = scale > 0.25 ? scale - 0.25 : scale">
-        -
-      </button>
-      <span>{{ scale * 100 }}%</span>
-      <button class="button" @click="scale = scale < 2 ? scale + 0.25 : scale">
-        +
-      </button>
+    <div class="flex flex-col w-full gap-4 bg-black header-pdf-controls">
+      <div class=" buttons-wrapper">
+        <button class="button" @click="page = page > 1 ? page - 1 : page">
+          Prev
+        </button>
+        <span>{{ page }} / {{ pages }}</span>
+        <button class="button" @click="page = page < pages ? page + 1 : page">
+          Next
+        </button>
+      </div>
+      <div class="buttons-wrapper">
+        <button class="button" @click="scale = scale > 0.25 ? scale - 0.25 : scale">
+          -
+        </button>
+        <span>{{ scale * 100 }}%</span>
+        <button class="button" @click="scale = scale < 2 ? scale + 0.25 : scale">
+          +
+        </button>
+      </div>
     </div>
     <h2 class="text-xl_m"> {{ page === 1 ? 'ENGLISH' : 'SPANISH' }} </h2>
 
