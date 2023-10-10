@@ -12,6 +12,9 @@ export default defineNuxtConfig({
     enabled: true,
 
   },
+  routeRules: {
+    '/cv': { ssr: false }
+  },
   image: {
     cloudinary: {
       baseURL: "https://res.cloudinary.com/ddc0cce3m/image/upload/v1695676230/CricaDev/",
