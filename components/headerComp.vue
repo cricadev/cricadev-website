@@ -57,6 +57,7 @@
         <NuxtLink to="/" class="link cool-link" @click="linkClick"
           >Home</NuxtLink
         >
+        <a href="/cv" class="link cool-link" @click="linkClick">CV</a>
         <NuxtLink to="/portfolio" class="link cool-link" @click="linkClick"
           >Portfolio</NuxtLink
         >

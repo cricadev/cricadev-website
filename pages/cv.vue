@@ -30,7 +30,9 @@ const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
           -
         </button>
         <span>{{ scale * 100 }}%</span>
-        <button :disabled="disableScale" class="button" @click="scale = scale < 2 ? scale + 0.25 : scale">
+        <button :disabled="disableScale" class="button" :class="{
+          'bg-black2': disableScale
+        }" @click="scale = scale < 2 ? scale + 0.25 : scale">
           +
         </button>
       </div>
