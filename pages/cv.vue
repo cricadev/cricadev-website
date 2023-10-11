@@ -1,23 +1,28 @@
 <script setup>
 import { ref } from 'vue'
 import { VuePDF, usePDF } from '@tato30/vue-pdf'
+import { useWindowSize } from '@vueuse/core'
 
+const { width, height } = useWindowSize();
 const text_layer = ref(false)
-const scale = ref(1)
+const scale = ref(.5)
+watch(() => width.value, () => width.value < 768 ? scale.value = .5 : scale.value = 1)
+
+
 const page = ref(1)
 const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center gap-4 py-32">
-    <div class="flex flex-col w-full gap-4 bg-black header-pdf-controls">
+    <div class="flex flex-col w-full gap-4 header-pdf-controls">
       <div class=" buttons-wrapper">
         <button class="button" @click="page = page > 1 ? page - 1 : page">
-          Prev
+          English
         </button>
-        <span>{{ page }} / {{ pages }}</span>
+
         <button class="button" @click="page = page < pages ? page + 1 : page">
-          Next
+          Spahish
         </button>
       </div>
       <div class="buttons-wrapper">
@@ -43,6 +48,6 @@ const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
 }
 
 .button {
-  @apply px-4 py-1 rounded-md bg-green2
+  @apply px-4 py-1 rounded-md bg-green2 text-white;
 }
 </style>

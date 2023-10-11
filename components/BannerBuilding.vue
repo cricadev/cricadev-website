@@ -1,7 +1,8 @@
 <template>
   <Transition>
     <div class="banner" v-if="!toggle">
-      <span>This site is being built, projects and blogs are still pending...</span>
+      <span class="text-xs_m sm-m:text-base_m lg-m:text-base_m">This site is being built, projects and blogs are still
+        pending...</span>
       <Icon name="material-symbols:close" @click="closeBanner"></Icon>
     </div>
   </Transition>
