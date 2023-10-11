@@ -8,14 +8,14 @@ const text_layer = ref(false)
 const scale = ref(.5)
 watch(() => width.value, () => width.value < 768 ? scale.value = .5 : scale.value = 1, { immediate: true })
 const isMobile = computed(() => width.value < 768)
-
+const disableScale = computed(() => isMobile.value && scale.value >= .75)
 const page = ref(1)
 const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 py-32">
-    <div class="flex justify-center w-full gap-32 header-pdf-controls">
+  <div class="flex flex-col items-center justify-center gap-4 py-32 overflow-hidden">
+    <div class="flex justify-center w-full gap-32 header-pdf-controls md:flex-col md:gap-4">
       <div class=" buttons-wrapper">
         <button class="button" @click="page = page > 1 ? page - 1 : page">
           English
@@ -25,12 +25,12 @@ const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
           Spahish
         </button>
       </div>
-      <div class="buttons-wrapper" v-if="!isMobile">
+      <div class="buttons-wrapper">
         <button class="button" @click="scale = scale > 0.25 ? scale - 0.25 : scale">
           -
         </button>
         <span>{{ scale * 100 }}%</span>
-        <button class="button" @click="scale = scale < 2 ? scale + 0.25 : scale">
+        <button :disabled="disableScale" class="button" @click="scale = scale < 2 ? scale + 0.25 : scale">
           +
         </button>
       </div>
