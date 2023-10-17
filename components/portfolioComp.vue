@@ -51,7 +51,7 @@ const props = defineProps({
 <template>
   <ContentList path="/portfolio">
     <template #default="{ list }">
-      <div class="grid h-64 grid-cols-5 grid-rows-5 my-2 lg:h-96 project-container md-m:mx-16 lg-m:mx-64 2xl-m:mx-144"
+      <div class="grid h-64 grid-cols-5 grid-rows-5 my-2 lg:h-96 project-container md-m:mx-16 lg-m:mx-64 2xl-m:mx-96"
         v-for="blogPost in list" :key="blogPost._path">
         <div class="bg"></div>
 
