@@ -1,7 +1,6 @@
 <template lang="">
   <div>
     <NuxtLayout>
-      <BannerBuilding></BannerBuilding>
       <HeaderComp></HeaderComp>
       <NuxtPage />
       <FooterComp></FooterComp>
@@ -33,6 +32,7 @@ useHead({
 .page-leave-active {
   transition: all 0.4s;
 }
+
 .page-enter-from,
 .page-leave-to {
   opacity: 0;

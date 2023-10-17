@@ -4,34 +4,37 @@
       <nav
         class="fixed z-20 flex justify-between w-full p-4 px-32 mx-auto lg:px-16 lg:p-4 sm:px-4"
       >
-        <NuxtLink to="/" class="link cool-link">Home</NuxtLink>
-        <a href="/cv" class="link cool-link">CV</a>
-        <NuxtLink to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
-        <a href="/about" class="link cool-link">About me</a>
-        <NuxtLink to="/blog" class="link cool-link">Blog</NuxtLink>
-
-      </nav>
-      <header
-        class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-16"
-      >
-        <nuxt-img
+      
+      <nuxt-link to="/">   <nuxt-img
           src="/logo-logo-cricadev_oqjfno.png"
           provider="cloudinary"
           alt="CricaDev"
-          class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px]"
-        />
-      </header>
+          class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px] z-[9999] relative" 
+        /></nuxt-link>
+      
+        <a href="/about" class="link cool-link">About me</a>
+          <a href="/cv" class="link cool-link">CV</a>
+          <NuxtLink to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
+   
+          <NuxtLink to="/blog" class="link cool-link">Blog</NuxtLink>
+
+
+
+      </nav>
+ 
     </div>
 
     <header
-      class="fixed z-20 hidden mt-6 ml-8 pointer-events-none xs:inline top"
+      class="fixed z-20 hidden mt-6 ml-8 xs:inline top"
     >
+    <nuxt-link to="/"> 
       <nuxt-img
         src="/logo-logo-cricadev_oqjfno.png"
         provider="cloudinary"
         alt="CricaDev"
         class="h-[32px] w-[25px]"
       />
+    </nuxt-link>
     </header>
     <div
       class="fixed w-5 h-5 z-[999] hover-toggle right-8 top-8"
