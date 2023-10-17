@@ -4,6 +4,7 @@ const { path } = useRoute();
 const { data: portfolio } = await useAsyncData(`content-${path}`, () => {
   return queryContent("/portfolio").where({ _path: path }).findOne();
 });
+
 useHead({
   title: portfolio.value?.title?.slice(0, 75),
   titleTemplate: (title) => `${title} | Cricablog`,
@@ -27,11 +28,11 @@ useHead({
     },
     {
       property: "article:author",
-      content: portfolio.value.author,
+      content: portfolio.value?.author,
     },
     {
       property: "og:image",
-      content: portfolio.value.ogImg,
+      content: portfolio.value?.ogImg,
     },
     {
       property: "og:site_name",
@@ -39,12 +40,12 @@ useHead({
     },
     {
       property: "twitter:title",
-      content: `${portfolio.value.metaTitle.slice(0, 75)} | Cricadev`,
+      content: `${portfolio.value?.metaTitle.slice(0, 75)} | Cricadev`,
     },
     {
       hid: "description",
       name: "description",
-      content: portfolio.value.description.slice(0, 195),
+      content: portfolio.value?.description.slice(0, 195),
     },
     {
       hid: "robots",

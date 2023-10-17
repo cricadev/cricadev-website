@@ -64,10 +64,10 @@ const props = defineProps({
         <p
           class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5 lg-m:text-xs_d flex flex-col items-start gap-4">
           {{ blogPost.description }}
-          <nuxt-link :to="blogPost._path"
+          <a :href="blogPost._path"
             class="flex px-4 py-2 font-normal transition-all bg-white border-2 rounded-md border-green2 dark:bg-white text-green2 hover:bg-green2 hover:text-white dark:text-green dark:hover:text-white dark:hover:bg-green2 dark:border-white">Read
             Case
-            Study</nuxt-link>
+            Study</a>
         </p>
 
         <div class="flex gap-4 text-white box-buttons xs-m:text-xs_t">
