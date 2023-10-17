@@ -22,10 +22,7 @@ import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
 const { path } = useRoute();
 const router = useRouter();
 
-const { data: projects } = await useAsyncData("projects", () => {
-  return queryContent("/portfolio").sort({ id: -1 }).find();
-});
-console.log(projects);
+
 
 useHead({
   title: "CricaDev | Portfolio",
@@ -163,4 +160,5 @@ function handleClickBack(e) {
     transform: scale(1.4);
     transition: transform 0.2s ease-in-out;
   }
-}</style>
+}
+</style>

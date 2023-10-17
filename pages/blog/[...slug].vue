@@ -138,7 +138,7 @@ onMounted(() => {
   const itemGot = JSON.parse(localStorage.getItem("like"));
 
   like.value = itemGot;
-  console.log(like.value, itemGot);
+
 });
 const share = async (e) => {
   const resultPara = document.querySelector(".result");

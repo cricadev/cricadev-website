@@ -155,10 +155,7 @@
         <li class="item">Determined</li>
         <li class="item">Enthusiastic</li>
       </ul>
-      <intersection-observer
-        sentinal-name="sentinal-name"
-        @on-intersection-element="onIntersectionElement"
-      ></intersection-observer>
+    
     </div>
     <div class="icon-appear bottom-14 xs:bottom-0 z-[998]">
       <Icon
@@ -174,7 +171,6 @@
 
 <script setup>
 import { reactive } from "vue";
-import IntersectionObserver from "@/components/IntersectionObserver.vue";
 
 let typeValue = reactive({ value: "" });
 let typeStatus = reactive({ value: false });
@@ -219,21 +215,6 @@ setTimeout(typeText, newTextDelay.value + 200);
 const scrollToBottom = () => {
   window.scrollTo(0, document.body.scrollHeight);
 };
-const isIntersectingElement = ref(false);
-function onIntersectionElement(value) {
-  const cricadev = document.querySelector(".cricadev-logo");
-  const icon = document.querySelector(".icon-appear");
-  const cricadevMobile = document.querySelector(".cricadev-mobile");
-  if (value === true) {
-    cricadev.classList.add("cricadev-logo-open");
-    icon.classList.add("icon-close");
-    cricadevMobile.classList.add("cricadev-logo-open");
-  } else {
-    cricadev.classList.remove("cricadev-logo-open");
-    icon.classList.remove("icon-close");
-    cricadevMobile.classList.remove("cricadev-logo-open");
-  }
-}
 useHead({
   title: "CricaDev",
   meta: [

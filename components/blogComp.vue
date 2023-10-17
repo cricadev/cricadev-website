@@ -18,19 +18,19 @@ const { data: blogPostList } = useAsyncData("blogPostList", () => {
 const { data: suggested } = await useAsyncData(`suggested`, () => {
   // fetch document where the document path matches with the current route
   return queryContent("/blog")
-    .where({ tags: { $in: props.tags } })
+    .where({ tags: { $in: [...props.tags] } })
     .find();
   // get the surround information,
   // which is an array of document that is all the documents but the current one
 });
-console.log(props.tags ? props.tags : "no tags");
+
 const query = {
   path: '/blog',
-  where: [{
+  where: {
     tags: {
-      $in: props.tags
+      $in: [...props.tags]
     }
-  }]
+  }
 }
 </script>
 

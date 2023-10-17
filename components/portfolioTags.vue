@@ -1,23 +1,23 @@
 <script setup>
 const isCheckAll = ref(false);
 const langsdata = ["Apps", "Landing Pages", "Portfolios"];
-let languages = ref([]);
-let addedLAngs = ref([]);
+const languages = ref([]);
+const addedLAngs = ref([]);
 
 const checkAll = () => {
   isCheckAll.value = !isCheckAll.value;
-  languages = [];
+
   if (isCheckAll.value) {
     // Check all
     for (var key in langsdata) {
-      languages.push(langsdata[key]);
+      languages.value.push(langsdata[key]);
       addedLAngs.value.push(langsdata[key]);
     }
   }
 };
 
 const updateCheckall = (lang) => {
-  if (languages.length == langsdata.length) {
+  if (languages.value.length === langsdata.length) {
     isCheckAll.value = true;
   } else {
     isCheckAll.value = false;
@@ -47,13 +47,14 @@ const showMoreToggle = () => {
 };
 </script>
 <template>
-  <div class="pt-24 xs:pt-16">
-    <div class="fixed z-10 flex flex-col w-full py-16 bg-white gap-y-4 dark:bg-black lg:py-4 xs:py-0">
+  <div class="pt-32 xs:pt-16">
+    <!-- 
+ <div class="fixed z-10 flex flex-col w-full py-16 bg-white gap-y-4 dark:bg-black lg:py-4 xs:py-0">
       <div class="flex justify-between"></div>
       <div class="">
-        <!-- Check All -->
+      
         <span class="hidden">{{ languages }} {{ addedLAngs }}</span>
-        <!-- Checkboxes list -->
+  
         <ul class="filter-container">
           <label
             class="px-8 py-2 transition-all border-2 border-green2 rounded-lg text-[.75rem] pointer-events-auto whitespace-nowrap button flex items-center gap-x-2 relative button-special select-none"
@@ -109,10 +110,13 @@ const showMoreToggle = () => {
         </ul>
       </div>
     </div>
+      
+     -->
 
-    <div class="grid px-4 py-64 mx-auto place-items-center">
-      <PortfolioComp :tags="languages"></PortfolioComp>
-    </div>
+
+
+    <PortfolioComp :tags="languages"></PortfolioComp>
+
   </div>
 </template>
 <style lang="scss" scoped>

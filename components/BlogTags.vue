@@ -23,12 +23,11 @@ const addedLAngs = ref([]);
 
 const checkAll = () => {
   isCheckAll.value = !isCheckAll.value;
-  languages = [];
+  languages.value = []
   if (isCheckAll.value) {
     // Check all
     for (var key in langsdata) {
       languages.value.push(langsdata[key]);
-      addedLAngs.value.push(langsdata[key]);
     }
   }
 };

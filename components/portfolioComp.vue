@@ -1,37 +1,5 @@
 <script setup>
-const props = defineProps({
-  tags: {
-    type: Array,
-    required: false,
-  },
-});
 
-function openModal(e) {
-  const modal = document.querySelectorAll(".modal");
-  const target = e.currentTarget.parentElement.previousSibling.innerText;
-
-  modal.forEach((item) => {
-    if (item.firstChild.firstChild.data == target) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
-  });
-}
-function closeModal(e) {
-  const modal = document.querySelectorAll(".modal");
-  modal.forEach((item) => {
-    item.classList.remove("active");
-  });
-}
-function closeModalOutside(e) {
-  const modal = document.querySelectorAll(".modal");
-  if (e.currentTarget === e.target) {
-    modal.forEach((item) => {
-      item.classList.remove("active");
-    });
-  }
-}
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
     return "akar-icons:javascript-fill";
@@ -71,20 +39,20 @@ const getNameTag = (lang) => {
     return "";
   }
 };
-const query = {
-  path: '/portfolio',
-  where: [{
-    tags: {
-      $in: props.tags
-    }
-  }]
-}
+
+const props = defineProps({
+  tags: {
+    type: Array,
+    required: false,
+  },
+});
+
 </script>
 <template>
-  <ContentList :query="query">
+  <ContentList path="/portfolio">
     <template #default="{ list }">
-      <div class="grid w-full h-64 grid-cols-5 grid-rows-5 my-2 lg:h-96 project-container" v-for="blogPost in list"
-        :key="blogPost.path">
+      <div class="grid h-64 grid-cols-5 grid-rows-5 my-2 lg:h-96 project-container md-m:mx-16 lg-m:mx-64 2xl-m:mx-144"
+        v-for="blogPost in list" :key="blogPost._path">
         <div class="bg"></div>
 
         <h2 class="font-black text-center text-base_m no-hover-h2 xs-m:text-xl2_t lg-m:text-xl2_d">
@@ -93,9 +61,13 @@ const query = {
         <h2 class="font-black text-center hover-h2 text-sm_m xs-m:text-lg_m lg-m:text-lg_d">
           {{ blogPost.title }}
         </h2>
-        <p class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5 lg-m:text-xs_d">
+        <p
+          class="hover-p text-[0.75rem] font-light leading-3 xs-m:text-sm_m xs-m:leading-5 lg-m:text-xs_d flex flex-col items-start gap-4">
           {{ blogPost.description }}
-          <a class="block pt-1 font-normal text-green" @click="openModal">Read more...</a>
+          <nuxt-link :to="blogPost._path"
+            class="flex px-4 py-2 font-normal transition-all bg-white border-2 rounded-md border-green2 dark:bg-white text-green2 hover:bg-green2 hover:text-white dark:text-green dark:hover:text-white dark:hover:bg-green2 dark:border-white">Read
+            Case
+            Study</nuxt-link>
         </p>
 
         <div class="flex gap-4 text-white box-buttons xs-m:text-xs_t">
@@ -106,7 +78,8 @@ const query = {
               <Icon name="carbon:view-filled" />
             </span></a>
         </div>
-        <div class="flex flex-col text-black dark:text-white icons">
+        <div class="flex flex-col items-center text-black lg-m:flex-row lg-m:gap-4 dark:text-white icons">
+          <h3>Built with:</h3>
           <div class="" v-for="icon in blogPost.madeWith">
             <Icon :name="getNameTag(icon)" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
           </div>
@@ -115,47 +88,16 @@ const query = {
         <div class="dark-grad-project" v-show="$colorMode.value === 'dark'"></div>
         <div class="grad-project" v-show="$colorMode.value === 'light'"></div>
         <div class="bg-white dark:bg-black bg-hover"></div>
-        <div class="grid items-center justify-center modal dark:bg-black/80 bg-white/80 place-items-center"
-          @click="closeModalOutside">
-          <div class="absolute top-0 right-0 opacity-0 span">
-            {{ blogPost.title }}
-          </div>
-          <div class="absolute grid w-11/12 bg-white dark:bg-black h-3/4 modal-content">
-            <div class="absolute w-6 h-6 left-4 top-4 z-[9999] text-white" @click="closeModal">
-              <Icon name="akar-icons:arrow-back" class="relative w-6 h-6" />
-            </div>
-            <nuxt-img :src="blogPost.square" provider="cloudinary" alt="" class="bg-modal" />
-            <h2 class="font-black text-base_m xs-m:text-xl2_t">
-              {{ blogPost.title }}
-            </h2>
-            <p class="font-medium text-[0.75rem] leading-4 px-8 xs-m:text-xs_t xs-m:leading-5 xs-m:px-20">
-              {{ blogPost.description }}
-            </p>
-            <span class="made font-medium text-[0.75rem] leading-3 xs-m:text-sm_m">Made with</span>
 
-            <div class="flex flex-row space-x-4 text-black dark:text-white icons-modal">
-              <Icon name="cib:nuxt-js" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
-              <Icon name="akar-icons:vue-fill" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
-              <Icon name="bxl:tailwind-css" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
-            </div>
-
-            <div class="flex gap-4 text-white box-buttons-modal text-xs_m xs-m:text-sm_m">
-              <a :href="blogPost.code" target="_blank" class="button-1 btn">Code
-                <span>
-                  <Icon name="ant-design:code-filled" size="16" />
-                </span></a>
-              <a :href="blogPost.project" target="_blank" class="button-2 btn">Project
-                <span>
-                  <Icon name="carbon:view-filled" size="16" />
-                </span></a>
-            </div>
-          </div>
-        </div>
       </div>
     </template>
+
     <template #not-found>
       <p class="text-center">No projects found.</p>
     </template>
+
+
+
   </ContentList>
 </template>
 
@@ -369,14 +311,18 @@ const query = {
     opacity: 0;
     grid-column: 5/6;
     grid-row: 3/5;
-    place-self: start end;
+
     padding-top: 10px;
     padding-right: 20px;
     z-index: 3;
 
     @media (min-width: 1100px) {
-      grid-row: 1/5;
-      place-self: center end;
+      grid-row: 5/6;
+      grid-column: 4/6;
+      place-self: start center;
+      padding-bottom: 20px;
+
+
     }
   }
 

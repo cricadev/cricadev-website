@@ -12,7 +12,7 @@
 
       </nav>
       <header
-        class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-10"
+        class="fixed z-20 flex justify-center w-full mx-auto pointer-events-none top-16 xs-m:top-16"
       >
         <nuxt-img
           src="/logo-logo-cricadev_oqjfno.png"

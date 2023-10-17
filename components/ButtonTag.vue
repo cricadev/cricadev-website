@@ -13,7 +13,7 @@ const activeAll = ref(false);
 const toggle = (e) => {
   if (e.target.innerText == "All") {
     const allTags = document.querySelectorAll(".button-special");
-    allTags.forEach((item) => console.log(item));
+    
   }
 };
 const convertTagsIntoIcons = computed(() => {
