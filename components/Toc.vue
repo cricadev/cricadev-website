@@ -41,31 +41,36 @@ onMounted(() => {
     <div class="lg-m:hidden">
       <div class="fixed top-0 left-0 z-[51] w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
         @click="show = false"></div>
-      <nav class="fixed left-0 z-[52] flex w-screen select-none toc dropdown top-20">
+      <nav class="fixed right-0 z-[52] flex w-screen select-none toc dropdown top-20">
         <Icon name="ic:baseline-toc"
-          class="absolute w-10 h-10 p-1 transition-all rounded-l-lg bg-green2 z-[9999] text-white"
+          class="absolute w-10 h-10 p-1 transition-all rounded-l-lg bg-green2 z-[9999] text-white right-0"
           :class="{ 'bg-green2/0 opacity-0': show }" @click="show = !show" />
         <ul class="z-[60] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2" v-if="show">
-          <div class="flex items-center justify-between">
+
+          <div class="relative z-10 flex items-center justify-between">
             <Icon name="ic:baseline-toc"
-              class="absolute z-[60] w-10 h-10 p-1 text-white transition-all rounded-r-lg bg-green2"
+              class="absolute z-[60] w-10 h-10 p-1 text-black dark:text-white transition-all rounded-r-lg bg-green2"
               :class="{ 'bg-green2/0': show }" />
-            <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
-            <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"
-              @click="show = !show"></Icon>
+            <h3 class="top-0 font-bold text-black dark:text-white pl-14 text-sm_d ">Table of Content</h3>
+            <Icon name="clarity:caret-line"
+              class="w-6 h-6 text-black transition-all caret-rotate-negative dark:text-white" @click="show = !show">
+            </Icon>
           </div>
           <!-- render each link with depth class -->
           <li v-for="link of flattenLinks(links)" :key="link.id" :class="`toc-link _${link.depth} dropdown_item`"
-            @click="show = !show">
+            class="relative z-10" @click="show = !show">
             <a :href="`#${link.id}`" class="block w-full">
 
               {{ link.text }}
             </a>
           </li>
+
+
         </ul>
         <ul class="z-[60] border-b-2 toc-links dropdown dropdown-5 toc-deactivate border-b-green" v-if="!show">
           <div class="flex items-center justify-between">
-            <Icon name="ic:baseline-toc" class="absolute w-10 h-10 p-1 text-white transition-all rounded-r-lg bg-green2"
+            <Icon name="ic:baseline-toc"
+              class="absolute w-10 h-10 p-1 text-white transition-all bg-transparent rounded-r-lg"
               :class="{ 'bg-green2/0': show }" />
             <span class="top-0 text-white pl-14 text-sm_d">Table of Content</span>
             <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"
@@ -78,6 +83,8 @@ onMounted(() => {
               {{ link.text }}
             </a>
           </li>
+
+
         </ul>
       </nav>
 
@@ -88,13 +95,14 @@ onMounted(() => {
 
       <Transition>
         <div
-          class="left-4 z-[61] fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24 bg-green2 gap-x-2 show-toc"
+          class="left-4 z-[61] fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24  gap-x-2 show-toc bg-[#B8C6C3] dark:bg-[#08191D] "
           v-if="show">
           <div class="flex items-center justify-between w-full">
-            <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+            <Icon name="ic:baseline-toc"
+              class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] dark:text-white text-black"
               :class="{ 'bg-green2/0': show }" />
-            <h3 class="text-white text-sm_d">Table of Content</h3>
-            <Icon name="clarity:caret-line" class="w-6 h-6 text-white caret-rotate" :class="[
+            <h3 class="text-black dark:text-white text-sm_d">Table of Content</h3>
+            <Icon name="clarity:caret-line" class="w-6 h-6 text-black dark:text-white caret-rotate" :class="[
               {
                 'rotate-180': show,
               },
@@ -268,13 +276,15 @@ onMounted(() => {
 }
 
 .toc-links {
-  @apply flex flex-col gap-2 w-full bg-[#238166]/60 p-4;
+  @apply flex flex-col gap-2 w-full bg-[#B8C6C3] dark:bg-[#08191D] p-4;
 }
 
+
+
 .toc-link {
-  @apply text-white font-medium text-sm_d bg-[#238166]/60;
+  @apply dark:text-white text-black font-medium text-sm_d bg-[#238166]/60;
   cursor: pointer;
-  color: #fff;
+
   transition: 0.6s;
   background: rgba(0, 0, 0, 0);
 
@@ -290,7 +300,7 @@ onMounted(() => {
 }
 
 .toc-link._2 {
-  @apply pl-0 flex gap-2 items-center;
+  @apply pl-0 flex gap-2 items-center font-medium;
 
   &:before {
     content: '';
@@ -306,7 +316,7 @@ onMounted(() => {
 }
 
 .toc-link._3 {
-  @apply pl-4 flex gap-2 items-center;
+  @apply pl-4 flex gap-2 items-center font-normal;
 
   &:before {
     content: '';
@@ -322,7 +332,7 @@ onMounted(() => {
 }
 
 .toc-link._4 {
-  @apply pl-24;
+  @apply pl-8;
 }
 
 .toc-link._undefined {
