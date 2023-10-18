@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <div
-      class="fixed z-[100] bottom-16 right-16 parent-toggle lg:right-8 xs:top-0 xs:right-20 toggle-menu"
+      class="fixed z-30 bottom-16 right-16 parent-toggle lg:right-8 xs:top-0 xs:right-20 toggle-menu"
     >
       <input
         type="checkbox"
@@ -116,4 +116,5 @@ input {
 
 .fade {
   opacity: 0;
-}</style>
+}
+</style>

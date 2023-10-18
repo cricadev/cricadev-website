@@ -23,6 +23,7 @@
 
       </nav>
     </div>
+    <div class="fixed top-0 left-0 z-10 w-full h-16 bg-white/50 dark:bg-black/50 desktop-header-background"></div>
 
     <header
       class="fixed z-20 hidden mt-6 ml-8 xs:inline top"
@@ -37,20 +38,19 @@
     </nuxt-link>
     </header>
     <div
-      class="fixed w-5 h-5 z-[999] hover-toggle right-8 top-8"
+      class="fixed z-30 w-5 h-5 hover-toggle right-8 top-8"
       @click="handleClick"
     >
       <div class="w-5 h-[2px] menu-toggle bg-black dark:bg-white"></div>
     </div>
     <div
-      class="fixed top-0 left-0 w-full h-screen z-[999] background overflow-y-hidden"
+      class="fixed top-0 left-0 z-[999] w-full h-screen overflow-y-hidden background pointer-events-none"
     ></div>
-    <div class="fixed top-0 left-0 z-10 w-full h-16 bg-white/50 dark:bg-black/50 desktop-header-background"></div>
     <div
-      class="w-full h-screen wrap-tablet-header z-[9998] fixed top-0 left-0 overflow-y-hidden"
+      class="fixed top-0 left-0 z-[999] w-full h-screen overflow-y-hidden wrap-tablet-header"
     >
       <div
-        class="absolute w-6 h-6 left-8 top-8 z-[9998]"
+        class="absolute z-[999] w-6 h-6 left-8 top-8"
         @click="handleClickBack"
       >
         <Icon name="akar-icons:cross" class="relative w-6 h-6" />
@@ -216,11 +216,6 @@ function handleClickBack(e) {
   backdrop-filter: blur(30px);
 }
 
-.bg-header {
-  filter: blur(10px);
-
-
-}
 
 .background {
   background: transparent;
