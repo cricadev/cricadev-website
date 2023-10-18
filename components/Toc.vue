@@ -41,7 +41,7 @@ onMounted(() => {
     <div class="lg-m:hidden">
       <div class="fixed top-0 left-0 z-[51] w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
         @click="show = false"></div>
-      <nav class="fixed left-0 z-[52] flex w-screen select-none toc dropdown top-36" ref="dropdown">
+      <nav class="fixed left-0 z-[52] flex w-screen select-none toc dropdown top-36">
         <Icon name="ic:baseline-toc"
           class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
           :class="{ 'bg-green2/0 opacity-0': show }" @click="show = !show" />
@@ -83,12 +83,13 @@ onMounted(() => {
 
     </div>
     <div class="hidden lg-m:block desktop-toc">
-      <div class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all" v-if="show"
+      <div class="fixed top-0 left-0 z-[60] w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
         @click="show = false"></div>
 
       <Transition>
-        <div class="fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-48 bg-green2 gap-x-2 show-toc"
-          @click="show = !show" v-if="show">
+        <div
+          class="z-[61] fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24 bg-green2 gap-x-2 show-toc"
+          v-if="show">
           <div class="flex items-center justify-between w-full">
             <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
               :class="{ 'bg-green2/0': show }" />
@@ -110,7 +111,7 @@ onMounted(() => {
             </li>
           </ul>
         </div>
-        <div class="fixed flex items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-48 bg-green2 gap-x-2"
+        <div class="fixed flex items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24 bg-green2 gap-x-2"
           @click="show = !show" v-else>
           <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
             :class="{ 'bg-green2/0': show }" />
