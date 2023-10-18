@@ -1,12 +1,11 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import autoAnimate from "@formkit/auto-animate";
+
 
 const dropdown = ref(); // we need a DOM node
 const show = ref(false);
 
 // define links prop
-defineProps(["links"]);
+const props = defineProps(["links"]);
 // flatten TOC links nested arrays to one array
 const flattenLinks = (links) => {
   let _links = links
@@ -22,23 +21,34 @@ const flattenLinks = (links) => {
   return _links;
 };
 onMounted(() => {
-  autoAnimate(dropdown.value) // thats it!
+  const H2Links = document.querySelectorAll("h2");
+  const H3Links = document.querySelectorAll("h3");
+
+  const linksIds = props.links.map((link) => link.id);
+  H2Links.forEach((h2) => {
+    h2.style.scrollMarginTop = "100px";
+  })
+  H3Links.forEach((h3) => {
+    h3.style.scrollMarginTop = "100px";
+  })
 })
+
 </script>
 
 <template>
   <div>
+
     <div class="lg-m:hidden">
-      <div class="absolute top-0 left-0 z-20 w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
+      <div class="fixed top-0 left-0 z-[51] w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
         @click="show = false"></div>
-      <nav class="fixed left-0 z-20 flex w-screen select-none toc dropdown top-36" ref="dropdown">
+      <nav class="fixed left-0 z-[52] flex w-screen select-none toc dropdown top-36" ref="dropdown">
         <Icon name="ic:baseline-toc"
           class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
           :class="{ 'bg-green2/0 opacity-0': show }" @click="show = !show" />
-        <ul class="z-[9999] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2" v-if="show">
+        <ul class="z-[60] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2" v-if="show">
           <div class="flex items-center justify-between">
             <Icon name="ic:baseline-toc"
-              class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+              class="absolute z-[60] w-10 h-10 p-1 text-white transition-all rounded-r-lg bg-green2"
               :class="{ 'bg-green2/0': show }" />
             <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
             <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"
@@ -53,12 +63,11 @@ onMounted(() => {
             </a>
           </li>
         </ul>
-        <ul class="z-[9999] toc-links dropdown dropdown-5 toc-deactivate border-b-green border-b-2" v-if="!show">
+        <ul class="z-[60] border-b-2 toc-links dropdown dropdown-5 toc-deactivate border-b-green" v-if="!show">
           <div class="flex items-center justify-between">
-            <Icon name="ic:baseline-toc"
-              class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+            <Icon name="ic:baseline-toc" class="absolute w-10 h-10 p-1 text-white transition-all rounded-r-lg bg-green2"
               :class="{ 'bg-green2/0': show }" />
-            <h3 class="top-0 text-white pl-14 text-sm_d">Table of Content</h3>
+            <span class="top-0 text-white pl-14 text-sm_d">Table of Content</span>
             <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"
               @click="show = !show"></Icon>
           </div>
@@ -71,46 +80,62 @@ onMounted(() => {
           </li>
         </ul>
       </nav>
+
     </div>
     <div class="hidden lg-m:block desktop-toc">
       <div class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all" v-if="show"
         @click="show = false"></div>
 
-      <div class="fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-48 bg-green2 gap-x-2 show-toc"
-        @click="show = !show" v-if="show">
-        <div class="flex items-center justify-between w-full">
+      <Transition>
+        <div class="fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-48 bg-green2 gap-x-2 show-toc"
+          @click="show = !show" v-if="show">
+          <div class="flex items-center justify-between w-full">
+            <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+              :class="{ 'bg-green2/0': show }" />
+            <h3 class="text-white text-sm_d">Table of Content</h3>
+            <Icon name="clarity:caret-line" class="w-6 h-6 text-white caret-rotate" :class="[
+              {
+                'rotate-180': show,
+              },
+            ]"></Icon>
+          </div>
+          <ul class="translate-ul" v-if="show">
+            <!-- render each link with depth class -->
+            <li v-for="link of flattenLinks(links)" :key="link.id" class="" :class="` _${link.depth} dropdown_item `"
+              @click="show = !show">
+              <a :href="`#${link.id}`" class="block w-full py-1 toc-link" :class="` _${link.depth} dropdown_item `">
+                <span class="w-4 h-12 bg-green"></span>
+                {{ link.text }}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="fixed flex items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-48 bg-green2 gap-x-2"
+          @click="show = !show" v-else>
           <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
             :class="{ 'bg-green2/0': show }" />
           <h3 class="text-white text-sm_d">Table of Content</h3>
-          <Icon name="clarity:caret-line" class="w-6 h-6 text-white caret-rotate" :class="[
-            {
-              'rotate-180': show,
-            },
-          ]"></Icon>
+          <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"></Icon>
         </div>
-        <ul class="translate-ul" v-if="show">
-          <!-- render each link with depth class -->
-          <li v-for="link of flattenLinks(links)" :key="link.id" class="" :class="` _${link.depth} dropdown_item `"
-            @click="show = !show">
-            <a :href="`#${link.id}`" class="block w-full py-1 toc-link" :class="` _${link.depth} dropdown_item `">
-              <span class="w-4 h-12 bg-green"></span>
-              {{ link.text }}
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="fixed flex items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-48 bg-green2 gap-x-2"
-        @click="show = !show" v-else>
-        <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
-          :class="{ 'bg-green2/0': show }" />
-        <h3 class="text-white text-sm_d">Table of Content</h3>
-        <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"></Icon>
-      </div>
+      </Transition>
     </div>
   </div>
 </template>
 <style lang="scss">
-.show-toc {}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
 
 .desktop-toc {
   grid-column: 1/2;

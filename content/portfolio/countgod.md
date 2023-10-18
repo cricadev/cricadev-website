@@ -16,7 +16,7 @@ author: "Cricadev"
 :HeaderSlugPortfolio{:madeWith="madeWith" src="/Countdown_g9iqfe.png" alt="CountGod"}
 
 
-**Introduction:**  
+## **Introduction:**  
 _CountGod_ is more than just a countdown app; it's an experience that aesthetically fuses functionality with design. Crafted meticulously by a renowned designer, CountGod is not only about counting down to a date, but also about expressing oneself through customizable features and an immersive user interface.
 
 ### Core Features:
