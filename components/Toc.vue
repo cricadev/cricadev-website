@@ -41,9 +41,9 @@ onMounted(() => {
     <div class="lg-m:hidden">
       <div class="fixed top-0 left-0 z-[51] w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
         @click="show = false"></div>
-      <nav class="fixed left-0 z-[52] flex w-screen select-none toc dropdown top-36">
+      <nav class="fixed left-0 z-[52] flex w-screen select-none toc dropdown top-20">
         <Icon name="ic:baseline-toc"
-          class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
+          class="absolute w-10 h-10 p-1 transition-all rounded-l-lg bg-green2 z-[9999] text-white"
           :class="{ 'bg-green2/0 opacity-0': show }" @click="show = !show" />
         <ul class="z-[60] toc-links dropdown dropdown-5 toc-activate border-b-green border-b-2" v-if="show">
           <div class="flex items-center justify-between">
@@ -58,7 +58,7 @@ onMounted(() => {
           <li v-for="link of flattenLinks(links)" :key="link.id" :class="`toc-link _${link.depth} dropdown_item`"
             @click="show = !show">
             <a :href="`#${link.id}`" class="block w-full">
-              <span class="w-4 h-12 bg-green"></span>
+
               {{ link.text }}
             </a>
           </li>
@@ -74,7 +74,7 @@ onMounted(() => {
           <!-- render each link with depth class -->
           <li v-for="link of flattenLinks(links)" :key="link.id" :class="`toc-link _${link.depth} dropdown_item`">
             <a :href="`#${link.id}`">
-              <span class="w-4 h-12 bg-green"></span>
+
               {{ link.text }}
             </a>
           </li>
@@ -88,7 +88,7 @@ onMounted(() => {
 
       <Transition>
         <div
-          class="z-[61] fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24 bg-green2 gap-x-2 show-toc"
+          class="left-4 z-[61] fixed items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24 bg-green2 gap-x-2 show-toc"
           v-if="show">
           <div class="flex items-center justify-between w-full">
             <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
@@ -105,13 +105,14 @@ onMounted(() => {
             <li v-for="link of flattenLinks(links)" :key="link.id" class="" :class="` _${link.depth} dropdown_item `"
               @click="show = !show">
               <a :href="`#${link.id}`" class="block w-full py-1 toc-link" :class="` _${link.depth} dropdown_item `">
-                <span class="w-4 h-12 bg-green"></span>
+
                 {{ link.text }}
               </a>
             </li>
           </ul>
         </div>
-        <div class="fixed flex items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 top-24 bg-green2 gap-x-2"
+        <div
+          class="left-4 fixed flex items-center justify-between w-64 px-4 rounded-md 2xl-m:w-80 z-[60] top-24 bg-green2 gap-x-2"
           @click="show = !show" v-else>
           <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
             :class="{ 'bg-green2/0': show }" />
@@ -213,7 +214,7 @@ onMounted(() => {
 
     100% {
       opacity: 1;
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
   }
 
@@ -240,7 +241,7 @@ onMounted(() => {
   @keyframes toc {
     0% {
       opacity: 1;
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
 
     100% {
@@ -289,11 +290,35 @@ onMounted(() => {
 }
 
 .toc-link._2 {
-  @apply pl-12;
+  @apply pl-0 flex gap-2 items-center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 12px;
+
+    background-image: url('/h2-img.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
 }
 
 .toc-link._3 {
-  @apply pl-16;
+  @apply pl-4 flex gap-2 items-center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 10px;
+    width: 12px;
+
+    background-image: url('/h3-img.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
 }
 
 .toc-link._4 {
