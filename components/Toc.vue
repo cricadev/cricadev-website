@@ -73,7 +73,7 @@ onMounted(() => {
               class="absolute w-10 h-10 p-1 text-white transition-all bg-transparent rounded-r-lg"
               :class="{ 'bg-green2/0': show }" />
             <span class="top-0 text-white pl-14 text-sm_d">Table of Content</span>
-            <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"
+            <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all rotate-180 caret-rotate-negative"
               @click="show = !show"></Icon>
           </div>
           <!-- render each link with depth class -->
@@ -104,7 +104,7 @@ onMounted(() => {
             <h3 class="text-black dark:text-white text-sm_d">Table of Content</h3>
             <Icon name="clarity:caret-line" class="w-6 h-6 text-black dark:text-white caret-rotate" :class="[
               {
-                'rotate-180': show,
+                'rotate-180': !show,
               },
             ]"></Icon>
           </div>
@@ -125,7 +125,8 @@ onMounted(() => {
           <Icon name="ic:baseline-toc" class="w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
             :class="{ 'bg-green2/0': show }" />
           <h3 class="text-white text-sm_d">Table of Content</h3>
-          <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all caret-rotate-negative"></Icon>
+          <Icon name="clarity:caret-line" class="w-6 h-6 text-white transition-all rotate-180 caret-rotate-negative">
+          </Icon>
         </div>
       </Transition>
     </div>
@@ -159,11 +160,11 @@ onMounted(() => {
 
   @keyframes caret-rotate {
     0% {
-      transform: rotate(0deg);
+      transform: rotate(180deg);
     }
 
     100% {
-      transform: rotate(180deg);
+      transform: rotate(0deg);
     }
   }
 }
@@ -174,11 +175,11 @@ onMounted(() => {
 
   @keyframes caret-rotate-negative {
     0% {
-      transform: rotate(180deg);
+      transform: rotate(0deg);
     }
 
     100% {
-      transform: rotate(0deg);
+      transform: rotate(180deg);
     }
   }
 }
