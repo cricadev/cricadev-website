@@ -63,9 +63,12 @@ useHead({
 
 </script>
 <template>
-  <main class="px-4 pt-20 lg-m:p-32">
+  <div class="">
 
-    <ContentDoc class="relative w-full pb-32 mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl" />
-  </main>
+    <main class="px-4 pt-20 lg-m:p-32">
+      <Toc :links="portfolio.body.toc.links" />
+      <ContentDoc class="relative w-full pb-32 mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl" />
+    </main>
+  </div>
 </template>
 <style></style>

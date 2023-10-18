@@ -29,9 +29,9 @@ onMounted(() => {
 <template>
   <div>
     <div class="lg-m:hidden">
-      <div class="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9998] transition-all" v-if="show"
+      <div class="absolute top-0 left-0 z-20 w-full h-full transition-all bg-black/50 backdrop-blur-sm" v-if="show"
         @click="show = false"></div>
-      <nav class="left-0 flex w-screen select-none toc dropdown top-36 z-[9999] fixed" ref="dropdown">
+      <nav class="fixed left-0 z-20 flex w-screen select-none toc dropdown top-36" ref="dropdown">
         <Icon name="ic:baseline-toc"
           class="absolute w-10 h-10 p-1 transition-all rounded-r-lg bg-green2 z-[9999] text-white"
           :class="{ 'bg-green2/0 opacity-0': show }" @click="show = !show" />

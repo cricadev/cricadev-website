@@ -1,8 +1,27 @@
 <template>
-  <div class="flex justify-end gap-2">
-    <div class="flex justify-center p-2 rounded-full bg-green2" v-for="icon in madeWith">
-      <Icon :name="getNameTag(icon)" class="w-4 h-4 text-white xs-m:w-6 xs-m:h-6" />
+  <div class="flex flex-col">
+    <div class="flex flex-col items-start justify-start gap-4 lg-m:flex-row lg-m:justify-between">
+      <div class="flex justify-start gap-2">
+        <div class="flex items-center justify-center p-2 rounded-full bg-green2" v-for="icon in madeWith">
+          <Icon :name="getNameTag(icon)" class="w-4 h-4 text-white xs-m:w-6 xs-m:h-6" />
+        </div>
+      </div>
+      <div class="flex justify-between w-full gap-4 lg-m:justify-end">
+        <a target="_blank" href="https://countgod.cricadev.com" class="text-black underline dark:text-white">Visit
+          CountGod</a>
+        <a target="_blank" href="https://github.com/cricadev/CountGod" class="text-black underline dark:text-white">Take a
+          look at the
+          code</a>
+      </div>
     </div>
+
+    <nuxt-img :src="src" provider="cloudinary" :alt="alt">
+    </nuxt-img>
+
+
+
+
+
   </div>
 </template>
 <script setup>
@@ -11,6 +30,15 @@ defineProps({
     type: Array,
     required: true,
   },
+  alt: {
+    type: String,
+    required: false,
+    default: ""
+  },
+  src: {
+    type: String,
+    required: true,
+  }
 })
 const getNameTag = (lang) => {
   if (lang == "Javascript") {

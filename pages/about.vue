@@ -125,8 +125,8 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 
+const isScriptLoaded = ref(false);
 useHead({
   title: "CricaDev | About me",
   meta: [
@@ -140,13 +140,20 @@ useHead({
     },
   ],
   link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
+  /*
   script: [
     {
+      hid: "tagcloud",
       src: "https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js",
-      body: true,
+      defer: true,
+      tagPosition: 'head',
+      onload: () => { isScriptLoaded.value = true }
     },
   ],
+  */
 });
+
+
 const myTags = [
   "JAVASCRIPT",
   "CSS",
@@ -163,6 +170,121 @@ const myTags = [
 const myTags1 = ["REACT", "MONGODB", "MYSQL", "", "TYPESCRIPT", "GRAPHQL"];
 
 onMounted(() => {
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js';
+  script.onload = () => {
+    if (window.innerWidth < 600) {
+      var tagCloud = TagCloud(".content", myTags, {
+        maxSpeed: "fast",
+        initSpeed: "fast",
+        direction: 135,
+        keep: true,
+      });
+
+      let rootEl = document.querySelector(".content");
+      rootEl.style.gridRow = "1/5";
+      rootEl.style.gridColumn = "2/3";
+      rootEl.style.height = "100%";
+      rootEl.style.width = "100%";
+      rootEl.style.display = "grid";
+      rootEl.style.placeItems = "center";
+      rootEl.style.marginRight = "30px";
+
+      rootEl.addEventListener("mouseover", mouseOverHandler);
+
+      var tagCloud1 = TagCloud(".content1", myTags1, {
+        maxSpeed: "fast",
+        initSpeed: "fast",
+        direction: 135,
+        keep: true,
+      });
+
+      let rootEl1 = document.querySelector(".content1");
+      rootEl1.style.gridRow = "5/9";
+      rootEl1.style.gridColumn = "2/3";
+      rootEl1.style.height = "100%";
+      rootEl1.style.width = "100%";
+      rootEl1.style.display = "grid";
+      rootEl1.style.placeItems = "center";
+      rootEl1.style.marginRight = "30px";
+
+      rootEl1.addEventListener("mouseover", mouseOverHandler);
+    } else if (window.innerWidth < 1100 && window.innerWidth > 600) {
+      var tagCloud = TagCloud(".content", myTags, {
+        maxSpeed: "fast",
+        initSpeed: "fast",
+        direction: 135,
+        keep: true,
+        radius: 200,
+      });
+
+      let rootEl = document.querySelector(".content");
+      rootEl.style.gridRow = "1/5";
+      rootEl.style.gridColumn = "2/3";
+      rootEl.style.height = "100%";
+      rootEl.style.width = "100%";
+      rootEl.style.display = "grid";
+      rootEl.style.placeItems = "center";
+      rootEl.style.marginRight = "100px";
+
+      rootEl.addEventListener("mouseover", mouseOverHandler);
+
+      var tagCloud1 = TagCloud(".content1", myTags1, {
+        maxSpeed: "fast",
+        initSpeed: "fast",
+        direction: 135,
+        keep: true,
+        radius: 200,
+      });
+
+      let rootEl1 = document.querySelector(".content1");
+      rootEl1.style.gridRow = "5/9";
+      rootEl1.style.gridColumn = "2/3";
+      rootEl1.style.height = "100%";
+      rootEl1.style.width = "100%";
+      rootEl1.style.display = "grid";
+      rootEl1.style.placeItems = "center";
+      rootEl1.style.marginRight = "100px";
+      rootEl1.addEventListener("mouseover", mouseOverHandler);
+    } else if (window.innerWidth > 1100) {
+      var tagCloud = TagCloud(".content", myTags, {
+        maxSpeed: "fast",
+        initSpeed: "fast",
+        direction: 135,
+        keep: true,
+        radius: 180,
+      });
+
+      let rootEl = document.querySelector(".content");
+      rootEl.style.gridRow = "2/3";
+      rootEl.style.gridColumn = "2/5";
+      rootEl.style.height = "100%";
+      rootEl.style.width = "100%";
+      rootEl.style.display = "grid";
+      rootEl.style.placeItems = "center";
+
+      rootEl.addEventListener("mouseover", mouseOverHandler);
+
+      var tagCloud1 = TagCloud(".content1", myTags1, {
+        maxSpeed: "fast",
+        initSpeed: "fast",
+        direction: 135,
+        keep: true,
+        radius: 180,
+      });
+
+      let rootEl1 = document.querySelector(".content1");
+      rootEl1.style.gridRow = "2/3";
+      rootEl1.style.gridColumn = "5/8";
+      rootEl1.style.height = "100%";
+      rootEl1.style.width = "100%";
+      rootEl1.style.display = "grid";
+      rootEl1.style.placeItems = "center";
+      rootEl1.addEventListener("mouseover", mouseOverHandler);
+    }
+  }
+  document.head.appendChild(script);
+
   function mouseOverHandler(e) {
     if (e.target.className === "tagcloud--item") {
       if (!e.target.classList.contains("done")) {
@@ -314,115 +436,7 @@ onMounted(() => {
       }
     }
   }
-  if (window.innerWidth < 600) {
-    var tagCloud = TagCloud(".content", myTags, {
-      maxSpeed: "fast",
-      initSpeed: "fast",
-      direction: 135,
-      keep: true,
-    });
 
-    let rootEl = document.querySelector(".content");
-    rootEl.style.gridRow = "1/5";
-    rootEl.style.gridColumn = "2/3";
-    rootEl.style.height = "100%";
-    rootEl.style.width = "100%";
-    rootEl.style.display = "grid";
-    rootEl.style.placeItems = "center";
-    rootEl.style.marginRight = "30px";
-
-    rootEl.addEventListener("mouseover", mouseOverHandler);
-
-    var tagCloud1 = TagCloud(".content1", myTags1, {
-      maxSpeed: "fast",
-      initSpeed: "fast",
-      direction: 135,
-      keep: true,
-    });
-
-    let rootEl1 = document.querySelector(".content1");
-    rootEl1.style.gridRow = "5/9";
-    rootEl1.style.gridColumn = "2/3";
-    rootEl1.style.height = "100%";
-    rootEl1.style.width = "100%";
-    rootEl1.style.display = "grid";
-    rootEl1.style.placeItems = "center";
-    rootEl1.style.marginRight = "30px";
-
-    rootEl1.addEventListener("mouseover", mouseOverHandler);
-  } else if (window.innerWidth < 1100 && window.innerWidth > 600) {
-    var tagCloud = TagCloud(".content", myTags, {
-      maxSpeed: "fast",
-      initSpeed: "fast",
-      direction: 135,
-      keep: true,
-      radius: 200,
-    });
-
-    let rootEl = document.querySelector(".content");
-    rootEl.style.gridRow = "1/5";
-    rootEl.style.gridColumn = "2/3";
-    rootEl.style.height = "100%";
-    rootEl.style.width = "100%";
-    rootEl.style.display = "grid";
-    rootEl.style.placeItems = "center";
-    rootEl.style.marginRight = "100px";
-
-    rootEl.addEventListener("mouseover", mouseOverHandler);
-
-    var tagCloud1 = TagCloud(".content1", myTags1, {
-      maxSpeed: "fast",
-      initSpeed: "fast",
-      direction: 135,
-      keep: true,
-      radius: 200,
-    });
-
-    let rootEl1 = document.querySelector(".content1");
-    rootEl1.style.gridRow = "5/9";
-    rootEl1.style.gridColumn = "2/3";
-    rootEl1.style.height = "100%";
-    rootEl1.style.width = "100%";
-    rootEl1.style.display = "grid";
-    rootEl1.style.placeItems = "center";
-    rootEl1.style.marginRight = "100px";
-    rootEl1.addEventListener("mouseover", mouseOverHandler);
-  } else if (window.innerWidth > 1100) {
-    var tagCloud = TagCloud(".content", myTags, {
-      maxSpeed: "fast",
-      initSpeed: "fast",
-      direction: 135,
-      keep: true,
-      radius: 180,
-    });
-
-    let rootEl = document.querySelector(".content");
-    rootEl.style.gridRow = "2/3";
-    rootEl.style.gridColumn = "2/5";
-    rootEl.style.height = "100%";
-    rootEl.style.width = "100%";
-    rootEl.style.display = "grid";
-    rootEl.style.placeItems = "center";
-
-    rootEl.addEventListener("mouseover", mouseOverHandler);
-
-    var tagCloud1 = TagCloud(".content1", myTags1, {
-      maxSpeed: "fast",
-      initSpeed: "fast",
-      direction: 135,
-      keep: true,
-      radius: 180,
-    });
-
-    let rootEl1 = document.querySelector(".content1");
-    rootEl1.style.gridRow = "2/3";
-    rootEl1.style.gridColumn = "5/8";
-    rootEl1.style.height = "100%";
-    rootEl1.style.width = "100%";
-    rootEl1.style.display = "grid";
-    rootEl1.style.placeItems = "center";
-    rootEl1.addEventListener("mouseover", mouseOverHandler);
-  }
 });
 
 //To change the color of text randomly

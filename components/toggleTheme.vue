@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <div
-      class="fixed z-10 bottom-16 right-16 parent-toggle lg:right-8 xs:top-0 xs:right-20 toggle-menu"
+      class="fixed z-[100] bottom-16 right-16 parent-toggle lg:right-8 xs:top-0 xs:right-20 toggle-menu"
     >
       <input
         type="checkbox"
@@ -34,10 +34,12 @@ const setColorTheme = (newTheme: Theme) => {
     transform: scale(0.6) rotate(90deg);
   }
 }
+
 .parent-toggle {
   height: 80px;
   width: 40px;
 }
+
 input {
   appearance: none;
   border: 2px solid #5aaf98;
@@ -50,12 +52,14 @@ input {
   height: 80px;
   margin: 0;
 }
+
 .sun {
   top: 0;
   transform: translateY(0%) scale(0.75);
 
   color: #00010d;
   animation: fade-sun 0.5s ease-in-out forwards;
+
   @media (max-width: 599px) {
     animation: fade-sun-mobile 0.5s ease-in-out forwards;
   }
@@ -67,26 +71,32 @@ input {
   color: #f6f6f6;
   animation: fade-moon 0.5s ease-in-out forwards;
 }
+
 @keyframes fade-sun {
   0% {
     transform: translateY(100%) scale(0.75);
   }
+
   100% {
     transform: translateY(0%) scale(0.75);
   }
 }
+
 @keyframes fade-sun-mobile {
   0% {
     transform: translateY(100%) scale(0.75) rotate(165deg);
   }
+
   100% {
     transform: translateY(0%) scale(0.75) rotate(165deg);
   }
 }
+
 @keyframes fade-moon {
   0% {
     transform: translateY(-100%) scale(0.75);
   }
+
   100% {
     transform: translateY(0%) scale(0.75);
   }
@@ -106,5 +116,4 @@ input {
 
 .fade {
   opacity: 0;
-}
-</style>
+}</style>

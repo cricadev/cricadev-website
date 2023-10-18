@@ -1,7 +1,7 @@
 <template lang="">
-  <div class="xs:hidden">
-    <div class="footer-desktop">
-      <footer class="fixed z-[100] w-full bottom-10 lg:bottom-8">
+  <div class="fixed bottom-0 z-50 w-full bg-white xs:hidden dark:bg-black">
+ 
+      <footer class="py-4 ">
         <nav class="flex justify-center w-full mx-auto space-x-4 text-lg_d">
           <a
             href="https://instagram.com/cricadev"
@@ -90,11 +90,11 @@
         </nav>
       </footer>
       <p
-        class="fixed bottom-0 left-0 z-[100] w-full m-0 text-center text-white bg-green2 text-xs_d lg:text-xs_t footer"
+        class="m-0 text-center text-white bg-green2 text-xs_d lg:text-xs_t footer"
       >
         Made with love by CricaDev 💚
       </p>
-    </div>
+ 
   </div>
 </template>
 <script>

@@ -2,8 +2,9 @@
   <div class="">
     <div class="wrap-desktop xs:hidden">
       <nav
-        class="fixed z-20 flex justify-between w-full p-4 px-32 mx-auto lg:px-16 lg:p-4 sm:px-4"
+        class="fixed z-30 flex justify-between w-full p-4 px-32 mx-auto bg-white/50 dark:bg-black/50 desktop-header-background lg:px-16 lg:p-4 sm:px-4"
       >
+ 
       
       <nuxt-link to="/">   <nuxt-img
           src="/logo-logo-cricadev_oqjfno.png"
@@ -12,16 +13,15 @@
           class="h-[53px] w-[40px] lg:h-[32px] lg:w-[25px] z-[9999] relative" 
         /></nuxt-link>
       
-        <a href="/about" class="link cool-link">About me</a>
-          <a href="/cv" class="link cool-link">CV</a>
-          <NuxtLink to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
+        <NuxtLink activeClass="link--active"  noPrefetch href="/about" class="link cool-link">About me</NuxtLink>
+          <NuxtLink noPrefetch activeClass="link--active"  href="/cv" class="link cool-link">CV</NuxtLink>
+          <NuxtLink activeClass="link--active" to="/portfolio" class="link cool-link">Portfolio</NuxtLink>
    
-          <NuxtLink to="/blog" class="link cool-link">Blog</NuxtLink>
+          <NuxtLink noPrefetch activeClass="link--active" to="/blog" class="link cool-link">Blog</NuxtLink>
 
 
 
       </nav>
- 
     </div>
 
     <header
@@ -45,6 +45,7 @@
     <div
       class="fixed top-0 left-0 w-full h-screen z-[999] background overflow-y-hidden"
     ></div>
+    <div class="fixed top-0 left-0 z-10 w-full h-16 bg-white/50 dark:bg-black/50 desktop-header-background"></div>
     <div
       class="w-full h-screen wrap-tablet-header z-[9998] fixed top-0 left-0 overflow-y-hidden"
     >
@@ -57,15 +58,13 @@
       <nav
         class="fixed z-10 flex flex-col items-center justify-center w-full h-full space-y-16 nav-tablet"
       >
-        <NuxtLink to="/" class="link cool-link" @click="linkClick"
-          >Home</NuxtLink
-        >
-        <a href="/cv" class="link cool-link" @click="linkClick">CV</a>
-        <NuxtLink to="/portfolio" class="link cool-link" @click="linkClick"
+     
+        <NuxtLink activeClass="link--active" to="/cv" class="link cool-link" @click="linkClick">CV</NuxtLink>
+        <NuxtLink activeClass="link--active" to="/portfolio" class="link cool-link" @click="linkClick"
           >Portfolio</NuxtLink
         >
-        <a href="/about" class="link cool-link" @click="linkClick">About me</a>
-        <NuxtLink to="/blog" class="link cool-link" @click="linkClick"
+        <NuxtLink activeClass="link--active" to="/about" class="link cool-link" @click="linkClick">About me</NuxtLink>
+        <NuxtLink activeClass="link--active" to="/blog" class="link cool-link" @click="linkClick"
           >Blog</NuxtLink
         >
       </nav>
@@ -184,6 +183,19 @@ function handleClickBack(e) {
 }
 </script>
 <style lang="scss" scoped>
+.desktop-header-background {
+  backdrop-filter: blur(10px);
+}
+
+.link--active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  @apply bg-green dark:bg-green2;
+  transition: width 0.3s;
+}
+
 .wrap-tablet-header {
   display: none;
 
@@ -202,6 +214,12 @@ function handleClickBack(e) {
 .dark .background {
   background: transparent;
   backdrop-filter: blur(30px);
+}
+
+.bg-header {
+  filter: blur(10px);
+
+
 }
 
 .background {
