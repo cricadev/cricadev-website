@@ -7,9 +7,9 @@
         </div>
       </div>
       <div class="flex justify-between w-full gap-4 lg-m:justify-end">
-        <a target="_blank" href="https://countgod.cricadev.com" class="text-black underline dark:text-white">Visit
-          CountGod</a>
-        <a target="_blank" href="https://github.com/cricadev/CountGod" class="text-black underline dark:text-white">Take a
+        <a target="_blank" :href="projectLink" class="text-black underline dark:text-white">Visit
+          {{ alt }}</a>
+        <a target="_blank" :href="githubLink" class="text-black underline dark:text-white">Take a
           look at the
           code</a>
       </div>
@@ -38,6 +38,15 @@ defineProps({
   src: {
     type: String,
     required: true,
+  },
+  githubLink: {
+    type: String,
+    required: false,
+  },
+  projectLink: {
+    type: String,
+    required: false,
+
   }
 })
 const getNameTag = (lang) => {

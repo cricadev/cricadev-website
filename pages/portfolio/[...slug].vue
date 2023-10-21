@@ -71,4 +71,9 @@ useHead({
     </main>
   </div>
 </template>
-<style></style>
+<style>
+.prose h2 a:not(:where([class~="not-prose"], [class~="not-prose"] *)),
+.prose h3 a:not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  text-decoration: none;
+}
+</style>
