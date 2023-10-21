@@ -13,7 +13,7 @@ author: "Cricadev"
 ---
 
 # CountGod: The Premier Countdown App 
-:HeaderSlugPortfolio{:madeWith="madeWith" src="/Countdown_g9iqfe.png" alt="CountGod"}
+:HeaderSlugPortfolio{:madeWith="madeWith" :src="img" :alt="title" :githubLink="code" :projectLink="project"}
 
 
 ## **Introduction:**  
