@@ -40,8 +40,7 @@ const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
     <h2 class="text-xl_m"> {{ page === 1 ? 'ENGLISH' : 'SPANISH' }} </h2>
 
     <VuePDF :pdf="pdf" :page="page" :scale="scale" :text-layer="text_layer" />
-
-
+    <RiveAnimation src="/toggle-trans.riv"></RiveAnimation>
   </div>
 </template>
 <style scoped>

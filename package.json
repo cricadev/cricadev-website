@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "1.0.0-pre-alpha.3",
+    "@rive-app/canvas": "^2.6.1",
     "@tato30/vue-pdf": "^1.7.4",
     "@vueuse/core": "^10.5.0",
     "mitt": "^3.0.1",
