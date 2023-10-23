@@ -2,8 +2,8 @@
 title: "CriCASSIO"
 metaTitle: "CriCASSIO: Revolutionizing Calculators with Vue.js and Unique Design"
 description: "Discover CriCASSIO, a modern calculator app blending intuitive functionality with a honeycomb-inspired design. Dive into its development challenges and learn how Vue.js was harnessed to craft this masterpiece."
-img: "/Calculator_-_Light_kbarin.png"
-ogImg: "https://res.cloudinary.com/ddc0cce3m/image/upload/v1697849987/CricaDev/Calculator_-_Light_kbarin.png"
+img: "/bg-cricassio_hyssoy.png"
+ogImg: "https://res.cloudinary.com/ddc0cce3m/image/upload/v1698076907/CricaDev/bg-cricassio_hyssoy.png"
 madeWith: ["Vue", "Nuxt", "Tailwind"]
 tags: ["Portfolios"]
 code: "https://github.com/cricadev/criCASSIO"
