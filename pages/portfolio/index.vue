@@ -2,7 +2,7 @@
   <div class="pt-16 sm-m:pt-32">
   
     <h2
-      class="fixed z-20 w-full tracking-widest text-center uppercase text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title"
+      class="fixed z-20 w-full tracking-widest text-center uppercase bg-white text-xl_m xs-m:text-xl3_t lg-m:text-xl5_d projects-title dark:bg-black"
     >
       Projects
     </h2>

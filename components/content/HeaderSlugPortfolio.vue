@@ -86,6 +86,10 @@ const getNameTag = (lang) => {
     return "akar-icons:bootstrap-fill";
   } else if (lang == "About me") {
     return "";
+  } else if (lang == "Supabase") {
+    return "simple-icons:supabase";
+  } else if (lang == "OpenAI") {
+    return "simple-icons:openai";
   }
 };
 </script>

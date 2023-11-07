@@ -1,3 +1,18 @@
+<script setup>
+function handleClick(e) {
+  const hoverToggle = document.querySelector(".hover-toggle");
+  hoverToggle.classList.add("active");
+  //window.scrollTo(0, document.body.scrollHeight);
+}
+function linkClick(e) {
+  const hoverToggle = document.querySelector(".hover-toggle");
+  hoverToggle.classList.remove("active");
+}
+function handleClickBack(e) {
+  const hoverToggle = document.querySelector(".hover-toggle");
+  hoverToggle.classList.remove("active");
+}
+</script>
 <template lang="">
   <div class="">
     <div class="wrap-desktop xs:hidden">
@@ -167,21 +182,7 @@
     </div>
   </div>
 </template>
-<script setup>
-function handleClick(e) {
-  const hoverToggle = document.querySelector(".hover-toggle");
-  hoverToggle.classList.add("active");
-  //window.scrollTo(0, document.body.scrollHeight);
-}
-function linkClick(e) {
-  const hoverToggle = document.querySelector(".hover-toggle");
-  hoverToggle.classList.remove("active");
-}
-function handleClickBack(e) {
-  const hoverToggle = document.querySelector(".hover-toggle");
-  hoverToggle.classList.remove("active");
-}
-</script>
+
 <style lang="scss" scoped>
 .desktop-header-background {
   backdrop-filter: blur(10px);
