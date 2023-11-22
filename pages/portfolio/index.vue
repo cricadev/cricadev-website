@@ -9,11 +9,10 @@
     <div class="pt-32 xs:pt-16">
       <PortfolioComp></PortfolioComp>
     </div>
-    <NuxtPage />
+    <NuxtPage  />
   </div>
 </template>
 <script setup>
-
 
 useHead({
   title: "CricaDev | Portfolio",

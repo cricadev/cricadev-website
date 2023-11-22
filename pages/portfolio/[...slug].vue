@@ -1,6 +1,20 @@
 <script setup>
 const { path } = useRoute();
+const progress = ref(0);
 
+const setProgress = (value) => {
+  progress.value = value;
+  console.log(progress.value)
+};
+
+onMounted(() => {
+  document.addEventListener("scroll", () => {
+    const scroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = Math.round((scroll / height) * 100);
+    setProgress(scrolled);
+  })
+})
 
 const { data: portfolio } = await useAsyncData(`content-${path}`, () => {
   return queryContent("/portfolio").where({ _path: path }).findOne();
@@ -64,6 +78,7 @@ useHead({
 </script>
 <template>
   <div class="">
+    <ProgressBar :progress="progress"></ProgressBar>
 
     <main class="px-4 pt-20 lg-m:p-32">
       <Toc :links="portfolio.body.toc.links" />

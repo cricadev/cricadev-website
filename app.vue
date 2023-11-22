@@ -9,6 +9,7 @@
   </div>
 </template>
 <script setup>
+
 useHead({
   script: [
     {
