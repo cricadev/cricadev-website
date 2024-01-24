@@ -10,19 +10,17 @@ watch(() => width.value, () => width.value < 768 ? scale.value = .5 : scale.valu
 const isMobile = computed(() => width.value < 768)
 const disableScale = computed(() => isMobile.value && scale.value >= .75)
 const page = ref(1)
-const { pdf, pages } = usePDF('/pdf/cristianCV.pdf')
+const { pdf, pages } = usePDF('/pdf/CasallasCV.pdf')
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center gap-4 py-32 overflow-hidden">
     <div class="flex justify-center w-full gap-32 header-pdf-controls md:flex-col md:gap-4">
-      <div class=" buttons-wrapper">
-        <button class="button" @click="page = page > 1 ? page - 1 : page">
-          English
-        </button>
-
-        <button class="button" @click="page = page < pages ? page + 1 : page">
-          Spahish
+      <span>Controls:</span>
+      <div class="buttons-wrapper">
+        <button class="button" @click="page === pages ? page = 1 : page++">
+          {{ page > 2 ? 'Spanish' : 'English' }}
+          Page {{ page }} of {{ pages }}
         </button>
       </div>
       <div class="buttons-wrapper">
