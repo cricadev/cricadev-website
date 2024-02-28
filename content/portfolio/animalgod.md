@@ -363,4 +363,4 @@ AnimalGod stands as a testament to the power of technology in making a positive 
 
 ## Acknowledgments
 
-I would like to thank TEF.dsgn for their support and contribution to the success of AnimalGod.
+I would like to thank [TEF.dsgn](https://www.behance.net/TEF-dsgn) for their support and contribution to the success of AnimalGod.
