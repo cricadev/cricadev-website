@@ -5,7 +5,7 @@
     >
       <input
         type="checkbox"
-        class="bg-white toggle dark:bg-black"
+        class="bg-white cursor-pointer toggle dark:bg-black"
         id="checkbox"
         @change="
           setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')

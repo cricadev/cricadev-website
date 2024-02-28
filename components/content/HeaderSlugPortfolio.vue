@@ -2,8 +2,11 @@
   <div class="flex flex-col">
     <div class="flex flex-col items-start justify-start gap-4 lg-m:flex-row lg-m:justify-between">
       <div class="flex justify-start gap-2">
-        <div class="flex items-center justify-center p-2 rounded-full bg-green2" v-for="icon in madeWith">
-          <Icon :name="getNameTag(icon)" class="w-4 h-4 text-white xs-m:w-6 xs-m:h-6" />
+        <div class="flex items-center justify-center gap-1">
+          <a class="flex items-center justify-center p-2 text-white transition-all rounded-full hover:cursor-pointer bg-green2 hover:bg-white hover:text-green2 "
+            v-for="icon in madeWith" target="_BLANK" :href="getNameTag(icon).link">
+            <Icon :name="getNameTag(icon).name" class="w-4 h-4 xs-m:w-6 xs-m:h-6" />
+          </a>
         </div>
       </div>
       <div class="flex justify-between w-full gap-4 lg-m:justify-end">
@@ -51,45 +54,64 @@ defineProps({
 })
 const getNameTag = (lang) => {
   if (lang == "Javascript") {
-    return "akar-icons:javascript-fill";
+    return {
+      name: "akar-icons:javascript-fill",
+      link: "https://javascript.info/"
+    }
   } else if (lang == "Vue") {
-    return "akar-icons:vue-fill";
-  } else if (lang == "CSS") {
-    return "akar-icons:css-fill";
-  } else if (lang == "React") {
-    return "akar-icons:react-fill";
-  } else if (lang == "NodeJS") {
-    return "akar-icons:node-fill";
+    return {
+      name: "cib:vue-js",
+      link: "https://vuejs.org/"
+    }
   } else if (lang == "Typescript") {
-    return "akar-icons:typescript-fill";
-  } else if (lang == "Css") {
-    return "akar-icons:css-fill";
-  } else if (lang == "HTML") {
-    return "akar-icons:html-fill";
-  } else if (lang == "Sass") {
-    return "akar-icons:sass-fill";
+    return {
+      name: "simple-icons:typescript",
+      link: "https://www.typescriptlang.org/"
+    }
   } else if (lang == "Tailwind") {
-    return "file-icons:tailwind";
+    return {
+      name: "simple-icons:tailwindcss",
+      link: "https://tailwindcss.com/"
+    }
   } else if (lang == "Nuxt") {
-    return "cib:nuxt-js";
+    return {
+      name: "cib:nuxt-js",
+      link: "https://nuxt.com/"
+    }
   } else if (lang == "Github") {
-    return "akar-icons:github-fill";
+    return {
+      name: "cib:github",
+      link: "https://github.com/"
+    }
   } else if (lang == "Git") {
-    return "bi:git";
-  } else if (lang == "NPM") {
-    return "akar-icons:npm-fill";
-  } else if (lang == "GraphQL") {
-    return "akar-icons:graphql-fill";
+    return {
+      name: "cib:git",
+      link: "https://git-scm.com/"
+    }
   } else if (lang == "Coding") {
     return "ant-design:code-filled";
-  } else if (lang == "Bootstrap") {
-    return "akar-icons:bootstrap-fill";
-  } else if (lang == "About me") {
-    return "";
   } else if (lang == "Supabase") {
-    return "simple-icons:supabase";
+    return {
+      name: "simple-icons:supabase",
+      link: "https://supabase.io/"
+    }
   } else if (lang == "OpenAI") {
-    return "simple-icons:openai";
+    return {
+      name: "simple-icons:openai",
+      link: "https://openai.com/"
+    }
+  }
+  else if (lang == "Prisma") {
+    return {
+      name: "simple-icons:prisma",
+      link: "https://www.prisma.io/"
+    }
+  }
+  else if (lang == "Pinia") {
+    return {
+      name: "logos:pinia",
+      link: "https://pinia.vuejs.org/"
+    }
   }
 };
 </script>

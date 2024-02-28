@@ -78,9 +78,10 @@ useHead({
 </script>
 <template>
   <div class="">
-    <ProgressBar :progress="progress"></ProgressBar>
+    <ProgressBar class="sticky top-0 z-[9999]" :progress="progress"></ProgressBar>
 
-    <main class="px-4 pt-20 lg-m:p-32">
+    <main class="relative px-4 pt-20 lg-m:p-32">
+
       <Toc :links="portfolio.body.toc.links" />
       <ContentDoc class="relative w-full pb-32 mx-auto prose dark:prose-invert xs-m:prose-lg lg-m:prose-xl" />
     </main>

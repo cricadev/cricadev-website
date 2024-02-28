@@ -98,7 +98,7 @@ export const useQuizStore = defineStore('quizStore', () => {
             time: 0,
             questions: parsedResponse.questions,
             timestamp: new Date().getTime(), // Store the timestamp of when the quiz was created
-          };
+          };slu
 
           // Push the new quiz to the array
           storedQuizzes.value.push(newQuiz);

@@ -18,8 +18,8 @@ defineProps({
   width: 100%;
   height: 10px;
   background: transparent;
-  position: fixed;
-  margin-top: 4rem;
+  position: sticky;
+
   z-index: 9999;
 }
 
