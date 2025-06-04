@@ -27,6 +27,7 @@
     "@tato30/vue-pdf": "^1.7.4",
     "@vueuse/core": "^10.5.0",
     "mitt": "^3.0.1",
+    "sharp": "^0.34.2",
     "vue3-carousel": "^0.3.1"
   }
 }
